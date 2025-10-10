@@ -40,6 +40,7 @@ nav:
   - How-To:
     - Git/GitHub Quickstart: howto/git.md
     - Raspberry Pi: howto/pi.md
+    - Hello world: howto/helloworld.md
   - Notes:
     - Electronics: notes/electronics.md
     - Batteries: notes/batteries.md
