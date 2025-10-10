@@ -2,7 +2,7 @@ site_name: Home
 site_description: Evolving notebook of engineering, learning, and ideas
 site_url: https://aaron-scher.github.io/home
 repo_url: https://github.com/aaron-scher/home
-repo_name: aaron-scher/homne
+repo_name: aaron-scher/home
 theme:
   name: material
   palette:
@@ -33,6 +33,11 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
       auto_title: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 plugins:
   - search
 nav:
