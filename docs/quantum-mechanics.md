@@ -4,7 +4,7 @@
 
 Let's start with a free particle (no potential, just moving in space) and work backwards to get Schrödinger's equation.
 
-### From Light Waves to Matter Waves
+### Using Properties of Light to Derive Wave Properties of Matter
 
 **For photons (light):**
 
