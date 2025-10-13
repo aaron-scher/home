@@ -11,10 +11,10 @@ theme:
     - navigation.instant
     - navigation.expand
     - navigation.indexes
-    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
+    - toc.follow
   icon:
     repo: fontawesome/brands/github
 markdown_extensions:
