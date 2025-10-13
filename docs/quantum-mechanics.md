@@ -129,6 +129,87 @@ where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is
 
 ---
 
+## Building Intuition: From Wave Packets to Stationary States
+
+### Position and Momentum Space (Fourier Transform)
+
+A single plane wave \(e^{ikx}\) extends forever - the particle is everywhere with equal probability. That's not realistic.
+
+**Real particles are wave packets:** superpositions of many plane waves with different momenta.
+
+\begin{equation}
+\psi(x) = \int_{-\infty}^{\infty} \tilde{\psi}(k) e^{ikx} dk
+\end{equation}
+
+This is just a **Fourier transform**! It says:
+- \(\psi(x)\) = wave function in position space (where is the particle?)
+- \(\tilde{\psi}(k)\) = wave function in momentum space (what's its momentum?)
+- They're related by Fourier transform: \(\psi(x) \leftrightarrow \tilde{\psi}(k)\)
+
+**Key insight:** You can't have both narrow at once.
+- Narrow in position (localized particle) → wide spread in momentum
+- Narrow in momentum (definite momentum) → spread out in space
+- This is the **uncertainty principle** in action!
+
+### Time-Independent Schrödinger Equation
+
+Now let's think about the **time derivative** in Schrödinger's equation.
+
+From \(i\hbar \frac{\partial \psi}{\partial t} = E\psi\), we see: higher energy → faster time oscillation.
+
+For states with **definite energy** (energy eigenstates), we can separate variables:
+
+\begin{equation}
+\psi(x,t) = \psi(x) e^{-iEt/\hbar}
+\end{equation}
+
+The time part is just a rotating phase \(e^{-i\omega t}\) where \(\omega = E/\hbar\). All the physics (probability, where the particle is) lives in \(\psi(x)\).
+
+Plug this back into Schrödinger's equation:
+
+\begin{equation}
+i\hbar \frac{\partial}{\partial t}\left[\psi(x) e^{-iEt/\hbar}\right] = \hat{H}\left[\psi(x) e^{-iEt/\hbar}\right]
+\end{equation}
+
+The time derivative just brings down \(-iE/\hbar\), which cancels the \(i\hbar\), leaving:
+
+\begin{equation}
+E\psi(x) = \hat{H}\psi(x)
+\end{equation}
+
+Or written out fully:
+
+\begin{equation}
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi
+\end{equation}
+
+**That's the time-independent Schrödinger equation.** It's an eigenvalue equation: find the functions \(\psi(x)\) and energies \(E\) that satisfy it.
+
+### Intuition: Wiggliness vs Potential
+
+Here's the key physical insight from the time-independent equation.
+
+Rearrange it:
+
+\begin{equation}
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = [E - V(x)]\psi
+\end{equation}
+
+The left side is the **kinetic energy** (related to momentum, which is about wiggliness). The right side is \(E - V(x)\).
+
+Since total energy \(E = KE + PE\), we have \(KE = E - V(x)\).
+
+**What this means:**
+
+- **Low potential** (\(V\) small) → high kinetic energy → high momentum → \(\psi\) is very wiggly (large \(d^2/dx^2\))
+- **High potential** (\(V\) large) → low kinetic energy → low momentum → \(\psi\) is less wiggly (small \(d^2/dx^2\))
+
+The equation literally says: **the spatial wiggliness equals the kinetic energy**!
+
+When you solve for \(\psi(x)\), it automatically adjusts its wiggliness to match the local kinetic energy. In regions where potential is low, the wave function oscillates rapidly. Where potential is high, it oscillates slowly (or even decays exponentially if \(V > E\)).
+
+---
+
 ## Standard Problems (Quick Reference)
 
 ### Particle in a Box
