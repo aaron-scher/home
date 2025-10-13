@@ -4,7 +4,7 @@
 
 Let's start with a free particle (no potential, just moving in space) and work backwards to get Schrödinger's equation.
 
-### Where This Comes From
+### From Light Waves to Matter Waves
 
 **For photons (light):**
 
@@ -20,11 +20,13 @@ Bold assumption, but it worked. Electron diffraction experiments confirmed it.
 So we assume matter waves behave like photons:
 
 **Energy:**
+
 \begin{equation}
 E = h\nu = \hbar\omega
 \end{equation}
 
 **Momentum:**
+
 \begin{equation}
 p = \hbar k
 \end{equation}
@@ -56,21 +58,25 @@ So we use:
 Now let's take some derivatives and see what happens.
 
 **Time derivative:**
+
 \begin{equation}
 \frac{\partial \psi}{\partial t} = -i\omega \psi = -i\frac{E}{\hbar}\psi
 \end{equation}
 
 Multiply both sides by \(i\hbar\):
+
 \begin{equation}
 i\hbar \frac{\partial \psi}{\partial t} = E\psi
 \end{equation}
 
 **Spatial derivative (twice):**
+
 \begin{equation}
 \frac{\partial^2 \psi}{\partial x^2} = -k^2 \psi = -\frac{p^2}{\hbar^2}\psi
 \end{equation}
 
 Rearrange:
+
 \begin{equation}
 -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} = \frac{p^2}{2m}\psi
 \end{equation}
@@ -78,6 +84,7 @@ Rearrange:
 **Connecting energy and momentum:**
 
 From classical mechanics, kinetic energy is:
+
 \begin{equation}
 E = \frac{p^2}{2m}
 \end{equation}
@@ -114,11 +121,13 @@ where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is
 Infinite walls at \(x=0\) and \(x=L\).
 
 **Energy levels:**
+
 \begin{equation}
 E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}, \quad n = 1, 2, 3, ...
 \end{equation}
 
 **Wave functions:**
+
 \begin{equation}
 \psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)
 \end{equation}
@@ -128,6 +137,7 @@ E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}, \quad n = 1, 2, 3, ...
 Spring potential: \(V(x) = \frac{1}{2}m\omega^2 x^2\)
 
 **Energy levels:**
+
 \begin{equation}
 E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, ...
 \end{equation}
@@ -137,6 +147,7 @@ Note: Ground state has \(E_0 = \frac{1}{2}\hbar\omega\) (zero-point energy).
 ### Hydrogen Atom
 
 **Energy levels:**
+
 \begin{equation}
 E_n = -\frac{13.6 \text{ eV}}{n^2}, \quad n = 1, 2, 3, ...
 \end{equation}
