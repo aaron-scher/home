@@ -1,0 +1,4 @@
+/* Hide the git revision date footer */
+.md-source-file {
+    display: none;
+}
