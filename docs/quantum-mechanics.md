@@ -133,23 +133,32 @@ where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is
 
 ### Position and Momentum Space (Fourier Transform)
 
-A single plane wave \(e^{ikx}\) extends forever - the particle is everywhere with equal probability. That's not realistic.
+A single plane wave \(e^{ikx}\) extends forever - not realistic for a localized particle.
 
-**Real particles are wave packets:** superpositions of many plane waves with different momenta.
+**Real particles are wave packets.** Start simple - add a few plane waves with different momenta:
+
+\begin{equation}
+\psi(x) = A_1 e^{ik_1 x} + A_2 e^{ik_2 x} + A_3 e^{ik_3 x} + \cdots
+\end{equation}
+
+Each \(A_n\) tells you the amplitude and phase of momentum \(k_n\). As a sum:
+
+\begin{equation}
+\psi(x) = \sum_n A_n e^{ik_n x}
+\end{equation}
+
+Now take the limit: spacing between \(k\) values → 0, sum → integral. The discrete amplitudes \(A_n\) become a continuous function \(\tilde{\psi}(k)\):
 
 \begin{equation}
 \psi(x) = \int_{-\infty}^{\infty} \tilde{\psi}(k) e^{ikx} dk
 \end{equation}
 
-This is just a **Fourier transform**! It says:
-- \(\psi(x)\) = wave function in position space (where is the particle?)
-- \(\tilde{\psi}(k)\) = wave function in momentum space (what's its momentum?)
-- They're related by Fourier transform: \(\psi(x) \leftrightarrow \tilde{\psi}(k)\)
+That's the **Fourier transform**. \(\tilde{\psi}(k)\) tells you "how much of momentum \(k\)" is in your wave packet.
 
 **Key insight:** You can't have both narrow at once.
-- Narrow in position (localized particle) → wide spread in momentum
-- Narrow in momentum (definite momentum) → spread out in space
-- This is the **uncertainty principle** in action!
+- Narrow in position (localized) → wide spread in momentum
+- Narrow in momentum (definite p) → spread out in space
+- This is the **uncertainty principle**!
 
 ### Time-Independent Schrödinger Equation
 
