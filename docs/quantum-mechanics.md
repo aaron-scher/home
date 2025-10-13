@@ -33,8 +33,19 @@ where \(\hbar = h/2\pi\), \(k\) is wave number, and \(\omega\) is angular freque
 
 ### Free Particle Wave Function
 
-A free particle moving in space can be described as a plane wave:
+A free particle moving in space can be described as a plane wave. We have two options:
 
+1. **Real wave:** \(A\cos(kx - \omega t)\)
+2. **Complex wave (phasor):** \(A e^{i(kx - \omega t)}\)
+
+**Why use the complex form?**
+
+- We know waves interfere (double slit experiment) - they add in and out of phase
+- The cosine form can be written as a phasor using Euler's equation: \(e^{i\theta} = \cos\theta + i\sin\theta\)
+- We need to calculate probability (which should always be positive, not oscillating between + and -)
+- Complex form makes this easy: probability = \(|\psi|^2 = \psi^* \psi\) (multiply by complex conjugate)
+
+So we use:
 \begin{equation}
 \psi(x,t) = A e^{i(kx - \omega t)}
 \end{equation}
