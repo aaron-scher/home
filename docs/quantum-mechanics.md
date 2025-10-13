@@ -71,10 +71,17 @@ i\hbar \frac{\partial \psi}{\partial t} = E\psi
 
 Rearrange:
 \begin{equation}
--\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} = \frac{p^2}{2m}\psi = KE \cdot \psi
+-\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} = \frac{p^2}{2m}\psi
 \end{equation}
 
-For a free particle, total energy = kinetic energy, so:
+**Connecting energy and momentum:**
+
+From classical mechanics, kinetic energy is:
+\begin{equation}
+E = \frac{p^2}{2m}
+\end{equation}
+
+For a **free particle** (no potential), total energy = kinetic energy. So we can set our two results equal:
 
 \begin{equation}
 i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2}
