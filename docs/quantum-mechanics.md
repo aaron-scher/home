@@ -4,9 +4,20 @@
 
 Let's start with a free particle (no potential, just moving in space) and work backwards to get Schrödinger's equation.
 
+### Where This Comes From
+
+**For photons (light):**
+
+- **Energy:** Planck (blackbody radiation) and Einstein (photoelectric effect, 1905) showed \(E = h\nu\)
+- **Momentum:** Classical EM says light carries momentum (radiation pressure). Compton scattering (1923) proved it experimentally: photons bounce off electrons like billiard balls with \(p = h/\lambda\)
+
+**de Broglie's leap (1924):** "If light waves have particle properties, maybe particles have wave properties with the same relations?"
+
+Bold assumption, but it worked. Electron diffraction experiments confirmed it.
+
 ### Basic Assumptions (de Broglie)
 
-For a matter wave, it seems reasonable to assume it behaves like photons:
+So we assume matter waves behave like photons:
 
 **Energy:**
 \begin{equation}
