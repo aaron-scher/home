@@ -1,5 +1,5 @@
-site_name: Home
-site_description: Evolving notebook of engineering, learning, and ideas
+site_name: Aaron's Notes
+site_description: Personal knowledge base and study notes
 site_url: https://aaron-scher.github.io/home
 repo_url: https://github.com/aaron-scher/home
 repo_name: aaron-scher/home
@@ -8,13 +8,13 @@ theme:
   palette:
     primary: blue grey
   features:
-    - navigation.tabs
-    - navigation.sections
     - navigation.instant
+    - navigation.expand
+    - navigation.indexes
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
-    - content.action.edit
   icon:
     repo: fontawesome/brands/github
 markdown_extensions:
@@ -43,14 +43,9 @@ plugins:
   - search
 nav:
   - Home: index.md
-  - How-To:
-    - Git/GitHub Quickstart: howto/git.md
-    - Raspberry Pi: howto/pi.md
-    - Hello world: howto/helloworld.md
-  - Notes:
-    - Electronics: notes/electronics.md
-    - Batteries: notes/batteries.md
-    - Math Examples: notes/math-examples.md
+  - Quantum Mechanics: quantum-mechanics.md
+  - Math Examples: notes/math-examples.md
+  - Git Quickstart: howto/git.md
   - About: about.md
 
 extra:

@@ -1,15 +1,13 @@
 # Welcome
 
-This is your personal wiki built with **MkDocs Material**.
+Personal knowledge base for study notes and reference materials.
 
-- Search from the top bar
-- Use tabs/sections on the left to navigate
-- Edit pages in `docs/` and push to `main` — GitHub Actions will deploy to Pages
+I have a poor memory, so I write things down in tutorial form to quickly get back up to speed when I forget something.
 
-!!! tip "Quick links"
-    - [How-To / Git & GitHub](howto/git.md)
-    - [Raspberry Pi notes](howto/pi.md)
+## Current Topics
 
-## Link like a wiki
-Use relative links: `[Git Quickstart](howto/git.md)`  
-Create folders under `docs/` and add to `nav` in `mkdocs.yml`.
+- **Quantum Mechanics** - Fundamentals, operators, standard problems
+- **Math Examples** - LaTeX equation formatting and examples
+- **Git Quickstart** - Common git commands
+
+Use the navigation on the left to browse topics.

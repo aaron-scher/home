@@ -1,3 +1,0 @@
-# Battery Notes
-
-TBD.

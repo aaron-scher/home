@@ -1,3 +1,0 @@
-# Electronics Notes
-
-TBD.
