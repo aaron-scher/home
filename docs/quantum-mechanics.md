@@ -46,6 +46,7 @@ A free particle moving in space can be described as a plane wave. We have two op
 - Complex form makes this easy: probability = \(|\psi|^2 = \psi^* \psi\) (multiply by complex conjugate)
 
 So we use:
+
 \begin{equation}
 \psi(x,t) = A e^{i(kx - \omega t)}
 \end{equation}
