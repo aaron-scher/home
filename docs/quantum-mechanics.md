@@ -4,34 +4,21 @@
 
 Let's start with a free particle (no potential, just moving in space) and work backwards to get Schrödinger's equation.
 
-### Using Properties of Light to Derive Wave Properties of Matter
+### de Broglie Relations (1924)
 
-**For photons (light):**
+By the 1920s, light was known to have both wave and particle properties:
+- Planck & Einstein showed photons have energy \(E = h\nu\)
+- Compton scattering (1923) confirmed photons have momentum \(p = h/\lambda\)
 
-- **Energy:** Planck (blackbody radiation) and Einstein (photoelectric effect, 1905) showed \(E = h\nu\)
-- **Momentum:** Classical EM says light carries momentum (radiation pressure). Compton scattering (1923) proved it experimentally: photons bounce off electrons like billiard balls with \(p = h/\lambda\)
+**de Broglie's leap:** If light waves have particle properties, maybe particles have wave properties with the same relations?
 
-**de Broglie's leap (1924):** If light waves have particle properties, maybe particles have wave properties with the same relations?
-
-Bold assumption, but it worked. Electron diffraction experiments confirmed it.
-
-### Basic Assumptions (de Broglie)
-
-So we assume matter waves behave like photons:
-
-**Energy:**
+For matter waves, we use:
 
 \begin{equation}
-E = h\nu = \hbar\omega
+E = \hbar\omega, \quad p = \hbar k
 \end{equation}
 
-**Momentum:**
-
-\begin{equation}
-p = \hbar k
-\end{equation}
-
-where \(\hbar = h/2\pi\), \(k\) is wave number, and \(\omega\) is angular frequency.
+where \(\hbar = h/2\pi\), \(k\) is wave number, and \(\omega\) is angular frequency. Electron diffraction experiments soon confirmed it.
 
 ### Free Particle Wave Function
 
@@ -135,7 +122,7 @@ where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is
 
 A single plane wave \(e^{ikx}\) extends forever - not realistic for a localized particle.
 
-**Real particles are wave packets.** Start simple - add a few plane waves with different momenta:
+**Real particles are wave packets.** Consider a state at fixed energy \(E\). We've factored out the time part \(e^{-iEt/\hbar}\), so we're looking at just the spatial part \(\psi(x)\). Start simple - add a few plane waves with different momenta:
 
 \begin{equation}
 \psi(x) = A_1 e^{ik_1 x} + A_2 e^{ik_2 x} + A_3 e^{ik_3 x} + \cdots
@@ -159,6 +146,14 @@ That's the **Fourier transform**. \(\tilde{\psi}(k)\) tells you "how much of mom
 - Narrow in position (localized) → wide spread in momentum
 - Narrow in momentum (definite p) → spread out in space
 - This is the **uncertainty principle**!
+
+**Quick derivation:** From Fourier theory (like time-bandwidth product in signal processing), a wave packet localized to width \(\Delta x\) needs a spread in \(k\) of roughly \(\Delta k \sim 1/\Delta x\). Since \(p = \hbar k\), we have \(\Delta p = \hbar \Delta k\), giving:
+
+\begin{equation}
+\Delta x \cdot \Delta p \sim \hbar
+\end{equation}
+
+The rigorous proof (using the commutator \([\hat{x},\hat{p}] = i\hbar\)) gives \(\Delta x \cdot \Delta p \geq \hbar/2\).
 
 ### Time-Independent Schrödinger Equation
 
