@@ -120,6 +120,7 @@ i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \p
 \end{equation}
 
 Or more compactly:
+
 \begin{equation}
 i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi
 \end{equation}
