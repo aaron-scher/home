@@ -41,16 +41,18 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 plugins:
   - search
+  - git-revision-date-localized:
+      enable_creation_date: false
+      type: timeago
+  - macros
 nav:
   - Home: index.md
   - Quantum Mechanics: quantum-mechanics.md
   - Math Examples: notes/math-examples.md
   - Git Quickstart: howto/git.md
-  - About: about.md
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/aaron-scher
-    - icon: fontawesome/solid/house
-      link: https://echostotle.com
