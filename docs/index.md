@@ -4,8 +4,6 @@ A place for my future self to quickly get back up to speed (and hopefully be use
 
 ## All Pages
 
-{% for nav_item in nav %}
-{% if nav_item.title and nav_item.title != "Home" %}
-- [{{ nav_item.title }}]({{ nav_item.url }})
-{% endif %}
-{% endfor %}
+- [Quantum Mechanics](quantum-mechanics.md)
+- [Math Examples](notes/math-examples.md)
+- [Git Quickstart](howto/git.md)
