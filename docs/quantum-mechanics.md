@@ -11,7 +11,7 @@ Let's start with a free particle (no potential, just moving in space) and work b
 - **Energy:** Planck (blackbody radiation) and Einstein (photoelectric effect, 1905) showed \(E = h\nu\)
 - **Momentum:** Classical EM says light carries momentum (radiation pressure). Compton scattering (1923) proved it experimentally: photons bounce off electrons like billiard balls with \(p = h/\lambda\)
 
-**de Broglie's leap (1924):** "If light waves have particle properties, maybe particles have wave properties with the same relations?"
+**de Broglie's leap (1924):** If light waves have particle properties, maybe particles have wave properties with the same relations?
 
 Bold assumption, but it worked. Electron diffraction experiments confirmed it.
 
@@ -55,12 +55,18 @@ So we use:
 
 ### Deriving Schrödinger's Equation
 
-Now let's take some derivatives and see what happens.
+Now let's take derivatives and use the de Broglie relations to connect them.
 
 **Time derivative:**
 
 \begin{equation}
-\frac{\partial \psi}{\partial t} = -i\omega \psi = -i\frac{E}{\hbar}\psi
+\frac{\partial \psi}{\partial t} = -i\omega \psi
+\end{equation}
+
+Using \(E = \hbar\omega\):
+
+\begin{equation}
+\frac{\partial \psi}{\partial t} = -i\frac{E}{\hbar}\psi
 \end{equation}
 
 Multiply both sides by \(i\hbar\):
@@ -72,30 +78,38 @@ i\hbar \frac{\partial \psi}{\partial t} = E\psi
 **Spatial derivative (twice):**
 
 \begin{equation}
-\frac{\partial^2 \psi}{\partial x^2} = -k^2 \psi = -\frac{p^2}{\hbar^2}\psi
+\frac{\partial^2 \psi}{\partial x^2} = (ik)^2 \psi = -k^2 \psi
 \end{equation}
 
-Rearrange:
+Using \(p = \hbar k\):
+
+\begin{equation}
+\frac{\partial^2 \psi}{\partial x^2} = -\frac{p^2}{\hbar^2}\psi
+\end{equation}
+
+Multiply both sides by \(-\hbar^2/2m\):
 
 \begin{equation}
 -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} = \frac{p^2}{2m}\psi
 \end{equation}
 
-**Connecting energy and momentum:**
+**Setting them equal:**
 
-From classical mechanics, kinetic energy is:
+For a free particle, classical mechanics says \(E = p^2/2m\). So:
 
 \begin{equation}
-E = \frac{p^2}{2m}
+E\psi = \frac{p^2}{2m}\psi
 \end{equation}
 
-For a **free particle** (no potential), total energy = kinetic energy. So we can set our two results equal:
+Therefore our two derivative expressions must be equal:
 
 \begin{equation}
 i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2}
 \end{equation}
 
 **That's Schrödinger's equation for a free particle!**
+
+**What does this mean?** The time derivative extracts energy from the wave, the spatial derivative extracts kinetic energy (from momentum). For a free particle these are the same thing, so we get one equation. It's the quantum version of \(E = p^2/2m\).
 
 ### Adding a Potential
 
