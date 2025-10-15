@@ -401,17 +401,40 @@ $$
 
 **Notation convention:** When we write $|\psi\rangle$ without a time argument, we typically mean **the state at t=0**. This is useful because the coefficients $c_n$ are constants — they don't change with time! Only the phases $e^{-iE_n t/\hbar}$ evolve. So when discussing properties that don't depend on time (like "what is the probability of measuring energy $E_1$?"), we just write $|\psi\rangle$ to mean the initial state.
 
+**Wait, what do "position space" and "energy basis" mean?**
+
+Good question! These are two different ways of describing the same quantum state — like describing a location using Cartesian coordinates (x,y) vs polar coordinates (r,θ).
+
+**Position space (or position representation):**
+- Describe the quantum state as a **wavefunction** ψ(x)
+- The input is position x, the output is the amplitude at that position
+- Example: ψ₀(x) = (formula with x as the variable)
+- Tells you "how much probability amplitude is at each location x"
+- This is a **continuous** description (x can be any real number)
+
+**Energy basis (or energy representation):**
+- Describe the quantum state as a **list of coefficients** c₀, c₁, c₂, ...
+- Each coefficient tells you "how much of energy eigenstate n is present"
+- Can write it as a column vector: [c₀, c₁, c₂, ...]ᵀ
+- This is a **discrete** description (n = 0, 1, 2, ... are integers)
+
+**Same quantum state, different description!** Just like the same 3D vector can be written as (x,y,z) or (r,θ,φ), the same quantum state can be written as ψ(x) or [c₀, c₁, c₂, ...]ᵀ.
+
 **CRITICAL CLARIFICATION:** What exactly is $|n\rangle$? Is it a vector or a wavefunction?
 
 **Answer: It's BOTH!** This is the key insight of Dirac notation. The abstract state $|n\rangle$ can be represented in different ways:
 
 **In position space** (what we just wrote out):
-- $|0\rangle$ means the wavefunction $\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$
-- $|1\rangle$ means the wavefunction $\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$
-- $|2\rangle$ means the wavefunction $\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}$
+
+$|0\rangle$ means the wavefunction $\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$
+
+$|1\rangle$ means the wavefunction $\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$
+
+$|2\rangle$ means the wavefunction $\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}$
 
 **In the energy basis** (discrete vector notation):
-- $|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$, $|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \end{pmatrix}$
+
+$|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$, $|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \end{pmatrix}$
 
 **Same quantum state, different representation!** The abstract symbol $|n\rangle$ is basis-independent — it's the actual physical state. When you "express it" in position space, you get the wavefunction. When you "express it" in the energy basis, you get a simple vector with 1 at position n.
 
