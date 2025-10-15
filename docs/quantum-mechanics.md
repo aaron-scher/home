@@ -407,7 +407,7 @@ $$
 
 **What do "position space" and "energy basis" really mean?**
 
-Here's the key idea: **you have a single wavefunction, and you can express it as different kinds of vectors** — just like describing a location using Cartesian (x,y) vs polar (r,θ) coordinates.
+Here's the key idea: **you have a single quantum state (one "vector"), and you're just using different coordinate systems to describe it** — exactly like describing the same arrow in 3D space using Cartesian (x,y,z) vs spherical (r,θ,φ) coordinates. The arrow doesn't change, just the numbers you use to describe it!
 
 **Classical vectors:** Components point in spatial directions
 
@@ -434,7 +434,9 @@ Apply this to quantum mechanics:
 | **Position basis** | x (continuous: all real numbers) | $\psi(x)$ = "how much at position x" | Function: $\psi(x)$ |
 | **Momentum basis** | p (continuous) | $\tilde{\psi}(p)$ = "how much with momentum p" | Function: $\tilde{\psi}(p)$ |
 
-**Same quantum state |ψ⟩, different coordinate systems!** Just like (x,y,z) and (r,θ,φ) describe the same point.
+**Same quantum state |ψ⟩, different coordinate systems!**
+
+This is profound: The quantum state itself doesn't change. It's an abstract "vector" living in Hilbert space. When you write it as [c₀, c₁, c₂, ...]ᵀ (energy basis) or ψ(x) (position basis), you're just picking different coordinates to describe the **same physical state** — like the same arrow described as (x,y,z) = (3,4,0) or (r,θ,φ) = (5, 53°, 0°).
 
 **How do you transform between bases?**
 
