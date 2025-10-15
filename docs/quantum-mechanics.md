@@ -419,6 +419,13 @@ You can always describe any quantum state as either:
 
 **Same wavefunction, different representation!** Just like (x,y,z) and (r,θ,φ) describe the same point in space, the coefficients [c₀, c₁, c₂, ...]ᵀ and the function ψ(x) describe the same quantum state — they're just expressed in different "coordinate systems" (different bases).
 
+**Deeper insight:** With a classical vector like $\vec{v} = (v_x, v_y, v_z)$, each component tells you "how much of the vector points in that direction." In quantum mechanics, **the "directions" are physical observables**:
+- Energy basis: each component $c_n$ tells you "how much is in energy state n"
+- Position basis: each value $\psi(x)$ tells you "how much is at position x"
+- Momentum basis: each value $\tilde{\psi}(p)$ tells you "how much has momentum p"
+
+The quantum state is the same, but you're measuring "how much" along different physical quantities (energy, position, momentum, etc.) instead of spatial directions (x, y, z). **The "coordinates" in quantum mechanics are observables!**
+
 **How do you mathematically "express" the abstract state in a basis?**
 
 The answer is: **take the inner product with the basis vectors!**
