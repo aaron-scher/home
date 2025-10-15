@@ -352,44 +352,50 @@ Let's see how the same math structure appears in both cases.
 
 Let's start with a concrete example and then show how Dirac notation is just compact shorthand for the same thing.
 
-**Concrete example: superposition of three energy states**
+**Concrete example: ONE quantum state, TWO ways to write it**
 
-Suppose we have a particle in a superposition of the first three energy eigenstates of the harmonic oscillator. In position space, the full time-dependent wavefunction is:
+Suppose we have a superposition state — a particle that's in a mix of three different energy levels. This is **ONE quantum state** that we can describe in two different coordinate systems:
 
-$$
-\psi(x,t) = c_0 \psi_0(x) e^{-iE_0 t/\hbar} + c_1 \psi_1(x) e^{-iE_1 t/\hbar} + c_2 \psi_2(x) e^{-iE_2 t/\hbar}
-$$
-
-where the energies are:
-- Ground state: $E_0 = \frac{1}{2}\hbar\omega$
-- First excited: $E_1 = \frac{3}{2}\hbar\omega$
-- Second excited: $E_2 = \frac{5}{2}\hbar\omega$
-
-and the actual spatial wavefunctions are:
-
-$$
-\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}
-$$
-
-$$
-\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
-$$
-
-$$
-\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
-$$
-
-You're literally adding three wavefunctions together, each with its own amplitude ($c_0$, $c_1$, $c_2$) and time evolution phase ($e^{-iE_n t/\hbar}$). Because they have different energies, they rotate at different frequencies, making the probability density $|\psi(x,t)|^2$ oscillate in time!
-
-**Now in Dirac notation — the exact same thing!**
-
-The expression above can be written compactly as:
+**In the energy basis** (simple!):
 
 $$
 |\psi(t)\rangle = c_0 |0\rangle e^{-iE_0 t/\hbar} + c_1 |1\rangle e^{-iE_1 t/\hbar} + c_2 |2\rangle e^{-iE_2 t/\hbar}
 $$
 
-This is **exactly the same physics**, just shorthand! The symbol $|0\rangle$ represents the ground state eigenfunction $\psi_0(x)$, $|1\rangle$ represents $\psi_1(x)$, and $|2\rangle$ represents $\psi_2(x)$.
+This says: "The state has amplitude c₀ for ground state |0⟩, amplitude c₁ for first excited |1⟩, and amplitude c₂ for second excited |2⟩." Each picks up its own time evolution phase.
+
+**What do |0⟩, |1⟩, |2⟩ mean?** They're the **basis vectors** — the energy eigenstates of the harmonic oscillator with energies:
+- Ground state |0⟩: $E_0 = \frac{1}{2}\hbar\omega$
+- First excited |1⟩: $E_1 = \frac{3}{2}\hbar\omega$
+- Second excited |2⟩: $E_2 = \frac{5}{2}\hbar\omega$
+
+Think of them as the "x-axis", "y-axis", "z-axis" of this space, except instead of spatial directions, they represent pure energy states.
+
+**In the position basis** (more complicated!):
+
+To write this **same state** in position space, we need to know what each basis vector |n⟩ looks like as a function of x. These are:
+
+$$
+\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)} \quad \text{(what } |0\rangle \text{ looks like in position space)}
+$$
+
+$$
+\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)} \quad \text{(what } |1\rangle \text{ looks like)}
+$$
+
+$$
+\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)} \quad \text{(what } |2\rangle \text{ looks like)}
+$$
+
+Now we can write our **same quantum state** in position coordinates:
+
+$$
+\psi(x,t) = c_0 \psi_0(x) e^{-iE_0 t/\hbar} + c_1 \psi_1(x) e^{-iE_1 t/\hbar} + c_2 \psi_2(x) e^{-iE_2 t/\hbar}
+$$
+
+**It's the same state!** We're just writing it in position coordinates instead of energy coordinates. The coefficients c₀, c₁, c₂ are the same, but now we're expressing each basis vector as a function ψₙ(x) instead of an abstract symbol |n⟩.
+
+**Key point:** ψ₀(x), ψ₁(x), ψ₂(x) are NOT the state we're describing — they're the **coordinate axes** (basis functions) in position space. We're building our state by taking c₀ times the first axis, c₁ times the second axis, c₂ times the third axis, just like (3,4,5) = 3·x̂ + 4·ŷ + 5·ẑ in regular vectors.
 
 **What about at t=0?**
 
