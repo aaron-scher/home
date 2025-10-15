@@ -350,13 +350,13 @@ Let's see how the same math structure appears in both cases.
 
 ### Part 1: Energy Basis (Discrete) — Mixing Different Energies
 
-Consider a **superposition** of different energy states:
+Consider a **superposition** of different energy states at time t=0:
 
 $$
-|\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle + \cdots
+|\psi(0)\rangle = |\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle + \cdots
 $$
 
-This is a sum of the ground state $|0\rangle$ with energy $E_0 = \frac{1}{2}\hbar\omega$, first excited $|1\rangle$ with $E_1 = \frac{3}{2}\hbar\omega$, etc. The coefficients $c_n$ tell you "how much" of each energy is present.
+This is a sum of the ground state $|0\rangle$ with energy $E_0 = \frac{1}{2}\hbar\omega$, first excited $|1\rangle$ with $E_1 = \frac{3}{2}\hbar\omega$, etc. The coefficients $c_n$ tell you "how much" of each energy is present. For simplicity, we often write $|\psi\rangle$ to mean the state at t=0.
 
 **Concrete example in position space:** Let's take just the first two states for simplicity. In position space, this superposition looks like:
 
@@ -374,7 +374,23 @@ You're literally adding two wavefunctions together, each with its own amplitude 
 
 **Introducing Dirac notation:** The inner product $c_n = \langle n|\psi\rangle$ extracts the "n-component" of the state.
 
-This is just a **column vector** in disguise:
+**CRITICAL CLARIFICATION:** What exactly is $|n\rangle$? Is it a vector or a wavefunction?
+
+**Answer: It's BOTH!** This is the key insight. The abstract state $|n\rangle$ can be represented in different ways:
+
+**In the energy basis** (discrete):
+- $|n\rangle$ is a column vector with 1 at position n and zeros elsewhere
+- Example: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$
+
+**In the position basis** (continuous):
+- $|n\rangle$ becomes the wavefunction $\psi_n(x)$
+- Example: $|1\rangle \rightarrow \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$
+
+**Same quantum state, different representation!** The abstract symbol $|n\rangle$ is basis-independent — it's the actual physical state. When you "express it" in the energy basis, you get a simple vector. When you "express it" in position space, you get the wavefunction we calculated earlier. This is the whole point of Dirac notation!
+
+Think of it like the number 3 — you can write it as "3" (decimal), "11" (binary), or "III" (Roman). Same number, different notation. Same quantum state, different basis!
+
+This is just a **column vector** in disguise **when working in the energy basis**:
 
 $$
 |\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
