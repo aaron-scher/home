@@ -293,6 +293,8 @@ For convenience, define the natural length and momentum scales: $x_0 = \sqrt{\hb
 Position space:
 $$\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$$
 
+TEST TEST TEST - IF YOU SEE THIS, YOU'RE LOOKING AT THE RIGHT VERSION
+
 Momentum space:
 $$\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}$$
 
