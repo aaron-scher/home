@@ -293,42 +293,30 @@ Notice: $x_0 \cdot p_0 = \hbar$ (uncertainty principle saturated).
 **n=0 (Ground state): E₀ = ½ℏω**
 
 Position space:
-\begin{equation}
-\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}
-\end{equation}
+$$\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$$
 
 Momentum space:
-\begin{equation}
-\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}
-\end{equation}
+$$\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}$$
 
 Both Gaussians! Fourier transform of a Gaussian is a Gaussian. This is the "just right" width we found — equally spread in x and p.
 
 **n=1 (First excited): E₁ = 3/2ℏω**
 
 Position space:
-\begin{equation}
-\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
-\end{equation}
+$$\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$$
 
 Momentum space:
-\begin{equation}
-\tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
-\end{equation}
+$$\tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}$$
 
 One node at origin (antisymmetric). Same functional form in both spaces!
 
 **n=2 (Second excited): E₂ = 5/2ℏω**
 
 Position space:
-\begin{equation}
-\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
-\end{equation}
+$$\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}$$
 
 Momentum space:
-\begin{equation}
-\tilde{\psi}_2(p) = \left(\frac{1}{16\pi p_0^2}\right)^{1/4} \left(\frac{4p^2}{p_0^2} - 2\right) e^{-p^2/(2p_0^2)}
-\end{equation}
+$$\tilde{\psi}_2(p) = \left(\frac{1}{16\pi p_0^2}\right)^{1/4} \left(\frac{4p^2}{p_0^2} - 2\right) e^{-p^2/(2p_0^2)}$$
 
 Two nodes (symmetric). Again, same functional form!
 
