@@ -358,6 +358,20 @@ $$
 
 This is a sum of the ground state $|0\rangle$ with energy $E_0 = \frac{1}{2}\hbar\omega$, first excited $|1\rangle$ with $E_1 = \frac{3}{2}\hbar\omega$, etc. The coefficients $c_n$ tell you "how much" of each energy is present.
 
+**Concrete example in position space:** Let's take just the first two states for simplicity. In position space, this superposition looks like:
+
+$$
+\psi(x,t) = c_0 \psi_0(x) e^{-iE_0 t/\hbar} + c_1 \psi_1(x) e^{-iE_1 t/\hbar}
+$$
+
+where $\psi_0(x)$ and $\psi_1(x)$ are the actual wavefunctions we saw earlier:
+
+$$
+\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}, \quad \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+$$
+
+You're literally adding two wavefunctions together, each with its own amplitude ($c_0$ and $c_1$) and time evolution phase ($e^{-iE_n t/\hbar}$). Because they have different energies, they rotate at different frequencies, making the probability density $|\psi(x,t)|^2$ oscillate in time!
+
 **Introducing Dirac notation:** The inner product $c_n = \langle n|\psi\rangle$ extracts the "n-component" of the state.
 
 This is just a **column vector** in disguise:
