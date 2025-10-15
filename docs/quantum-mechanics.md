@@ -394,6 +394,14 @@ $$
 
 Just add up the individual probabilities — a discrete sum over the states you care about!
 
+**Normalization:** Since the particle must be in *some* energy state, the probabilities must sum to 1:
+
+$$
+|c_0|^2 + |c_1|^2 + |c_2|^2 + \cdots = \sum_n |c_n|^2 = 1
+$$
+
+This is the **normalization condition** — the total probability is always 1.
+
 **Extracting expectation values with operators:**
 
 To get the average energy, use the energy operator (Hamiltonian) $\hat{H}$:
@@ -449,6 +457,14 @@ P(0 \leq x \leq x_0) = \int_0^{x_0} |\psi(x)|^2 dx
 $$
 
 Integrate the probability density — a continuous sum over the region you care about! This is the continuous analog of $|c_0|^2 + |c_1|^2$.
+
+**Normalization:** Since the particle must be *somewhere*, the total probability must equal 1:
+
+$$
+\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1
+$$
+
+This is the continuous version of $\sum_n |c_n|^2 = 1$ — same idea, integral instead of sum!
 
 **Extracting expectation values with operators:**
 
