@@ -397,6 +397,51 @@ $$
 
 **Key point:** ψ₀(x), ψ₁(x), ψ₂(x) are NOT the state we're describing — they're the **coordinate axes** (basis functions) in position space. We're building our state by taking c₀ times the first axis, c₁ times the second axis, c₂ times the third axis, just like (3,4,5) = 3·x̂ + 4·ŷ + 5·ẑ in regular vectors.
 
+---
+
+### The SAME State, THREE Ways to Write It
+
+Let's focus on t=0 to see the connection clearly. We have **ONE quantum state |ψ⟩**. Here it is in three different coordinate systems:
+
+**1. Energy basis** (discrete vector - 3 components):
+
+$$
+|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \end{pmatrix}
+$$
+
+Each entry tells you "how much of energy state n." This is a discrete, finite list of numbers.
+
+**2. Position basis** (continuous vector - infinite components):
+
+$$
+\psi(x) = c_0 \psi_0(x) + c_1 \psi_1(x) + c_2 \psi_2(x)
+$$
+
+At each position x, you get a number ψ(x). This is a **continuous vector** — the function ψ(x) IS a vector with x as the continuous index! You can think of it as:
+
+$$
+\psi = \begin{pmatrix} \vdots \\ \psi(x_1) \\ \psi(x_2) \\ \psi(x_3) \\ \vdots \end{pmatrix} \leftarrow \text{infinite entries, one for each } x
+$$
+
+Too many entries to write as a list, so we write it as a function ψ(x).
+
+**3. Momentum basis** (continuous vector - infinite components):
+
+$$
+\tilde{\psi}(p) = \text{Fourier transform of } \psi(x)
+$$
+
+Same state, now telling you "how much momentum p" at each value of p. Also a continuous vector, written as a function.
+
+**They're all the same quantum state!** Just like how the vector **v** with magnitude 5 pointing northeast can be written as:
+- Cartesian: (3, 4)
+- Polar: (5, 53°)
+- Different numbers, same arrow!
+
+The table at the end of this section shows exactly how these representations relate to each other.
+
+---
+
 **What about at t=0?**
 
 At time $t=0$, the phase factors all equal 1 (since $e^{-i \cdot 0} = 1$), so the state simplifies to:
