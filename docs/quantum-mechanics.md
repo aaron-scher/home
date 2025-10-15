@@ -410,6 +410,32 @@ $$
 \langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \sum_n |c_n|^2 E_n
 $$
 
+**Where does this formula come from?** Let's derive it from the Schrödinger equation. Start with the superposition:
+
+$$
+|\psi\rangle = \sum_n c_n |n\rangle
+$$
+
+Now apply $\hat{H}$ to this state. Use the eigenvalue equation $\hat{H}|n\rangle = E_n|n\rangle$:
+
+$$
+\hat{H}|\psi\rangle = \hat{H}\left(\sum_n c_n |n\rangle\right) = \sum_n c_n \hat{H}|n\rangle = \sum_n c_n E_n |n\rangle
+$$
+
+Now take the inner product with $\langle\psi| = \sum_m c_m^* \langle m|$:
+
+$$
+\langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \sum_{m,n} c_m^* c_n E_n \langle m|n\rangle
+$$
+
+Use orthonormality $\langle m|n\rangle = \delta_{mn}$ (equals 1 if m=n, 0 otherwise). This kills all terms except when m=n:
+
+$$
+\langle E \rangle = \sum_n c_n^* c_n E_n = \sum_n |c_n|^2 E_n
+$$
+
+**Physical interpretation:** Each term $|c_n|^2 E_n$ is "probability of being in state n" times "energy of state n". The average energy is the weighted sum of all possible energies!
+
 In this basis, $\hat{H}$ is **trivial** — it's a diagonal matrix that just multiplies each component by its energy:
 
 $$
