@@ -14,9 +14,9 @@ By the 1920s, light was known to have both wave and particle properties:
 
 For matter waves, we use:
 
-\begin{equation}
+$$
 E = \hbar\omega, \quad p = \hbar k
-\end{equation}
+$$
 
 where \(\hbar = h/2\pi\), \(k\) is wave number, and \(\omega\) is angular frequency. Electron diffraction experiments soon confirmed it.
 
@@ -36,9 +36,9 @@ A free particle moving in space can be described as a plane wave. We have two op
 
 So we use:
 
-\begin{equation}
+$$
 \psi(x,t) = A e^{i(kx - \omega t)}
-\end{equation}
+$$
 
 ### Deriving Schrödinger's Equation
 
@@ -46,53 +46,53 @@ Now let's take derivatives and use the de Broglie relations to connect them.
 
 **Time derivative:**
 
-\begin{equation}
+$$
 \frac{\partial \psi}{\partial t} = -i\omega \psi
-\end{equation}
+$$
 
 Using \(E = \hbar\omega\):
 
-\begin{equation}
+$$
 \frac{\partial \psi}{\partial t} = -i\frac{E}{\hbar}\psi
-\end{equation}
+$$
 
 Multiply both sides by \(i\hbar\):
 
-\begin{equation}
+$$
 i\hbar \frac{\partial \psi}{\partial t} = E\psi
-\end{equation}
+$$
 
 **Spatial derivative (twice):**
 
-\begin{equation}
+$$
 \frac{\partial^2 \psi}{\partial x^2} = (ik)^2 \psi = -k^2 \psi
-\end{equation}
+$$
 
 Using \(p = \hbar k\):
 
-\begin{equation}
+$$
 \frac{\partial^2 \psi}{\partial x^2} = -\frac{p^2}{\hbar^2}\psi
-\end{equation}
+$$
 
 Multiply both sides by \(-\hbar^2/2m\):
 
-\begin{equation}
+$$
 -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} = \frac{p^2}{2m}\psi
-\end{equation}
+$$
 
 **Setting them equal:**
 
 For a free particle, classical mechanics says \(E = p^2/2m\). So:
 
-\begin{equation}
+$$
 E\psi = \frac{p^2}{2m}\psi
-\end{equation}
+$$
 
 Therefore our two derivative expressions must be equal:
 
-\begin{equation}
+$$
 i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2}
-\end{equation}
+$$
 
 **That's Schrödinger's equation for a free particle!**
 
@@ -102,15 +102,15 @@ i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \p
 
 If the particle is in a potential \(V(x)\), total energy = KE + PE:
 
-\begin{equation}
+$$
 i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V(x)\psi
-\end{equation}
+$$
 
 Or more compactly:
 
-\begin{equation}
+$$
 i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi
-\end{equation}
+$$
 
 where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is the Hamiltonian operator.
 
@@ -124,21 +124,21 @@ A single plane wave \(e^{ikx}\) extends forever - not realistic for a localized 
 
 **Real particles are wave packets.** Consider a state at fixed energy \(E\). We've factored out the time part \(e^{-iEt/\hbar}\), so we're looking at just the spatial part \(\psi(x)\). Start simple - add a few plane waves with different momenta:
 
-\begin{equation}
+$$
 \psi(x) = A_1 e^{ik_1 x} + A_2 e^{ik_2 x} + A_3 e^{ik_3 x} + \cdots
-\end{equation}
+$$
 
 Each \(A_n\) tells you the amplitude and phase of momentum \(k_n\). As a sum:
 
-\begin{equation}
+$$
 \psi(x) = \sum_n A_n e^{ik_n x}
-\end{equation}
+$$
 
 Now take the limit: spacing between \(k\) values → 0, sum → integral. The discrete amplitudes \(A_n\) become a continuous function \(\tilde{\psi}(k)\):
 
-\begin{equation}
+$$
 \psi(x) = \int_{-\infty}^{\infty} \tilde{\psi}(k) e^{ikx} dk
-\end{equation}
+$$
 
 That's the **Fourier transform**. \(\tilde{\psi}(k)\) tells you "how much of momentum \(k\)" is in your wave packet.
 
@@ -149,9 +149,9 @@ That's the **Fourier transform**. \(\tilde{\psi}(k)\) tells you "how much of mom
 
 **Quick derivation:** From Fourier theory (like time-bandwidth product in signal processing), a wave packet localized to width \(\Delta x\) needs a spread in \(k\) of roughly \(\Delta k \sim 1/\Delta x\). Since \(p = \hbar k\), we have \(\Delta p = \hbar \Delta k\), giving:
 
-\begin{equation}
+$$
 \Delta x \cdot \Delta p \sim \hbar
-\end{equation}
+$$
 
 The rigorous proof (using the commutator \([\hat{x},\hat{p}] = i\hbar\)) gives \(\Delta x \cdot \Delta p \geq \hbar/2\).
 
@@ -163,29 +163,29 @@ From \(i\hbar \frac{\partial \psi}{\partial t} = E\psi\), we see: higher energy 
 
 For states with **definite energy** (energy eigenstates), we can separate variables:
 
-\begin{equation}
+$$
 \psi(x,t) = \psi(x) e^{-iEt/\hbar}
-\end{equation}
+$$
 
 The time part is just a rotating phase \(e^{-i\omega t}\) where \(\omega = E/\hbar\). All the physics (probability, where the particle is) lives in \(\psi(x)\).
 
 Plug this back into Schrödinger's equation:
 
-\begin{equation}
+$$
 i\hbar \frac{\partial}{\partial t}\left[\psi(x) e^{-iEt/\hbar}\right] = \hat{H}\left[\psi(x) e^{-iEt/\hbar}\right]
-\end{equation}
+$$
 
 The time derivative just brings down \(-iE/\hbar\), which cancels the \(i\hbar\), leaving:
 
-\begin{equation}
+$$
 E\psi(x) = \hat{H}\psi(x)
-\end{equation}
+$$
 
 Or written out fully:
 
-\begin{equation}
+$$
 -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi
-\end{equation}
+$$
 
 **That's the time-independent Schrödinger equation.** It's an eigenvalue equation: find the functions \(\psi(x)\) and energies \(E\) that satisfy it.
 
@@ -195,9 +195,9 @@ Here's the key physical insight from the time-independent equation.
 
 Start with the Schrödinger equation and **divide both sides by ψ**:
 
-\begin{equation}
+$$
 -\frac{\hbar^2}{2m}\frac{\psi''}{\psi} = E - V(x)
-\end{equation}
+$$
 
 Now the physics is crystal clear:
 
@@ -274,9 +274,9 @@ Now that we understand why the ground state can't be at the bottom, let's see th
 
 The allowed energies are:
 
-\begin{equation}
+$$
 E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, ...
-\end{equation}
+$$
 
 Notice:
 - **Evenly spaced** by ℏω (like a ladder!)
@@ -338,9 +338,9 @@ Let's take a concrete example: suppose we prepare a harmonic oscillator in its *
 
 The state is simply "I'm in energy level 1":
 
-\begin{equation}
+$$
 |\psi\rangle = |n=1\rangle
-\end{equation}
+$$
 
 That's it! The energy basis is the "simplest" way to describe this state because it's an energy eigenstate.
 
@@ -348,9 +348,9 @@ That's it! The energy basis is the "simplest" way to describe this state because
 
 The "how much at each position x" description is:
 
-\begin{equation}
+$$
 \psi(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
-\end{equation}
+$$
 
 This continuous function tells you the amplitude at every point in space.
 
@@ -358,9 +358,9 @@ This continuous function tells you the amplitude at every point in space.
 
 The "how much of each momentum p" description is:
 
-\begin{equation}
+$$
 \tilde{\psi}(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
-\end{equation}
+$$
 
 Same quantum state, just expressed in terms of momentum components.
 
@@ -368,9 +368,9 @@ Same quantum state, just expressed in terms of momentum components.
 
 Now here's where it gets interesting. Consider a state that's **not** an energy eigenstate:
 
-\begin{equation}
+$$
 |\psi\rangle = \frac{1}{\sqrt{2}}|n=0\rangle + \frac{1}{\sqrt{2}}|n=1\rangle
-\end{equation}
+$$
 
 This is a **superposition** of ground and first excited states.
 
@@ -378,9 +378,9 @@ This is a **superposition** of ground and first excited states.
 
 Add the two wavefunctions (with their time evolution):
 
-\begin{equation}
+$$
 \psi(x,t) = \frac{1}{\sqrt{2}}\psi_0(x)e^{-iE_0 t/\hbar} + \frac{1}{\sqrt{2}}\psi_1(x)e^{-iE_1 t/\hbar}
-\end{equation}
+$$
 
 The probability density |ψ(x,t)|² now **oscillates in time** — the wavefunction sloshes back and forth in the well! This is because the two energy components have different time-evolution frequencies.
 
@@ -388,9 +388,9 @@ The probability density |ψ(x,t)|² now **oscillates in time** — the wavefunct
 
 Super simple:
 
-\begin{equation}
+$$
 c_0 = \frac{1}{\sqrt{2}}, \quad c_1 = \frac{1}{\sqrt{2}}, \quad c_2 = 0, \quad c_3 = 0, \quad ...
-\end{equation}
+$$
 
 Just a list of coefficients! This is like writing a vector: $|\psi\rangle = [1/\sqrt{2}, 1/\sqrt{2}, 0, 0, ...]^T$
 
