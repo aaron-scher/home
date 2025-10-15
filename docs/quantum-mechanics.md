@@ -29,10 +29,22 @@ A free particle moving in space can be described as a plane wave. We have two op
 
 **Why use the complex form?**
 
+This is a deep question! Here's the intuition:
+
 - We know waves interfere (double slit experiment) - they add in and out of phase
 - The cosine form can be written as a phasor using Euler's equation: $e^{i\theta} = \cos\theta + i\sin\theta$
 - We need to calculate probability (which should always be positive, not oscillating between + and -)
 - Complex form makes this easy: probability = $|\psi|^2 = \psi^* \psi$ (multiply by complex conjugate)
+
+**But why does nature REQUIRE complex numbers?** A real wavefunction can't capture all of quantum mechanics. Here's why:
+
+1. **Interference requires amplitude AND phase:** When waves interfere, both the magnitude and phase matter. A single real number can't encode both - you need two real numbers (magnitude & phase), which is exactly what a complex number gives you: $z = re^{i\theta}$
+
+2. **Time evolution rotates the phase:** The factor $e^{-iEt/\hbar}$ rotates the wavefunction in the complex plane. This rotating phase is essential - it's what creates interference patterns and determines when waves add constructively vs destructively. Real numbers can't "rotate" like this!
+
+3. **The Schrödinger equation requires it:** Notice the factor of $i$ in $i\hbar\frac{\partial\psi}{\partial t}$. This means time derivatives change the real part into the imaginary part and vice versa - the wavefunction must be complex for this to work!
+
+**Bottom line:** Complex numbers aren't just mathematical convenience - they're fundamental to how quantum mechanics works. The phase of ψ contains physical information about interference and time evolution that can't be captured by real numbers alone.
 
 So we use:
 
@@ -492,10 +504,18 @@ $$
 \langle x' | x \rangle = \delta(x' - x)
 $$
 
-**The inner product ⟨x|1⟩:** When you compute this, you're finding the overlap between "being at position x" and "being in energy state |1⟩". Using the completeness relation (insert $\int |x'\rangle \langle x'| dx' = \mathbb{I}$):
+**The inner product ⟨x|1⟩:** When you compute this, you're finding the overlap between "being at position x" and "being in energy state |1⟩". Using the **completeness relation**:
 
 $$
-\langle x | 1 \rangle = \int_{-\infty}^{\infty} \langle x | x' \rangle \langle x' | 1 \rangle dx' = \int_{-\infty}^{\infty} \delta(x - x') \psi_1(x') dx' = \psi_1(x)
+\int_{-\infty}^{\infty} |x'\rangle \langle x'| dx' = \mathbb{I}
+$$
+
+**What does this mean?** The completeness relation says: "If you sum over ALL position eigenstates |x'⟩, you get the identity operator." In other words, the position eigenstates form a complete basis - any state can be expressed as a sum (integral) over all positions. It's like saying "if you have every possible position, you've covered all possibilities."
+
+We can insert this identity into our inner product:
+
+$$
+\langle x | 1 \rangle = \langle x | \mathbb{I} | 1 \rangle = \int_{-\infty}^{\infty} \langle x | x' \rangle \langle x' | 1 \rangle dx' = \int_{-\infty}^{\infty} \delta(x - x') \psi_1(x') dx' = \psi_1(x)
 $$
 
 The delta function δ(x - x') "picks out" the value of ψ₁ at x' = x, giving you ψ₁(x)!
