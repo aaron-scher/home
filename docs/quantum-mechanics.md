@@ -397,6 +397,24 @@ $$
 
 **Key point:** ψ₀(x), ψ₁(x), ψ₂(x) are NOT the state we're describing — they're the **coordinate axes** (basis functions) in position space. We're building our state by taking c₀ times the first axis, c₁ times the second axis, c₂ times the third axis, just like (3,4,5) = 3·x̂ + 4·ŷ + 5·ẑ in regular vectors.
 
+**Why use different bases? It depends on what question you're asking!**
+
+Here's the profound insight: You have ONE quantum state |ψ⟩, but different questions naturally lead you to express it in different coordinates:
+
+- **Question:** "What's the probability the particle is between x = 1 and x = 2?"
+  - **Natural basis:** Position! Use ψ(x) = c₀ψ₀(x) + c₁ψ₁(x) + c₂ψ₂(x)
+  - **Answer:** $\int_1^2 |\psi(x)|^2 dx$
+
+- **Question:** "What's the probability the particle has energy E₁?"
+  - **Natural basis:** Energy! Use |ψ⟩ = c₀|0⟩ + c₁|1⟩ + c₂|2⟩
+  - **Answer:** $|c_1|^2$
+
+- **Question:** "What's the probability the particle has momentum p?"
+  - **Natural basis:** Momentum! Use ψ̃(p) (Fourier transform of ψ(x))
+  - **Answer:** $|\tilde{\psi}(p)|^2$
+
+**Schrödinger's equation is "position-biased"** because it was originally written in position coordinates: $i\hbar\frac{\partial\psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} + V(x)\psi$. But the underlying physics (the quantum state |ψ⟩) is more fundamental — you can express it in whatever coordinates are most useful for the question you're asking!
+
 ---
 
 ### The SAME State, THREE Ways to Write It
