@@ -284,59 +284,55 @@ Notice:
 - **First excited** (n=1): $E_1 = \frac{3}{2}\hbar\omega$
 - **Second excited** (n=2): $E_2 = \frac{5}{2}\hbar\omega$
 
-### Position Space Wavefunctions
+### The Wavefunctions in Position and Momentum Space
 
-For convenience, define the characteristic length scale: $x_0 = \sqrt{\hbar/(m\omega)}$
+For convenience, define: $x_0 = \sqrt{\hbar/(m\omega)}$ (length scale) and $p_0 = \sqrt{m\hbar\omega}$ (momentum scale).
 
-**Ground state (n=0):**
+Notice: $x_0 \cdot p_0 = \hbar$ (uncertainty principle saturated).
 
+**n=0 (Ground state): E₀ = ½ℏω**
+
+Position space:
 \begin{equation}
 \psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}
 \end{equation}
 
-A perfect Gaussian! This is the "just right" width we found.
-
-**First excited state (n=1):**
-
-\begin{equation}
-\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
-\end{equation}
-
-A Gaussian with one node at x=0 (antisymmetric).
-
-**Second excited state (n=2):**
-
-\begin{equation}
-\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
-\end{equation}
-
-A Gaussian with two nodes (symmetric).
-
-**Pattern:** Higher n → more nodes → more wiggly → higher KE → higher energy!
-
-### Momentum Space Wavefunctions
-
-The same states in momentum space! Define $p_0 = \sqrt{m\hbar\omega}$.
-
-**Ground state in momentum space:**
-
+Momentum space:
 \begin{equation}
 \tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}
 \end{equation}
 
-**Also a Gaussian!** This is special — Fourier transform of a Gaussian is a Gaussian.
+Both Gaussians! Fourier transform of a Gaussian is a Gaussian. This is the "just right" width we found — equally spread in x and p.
 
-Notice: $x_0 \cdot p_0 = \hbar$ (uncertainty principle: the product of widths is minimized).
+**n=1 (First excited): E₁ = 3/2ℏω**
 
-**First excited state in momentum space:**
+Position space:
+\begin{equation}
+\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+\end{equation}
 
+Momentum space:
 \begin{equation}
 \tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
 \end{equation}
 
-Same functional form as position space!
+One node at origin (antisymmetric). Same functional form in both spaces!
 
-**Key observation:** The ground state is equally "spread out" in position and momentum space — it's the minimum uncertainty state.
+**n=2 (Second excited): E₂ = 5/2ℏω**
+
+Position space:
+\begin{equation}
+\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
+\end{equation}
+
+Momentum space:
+\begin{equation}
+\tilde{\psi}_2(p) = \left(\frac{1}{16\pi p_0^2}\right)^{1/4} \left(\frac{4p^2}{p_0^2} - 2\right) e^{-p^2/(2p_0^2)}
+\end{equation}
+
+Two nodes (symmetric). Again, same functional form!
+
+**Pattern:** Higher n → more nodes → more wiggly → higher energy. The harmonic oscillator has beautiful symmetry between position and momentum.
 
 ---
 
