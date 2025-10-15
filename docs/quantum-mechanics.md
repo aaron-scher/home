@@ -403,22 +403,21 @@ $$
 
 **Wait, what do "position space" and "energy basis" mean?**
 
-Good question! These are two different ways of describing the same quantum state — like describing a location using Cartesian coordinates (x,y) vs polar coordinates (r,θ).
+Here's the key idea: **you have a single wavefunction, and you can express it in different ways** — like describing a location using Cartesian coordinates (x,y) vs polar coordinates (r,θ). The wavefunction itself doesn't change, just how you write it down.
 
-**Position space (or position representation):**
-- Describe the quantum state as a **wavefunction** ψ(x)
-- The input is position x, the output is the amplitude at that position
-- Example: ψ₀(x) = (formula with x as the variable)
-- Tells you "how much probability amplitude is at each location x"
-- This is a **continuous** description (x can be any real number)
+You can always describe any quantum state as either:
 
-**Energy basis (or energy representation):**
-- Describe the quantum state as a **list of coefficients** c₀, c₁, c₂, ...
-- Each coefficient tells you "how much of energy eigenstate n is present"
-- Can write it as a column vector: [c₀, c₁, c₂, ...]ᵀ
-- This is a **discrete** description (n = 0, 1, 2, ... are integers)
+**1. A discrete vector of numbers** (energy basis):
+- Write the wavefunction as coefficients: $|\psi\rangle = [c_0, c_1, c_2, ...]^T$
+- Each number $c_n$ tells you **"how much of energy state n is in your wavefunction"**
+- Discrete: n = 0, 1, 2, ... (countable)
 
-**Same quantum state, different description!** Just like the same 3D vector can be written as (x,y,z) or (r,θ,φ), the same quantum state can be written as ψ(x) or [c₀, c₁, c₂, ...]ᵀ.
+**2. A continuous function** (position basis, momentum basis, etc.):
+- Write the wavefunction as a function: $\psi(x)$ or $\tilde{\psi}(p)$
+- The function value at each point tells you **"how much amplitude is at that position/momentum"**
+- Continuous: x or p can be any real number (uncountable - so we use a function instead of a list)
+
+**Same wavefunction, different representation!** Just like (x,y,z) and (r,θ,φ) describe the same point in space, the coefficients [c₀, c₁, c₂, ...]ᵀ and the function ψ(x) describe the same quantum state — they're just expressed in different "coordinate systems" (different bases).
 
 **How do you mathematically "express" the abstract state in a basis?**
 
