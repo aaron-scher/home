@@ -418,13 +418,29 @@ This is the **normalization condition** — the total probability is always 1.
 
 **Extracting expectation values with operators:**
 
-To get the average energy, use the energy operator (Hamiltonian) $\hat{H}$:
+**Why this formula?** You might wonder: where does $\langle E \rangle = \langle \psi | \hat{H} | \psi \rangle$ come from? Why the "sandwich" notation?
+
+Think about **classical expectation values**. If you roll a weighted die with probabilities $P_1, P_2, ..., P_6$ of getting each face, the average value is:
 
 $$
-\langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \sum_n |c_n|^2 E_n
+\langle \text{value} \rangle = 1 \cdot P_1 + 2 \cdot P_2 + \cdots + 6 \cdot P_6 = \sum_n n \cdot P_n
 $$
 
-**Where does this formula come from?** Let's derive it from the Schrödinger equation.
+It's a **weighted average**: each outcome times its probability.
+
+In quantum mechanics, we have the state $|\psi\rangle = \sum_n c_n |n\rangle$, and we know the probability of measuring energy $E_n$ is $|c_n|^2$. So by analogy:
+
+$$
+\langle E \rangle = E_0 |c_0|^2 + E_1 |c_1|^2 + E_2 |c_2|^2 + \cdots = \sum_n E_n |c_n|^2
+$$
+
+**But here's the quantum twist:** Instead of writing this out manually, we use **operators** to automatically extract the right observable. The formula $\langle \psi | \hat{H} | \psi \rangle$ is the quantum mechanics way of computing this weighted average. It's actually a **postulate** of quantum mechanics:
+
+> **To measure the average value of an observable $A$, apply its operator $\hat{A}$ to the state and take the inner product: $\langle A \rangle = \langle \psi | \hat{A} | \psi \rangle$**
+
+The magic is that this formula works for *any* observable — energy, position, momentum, etc. Let's verify it gives the right answer:
+
+**Where does this formula come from?** Let's derive it from the Schrödinger equation and see why it works.
 
 **Quick reminder: What is $\hat{H}$?**
 
@@ -486,13 +502,15 @@ $$
 
 The Hamiltonian acting on $|n\rangle$ just gives you back $E_n$ times $|n\rangle$ — that's what makes it an eigenstate! When you write this in the energy eigenbasis, $\hat{H}$ becomes diagonal because each basis vector gets multiplied by its own eigenvalue. Off-diagonal elements are zero because eigenstates are orthogonal.
 
-What about the average position? That's **harder** in this basis:
+What about the average position? Same idea — we use the **position operator** $\hat{x}$:
 
 $$
 \langle x \rangle = \langle \psi | \hat{x} | \psi \rangle = \sum_{m,n} c_m^* c_n \langle m|\hat{x}|n\rangle
 $$
 
-You need the matrix elements $\langle m|\hat{x}|n\rangle$ — the position operator is complicated (non-diagonal) in the energy basis!
+**Why is this harder?** In the energy basis, we have $c_0, c_1, c_2, ...$ but these don't directly tell us about position. To find the average position, we need to know how each energy state is distributed in space — that's what the **matrix elements** $\langle m|\hat{x}|n\rangle$ encode. They tell you "how much overlap in position space do states $|m\rangle$ and $|n\rangle$ have?"
+
+The position operator is **non-diagonal** in the energy basis — it mixes different energy states together. This is hard to compute! (Later we'll see it's trivial in the position basis.)
 
 **Time evolution:**
 
