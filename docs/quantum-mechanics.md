@@ -474,7 +474,15 @@ You need the matrix elements $\langle m|\hat{x}|n\rangle$ — the position opera
 
 **Time evolution:**
 
-Each energy component rotates at its own frequency: $c_n(t) = c_n(0) e^{-iE_n t/\hbar}$. The probability density $|\psi(x,t)|^2$ **oscillates in time** — the wavefunction sloshes back and forth because different energies beat against each other.
+**Important clarification:** The coefficients $c_0, c_1, c_2, ...$ themselves are **constants** — they don't change with time! What changes is the **phase** of each energy component. The full time-dependent state is:
+
+$$
+|\psi(t)\rangle = c_0 |0\rangle e^{-iE_0 t/\hbar} + c_1 |1\rangle e^{-iE_1 t/\hbar} + c_2 |2\rangle e^{-iE_2 t/\hbar} + \cdots
+$$
+
+Each energy eigenstate $|n\rangle$ picks up a rotating phase factor $e^{-iE_n t/\hbar}$. Since different energies rotate at different frequencies, the phases evolve at different rates. This causes the probability density $|\psi(x,t)|^2$ to **oscillate in time** — the wavefunction sloshes back and forth because different energies beat against each other.
+
+**Key point:** The "amount" of each energy (the $|c_n|^2$ probabilities) never changes — energy is conserved! Only the relative phases between the different energy components change.
 
 ### Part 2: Position Basis (Continuous) — One Energy, Different View
 
