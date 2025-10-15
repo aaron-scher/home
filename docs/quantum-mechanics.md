@@ -286,9 +286,7 @@ Notice:
 
 ### The Wavefunctions in Position and Momentum Space
 
-For convenience, define: $x_0 = \sqrt{\hbar/(m\omega)}$ (length scale) and $p_0 = \sqrt{m\hbar\omega}$ (momentum scale).
-
-Notice: $x_0 \cdot p_0 = \hbar$ (uncertainty principle saturated).
+For convenience, define the natural length and momentum scales: $x_0 = \sqrt{\hbar/(m\omega)}$ and $p_0 = \sqrt{m\hbar\omega}$
 
 **n=0 (Ground state): E₀ = ½ℏω**
 
@@ -298,7 +296,9 @@ $$\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$$
 Momentum space:
 $$\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}$$
 
-Both Gaussians! Fourier transform of a Gaussian is a Gaussian. This is the "just right" width we found — equally spread in x and p.
+Both Gaussians! Fourier transform of a Gaussian is a Gaussian. This is the "just right" width we found.
+
+Notice something special: the ground state has width ~ x₀ in position space and width ~ p₀ in momentum space. If you calculate Δx·Δp, you get exactly ℏ/2 — the **minimum allowed** by the uncertainty principle! This is why it's the lowest energy state: it's spread out just enough to minimize both position and momentum uncertainty.
 
 **n=1 (First excited): E₁ = 3/2ℏω**
 
