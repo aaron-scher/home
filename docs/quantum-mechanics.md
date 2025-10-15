@@ -401,122 +401,74 @@ $$
 
 **Notation convention:** When we write $|\psi\rangle$ without a time argument, we typically mean **the state at t=0**. This is useful because the coefficients $c_n$ are constants — they don't change with time! Only the phases $e^{-iE_n t/\hbar}$ evolve. So when discussing properties that don't depend on time (like "what is the probability of measuring energy $E_1$?"), we just write $|\psi\rangle$ to mean the initial state.
 
-**Wait, what do "position space" and "energy basis" mean?**
+---
 
-Here's the key idea: **you have a single wavefunction, and you can express it in different ways** — like describing a location using Cartesian coordinates (x,y) vs polar coordinates (r,θ). The wavefunction itself doesn't change, just how you write it down.
+### Understanding Quantum "Coordinates": The Big Picture
 
-You can always describe any quantum state as either:
+**What do "position space" and "energy basis" really mean?**
 
-**1. A discrete vector of numbers** (energy basis):
-- Write the wavefunction as coefficients: $|\psi\rangle = [c_0, c_1, c_2, ...]^T$
-- Each number $c_n$ tells you **"how much of energy state n is in your wavefunction"**
-- Discrete: n = 0, 1, 2, ... (countable)
+Here's the key idea: **you have a single wavefunction, and you can express it as different kinds of vectors** — just like describing a location using Cartesian (x,y) vs polar (r,θ) coordinates.
 
-**2. A continuous function** (position basis, momentum basis, etc.):
-- Write the wavefunction as a function: $\psi(x)$ or $\tilde{\psi}(p)$
-- The function value at each point tells you **"how much amplitude is at that position/momentum"**
-- Continuous: x or p can be any real number (uncountable - so we use a function instead of a list)
+**Classical vectors:** Components point in spatial directions
 
-**Same wavefunction, different representation!** Just like (x,y,z) and (r,θ,φ) describe the same point in space, the coefficients [c₀, c₁, c₂, ...]ᵀ and the function ψ(x) describe the same quantum state — they're just expressed in different "coordinate systems" (different bases).
+With a vector like $\vec{v} = (v_x, v_y, v_z)$, each component tells you "how much of the vector points in that direction" (x, y, or z).
 
-**Deeper insight:** With a classical vector like $\vec{v} = (v_x, v_y, v_z)$, each component tells you "how much of the vector points in that direction." In quantum mechanics, **the "directions" are physical observables**:
+**Quantum states:** Components point in "observable directions"
+
+In quantum mechanics, **the "directions" are physical observables**:
 - Energy basis: each component $c_n$ tells you "how much is in energy state n"
 - Position basis: each value $\psi(x)$ tells you "how much is at position x"
 - Momentum basis: each value $\tilde{\psi}(p)$ tells you "how much has momentum p"
 
-The quantum state is the same, but you're measuring "how much" along different physical quantities (energy, position, momentum, etc.) instead of spatial directions (x, y, z). **The "coordinates" in quantum mechanics are observables!**
+**The "coordinates" in quantum mechanics are observables!** The quantum state is the same, but you're measuring it along different physical quantities (energy, position, momentum) instead of spatial directions.
 
-**How do you mathematically "express" the abstract state in a basis?**
+**Functions are vectors with continuous indices**
 
-The answer is: **take the inner product with the basis vectors!**
+Here's a profound insight: Think about a time signal f(t). At each time t, you have a number f(t). This **is a vector** — just with a continuous index instead of discrete entries! Since time is continuous, you can't write it as a finite list [f₁, f₂, f₃, ...], so you write it as a **function** f(t). Mathematically, it's the same as a vector in an infinite-dimensional **Hilbert space**.
 
-**To express $|\psi\rangle$ in the energy basis:**
+Apply this to quantum mechanics:
 
-Take the inner product with each energy eigenstate $|n\rangle$:
+| Representation | "Index" | "Component" | Written as |
+|----------------|---------|-------------|------------|
+| **Energy basis** | n (discrete: 0, 1, 2, ...) | $c_n$ = "how much of energy n" | Discrete vector: $[c_0, c_1, c_2, ...]^T$ |
+| **Position basis** | x (continuous: all real numbers) | $\psi(x)$ = "how much at position x" | Function: $\psi(x)$ |
+| **Momentum basis** | p (continuous) | $\tilde{\psi}(p)$ = "how much with momentum p" | Function: $\tilde{\psi}(p)$ |
 
-$$
-c_n = \langle n | \psi \rangle
-$$
+**Same quantum state |ψ⟩, different coordinate systems!** Just like (x,y,z) and (r,θ,φ) describe the same point.
 
-This extracts the n-th coefficient. Do this for all n to get the full vector [c₀, c₁, c₂, ...]ᵀ.
+**How do you transform between bases?**
 
-**To express $|\psi\rangle$ in position space:**
+The inner product does the work! To express the abstract state $|\psi\rangle$ in any basis, take the inner product with each basis vector:
 
-Take the inner product with each position eigenstate $|x\rangle$:
+- Energy basis: $c_n = \langle n | \psi \rangle$ extracts the n-th coefficient
+- Position basis: $\psi(x) = \langle x | \psi \rangle$ extracts the amplitude at x
 
-$$
-\psi(x) = \langle x | \psi \rangle
-$$
+Same operation, just discrete vs continuous. This is why:
+- Sums become integrals: $\sum_n \rightarrow \int dx$
+- Inner products look the same: $\sum_n c_n^* d_n \rightarrow \int \psi^*(x)\phi(x) dx$
 
-This extracts the amplitude at position x. Do this for all x to get the full wavefunction ψ(x).
+**What exactly is |n⟩ — vector or wavefunction?**
 
-**It's the same operation!** In both cases, you're asking "how much of basis vector ____ is in my state?" The inner product ⟨basis vector|ψ⟩ answers that question. The only difference is:
-- Energy basis: discrete set of vectors |n⟩, so you get discrete coefficients cₙ
-- Position basis: continuous set of "vectors" |x⟩, so you get a continuous function ψ(x)
+Both! The symbol $|n\rangle$ is **basis-independent** — it's the abstract quantum state. When expressed in different bases:
 
-**Key insight: Functions ARE vectors!**
+- In energy basis: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$ (simple vector)
+- In position basis: $|1\rangle \rightarrow \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$ (function)
 
-Here's a profound realization: **any continuous function is actually a vector** - it's a vector in what mathematicians call a **function space** (or **Hilbert space** in quantum mechanics).
+Like the number 3 written as "3" (decimal), "11" (binary), or "III" (Roman) — same thing, different notation!
 
-Think about a time signal f(t):
+**Our three-state superposition:**
 
-$$
-f(t) = \begin{pmatrix} \vdots \\ f(t_1) \\ f(t_2) \\ f(t_3) \\ \vdots \end{pmatrix} \quad \text{(at each time } t \text{, you have a number } f(t)\text{)}
-$$
-
-This **is** a vector! Each "index" is a time value t, and each "component" is the value f(t). Since time is continuous, you have uncountably many components, so we write it as a **function** instead of a list. But mathematically, **it's the same as a vector with continuous indices**.
-
-Now apply this to quantum mechanics:
-
-**Energy basis** (discrete vector):
-
-$$
-|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix} \quad \text{(index } n \text{, component } c_n\text{)}
-$$
-
-**Position basis** (continuous vector):
-
-$$
-|\psi\rangle \leftrightarrow \psi(x) \quad \text{(index } x\text{, component } \psi(x)\text{)}
-$$
-
-We write ψ(x) as a function because x is continuous, but it's really a vector with infinitely many entries - one for each possible position x.
-
-**This is why all the operations have the same structure:**
-- Discrete sum: $\sum_n c_n$ → Continuous integral: $\int \psi(x) dx$
-- Inner product: $\sum_n c_n^* d_n$ → Inner product: $\int \psi^*(x) \phi(x) dx$
-
-Functions are vectors with continuous indices!
-
-**CRITICAL CLARIFICATION:** What exactly is $|n\rangle$? Is it a vector or a wavefunction?
-
-**Answer: It's BOTH!** This is the key insight of Dirac notation. The abstract state $|n\rangle$ can be represented in different ways:
-
-**In position space** (what we just wrote out):
-
-$|0\rangle$ means the wavefunction $\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$
-
-$|1\rangle$ means the wavefunction $\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$
-
-$|2\rangle$ means the wavefunction $\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}$
-
-**In the energy basis** (discrete vector notation):
-
-$|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$, $|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \end{pmatrix}$
-
-**Same quantum state, different representation!** The abstract symbol $|n\rangle$ is basis-independent — it's the actual physical state. When you "express it" in position space, you get the wavefunction. When you "express it" in the energy basis, you get a simple vector with 1 at position n.
-
-Think of it like the number 3 — you can write it as "3" (decimal), "11" (binary), or "III" (Roman numerals). Same number, different representation. Same quantum state, different basis!
-
-**Our superposition state as a column vector:**
-
-When working in the energy basis, our superposition $|\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle$ is just a column vector:
+In energy basis, $|\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle$ is just:
 
 $$
 |\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
 $$
 
-The first entry is the amplitude of being in the ground state, the second entry is the amplitude of the first excited state, etc.
+Each entry is the amplitude for that energy state.
+
+---
+
+### Working in the Energy Basis
 
 **Example: Extracting a component with the inner product**
 
