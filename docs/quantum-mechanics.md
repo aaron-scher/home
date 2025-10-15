@@ -7,8 +7,8 @@ Let's start with a free particle (no potential, just moving in space) and work b
 ### de Broglie Relations (1924)
 
 By the 1920s, light was known to have both wave and particle properties:
-- Planck & Einstein showed photons have energy \(E = h\nu\)
-- Compton scattering (1923) confirmed photons have momentum \(p = h/\lambda\)
+- Planck & Einstein showed photons have energy $E = h\nu$
+- Compton scattering (1923) confirmed photons have momentum $p = h/\lambda$
 
 **de Broglie's leap:** If light waves have particle properties, maybe particles have wave properties with the same relations?
 
@@ -18,21 +18,21 @@ $$
 E = \hbar\omega, \quad p = \hbar k
 $$
 
-where \(\hbar = h/2\pi\), \(k\) is wave number, and \(\omega\) is angular frequency. Electron diffraction experiments soon confirmed it.
+where $\hbar = h/2\pi$, $k$ is wave number, and $\omega$ is angular frequency. Electron diffraction experiments soon confirmed it.
 
 ### Free Particle Wave Function
 
 A free particle moving in space can be described as a plane wave. We have two options:
 
-1. **Real wave:** \(A\cos(kx - \omega t)\)
-2. **Complex wave (phasor):** \(A e^{i(kx - \omega t)}\)
+1. **Real wave:** $A\cos(kx - \omega t)$
+2. **Complex wave (phasor):** $A e^{i(kx - \omega t)}$
 
 **Why use the complex form?**
 
 - We know waves interfere (double slit experiment) - they add in and out of phase
-- The cosine form can be written as a phasor using Euler's equation: \(e^{i\theta} = \cos\theta + i\sin\theta\)
+- The cosine form can be written as a phasor using Euler's equation: $e^{i\theta} = \cos\theta + i\sin\theta$
 - We need to calculate probability (which should always be positive, not oscillating between + and -)
-- Complex form makes this easy: probability = \(|\psi|^2 = \psi^* \psi\) (multiply by complex conjugate)
+- Complex form makes this easy: probability = $|\psi|^2 = \psi^* \psi$ (multiply by complex conjugate)
 
 So we use:
 
@@ -50,13 +50,13 @@ $$
 \frac{\partial \psi}{\partial t} = -i\omega \psi
 $$
 
-Using \(E = \hbar\omega\):
+Using $E = \hbar\omega$:
 
 $$
 \frac{\partial \psi}{\partial t} = -i\frac{E}{\hbar}\psi
 $$
 
-Multiply both sides by \(i\hbar\):
+Multiply both sides by $i\hbar$:
 
 $$
 i\hbar \frac{\partial \psi}{\partial t} = E\psi
@@ -68,13 +68,13 @@ $$
 \frac{\partial^2 \psi}{\partial x^2} = (ik)^2 \psi = -k^2 \psi
 $$
 
-Using \(p = \hbar k\):
+Using $p = \hbar k$:
 
 $$
 \frac{\partial^2 \psi}{\partial x^2} = -\frac{p^2}{\hbar^2}\psi
 $$
 
-Multiply both sides by \(-\hbar^2/2m\):
+Multiply both sides by $-\hbar^2/2m$:
 
 $$
 -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} = \frac{p^2}{2m}\psi
@@ -82,7 +82,7 @@ $$
 
 **Setting them equal:**
 
-For a free particle, classical mechanics says \(E = p^2/2m\). So:
+For a free particle, classical mechanics says $E = p^2/2m$. So:
 
 $$
 E\psi = \frac{p^2}{2m}\psi
@@ -96,11 +96,11 @@ $$
 
 **That's Schrödinger's equation for a free particle!**
 
-**What does this mean?** The time derivative extracts energy from the wave, the spatial derivative extracts kinetic energy (from momentum). For a free particle these are the same thing, so we get one equation. It's the quantum version of \(E = p^2/2m\).
+**What does this mean?** The time derivative extracts energy from the wave, the spatial derivative extracts kinetic energy (from momentum). For a free particle these are the same thing, so we get one equation. It's the quantum version of $E = p^2/2m$.
 
 ### Adding a Potential
 
-If the particle is in a potential \(V(x)\), total energy = KE + PE:
+If the particle is in a potential $V(x)$, total energy = KE + PE:
 
 $$
 i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V(x)\psi
@@ -112,7 +112,7 @@ $$
 i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi
 $$
 
-where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is the Hamiltonian operator.
+where $\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)$ is the Hamiltonian operator.
 
 ---
 
@@ -120,46 +120,46 @@ where \(\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\) is
 
 ### Position and Momentum Space (Fourier Transform)
 
-A single plane wave \(e^{ikx}\) extends forever - not realistic for a localized particle.
+A single plane wave $e^{ikx}$ extends forever - not realistic for a localized particle.
 
-**Real particles are wave packets.** Consider a state at fixed energy \(E\). We've factored out the time part \(e^{-iEt/\hbar}\), so we're looking at just the spatial part \(\psi(x)\). Start simple - add a few plane waves with different momenta:
+**Real particles are wave packets.** Consider a state at fixed energy $E$. We've factored out the time part $e^{-iEt/\hbar}$, so we're looking at just the spatial part $\psi(x)$. Start simple - add a few plane waves with different momenta:
 
 $$
 \psi(x) = A_1 e^{ik_1 x} + A_2 e^{ik_2 x} + A_3 e^{ik_3 x} + \cdots
 $$
 
-Each \(A_n\) tells you the amplitude and phase of momentum \(k_n\). As a sum:
+Each $A_n$ tells you the amplitude and phase of momentum $k_n$. As a sum:
 
 $$
 \psi(x) = \sum_n A_n e^{ik_n x}
 $$
 
-Now take the limit: spacing between \(k\) values → 0, sum → integral. The discrete amplitudes \(A_n\) become a continuous function \(\tilde{\psi}(k)\):
+Now take the limit: spacing between $k$ values → 0, sum → integral. The discrete amplitudes $A_n$ become a continuous function $\tilde{\psi}(k)$:
 
 $$
 \psi(x) = \int_{-\infty}^{\infty} \tilde{\psi}(k) e^{ikx} dk
 $$
 
-That's the **Fourier transform**. \(\tilde{\psi}(k)\) tells you "how much of momentum \(k\)" is in your wave packet.
+That's the **Fourier transform**. $\tilde{\psi}(k)$ tells you "how much of momentum $k$" is in your wave packet.
 
 **Key insight:** You can't have both narrow at once.
 - Narrow in position (localized) → wide spread in momentum
 - Narrow in momentum (definite p) → spread out in space
 - This is the **uncertainty principle**!
 
-**Quick derivation:** From Fourier theory (like time-bandwidth product in signal processing), a wave packet localized to width \(\Delta x\) needs a spread in \(k\) of roughly \(\Delta k \sim 1/\Delta x\). Since \(p = \hbar k\), we have \(\Delta p = \hbar \Delta k\), giving:
+**Quick derivation:** From Fourier theory (like time-bandwidth product in signal processing), a wave packet localized to width $\Delta x$ needs a spread in $k$ of roughly $\Delta k \sim 1/\Delta x$. Since $p = \hbar k$, we have $\Delta p = \hbar \Delta k$, giving:
 
 $$
 \Delta x \cdot \Delta p \sim \hbar
 $$
 
-The rigorous proof (using the commutator \([\hat{x},\hat{p}] = i\hbar\)) gives \(\Delta x \cdot \Delta p \geq \hbar/2\).
+The rigorous proof (using the commutator $[\hat{x},\hat{p}] = i\hbar$) gives $\Delta x \cdot \Delta p \geq \hbar/2$.
 
 ### Time-Independent Schrödinger Equation
 
 Now let's think about the **time derivative** in Schrödinger's equation.
 
-From \(i\hbar \frac{\partial \psi}{\partial t} = E\psi\), we see: higher energy → faster time oscillation.
+From $i\hbar \frac{\partial \psi}{\partial t} = E\psi$, we see: higher energy → faster time oscillation.
 
 For states with **definite energy** (energy eigenstates), we can separate variables:
 
@@ -167,7 +167,7 @@ $$
 \psi(x,t) = \psi(x) e^{-iEt/\hbar}
 $$
 
-The time part is just a rotating phase \(e^{-i\omega t}\) where \(\omega = E/\hbar\). All the physics (probability, where the particle is) lives in \(\psi(x)\).
+The time part is just a rotating phase $e^{-i\omega t}$ where $\omega = E/\hbar$. All the physics (probability, where the particle is) lives in $\psi(x)$.
 
 Plug this back into Schrödinger's equation:
 
@@ -175,7 +175,7 @@ $$
 i\hbar \frac{\partial}{\partial t}\left[\psi(x) e^{-iEt/\hbar}\right] = \hat{H}\left[\psi(x) e^{-iEt/\hbar}\right]
 $$
 
-The time derivative just brings down \(-iE/\hbar\), which cancels the \(i\hbar\), leaving:
+The time derivative just brings down $-iE/\hbar$, which cancels the $i\hbar$, leaving:
 
 $$
 E\psi(x) = \hat{H}\psi(x)
@@ -187,7 +187,7 @@ $$
 -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi
 $$
 
-**That's the time-independent Schrödinger equation.** It's an eigenvalue equation: find the functions \(\psi(x)\) and energies \(E\) that satisfy it.
+**That's the time-independent Schrödinger equation.** It's an eigenvalue equation: find the functions $\psi(x)$ and energies $E$ that satisfy it.
 
 ### Intuition: Wiggliness vs Potential
 
