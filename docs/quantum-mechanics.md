@@ -420,6 +420,34 @@ Good question! These are two different ways of describing the same quantum state
 
 **Same quantum state, different description!** Just like the same 3D vector can be written as (x,y,z) or (r,θ,φ), the same quantum state can be written as ψ(x) or [c₀, c₁, c₂, ...]ᵀ.
 
+**How do you mathematically "express" the abstract state in a basis?**
+
+The answer is: **take the inner product with the basis vectors!**
+
+**To express $|\psi\rangle$ in the energy basis:**
+
+Take the inner product with each energy eigenstate $|n\rangle$:
+
+$$
+c_n = \langle n | \psi \rangle
+$$
+
+This extracts the n-th coefficient. Do this for all n to get the full vector [c₀, c₁, c₂, ...]ᵀ.
+
+**To express $|\psi\rangle$ in position space:**
+
+Take the inner product with each position eigenstate $|x\rangle$:
+
+$$
+\psi(x) = \langle x | \psi \rangle
+$$
+
+This extracts the amplitude at position x. Do this for all x to get the full wavefunction ψ(x).
+
+**It's the same operation!** In both cases, you're asking "how much of basis vector ____ is in my state?" The inner product ⟨basis vector|ψ⟩ answers that question. The only difference is:
+- Energy basis: discrete set of vectors |n⟩, so you get discrete coefficients cₙ
+- Position basis: continuous set of "vectors" |x⟩, so you get a continuous function ψ(x)
+
 **CRITICAL CLARIFICATION:** What exactly is $|n\rangle$? Is it a vector or a wavefunction?
 
 **Answer: It's BOTH!** This is the key insight of Dirac notation. The abstract state $|n\rangle$ can be represented in different ways:
