@@ -291,12 +291,16 @@ For convenience, define the natural length and momentum scales: $x_0 = \sqrt{\hb
 **n=0 (Ground state): E₀ = ½ℏω**
 
 Position space:
-$$\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$$
 
-TEST TEST TEST - IF YOU SEE THIS, YOU'RE LOOKING AT THE RIGHT VERSION
+$$
+\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}
+$$
 
 Momentum space:
-$$\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}$$
+
+$$
+\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}
+$$
 
 Both Gaussians! Fourier transform of a Gaussian is a Gaussian. This is the "just right" width we found.
 
@@ -305,20 +309,28 @@ Notice something special: the ground state has width ~ x₀ in position space an
 **n=1 (First excited): E₁ = 3/2ℏω**
 
 Position space:
-$$\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$$
+$$
+\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+$$
 
 Momentum space:
-$$\tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}$$
+$$
+\tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
+$$
 
 One node at origin (antisymmetric). Same functional form in both spaces!
 
 **n=2 (Second excited): E₂ = 5/2ℏω**
 
 Position space:
-$$\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}$$
+$$
+\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
+$$
 
 Momentum space:
-$$\tilde{\psi}_2(p) = \left(\frac{1}{16\pi p_0^2}\right)^{1/4} \left(\frac{4p^2}{p_0^2} - 2\right) e^{-p^2/(2p_0^2)}$$
+$$
+\tilde{\psi}_2(p) = \left(\frac{1}{16\pi p_0^2}\right)^{1/4} \left(\frac{4p^2}{p_0^2} - 2\right) e^{-p^2/(2p_0^2)}
+$$
 
 Two nodes (symmetric). Again, same functional form!
 
@@ -422,7 +434,9 @@ Here's the quantum measurement postulate in simple terms:
 **When you measure an observable (represented by operator Â):**
 
 1. **Decompose** the state in the eigenbasis of Â:
-   $$|\psi\rangle = \sum_i c_i |\lambda_i\rangle$$
+   $$
+|\psi\rangle = \sum_i c_i |\lambda_i\rangle
+$$
    where |λᵢ⟩ are eigenstates of Â with eigenvalues λᵢ
 
 2. **You get one of the eigenvalues** λᵢ as the measurement result
@@ -465,15 +479,21 @@ We've been sneaking in this |ψ⟩ notation (called "ket"). Here's what it means
 In a finite-dimensional space (like spin, or truncating to the first N energy levels), everything becomes linear algebra:
 
 **States** → column vectors:
-$$|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}$$
+$$
+|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
+$$
 
 **Operators** → matrices:
-$$\hat{H} = \begin{pmatrix} E_0 & 0 & 0 & \cdots \\ 0 & E_1 & 0 & \cdots \\ 0 & 0 & E_2 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}$$
+$$
+\hat{H} = \begin{pmatrix} E_0 & 0 & 0 & \cdots \\ 0 & E_1 & 0 & \cdots \\ 0 & 0 & E_2 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}
+$$
 
 **Eigenvalue equation** Ĥ|ψ⟩ = E|ψ⟩ → matrix equation H**c** = E**c**
 
 **Time evolution** → matrix exponential:
-$$|\psi(t)\rangle = e^{-i\hat{H}t/\hbar}|\psi(0)\rangle$$
+$$
+|\psi(t)\rangle = e^{-i\hat{H}t/\hbar}|\psi(0)\rangle
+$$
 
 This is **the same Schrödinger equation** you know, just in matrix form!
 
