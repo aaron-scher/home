@@ -424,7 +424,29 @@ $$
 \langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \sum_n |c_n|^2 E_n
 $$
 
-**Where does this formula come from?** Let's derive it from the Schrödinger equation. Start with the superposition:
+**Where does this formula come from?** Let's derive it from the Schrödinger equation.
+
+**Quick reminder: What is $\hat{H}$?**
+
+The Hamiltonian $\hat{H}$ is the **energy operator**. It's the quantum version of the total energy (kinetic + potential):
+
+$$
+\hat{H} = \underbrace{-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}}_{\text{kinetic energy}} + \underbrace{V(x)}_{\text{potential energy}}
+$$
+
+Remember from earlier: the time-independent Schrödinger equation is $\hat{H}\psi = E\psi$ (an eigenvalue equation). When $\hat{H}$ acts on an energy eigenstate $|n\rangle$, it simply returns the energy of that state:
+
+$$
+\hat{H}|n\rangle = E_n|n\rangle
+$$
+
+This is what makes $|n\rangle$ an *energy* eigenstate — applying the energy operator gives you back the energy value $E_n$ times the state.
+
+**The Hamiltonian also governs time evolution** through the full Schrödinger equation: $i\hbar \frac{\partial}{\partial t}|\psi\rangle = \hat{H}|\psi\rangle$. This says: "the rate of change of the state is determined by its energy." That's why states with higher energy oscillate faster in time!
+
+**Deriving the expectation value:**
+
+Start with the superposition:
 
 $$
 |\psi\rangle = \sum_n c_n |n\rangle
