@@ -309,11 +309,13 @@ Notice something special: the ground state has width ~ x₀ in position space an
 **n=1 (First excited): E₁ = 3/2ℏω**
 
 Position space:
+
 $$
 \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
 $$
 
 Momentum space:
+
 $$
 \tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
 $$
@@ -323,11 +325,13 @@ One node at origin (antisymmetric). Same functional form in both spaces!
 **n=2 (Second excited): E₂ = 5/2ℏω**
 
 Position space:
+
 $$
 \psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
 $$
 
 Momentum space:
+
 $$
 \tilde{\psi}_2(p) = \left(\frac{1}{16\pi p_0^2}\right)^{1/4} \left(\frac{4p^2}{p_0^2} - 2\right) e^{-p^2/(2p_0^2)}
 $$
@@ -479,11 +483,13 @@ We've been sneaking in this |ψ⟩ notation (called "ket"). Here's what it means
 In a finite-dimensional space (like spin, or truncating to the first N energy levels), everything becomes linear algebra:
 
 **States** → column vectors:
+
 $$
 |\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
 $$
 
 **Operators** → matrices:
+
 $$
 \hat{H} = \begin{pmatrix} E_0 & 0 & 0 & \cdots \\ 0 & E_1 & 0 & \cdots \\ 0 & 0 & E_2 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}
 $$
@@ -491,6 +497,7 @@ $$
 **Eigenvalue equation** Ĥ|ψ⟩ = E|ψ⟩ → matrix equation H**c** = E**c**
 
 **Time evolution** → matrix exponential:
+
 $$
 |\psi(t)\rangle = e^{-i\hat{H}t/\hbar}|\psi(0)\rangle
 $$
