@@ -266,67 +266,233 @@ This minimum energy is the **zero-point energy** — a purely quantum effect ari
 
 ---
 
-## Standard Problems (Quick Reference)
+## The Harmonic Oscillator: Explicit Solutions
 
-### Particle in a Box
+Now that we understand why the ground state can't be at the bottom, let's see the actual solutions for the harmonic oscillator potential $V(x) = \frac{1}{2}m\omega^2 x^2$.
 
-Infinite walls at \(x=0\) and \(x=L\).
+### Energy Levels
 
-**Energy levels:**
-
-\begin{equation}
-E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}, \quad n = 1, 2, 3, ...
-\end{equation}
-
-**Wave functions:**
-
-\begin{equation}
-\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)
-\end{equation}
-
-### Harmonic Oscillator
-
-Spring potential: \(V(x) = \frac{1}{2}m\omega^2 x^2\)
-
-**Energy levels:**
+The allowed energies are:
 
 \begin{equation}
 E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, ...
 \end{equation}
 
-Note: Ground state has \(E_0 = \frac{1}{2}\hbar\omega\) (zero-point energy).
+Notice:
+- **Evenly spaced** by ℏω (like a ladder!)
+- **Ground state** (n=0): $E_0 = \frac{1}{2}\hbar\omega$ (the zero-point energy we saw)
+- **First excited** (n=1): $E_1 = \frac{3}{2}\hbar\omega$
+- **Second excited** (n=2): $E_2 = \frac{5}{2}\hbar\omega$
 
-### Hydrogen Atom
+### Position Space Wavefunctions
 
-**Energy levels:**
+For convenience, define the characteristic length scale: $x_0 = \sqrt{\hbar/(m\omega)}$
+
+**Ground state (n=0):**
 
 \begin{equation}
-E_n = -\frac{13.6 \text{ eV}}{n^2}, \quad n = 1, 2, 3, ...
+\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}
 \end{equation}
 
-Ground state: \(n=1\), \(E_1 = -13.6\) eV
+A perfect Gaussian! This is the "just right" width we found.
+
+**First excited state (n=1):**
+
+\begin{equation}
+\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+\end{equation}
+
+A Gaussian with one node at x=0 (antisymmetric).
+
+**Second excited state (n=2):**
+
+\begin{equation}
+\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
+\end{equation}
+
+A Gaussian with two nodes (symmetric).
+
+**Pattern:** Higher n → more nodes → more wiggly → higher KE → higher energy!
+
+### Momentum Space Wavefunctions
+
+The same states in momentum space! Define $p_0 = \sqrt{m\hbar\omega}$.
+
+**Ground state in momentum space:**
+
+\begin{equation}
+\tilde{\psi}_0(p) = \left(\frac{1}{\pi p_0^2}\right)^{1/4} e^{-p^2/(2p_0^2)}
+\end{equation}
+
+**Also a Gaussian!** This is special — Fourier transform of a Gaussian is a Gaussian.
+
+Notice: $x_0 \cdot p_0 = \hbar$ (uncertainty principle: the product of widths is minimized).
+
+**First excited state in momentum space:**
+
+\begin{equation}
+\tilde{\psi}_1(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
+\end{equation}
+
+Same functional form as position space!
+
+**Key observation:** The ground state is equally "spread out" in position and momentum space — it's the minimum uncertainty state.
 
 ---
 
-## Useful Operators
+## One Wavefunction, Many Faces: Basis Decomposition
 
-- **Position:** \(\hat{x} = x\)
-- **Momentum:** \(\hat{p} = -i\hbar\frac{\partial}{\partial x}\)
-- **Hamiltonian (Energy):** \(\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x})\)
+Here's something remarkable: we've been showing the ground state ψ₀(x) in position space, and ψ̃₀(p) in momentum space. But these are **the same quantum state** — just written in different "languages"!
 
-### Heisenberg Uncertainty Principle
+Think about it: a vector like [3, 4] can be expressed in Cartesian coordinates (x,y) or polar coordinates (r,θ). Same vector, different representation. Quantum states work the same way.
+
+### The Same State, Three Ways
+
+Let's take a concrete example: suppose we prepare a harmonic oscillator in its **first excited state** (n=1).
+
+**In the energy basis:**
+
+The state is simply "I'm in energy level 1":
 
 \begin{equation}
-\Delta x \Delta p \geq \frac{\hbar}{2}
+|\psi\rangle = |n=1\rangle
 \end{equation}
 
-You can't know both position and momentum exactly at the same time.
+That's it! The energy basis is the "simplest" way to describe this state because it's an energy eigenstate.
+
+**In the position basis:**
+
+The "how much at each position x" description is:
+
+\begin{equation}
+\psi(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+\end{equation}
+
+This continuous function tells you the amplitude at every point in space.
+
+**In the momentum basis:**
+
+The "how much of each momentum p" description is:
+
+\begin{equation}
+\tilde{\psi}(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
+\end{equation}
+
+Same quantum state, just expressed in terms of momentum components.
+
+### Superposition in Action
+
+Now here's where it gets interesting. Consider a state that's **not** an energy eigenstate:
+
+\begin{equation}
+|\psi\rangle = \frac{1}{\sqrt{2}}|n=0\rangle + \frac{1}{\sqrt{2}}|n=1\rangle
+\end{equation}
+
+This is a **superposition** of ground and first excited states.
+
+**What does this look like in position space?**
+
+Add the two wavefunctions (with their time evolution):
+
+\begin{equation}
+\psi(x,t) = \frac{1}{\sqrt{2}}\psi_0(x)e^{-iE_0 t/\hbar} + \frac{1}{\sqrt{2}}\psi_1(x)e^{-iE_1 t/\hbar}
+\end{equation}
+
+The probability density |ψ(x,t)|² now **oscillates in time** — the wavefunction sloshes back and forth in the well! This is because the two energy components have different time-evolution frequencies.
+
+**What does this look like in the energy basis?**
+
+Super simple:
+
+\begin{equation}
+c_0 = \frac{1}{\sqrt{2}}, \quad c_1 = \frac{1}{\sqrt{2}}, \quad c_2 = 0, \quad c_3 = 0, \quad ...
+\end{equation}
+
+Just a list of coefficients! This is like writing a vector: $|\psi\rangle = [1/\sqrt{2}, 1/\sqrt{2}, 0, 0, ...]^T$
+
+### Operators: Extracting Information
+
+Now we can understand what operators do. An **operator** is a mathematical object that extracts a specific type of information from a state.
+
+**Position operator** x̂:
+- In position basis: multiply by x (trivial!)
+- "Where is the particle?" — gives ⟨x⟩ = ∫ x|ψ(x)|² dx
+
+**Momentum operator** p̂:
+- In position basis: $\hat{p} = -i\hbar \frac{\partial}{\partial x}$ (acts on ψ(x))
+- In momentum basis: multiply by p (trivial!)
+- "What momentum does it have?" — gives ⟨p⟩ = ∫ p|ψ̃(p)|² dp
+
+**Energy operator** (Hamiltonian) Ĥ:
+- In energy basis: multiply by Eₙ (trivial!)
+- "What energy does it have?" — gives ⟨E⟩ = Σ |cₙ|² Eₙ
+
+**Key pattern:** Every operator has a basis where it's simple (just multiplication). These are its **eigenstates**.
+
+### Measurement: Projecting onto a Basis
+
+Here's the quantum measurement postulate in simple terms:
+
+**When you measure an observable (represented by operator Â):**
+
+1. **Decompose** the state in the eigenbasis of Â:
+   $$|\psi\rangle = \sum_i c_i |\lambda_i\rangle$$
+   where |λᵢ⟩ are eigenstates of Â with eigenvalues λᵢ
+
+2. **You get one of the eigenvalues** λᵢ as the measurement result
+
+3. **Probability of getting λᵢ is** |cᵢ|²
+
+4. **After measurement, the state collapses** to |λᵢ⟩
+
+**Example:** Measure energy of our superposition state $|\psi\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$:
+- 50% chance: get E₀ = ½ℏω, state becomes |0⟩
+- 50% chance: get E₁ = 3/2ℏω, state becomes |1⟩
+
+### Introducing Dirac Notation
+
+We've been sneaking in this |ψ⟩ notation (called "ket"). Here's what it means:
+
+**Ket |ψ⟩:** An abstract quantum state (independent of basis)
+
+**Bra ⟨φ|:** The dual vector (used for inner products)
+
+**Inner product ⟨φ|ψ⟩:** Overlap between states (gives a number)
+
+**In position basis:**
+- |ψ⟩ becomes the function ψ(x)
+- ⟨x|ψ⟩ = ψ(x) (amplitude at position x)
+- ⟨φ|ψ⟩ = ∫ φ*(x)ψ(x) dx
+
+**In energy basis:**
+- |ψ⟩ becomes the vector [c₀, c₁, c₂, ...]ᵀ
+- ⟨n|ψ⟩ = cₙ (coefficient of energy eigenstate n)
+- ⟨φ|ψ⟩ = Σ dₙ* cₙ
+
+**Why use this notation?**
+- **Basis-independent:** |ψ⟩ is the same whether you write it in position, momentum, or energy basis
+- **Clean math:** ⟨n|Ĥ|ψ⟩ means "apply Ĥ to |ψ⟩, then project onto |n⟩"
+- **Matrices emerge naturally:** ⟨m|Ĥ|n⟩ is the (m,n) matrix element of Ĥ
+
+### The Bridge to Matrices
+
+In a finite-dimensional space (like spin, or truncating to the first N energy levels), everything becomes linear algebra:
+
+**States** → column vectors:
+$$|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}$$
+
+**Operators** → matrices:
+$$\hat{H} = \begin{pmatrix} E_0 & 0 & 0 & \cdots \\ 0 & E_1 & 0 & \cdots \\ 0 & 0 & E_2 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}$$
+
+**Eigenvalue equation** Ĥ|ψ⟩ = E|ψ⟩ → matrix equation H**c** = E**c**
+
+**Time evolution** → matrix exponential:
+$$|\psi(t)\rangle = e^{-i\hat{H}t/\hbar}|\psi(0)\rangle$$
+
+This is **the same Schrödinger equation** you know, just in matrix form!
+
+The continuous wavefunctions ψ(x) we've been working with are the infinite-dimensional limit. The math structure is identical.
 
 ---
 
-## Constants
-
-- \(\hbar = 1.055 \times 10^{-34}\) J·s
-- Electron mass: \(m_e = 9.109 \times 10^{-31}\) kg
-- 1 eV = \(1.602 \times 10^{-19}\) J
-- Room temperature: \(k_B T \approx 0.026\) eV
+*Next up: We'll explore the simplest quantum system — spin-1/2 — where everything is 2×2 matrices, and all of quantum mechanics fits in a tiny box. This is the foundation of qubits and quantum computing.*
