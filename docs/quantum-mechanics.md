@@ -344,143 +344,188 @@ Two nodes (symmetric). Again, same functional form!
 
 ## One Wavefunction, Many Faces: Basis Decomposition
 
-Here's something remarkable: we've been showing the ground state ψ₀(x) in position space, and ψ̃₀(p) in momentum space. But these are **the same quantum state** — just written in different "languages"!
+Quantum states can be expressed in different "coordinate systems" — just like a vector [3, 4] can be written in Cartesian (x,y) or polar (r,θ) coordinates. The key difference: some bases are **discrete** (like energy levels) and some are **continuous** (like position).
 
-Think about it: a vector like [3, 4] can be expressed in Cartesian coordinates (x,y) or polar coordinates (r,θ). Same vector, different representation. Quantum states work the same way.
+Let's see how the same math structure appears in both cases.
 
-### The Same State, Three Ways
+### Part 1: Energy Basis (Discrete) — Mixing Different Energies
 
-Let's take a concrete example: suppose we prepare a harmonic oscillator in its **first excited state** (n=1).
-
-**In the energy basis:**
-
-The state is simply "I'm in energy level 1":
+Consider a **superposition** of different energy states:
 
 $$
-|\psi\rangle = |n=1\rangle
+|\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle + \cdots
 $$
 
-That's it! The energy basis is the "simplest" way to describe this state because it's an energy eigenstate.
+This is a sum of the ground state $|0\rangle$ with energy $E_0 = \frac{1}{2}\hbar\omega$, first excited $|1\rangle$ with $E_1 = \frac{3}{2}\hbar\omega$, etc. The coefficients $c_n$ tell you "how much" of each energy is present.
 
-**In the position basis:**
+**Introducing Dirac notation:** The inner product $c_n = \langle n|\psi\rangle$ extracts the "n-component" of the state.
 
-The "how much at each position x" description is:
-
-$$
-\psi(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
-$$
-
-This continuous function tells you the amplitude at every point in space.
-
-**In the momentum basis:**
-
-The "how much of each momentum p" description is:
+This is just a **column vector** in disguise:
 
 $$
-\tilde{\psi}(p) = \left(\frac{1}{4\pi p_0^2}\right)^{1/4} \frac{2p}{p_0} e^{-p^2/(2p_0^2)}
+|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
 $$
 
-Same quantum state, just expressed in terms of momentum components.
+**Calculating probabilities (discrete sums):**
 
-### Superposition in Action
-
-Now here's where it gets interesting. Consider a state that's **not** an energy eigenstate:
+The probability of measuring energy $E_n$ is $|c_n|^2$. Want the probability of finding the particle in one of the lowest two energy states?
 
 $$
-|\psi\rangle = \frac{1}{\sqrt{2}}|n=0\rangle + \frac{1}{\sqrt{2}}|n=1\rangle
+P(E_0 \text{ or } E_1) = |c_0|^2 + |c_1|^2
 $$
 
-This is a **superposition** of ground and first excited states.
+Just add up the individual probabilities — a discrete sum over the states you care about!
 
-**What does this look like in position space?**
+**Extracting expectation values with operators:**
 
-Add the two wavefunctions (with their time evolution):
-
-$$
-\psi(x,t) = \frac{1}{\sqrt{2}}\psi_0(x)e^{-iE_0 t/\hbar} + \frac{1}{\sqrt{2}}\psi_1(x)e^{-iE_1 t/\hbar}
-$$
-
-The probability density |ψ(x,t)|² now **oscillates in time** — the wavefunction sloshes back and forth in the well! This is because the two energy components have different time-evolution frequencies.
-
-**What does this look like in the energy basis?**
-
-Super simple:
+To get the average energy, use the energy operator (Hamiltonian) $\hat{H}$:
 
 $$
-c_0 = \frac{1}{\sqrt{2}}, \quad c_1 = \frac{1}{\sqrt{2}}, \quad c_2 = 0, \quad c_3 = 0, \quad ...
+\langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \sum_n |c_n|^2 E_n
 $$
 
-Just a list of coefficients! This is like writing a vector: $|\psi\rangle = [1/\sqrt{2}, 1/\sqrt{2}, 0, 0, ...]^T$
+In this basis, $\hat{H}$ is **trivial** — it's a diagonal matrix that just multiplies each component by its energy:
 
-### Operators: Extracting Information
-
-Now we can understand what operators do. An **operator** is a mathematical object that extracts a specific type of information from a state.
-
-**Position operator** x̂:
-- In position basis: multiply by x (trivial!)
-- "Where is the particle?" — gives ⟨x⟩ = ∫ x|ψ(x)|² dx
-
-**Momentum operator** p̂:
-- In position basis: $\hat{p} = -i\hbar \frac{\partial}{\partial x}$ (acts on ψ(x))
-- In momentum basis: multiply by p (trivial!)
-- "What momentum does it have?" — gives ⟨p⟩ = ∫ p|ψ̃(p)|² dp
-
-**Energy operator** (Hamiltonian) Ĥ:
-- In energy basis: multiply by Eₙ (trivial!)
-- "What energy does it have?" — gives ⟨E⟩ = Σ |cₙ|² Eₙ
-
-**Key pattern:** Every operator has a basis where it's simple (just multiplication). These are its **eigenstates**.
-
-### Measurement: Projecting onto a Basis
-
-Here's the quantum measurement postulate in simple terms:
-
-**When you measure an observable (represented by operator Â):**
-
-1. **Decompose** the state in the eigenbasis of Â:
-   $$
-|\psi\rangle = \sum_i c_i |\lambda_i\rangle
 $$
-   where |λᵢ⟩ are eigenstates of Â with eigenvalues λᵢ
+\hat{H} = \begin{pmatrix} E_0 & 0 & 0 & \cdots \\ 0 & E_1 & 0 & \cdots \\ 0 & 0 & E_2 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}
+$$
 
-2. **You get one of the eigenvalues** λᵢ as the measurement result
+What about the average position? That's **harder** in this basis:
 
-3. **Probability of getting λᵢ is** |cᵢ|²
+$$
+\langle x \rangle = \langle \psi | \hat{x} | \psi \rangle = \sum_{m,n} c_m^* c_n \langle m|\hat{x}|n\rangle
+$$
 
-4. **After measurement, the state collapses** to |λᵢ⟩
+You need the matrix elements $\langle m|\hat{x}|n\rangle$ — the position operator is complicated (non-diagonal) in the energy basis!
 
-**Example:** Measure energy of our superposition state $|\psi\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$:
-- 50% chance: get E₀ = ½ℏω, state becomes |0⟩
-- 50% chance: get E₁ = 3/2ℏω, state becomes |1⟩
+**Time evolution:**
+
+Each energy component rotates at its own frequency: $c_n(t) = c_n(0) e^{-iE_n t/\hbar}$. The probability density $|\psi(x,t)|^2$ **oscillates in time** — the wavefunction sloshes back and forth because different energies beat against each other.
+
+### Part 2: Position Basis (Continuous) — One Energy, Different View
+
+Now take a **single energy eigenstate** — say the first excited state $|n=1\rangle$ with definite energy $E_1 = \frac{3}{2}\hbar\omega$.
+
+In the energy basis, this is simple: $|\psi\rangle = |1\rangle$, or $c_0 = 0, c_1 = 1, c_2 = 0, ...$
+
+But we can decompose **this same state** in the **position basis**. Think of it as a continuous sum over all positions:
+
+$$
+|\psi\rangle = \int \psi(x) |x\rangle dx
+$$
+
+where $\psi(x) = \langle x|\psi\rangle$ is the "amplitude at position x". For the first excited state:
+
+$$
+\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+$$
+
+**Physical picture:** Think of $|x\rangle$ as an "impulse" (delta function) localized at position x. The wavefunction $\psi(x)$ tells you "how much of each impulse" to mix together. It's like a continuous weighted sum of impulses — analogous to convolution!
+
+**Calculating probabilities (continuous sums/integrals):**
+
+The probability density at position x is $|\psi(x)|^2$. Want the probability of finding the particle between x = 0 and x = $x_0$?
+
+$$
+P(0 \leq x \leq x_0) = \int_0^{x_0} |\psi(x)|^2 dx
+$$
+
+Integrate the probability density — a continuous sum over the region you care about! This is the continuous analog of $|c_0|^2 + |c_1|^2$.
+
+**Extracting expectation values with operators:**
+
+To get the average position, use the position operator $\hat{x}$:
+
+$$
+\langle x \rangle = \langle \psi | \hat{x} | \psi \rangle = \int x |\psi(x)|^2 dx
+$$
+
+In this basis, $\hat{x}$ is **trivial** — it just multiplies by x. Super easy!
+
+What about the average energy? Apply the Hamiltonian:
+
+$$
+\langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \int \psi^*(x) \left[-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)\right] \psi(x) dx
+$$
+
+Since $\psi_1(x)$ is an energy eigenstate, this just gives $E_1$ back. But notice: $\hat{H}$ is **complicated** here — it's a differential operator!
+
+What about momentum? Use $\hat{p} = -i\hbar \frac{\partial}{\partial x}$:
+
+$$
+\langle p \rangle = \int \psi^*(x) \left(-i\hbar \frac{\partial}{\partial x}\right) \psi(x) dx
+$$
+
+For this symmetric state, $\langle p \rangle = 0$ (particle moves left and right equally).
+
+**Time evolution:**
+
+Since this is an energy eigenstate, $\psi(x,t) = \psi(x) e^{-iE_1 t/\hbar}$. The probability density $|\psi(x,t)|^2 = |\psi(x)|^2$ is **constant in time** — stationary state!
+
+### The Parallel Structure
+
+Notice the pattern:
+
+| Concept | Energy Basis (Discrete) | Position Basis (Continuous) |
+|---------|-------------------------|----------------------------|
+| **State components** | $c_n = \langle n\|\psi\rangle$ (numbers) | $\psi(x) = \langle x\|\psi\rangle$ (function) |
+| **Combine components** | $\sum_n$ (discrete sum) | $\int dx$ (continuous sum) |
+| **Probability** | $\|c_n\|^2$ | $\|\psi(x)\|^2$ (density) |
+| **Sum probabilities** | $\sum_n \|c_n\|^2 = 1$ | $\int \|\psi(x)\|^2 dx = 1$ |
+| **Easy operator** | $\hat{H}$ (diagonal matrix) | $\hat{x}$ (multiply by x) |
+| **Hard operator** | $\hat{x}$ (off-diagonal matrix) | $\hat{H}$ (differential) |
+
+**Key insight:** Discrete sums become integrals, but the structure is identical. Energy basis is finite-dimensional linear algebra; position basis is infinite-dimensional, but same rules!
+
+### Why Eigenstates Are Special
+
+Here's the bottom line: **eigenstates form a complete orthogonal basis**. This means:
+
+1. **Any state can be decomposed** into eigenstates (they're linearly independent and span the space)
+2. **Eigenstates are orthogonal:** $\langle m|n\rangle = \delta_{mn}$ (0 if m≠n, 1 if m=n)
+3. **This makes probabilities simple:** Because of orthogonality, $\sum_n |c_n|^2 = 1$ automatically
+4. **Operators act simply on their eigenstates:** $\hat{H}|n\rangle = E_n|n\rangle$ — just multiply by eigenvalue!
+
+When you measure an observable, you're asking "which eigenstate am I in?" The decomposition $|\psi\rangle = \sum_n c_n |n\rangle$ tells you the probability amplitudes. The orthogonality means these probabilities don't interfere — they just add like classical probabilities.
+
+**This is why Dirac notation is so powerful!**
 
 ### Introducing Dirac Notation
 
-We've been sneaking in this |ψ⟩ notation (called "ket"). Here's what it means:
+We've been using this |ψ⟩ notation (called a "ket"). Here's the formal picture:
 
 **Ket |ψ⟩:** An abstract quantum state (independent of basis)
 
-**Bra ⟨φ|:** The dual vector (used for inner products)
+**Bra ⟨φ|:** The dual vector (complex conjugate transpose for inner products)
 
-**Inner product ⟨φ|ψ⟩:** Overlap between states (gives a number)
+**Inner product ⟨φ|ψ⟩:** Overlap between states (gives a complex number)
 
-**In position basis:**
-- |ψ⟩ becomes the function ψ(x)
-- ⟨x|ψ⟩ = ψ(x) (amplitude at position x)
-- ⟨φ|ψ⟩ = ∫ φ*(x)ψ(x) dx
+The key insight: $c_n = \langle n|\psi\rangle$ extracts the component of $|\psi\rangle$ along $|n\rangle$.
 
-**In energy basis:**
-- |ψ⟩ becomes the vector [c₀, c₁, c₂, ...]ᵀ
-- ⟨n|ψ⟩ = cₙ (coefficient of energy eigenstate n)
-- ⟨φ|ψ⟩ = Σ dₙ* cₙ
+**In the energy basis:**
+- $|\psi\rangle$ is a column vector $[c_0, c_1, c_2, ...]^T$
+- $\langle n|\psi\rangle = c_n$ (the n-th component)
+- $\langle \psi|\phi\rangle = \sum_n c_n^* d_n$ (inner product)
+
+**In the position basis:**
+- $|\psi\rangle$ becomes the function $\psi(x)$
+- $\langle x|\psi\rangle = \psi(x)$ (amplitude at position x)
+- $\langle \psi|\phi\rangle = \int \psi^*(x)\phi(x) dx$ (inner product)
+
+**Operators in Dirac notation:**
+
+Expectation value: $\langle \hat{A} \rangle = \langle \psi | \hat{A} | \psi \rangle$
+
+Matrix element: $\langle m|\hat{A}|n\rangle$ is the (m,n) entry of the operator's matrix representation
 
 **Why use this notation?**
-- **Basis-independent:** |ψ⟩ is the same whether you write it in position, momentum, or energy basis
-- **Clean math:** ⟨n|Ĥ|ψ⟩ means "apply Ĥ to |ψ⟩, then project onto |n⟩"
-- **Matrices emerge naturally:** ⟨m|Ĥ|n⟩ is the (m,n) matrix element of Ĥ
+- **Basis-independent:** $|\psi\rangle$ is the same abstract state whether you write it as $c_n$ or $\psi(x)$
+- **Clean formulas:** The same expression works in any basis — just change what $\langle \cdot | \cdot \rangle$ means!
+- **Matrices emerge naturally:** In a discrete basis, everything is linear algebra
 
-### The Bridge to Matrices
+### The Bridge to Matrix Mechanics
 
-In a finite-dimensional space (like spin, or truncating to the first N energy levels), everything becomes linear algebra:
+In a finite-dimensional space (like spin-½, or truncating to the first N energy levels), everything becomes concrete linear algebra:
 
 **States** → column vectors:
 
@@ -488,23 +533,23 @@ $$
 |\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
 $$
 
-**Operators** → matrices:
+**Operators** → matrices. The Hamiltonian in the energy basis is diagonal:
 
 $$
 \hat{H} = \begin{pmatrix} E_0 & 0 & 0 & \cdots \\ 0 & E_1 & 0 & \cdots \\ 0 & 0 & E_2 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}
 $$
 
-**Eigenvalue equation** Ĥ|ψ⟩ = E|ψ⟩ → matrix equation H**c** = E**c**
+**Eigenvalue equation:** $\hat{H}|\psi\rangle = E|\psi\rangle$ becomes $H\mathbf{c} = E\mathbf{c}$ (standard matrix eigenvalue problem)
 
-**Time evolution** → matrix exponential:
+**Time evolution:** The Schrödinger equation becomes a matrix exponential:
 
 $$
 |\psi(t)\rangle = e^{-i\hat{H}t/\hbar}|\psi(0)\rangle
 $$
 
-This is **the same Schrödinger equation** you know, just in matrix form!
+For a diagonal $\hat{H}$, this just rotates each component: $c_n(t) = e^{-iE_n t/\hbar} c_n(0)$.
 
-The continuous wavefunctions ψ(x) we've been working with are the infinite-dimensional limit. The math structure is identical.
+**The punchline:** The continuous wavefunctions $\psi(x)$ we've been working with are the **infinite-dimensional limit** of this finite-dimensional picture. Same mathematical structure — eigenstates, operators, inner products — just with integrals instead of sums!
 
 ---
 
