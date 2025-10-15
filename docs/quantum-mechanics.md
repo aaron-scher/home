@@ -448,6 +448,31 @@ This extracts the amplitude at position x. Do this for all x to get the full wav
 - Energy basis: discrete set of vectors |n⟩, so you get discrete coefficients cₙ
 - Position basis: continuous set of "vectors" |x⟩, so you get a continuous function ψ(x)
 
+**Key insight: Both are column vectors!**
+
+Here's another way to see it: in **both** representations, you have a column vector where each entry is an amplitude:
+
+**Energy basis** (discrete column vector):
+
+$$
+|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix} \quad \text{(entry } n \text{ = amplitude for energy state } n\text{)}
+$$
+
+**Position basis** (continuous column vector):
+
+$$
+|\psi\rangle = \begin{pmatrix} \vdots \\ \psi(x_1) \\ \psi(x_2) \\ \psi(x_3) \\ \vdots \end{pmatrix} \quad \text{(entry } x \text{ = amplitude at position } x\text{)}
+$$
+
+But wait - position x is continuous, so you can't write it as a discrete list! Instead of indexing rows by integers n = 0, 1, 2, ..., you're indexing rows by real numbers x. Since there are uncountably many real numbers, the "vector" has infinitely many entries. We write this infinite-dimensional continuous vector as a **function** ψ(x).
+
+**The function ψ(x) IS the column vector** - just with a continuous index instead of discrete!
+
+This is why all the operations look the same:
+- Discrete sum: $\sum_n c_n$ → Continuous integral: $\int \psi(x) dx$
+- Inner product: $\sum_n c_n^* d_n$ → Inner product: $\int \psi^*(x) \phi(x) dx$
+- Same structure, continuous instead of discrete!
+
 **CRITICAL CLARIFICATION:** What exactly is $|n\rangle$? Is it a vector or a wavefunction?
 
 **Answer: It's BOTH!** This is the key insight of Dirac notation. The abstract state $|n\rangle$ can be represented in different ways:
