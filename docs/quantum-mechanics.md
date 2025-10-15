@@ -346,11 +346,66 @@ Two nodes (symmetric). Again, same functional form!
 
 Quantum states can be expressed in different "coordinate systems" — just like a vector [3, 4] can be written in Cartesian (x,y) or polar (r,θ) coordinates. The key difference: some bases are **discrete** (like energy levels) and some are **continuous** (like position).
 
-Let's see how the same math structure appears in both cases.
+### Understanding Quantum "Coordinates": The Big Picture
+
+Before diving into examples, let's understand what makes quantum mechanics different from classical physics.
+
+**Classical vectors:** Components point in spatial directions
+
+With a vector like $\vec{v} = (v_x, v_y, v_z)$, each component tells you "how much of the vector points in that direction" (x, y, or z).
+
+**Quantum states:** Components point in "observable directions"
+
+Here's the key idea: **you have a single quantum state (one "vector"), and you're just using different coordinate systems to describe it** — exactly like describing the same arrow in 3D space using Cartesian (x,y,z) vs spherical (r,θ,φ) coordinates. The arrow doesn't change, just the numbers you use to describe it!
+
+In quantum mechanics, **the "directions" are physical observables**:
+- Energy basis: each component $c_n$ tells you "how much is in energy state n"
+- Position basis: each value $\psi(x)$ tells you "how much is at position x"
+- Momentum basis: each value $\tilde{\psi}(p)$ tells you "how much has momentum p"
+
+**The "coordinates" in quantum mechanics are observables!** The quantum state is the same, but you're measuring it along different physical quantities (energy, position, momentum) instead of spatial directions.
+
+**Functions are vectors with continuous indices**
+
+Here's a profound insight: Think about a time signal f(t). At each time t, you have a number f(t). This **is a vector** — just with a continuous index instead of discrete entries! Since time is continuous, you can't write it as a finite list [f₁, f₂, f₃, ...], so you write it as a **function** f(t). Mathematically, it's the same as a vector in an infinite-dimensional **Hilbert space**.
+
+Apply this to quantum mechanics:
+
+| Representation | "Index" | "Component" | Written as |
+|----------------|---------|-------------|------------|
+| **Energy basis** | n (discrete: 0, 1, 2, ...) | $c_n$ = "how much of energy n" | Discrete vector: $[c_0, c_1, c_2, ...]^T$ |
+| **Position basis** | x (continuous: all real numbers) | $\psi(x)$ = "how much at position x" | Function: $\psi(x)$ |
+| **Momentum basis** | p (continuous) | $\tilde{\psi}(p)$ = "how much with momentum p" | Function: $\tilde{\psi}(p)$ |
+
+**Same quantum state |ψ⟩, different coordinate systems!**
+
+This is profound: The quantum state itself doesn't change. It's an abstract "vector" living in Hilbert space. When you write it as [c₀, c₁, c₂, ...]ᵀ (energy basis) or ψ(x) (position basis), you're just picking different coordinates to describe the **same physical state** — like the same arrow described as (x,y,z) = (3,4,0) or (r,θ,φ) = (5, 53°, 0°).
+
+**How do you transform between bases?**
+
+The inner product does the work! To express the abstract state $|\psi\rangle$ in any basis, take the inner product with each basis vector:
+
+- Energy basis: $c_n = \langle n | \psi \rangle$ extracts the n-th coefficient
+- Position basis: $\psi(x) = \langle x | \psi \rangle$ extracts the amplitude at x
+
+Same operation, just discrete vs continuous. This is why:
+- Sums become integrals: $\sum_n \rightarrow \int dx$
+- Inner products look the same: $\sum_n c_n^* d_n \rightarrow \int \psi^*(x)\phi(x) dx$
+
+**What exactly is |n⟩ — vector or wavefunction?**
+
+Both! The symbol $|n\rangle$ is **basis-independent** — it's the abstract quantum state. When expressed in different bases:
+
+- In energy basis: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$ (simple vector)
+- In position basis: $|1\rangle \rightarrow \psi_1(x)$ (function - we'll see what this looks like below)
+
+Like the number 3 written as "3" (decimal), "11" (binary), or "III" (Roman) — same thing, different notation!
+
+---
 
 ### Part 1: Energy Basis (Discrete) — Mixing Different Energies
 
-Let's start with a concrete example and then show how Dirac notation is just compact shorthand for the same thing.
+Now let's see a concrete example of how the same quantum state looks in different bases.
 
 **Concrete example: ONE quantum state, TWO ways to write it**
 
@@ -413,7 +468,42 @@ Here's the profound insight: You have ONE quantum state |ψ⟩, but different qu
   - **Natural basis:** Momentum! Use ψ̃(p) (Fourier transform of ψ(x))
   - **Answer:** $|\tilde{\psi}(p)|^2$
 
-**Schrödinger's equation is "position-biased"** because it was originally written in position coordinates: $i\hbar\frac{\partial\psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} + V(x)\psi$. But the underlying physics (the quantum state |ψ⟩) is more fundamental — you can express it in whatever coordinates are most useful for the question you're asking!
+**Schrödinger's equation looks different in different bases!**
+
+The usual form you see is "position-biased" because it's written in position coordinates:
+
+$$
+i\hbar\frac{\partial\psi(x,t)}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2\psi(x,t)}{\partial x^2} + V(x)\psi(x,t)
+$$
+
+But you can write Schrödinger's equation in **any basis**:
+
+**Energy basis** (super simple!):
+$$
+i\hbar\frac{dc_n(t)}{dt} = E_n c_n(t)
+$$
+Solution: $c_n(t) = c_n(0) e^{-iE_n t/\hbar}$ — just a rotating phase!
+
+**Momentum basis**:
+$$
+i\hbar\frac{\partial\tilde{\psi}(p,t)}{\partial t} = \frac{p^2}{2m}\tilde{\psi}(p,t) + \tilde{V}(p)\tilde{\psi}(p,t)
+$$
+(Kinetic energy is simple, potential is complicated - opposite of position space!)
+
+**Basis-independent form** (the most fundamental!):
+$$
+i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle
+$$
+
+This is the "true" Schrödinger equation — it doesn't care about what basis you use! The abstract quantum state |ψ(t)⟩ is more fundamental than any particular representation ψ(x,t) or c_n(t).
+
+**The state "rotates" in Hilbert space with time**
+
+Here's a beautiful way to think about time evolution: The quantum state |ψ(t)⟩ is a vector in an infinite-dimensional Hilbert space. As time passes, this vector **rotates**!
+
+In the energy basis, each component c_n picks up a phase $e^{-iE_n t/\hbar}$. Since different energy components rotate at different rates, the overall state vector traces out a complicated path through Hilbert space — kind of like a vector in 3D space rotating, but in infinitely many dimensions!
+
+For a single energy eigenstate, the "rotation" is simple — just one component spinning at frequency ω = E/ℏ. For superpositions, different components beat against each other, creating the oscillating probability densities we see.
 
 ---
 
