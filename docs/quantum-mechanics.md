@@ -193,24 +193,28 @@ Or written out fully:
 
 Here's the key physical insight from the time-independent equation.
 
-Rearrange it:
+Start with the Schrödinger equation and **divide both sides by ψ**:
 
 \begin{equation}
--\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = [E - V(x)]\psi
+-\frac{\hbar^2}{2m}\frac{\psi''}{\psi} = E - V(x)
 \end{equation}
 
-The left side is the **kinetic energy** (related to momentum, which is about wiggliness). The right side is \(E - V(x)\).
+Now the physics is crystal clear:
 
-Since total energy \(E = KE + PE\), we have \(KE = E - V(x)\).
+**Left side:** The second derivative ψ'' measures how much the wavefunction curves. Dividing by ψ itself gives the **local kinetic energy**.
+
+**Right side:** Since total energy E = KE + PE, we have KE = E - V(x).
+
+**Why divide by ψ?** When you localize (squeeze) a wavefunction, two things happen: it gets taller (higher amplitude at the peak) and sharper (higher curvature). Dividing by ψ separates these effects — ψ''/ψ captures just the sharpness of the curve, independent of the overall height. This is what determines the kinetic energy.
 
 **What this means:**
 
-- **Low potential** (\(V\) small) → high kinetic energy → high momentum → \(\psi\) is very wiggly (large \(d^2/dx^2\))
-- **High potential** (\(V\) large) → low kinetic energy → low momentum → \(\psi\) is less wiggly (small \(d^2/dx^2\))
+- **Low potential** (V small) → right side is large → ψ''/ψ is large → ψ is very wiggly
+- **High potential** (V large) → right side is small → ψ''/ψ is small → ψ is less wiggly
 
-The equation literally says: **the spatial wiggliness equals the kinetic energy**!
+The equation literally says: **the curvature of ψ (relative to its value) equals the local kinetic energy**!
 
-When you solve for \(\psi(x)\), it automatically adjusts its wiggliness to match the local kinetic energy. In regions where potential is low, the wave function oscillates rapidly. Where potential is high, it oscillates slowly (or even decays exponentially if \(V > E\)).
+When you solve for ψ(x), it automatically adjusts its wiggliness to match the kinetic energy at each point. In regions where potential is low, the wavefunction oscillates rapidly. Where potential is high, it oscillates slowly (or even decays exponentially if V > E).
 
 ---
 
@@ -254,9 +258,9 @@ Only ψ₂ (the "just right" width) gives approximately constant $E(x)$ — this
 
 1. The wavefunction **spreads out** (can't be localized to a point)
 2. The particle has **kinetic energy even in the ground state**
-3. The minimum energy $E_0 = \frac{1}{2}\hbar\omega$ is **not zero**
+3. For this specific potential ($V = \frac{1}{2}m\omega^2 x^2$), the minimum energy is $E_0 = \frac{1}{2}\hbar\omega$, **not zero**
 
-This is the **zero-point energy** — a purely quantum effect arising from the uncertainty principle. If you try to confine the particle too tightly (small Δx), its momentum uncertainty Δp increases, giving it kinetic energy. The ground state is the perfect balance.
+This minimum energy is the **zero-point energy** — a purely quantum effect arising from the uncertainty principle. If you try to confine the particle too tightly (small Δx), its momentum uncertainty Δp increases, giving it kinetic energy. The ground state is the perfect balance between being localized enough to stay near the potential minimum, but spread out enough to avoid excessive kinetic energy.
 
 **Key insight:** The time-independent Schrödinger equation is essentially saying "find the wavefunction shape where curvature (KE) and potential energy add up to the same constant everywhere." Only specific shapes (eigenstates) and energies (eigenvalues) work!
 
