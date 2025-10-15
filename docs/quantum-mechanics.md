@@ -214,6 +214,54 @@ When you solve for \(\psi(x)\), it automatically adjusts its wiggliness to match
 
 ---
 
+## Why Can't a Particle Just Sit at the Bottom of a Well?
+
+### Classical vs Quantum Ground State
+
+**Classical intuition:** If you put a ball in a bowl (harmonic oscillator potential), the lowest energy state is the ball sitting still at the bottom. Total energy = 0.
+
+**Quantum reality:** This doesn't work! Here's why.
+
+If we try to localize the particle tightly at the bottom of the well (making ψ very narrow), the wavefunction has **high curvature**. Remember from the Schrödinger equation:
+
+$$
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi
+$$
+
+High curvature (large $d^2\psi/dx^2$) means **high kinetic energy**. This makes the total energy $E(x)$ shoot up in the center, so $E(x)$ is not constant — meaning it's **not a stationary state**.
+
+### Finding the "Just Right" Width
+
+Let's test three different Gaussian trial wavefunctions with different widths:
+
+![Gaussian widths comparison](images/harmonic_oscillator_gaussians_1.png)
+
+- **ψ₁ (narrow, red):** Sharp peak → high curvature at center → high KE
+- **ψ₂ (medium, green):** "Just right" width — balances spread vs curvature
+- **ψ₃ (wide, blue):** Flat peak → low curvature → low KE
+
+Now let's check which one gives constant total energy $E(x) = \text{KE}(x) + V(x)$:
+
+![Local energy comparison](images/harmonic_oscillator_gaussians_2.png)
+
+- **E₁ (red):** Too much KE → $E(x)$ bulges at center (not constant!)
+- **E₂ (green):** Nearly flat $E(x)$ → this is a **stationary state**!
+- **E₃ (blue):** Not enough KE to balance the rising potential $V(x)$ → $E(x)$ varies
+
+### The Zero-Point Energy
+
+Only ψ₂ (the "just right" width) gives approximately constant $E(x)$ — this is the **ground state** of the harmonic oscillator. Notice:
+
+1. The wavefunction **spreads out** (can't be localized to a point)
+2. The particle has **kinetic energy even in the ground state**
+3. The minimum energy $E_0 = \frac{1}{2}\hbar\omega$ is **not zero**
+
+This is the **zero-point energy** — a purely quantum effect arising from the uncertainty principle. If you try to confine the particle too tightly (small Δx), its momentum uncertainty Δp increases, giving it kinetic energy. The ground state is the perfect balance.
+
+**Key insight:** The time-independent Schrödinger equation is essentially saying "find the wavefunction shape where curvature (KE) and potential energy add up to the same constant everywhere." Only specific shapes (eigenstates) and energies (eigenvalues) work!
+
+---
+
 ## Standard Problems (Quick Reference)
 
 ### Particle in a Box
