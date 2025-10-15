@@ -350,51 +350,82 @@ Let's see how the same math structure appears in both cases.
 
 ### Part 1: Energy Basis (Discrete) — Mixing Different Energies
 
-Consider a **superposition** of different energy states at time t=0:
+Let's start with a concrete example and then show how Dirac notation is just compact shorthand for the same thing.
+
+**Concrete example: superposition of three energy states**
+
+Suppose we have a particle in a superposition of the first three energy eigenstates of the harmonic oscillator. In position space, the full time-dependent wavefunction is:
 
 $$
-|\psi(0)\rangle = |\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle + \cdots
+\psi(x,t) = c_0 \psi_0(x) e^{-iE_0 t/\hbar} + c_1 \psi_1(x) e^{-iE_1 t/\hbar} + c_2 \psi_2(x) e^{-iE_2 t/\hbar}
 $$
 
-This is a sum of the ground state $|0\rangle$ with energy $E_0 = \frac{1}{2}\hbar\omega$, first excited $|1\rangle$ with $E_1 = \frac{3}{2}\hbar\omega$, etc. The coefficients $c_n$ tell you "how much" of each energy is present. For simplicity, we often write $|\psi\rangle$ to mean the state at t=0.
+where the energies are:
+- Ground state: $E_0 = \frac{1}{2}\hbar\omega$
+- First excited: $E_1 = \frac{3}{2}\hbar\omega$
+- Second excited: $E_2 = \frac{5}{2}\hbar\omega$
 
-**Concrete example in position space:** Let's take just the first two states for simplicity. In position space, this superposition looks like:
-
-$$
-\psi(x,t) = c_0 \psi_0(x) e^{-iE_0 t/\hbar} + c_1 \psi_1(x) e^{-iE_1 t/\hbar}
-$$
-
-where $\psi_0(x)$ and $\psi_1(x)$ are the actual wavefunctions we saw earlier:
+and the actual spatial wavefunctions are:
 
 $$
-\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}, \quad \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}
 $$
 
-You're literally adding two wavefunctions together, each with its own amplitude ($c_0$ and $c_1$) and time evolution phase ($e^{-iE_n t/\hbar}$). Because they have different energies, they rotate at different frequencies, making the probability density $|\psi(x,t)|^2$ oscillate in time!
+$$
+\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}
+$$
 
-**Introducing Dirac notation:** The inner product $c_n = \langle n|\psi\rangle$ extracts the "n-component" of the state.
+$$
+\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}
+$$
+
+You're literally adding three wavefunctions together, each with its own amplitude ($c_0$, $c_1$, $c_2$) and time evolution phase ($e^{-iE_n t/\hbar}$). Because they have different energies, they rotate at different frequencies, making the probability density $|\psi(x,t)|^2$ oscillate in time!
+
+**Now in Dirac notation — the exact same thing!**
+
+The expression above can be written compactly as:
+
+$$
+|\psi(t)\rangle = c_0 |0\rangle e^{-iE_0 t/\hbar} + c_1 |1\rangle e^{-iE_1 t/\hbar} + c_2 |2\rangle e^{-iE_2 t/\hbar}
+$$
+
+This is **exactly the same physics**, just shorthand! The symbol $|0\rangle$ represents the ground state eigenfunction $\psi_0(x)$, $|1\rangle$ represents $\psi_1(x)$, and $|2\rangle$ represents $\psi_2(x)$.
+
+**What about at t=0?**
+
+At time $t=0$, the phase factors all equal 1 (since $e^{-i \cdot 0} = 1$), so the state simplifies to:
+
+$$
+|\psi(0)\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle
+$$
+
+**Notation convention:** When we write $|\psi\rangle$ without a time argument, we typically mean **the state at t=0**. This is useful because the coefficients $c_n$ are constants — they don't change with time! Only the phases $e^{-iE_n t/\hbar}$ evolve. So when discussing properties that don't depend on time (like "what is the probability of measuring energy $E_1$?"), we just write $|\psi\rangle$ to mean the initial state.
 
 **CRITICAL CLARIFICATION:** What exactly is $|n\rangle$? Is it a vector or a wavefunction?
 
-**Answer: It's BOTH!** This is the key insight. The abstract state $|n\rangle$ can be represented in different ways:
+**Answer: It's BOTH!** This is the key insight of Dirac notation. The abstract state $|n\rangle$ can be represented in different ways:
 
-**In the energy basis** (discrete):
-- $|n\rangle$ is a column vector with 1 at position n and zeros elsewhere
-- Example: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$
+**In position space** (what we just wrote out):
+- $|0\rangle$ means the wavefunction $\psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)}$
+- $|1\rangle$ means the wavefunction $\psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$
+- $|2\rangle$ means the wavefunction $\psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)}$
 
-**In the position basis** (continuous):
-- $|n\rangle$ becomes the wavefunction $\psi_n(x)$
-- Example: $|1\rangle \rightarrow \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$
+**In the energy basis** (discrete vector notation):
+- $|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$, $|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \end{pmatrix}$
 
-**Same quantum state, different representation!** The abstract symbol $|n\rangle$ is basis-independent — it's the actual physical state. When you "express it" in the energy basis, you get a simple vector. When you "express it" in position space, you get the wavefunction we calculated earlier. This is the whole point of Dirac notation!
+**Same quantum state, different representation!** The abstract symbol $|n\rangle$ is basis-independent — it's the actual physical state. When you "express it" in position space, you get the wavefunction. When you "express it" in the energy basis, you get a simple vector with 1 at position n.
 
-Think of it like the number 3 — you can write it as "3" (decimal), "11" (binary), or "III" (Roman). Same number, different notation. Same quantum state, different basis!
+Think of it like the number 3 — you can write it as "3" (decimal), "11" (binary), or "III" (Roman numerals). Same number, different representation. Same quantum state, different basis!
 
-This is just a **column vector** in disguise **when working in the energy basis**:
+**Our superposition state as a column vector:**
+
+When working in the energy basis, our superposition $|\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle$ is just a column vector:
 
 $$
 |\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
 $$
+
+The first entry is the amplitude of being in the ground state, the second entry is the amplitude of the first excited state, etc.
 
 **Example: Extracting a component with the inner product**
 
@@ -416,7 +447,12 @@ It picks out the second entry! This works because the eigenstates are **orthonor
 
 **Calculating probabilities (discrete sums):**
 
-The probability of measuring energy $E_n$ is $|c_n|^2$. Want the probability of finding the particle in one of the lowest two energy states?
+The probability of measuring energy $E_n$ is $|c_n|^2$. For our three-state example:
+- Probability of measuring $E_0$: $|c_0|^2$
+- Probability of measuring $E_1$: $|c_1|^2$
+- Probability of measuring $E_2$: $|c_2|^2$
+
+Want the probability of finding the particle in one of the lowest two energy states?
 
 $$
 P(E_0 \text{ or } E_1) = |c_0|^2 + |c_1|^2
@@ -530,13 +566,20 @@ The position operator is **non-diagonal** in the energy basis — it mixes diffe
 
 **Time evolution:**
 
-**Important clarification:** The coefficients $c_0, c_1, c_2, ...$ themselves are **constants** — they don't change with time! What changes is the **phase** of each energy component. The full time-dependent state is:
+Remember we started with the full time-dependent state:
 
 $$
-|\psi(t)\rangle = c_0 |0\rangle e^{-iE_0 t/\hbar} + c_1 |1\rangle e^{-iE_1 t/\hbar} + c_2 |2\rangle e^{-iE_2 t/\hbar} + \cdots
+|\psi(t)\rangle = c_0 |0\rangle e^{-iE_0 t/\hbar} + c_1 |1\rangle e^{-iE_1 t/\hbar} + c_2 |2\rangle e^{-iE_2 t/\hbar}
 $$
 
-Each energy eigenstate $|n\rangle$ picks up a rotating phase factor $e^{-iE_n t/\hbar}$. Since different energies rotate at different frequencies, the phases evolve at different rates. This causes the probability density $|\psi(x,t)|^2$ to **oscillate in time** — the wavefunction sloshes back and forth because different energies beat against each other.
+**Important clarification:** The coefficients $c_0, c_1, c_2$ themselves are **constants** — they don't change with time! What changes is the **phase** of each energy component.
+
+Each energy eigenstate $|n\rangle$ picks up a rotating phase factor $e^{-iE_n t/\hbar}$. Since different energies rotate at different frequencies, the phases evolve at different rates:
+- Ground state phase: $e^{-iE_0 t/\hbar} = e^{-i\omega t/2}$ (slowest)
+- First excited phase: $e^{-iE_1 t/\hbar} = e^{-i3\omega t/2}$ (faster)
+- Second excited phase: $e^{-iE_2 t/\hbar} = e^{-i5\omega t/2}$ (fastest)
+
+This causes the probability density $|\psi(x,t)|^2$ to **oscillate in time** — the wavefunction sloshes back and forth because different energies beat against each other.
 
 **Key point:** The "amount" of each energy (the $|c_n|^2$ probabilities) never changes — energy is conserved! Only the relative phases between the different energy components change.
 
