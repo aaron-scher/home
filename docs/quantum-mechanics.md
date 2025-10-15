@@ -367,7 +367,19 @@ In quantum mechanics, **the "directions" are physical observables**:
 
 **Functions are vectors with continuous indices**
 
-Here's a profound insight: Think about a time signal f(t). At each time t, you have a number f(t). This **is a vector** — just with a continuous index instead of discrete entries! Since time is continuous, you can't write it as a finite list [f₁, f₂, f₃, ...], so you write it as a **function** f(t). Mathematically, it's the same as a vector in an infinite-dimensional **Hilbert space**.
+Here's a profound insight: Think about a time signal f(t). At each time t, you have a number f(t). This **is a vector** — just with a continuous index instead of discrete entries! Since time is continuous, you can't write it as a finite list [f₁, f₂, f₃, ...], so you write it as a **function** f(t).
+
+**What is "Hilbert space"? (Don't let the name scare you!)**
+
+Mathematically, we say these functions live in an infinite-dimensional **Hilbert space**. This sounds intimidating, but it's really just the name for "vector spaces that might have infinitely many dimensions." Named after David Hilbert (1862-1943), a German mathematician who studied the geometry of such spaces.
+
+Here's the key idea: A regular vector space has finitely many basis vectors (like x̂, ŷ, ẑ in 3D). But functions need infinitely many "directions" because x is continuous. A Hilbert space is just a vector space equipped with:
+1. An **inner product** (dot product generalized to functions: $\int \psi^*(x)\phi(x) dx$)
+2. Possibly **infinite dimensions** (continuous indices)
+
+That's it! It's the natural mathematical home for wavefunctions. Every rule you know about vectors (add them, take dot products, decompose into bases) works exactly the same way — you just use integrals instead of sums when dealing with continuous indices.
+
+The name might sound fancy, but it's almost obvious once you think about it: if 3D vectors need a 3D vector space, then functions (with infinitely many "entries") need an infinite-dimensional vector space. Hilbert space is that space!
 
 Apply this to quantum mechanics:
 
@@ -385,21 +397,25 @@ This is profound: The quantum state itself doesn't change. It's an abstract "vec
 
 The inner product does the work! To express the abstract state $|\psi\rangle$ in any basis, take the inner product with each basis vector:
 
-- Energy basis: $c_n = \langle n | \psi \rangle$ extracts the n-th coefficient
-- Position basis: $\psi(x) = \langle x | \psi \rangle$ extracts the amplitude at x
+- Energy basis: $c_n = \langle n | \psi \rangle$ extracts the amplitude for energy state n
+- Position basis: $\psi(x) = \langle x | \psi \rangle$ extracts the amplitude at position x
 
-Same operation, just discrete vs continuous. This is why:
+Same operation, just discrete vs continuous. Both $c_n$ and $\psi(x)$ are **probability amplitudes** — square them to get probabilities: $|c_n|^2$ is the probability of energy $E_n$, and $|\psi(x)|^2$ is the probability density at position x. This is why:
 - Sums become integrals: $\sum_n \rightarrow \int dx$
 - Inner products look the same: $\sum_n c_n^* d_n \rightarrow \int \psi^*(x)\phi(x) dx$
 
 **What exactly is |n⟩ — vector or wavefunction?**
 
-Both! The symbol $|n\rangle$ is **basis-independent** — it's the abstract quantum state. When expressed in different bases:
+Both! But first, **important notation clarification**: $|n\rangle$ means "the n-th ENERGY eigenstate" where n = 0, 1, 2, ... So |1⟩ is the **first excited energy state**, NOT the state at position x=1!
 
-- In energy basis: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$ (simple vector)
-- In position basis: $|1\rangle \rightarrow \psi_1(x)$ (function - we'll see what this looks like below)
+If we wanted to talk about a position eigenstate (a spike at a specific location), we'd write $|x\rangle$ where x is a position value. So $|x=1.5\rangle$ would be "the state localized at position x=1.5" (a delta function). Different notation!
 
-Like the number 3 written as "3" (decimal), "11" (binary), or "III" (Roman) — same thing, different notation!
+Now, the symbol $|n\rangle$ (energy eigenstate) is **basis-independent** — it's the abstract quantum state. When expressed in different bases:
+
+- In energy basis: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$ (simple vector - "first excited energy state")
+- In position basis: $|1\rangle \rightarrow \psi_1(x)$ (function showing how that energy state is distributed in space)
+
+Like the number 3 written as "3" (decimal), "11" (binary), or "III" (Roman) — same abstract thing, different notations!
 
 ---
 
@@ -426,9 +442,11 @@ This says: "The state has amplitude c₀ for ground state |0⟩, amplitude c₁ 
 
 Think of them as the "x-axis", "y-axis", "z-axis" of this space, except instead of spatial directions, they represent pure energy states.
 
-**In the position basis** (more complicated!):
+**Expressed in position space** (more complicated!):
 
-To write this **same state** in position space, we need to know what each basis vector |n⟩ looks like as a function of x. These are:
+**Important distinction:** We're still decomposing in the ENERGY basis (3 components: c₀, c₁, c₂), but now we're **expressing** each energy eigenstate as a function of position x. This is NOT the same as "using the position basis" (which would have infinitely many components - one for each x value)!
+
+To express this state as a function of x, we need to know what each energy basis vector |n⟩ looks like in position space:
 
 $$
 \psi_0(x) = \left(\frac{1}{\pi x_0^2}\right)^{1/4} e^{-x^2/(2x_0^2)} \quad \text{(what } |0\rangle \text{ looks like in position space)}
@@ -442,15 +460,60 @@ $$
 \psi_2(x) = \left(\frac{1}{16\pi x_0^2}\right)^{1/4} \left(\frac{4x^2}{x_0^2} - 2\right) e^{-x^2/(2x_0^2)} \quad \text{(what } |2\rangle \text{ looks like)}
 $$
 
-Now we can write our **same quantum state** in position coordinates:
+**Wait - is |1⟩ a function of position?**
+
+No! Let me be crystal clear:
+
+- **|1⟩** is NOT a function of position. It's an **abstract state** — the first excited energy eigenstate. It has definite energy $E_1 = \frac{3}{2}\hbar\omega$, period.
+- **ψ₁(x)** = ⟨x|1⟩ IS a function of position — it's the representation of |1⟩ in position space.
+
+**Analogy:**
+- "The number 5" is an abstract concept
+- "5 in binary" = 101 (a specific representation)
+- "5 in Roman numerals" = V (a different representation)
+
+The number itself isn't "a function of notation" — it's just 5. Similarly:
+- **|1⟩** is just "the first excited state" (abstract, basis-independent)
+- **ψ₁(x)** is "how that state looks when expressed as a function of position"
+
+**Why does it become a function?**
+
+Because we're asking: "For every position x, what's the amplitude of |1⟩ at that position?" That's infinitely many questions (one for each x), so the answer is a continuous function ψ₁(x).
+
+The state |1⟩ doesn't "know" about x — it's just a state with definite energy $E_1$. But because quantum mechanics allows states to be spread out in space, when you ask "where is this energy state located?", the answer is "everywhere, but with amplitude ψ₁(x) at each point x."
+
+**Mathematical detail: How does ⟨x|1⟩ actually work?**
+
+Great question! The inner product ⟨x|1⟩ IS an integral with a delta function that "picks out" a value. Here's the math:
+
+**Position eigenstates are delta functions:** The state |x⟩ means "definitely at position x" — a spike at x, zero everywhere else:
+
+$$
+\langle x' | x \rangle = \delta(x' - x)
+$$
+
+**The inner product ⟨x|1⟩:** When you compute this, you're finding the overlap between "being at position x" and "being in energy state |1⟩". Using the completeness relation (insert $\int |x'\rangle \langle x'| dx' = \mathbb{I}$):
+
+$$
+\langle x | 1 \rangle = \int_{-\infty}^{\infty} \langle x | x' \rangle \langle x' | 1 \rangle dx' = \int_{-\infty}^{\infty} \delta(x - x') \psi_1(x') dx' = \psi_1(x)
+$$
+
+The delta function δ(x - x') "picks out" the value of ψ₁ at x' = x, giving you ψ₁(x)!
+
+**The big picture:**
+- **|x⟩** is a "position measurement device" — it extracts the amplitude at position x
+- **⟨x|ψ⟩** applies that device to any state |ψ⟩, giving you ψ(x)
+- The delta function is the mathematical tool that does the "picking out"
+
+Now we can write our **same quantum state** as a function of x:
 
 $$
 \psi(x,t) = c_0 \psi_0(x) e^{-iE_0 t/\hbar} + c_1 \psi_1(x) e^{-iE_1 t/\hbar} + c_2 \psi_2(x) e^{-iE_2 t/\hbar}
 $$
 
-**It's the same state!** We're just writing it in position coordinates instead of energy coordinates. The coefficients c₀, c₁, c₂ are the same, but now we're expressing each basis vector as a function ψₙ(x) instead of an abstract symbol |n⟩.
+**It's the same state!** Still using the energy basis (3 components c₀, c₁, c₂), but now each energy eigenstate is written as a function of x. The true "position basis" decomposition would be: $|\psi\rangle = \int \psi(x) |x\rangle dx$ — infinitely many components ψ(x), one for each position x!
 
-**Key point:** ψ₀(x), ψ₁(x), ψ₂(x) are NOT the state we're describing — they're the **coordinate axes** (basis functions) in position space. We're building our state by taking c₀ times the first axis, c₁ times the second axis, c₂ times the third axis, just like (3,4,5) = 3·x̂ + 4·ŷ + 5·ẑ in regular vectors.
+**Key point:** ψ₀(x), ψ₁(x), ψ₂(x) are NOT the state we're describing — they're the **energy basis vectors expressed as functions of x**. We're building our state by taking c₀ times the first energy state, c₁ times the second, c₂ times the third, just like (3,4,5) = 3·x̂ + 4·ŷ + 5·ẑ in regular vectors. The result ψ(x,t) gives us the amplitude at each position x.
 
 **Why use different bases? It depends on what question you're asking!**
 
@@ -464,9 +527,9 @@ Here's the profound insight: You have ONE quantum state |ψ⟩, but different qu
   - **Natural basis:** Energy! Use |ψ⟩ = c₀|0⟩ + c₁|1⟩ + c₂|2⟩
   - **Answer:** $|c_1|^2$
 
-- **Question:** "What's the probability the particle has momentum p?"
+- **Question:** "What's the probability the particle has momentum between p = p₁ and p = p₂?"
   - **Natural basis:** Momentum! Use ψ̃(p) (Fourier transform of ψ(x))
-  - **Answer:** $|\tilde{\psi}(p)|^2$
+  - **Answer:** $\int_{p_1}^{p_2} |\tilde{\psi}(p)|^2 dp$
 
 **Schrödinger's equation looks different in different bases!**
 
@@ -559,73 +622,6 @@ $$
 $$
 
 **Notation convention:** When we write $|\psi\rangle$ without a time argument, we typically mean **the state at t=0**. This is useful because the coefficients $c_n$ are constants — they don't change with time! Only the phases $e^{-iE_n t/\hbar}$ evolve. So when discussing properties that don't depend on time (like "what is the probability of measuring energy $E_1$?"), we just write $|\psi\rangle$ to mean the initial state.
-
----
-
-### Understanding Quantum "Coordinates": The Big Picture
-
-**What do "position space" and "energy basis" really mean?**
-
-Here's the key idea: **you have a single quantum state (one "vector"), and you're just using different coordinate systems to describe it** — exactly like describing the same arrow in 3D space using Cartesian (x,y,z) vs spherical (r,θ,φ) coordinates. The arrow doesn't change, just the numbers you use to describe it!
-
-**Classical vectors:** Components point in spatial directions
-
-With a vector like $\vec{v} = (v_x, v_y, v_z)$, each component tells you "how much of the vector points in that direction" (x, y, or z).
-
-**Quantum states:** Components point in "observable directions"
-
-In quantum mechanics, **the "directions" are physical observables**:
-- Energy basis: each component $c_n$ tells you "how much is in energy state n"
-- Position basis: each value $\psi(x)$ tells you "how much is at position x"
-- Momentum basis: each value $\tilde{\psi}(p)$ tells you "how much has momentum p"
-
-**The "coordinates" in quantum mechanics are observables!** The quantum state is the same, but you're measuring it along different physical quantities (energy, position, momentum) instead of spatial directions.
-
-**Functions are vectors with continuous indices**
-
-Here's a profound insight: Think about a time signal f(t). At each time t, you have a number f(t). This **is a vector** — just with a continuous index instead of discrete entries! Since time is continuous, you can't write it as a finite list [f₁, f₂, f₃, ...], so you write it as a **function** f(t). Mathematically, it's the same as a vector in an infinite-dimensional **Hilbert space**.
-
-Apply this to quantum mechanics:
-
-| Representation | "Index" | "Component" | Written as |
-|----------------|---------|-------------|------------|
-| **Energy basis** | n (discrete: 0, 1, 2, ...) | $c_n$ = "how much of energy n" | Discrete vector: $[c_0, c_1, c_2, ...]^T$ |
-| **Position basis** | x (continuous: all real numbers) | $\psi(x)$ = "how much at position x" | Function: $\psi(x)$ |
-| **Momentum basis** | p (continuous) | $\tilde{\psi}(p)$ = "how much with momentum p" | Function: $\tilde{\psi}(p)$ |
-
-**Same quantum state |ψ⟩, different coordinate systems!**
-
-This is profound: The quantum state itself doesn't change. It's an abstract "vector" living in Hilbert space. When you write it as [c₀, c₁, c₂, ...]ᵀ (energy basis) or ψ(x) (position basis), you're just picking different coordinates to describe the **same physical state** — like the same arrow described as (x,y,z) = (3,4,0) or (r,θ,φ) = (5, 53°, 0°).
-
-**How do you transform between bases?**
-
-The inner product does the work! To express the abstract state $|\psi\rangle$ in any basis, take the inner product with each basis vector:
-
-- Energy basis: $c_n = \langle n | \psi \rangle$ extracts the n-th coefficient
-- Position basis: $\psi(x) = \langle x | \psi \rangle$ extracts the amplitude at x
-
-Same operation, just discrete vs continuous. This is why:
-- Sums become integrals: $\sum_n \rightarrow \int dx$
-- Inner products look the same: $\sum_n c_n^* d_n \rightarrow \int \psi^*(x)\phi(x) dx$
-
-**What exactly is |n⟩ — vector or wavefunction?**
-
-Both! The symbol $|n\rangle$ is **basis-independent** — it's the abstract quantum state. When expressed in different bases:
-
-- In energy basis: $|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$ (simple vector)
-- In position basis: $|1\rangle \rightarrow \psi_1(x) = \left(\frac{1}{4\pi x_0^2}\right)^{1/4} \frac{2x}{x_0} e^{-x^2/(2x_0^2)}$ (function)
-
-Like the number 3 written as "3" (decimal), "11" (binary), or "III" (Roman) — same thing, different notation!
-
-**Our three-state superposition:**
-
-In energy basis, $|\psi\rangle = c_0|0\rangle + c_1|1\rangle + c_2|2\rangle$ is just:
-
-$$
-|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ \vdots \end{pmatrix}
-$$
-
-Each entry is the amplitude for that energy state.
 
 ---
 
