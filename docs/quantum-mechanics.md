@@ -226,13 +226,13 @@ When you solve for ψ(x), it automatically adjusts its wiggliness to match the k
 
 **Quantum reality:** This doesn't work! Here's why.
 
-If we try to localize the particle tightly at the bottom of the well (making ψ very narrow), the wavefunction has **high curvature**. Remember from the Schrödinger equation:
+If we try to localize the particle tightly at the bottom of the well (making ψ very narrow), the wavefunction has **high curvature**. From the Schrödinger equation divided by ψ:
 
 $$
--\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi
+-\frac{\hbar^2}{2m}\frac{\psi''}{\psi} = E - V(x)
 $$
 
-High curvature (large $d^2\psi/dx^2$) means **high kinetic energy**. This makes the total energy $E(x)$ shoot up in the center, so $E(x)$ is not constant — meaning it's **not a stationary state**.
+Squeezing ψ narrow increases its curvature ($\psi''$), making the left side large. This means the kinetic energy $E - V(x)$ shoots up at the center, so $E(x) = \text{KE}(x) + V(x)$ is not constant — meaning it's **not a stationary state**.
 
 ### Finding the "Just Right" Width
 
