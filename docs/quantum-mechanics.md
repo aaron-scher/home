@@ -496,34 +496,22 @@ The state |1⟩ doesn't "know" about x — it's just a state with definite energ
 
 **Mathematical detail: How does ⟨x|1⟩ actually work?**
 
-Great question! The inner product ⟨x|1⟩ IS an integral with a delta function that "picks out" a value. Here's the math:
+Here's the intuitive picture — it's just a projection (dot product)!
 
-**Position eigenstates are delta functions:** The state |x⟩ means "definitely at position x" — a spike at x, zero everywhere else:
+**Position space has infinitely many basis vectors** — one impulse |x⟩ for each position x. These are all linearly independent (think delta functions at different positions).
 
-$$
-\langle x' | x \rangle = \delta(x' - x)
-$$
+When you compute ⟨x|1⟩, you're **projecting** the state |1⟩ onto the basis vector |x⟩. This tells you "how much of |1⟩ has at position x" — it pulls out a number!
 
-**The inner product ⟨x|1⟩:** When you compute this, you're finding the overlap between "being at position x" and "being in energy state |1⟩". Using the **completeness relation**:
+Since you can do this projection for **every** x, you get infinitely many numbers — one for each position. Instead of writing them as an infinite list, we write them as a **function**: ψ₁(x).
 
-$$
-\int_{-\infty}^{\infty} |x'\rangle \langle x'| dx' = \mathbb{I}
-$$
-
-**What does this mean?** The completeness relation says: "If you sum over ALL position eigenstates |x'⟩, you get the identity operator." In other words, the position eigenstates form a complete basis - any state can be expressed as a sum (integral) over all positions. It's like saying "if you have every possible position, you've covered all possibilities."
-
-We can insert this identity into our inner product:
-
-$$
-\langle x | 1 \rangle = \langle x | \mathbb{I} | 1 \rangle = \int_{-\infty}^{\infty} \langle x | x' \rangle \langle x' | 1 \rangle dx' = \int_{-\infty}^{\infty} \delta(x - x') \psi_1(x') dx' = \psi_1(x)
-$$
-
-The delta function δ(x - x') "picks out" the value of ψ₁ at x' = x, giving you ψ₁(x)!
+**The analogy to 3D:**
+- In 3D: **v** · x̂ projects onto x-axis → gives one number (the x-component)
+- In quantum: ⟨x|ψ⟩ projects onto position x → gives one number for each x → written as ψ(x)
 
 **The big picture:**
-- **|x⟩** is a "position measurement device" — it extracts the amplitude at position x
-- **⟨x|ψ⟩** applies that device to any state |ψ⟩, giving you ψ(x)
-- The delta function is the mathematical tool that does the "picking out"
+- **⟨n|ψ⟩** projects onto energy basis vector n → gives c_n (discrete: 3 numbers)
+- **⟨x|ψ⟩** projects onto position basis vector x → gives ψ(x) (continuous: infinitely many numbers)
+- Same operation (projection), just discrete vs continuous indices!
 
 Now we can write our **same quantum state** as a function of x:
 
