@@ -153,13 +153,13 @@ Now let's do the **continuous analog**. The key difference: we can't write a lis
 
 **What is the continuous "basis vector" |x⟩?**
 
-The position eigenstate $|x\rangle$ is a **delta function** — an infinitely sharp spike at position $x$:
+The position eigenstate $|x\rangle$ is an abstract basis vector indexed by $x$. In position representation, it looks like a delta function:
 
 $$
-|x\rangle = \delta(x' - x) \quad \text{(in position representation)}
+\langle x' | x \rangle = \delta(x' - x) \quad \text{(amplitude at position } x' \text{)}
 $$
 
-This is a shifted delta function: zero everywhere except at position $x$, where it has an infinite spike. It's the continuous analog of the discrete basis vector $|n\rangle$.
+This is the continuous analog of the discrete basis vector $|n\rangle$. It's zero everywhere except at position $x$, where it has an infinite spike.
 
 **The compact notation:**
 $$
@@ -172,12 +172,12 @@ This is the continuous version of $\sum_n c_n |n\rangle$! Let's break it down.
 
 Imagine we divide space into tiny bins of width $dx$. At each position $x_i$, we have:
 * A coefficient: $\psi(x_i)$ (the amplitude at that position)
-* A basis vector: $|x_i\rangle = \delta(x' - x_i)$ (delta spike at $x_i$)
+* A basis vector: $|x_i\rangle$ (the position eigenstate at $x_i$)
 
 The discrete approximation is:
 
 $$
-|\psi\rangle \approx \psi(x_0) \delta(x' - x_0) \cdot dx + \psi(x_1) \delta(x' - x_1) \cdot dx + \psi(x_2) \delta(x' - x_2) \cdot dx + ...
+|\psi\rangle \approx \psi(x_0)|x_0\rangle \cdot dx + \psi(x_1)|x_1\rangle \cdot dx + \psi(x_2)|x_2\rangle \cdot dx + ...
 $$
 
 Or more compactly:
@@ -186,40 +186,40 @@ $$
 |\psi\rangle \approx \sum_{\text{all bins}} \psi(x_i) |x_i\rangle \cdot dx
 $$
 
-Each term $\psi(x_i)|x_i\rangle \cdot dx$ contributes a weighted delta function at position $x_i$.
+Each term $\psi(x_i)|x_i\rangle \cdot dx$ contributes a weighted basis vector at position $x_i$.
 
 **With concrete numbers (dx = 0.1):**
 
 $$
-|\psi\rangle \approx \psi(-0.2) \cdot \delta(x'+0.2) \cdot 0.1 + \psi(-0.1) \cdot \delta(x'+0.1) \cdot 0.1 + \psi(0.0) \cdot \delta(x') \cdot 0.1 + ...
+|\psi\rangle \approx \psi(-0.2)|x=-0.2\rangle \cdot 0.1 + \psi(-0.1)|x=-0.1\rangle \cdot 0.1 + \psi(0.0)|x=0.0\rangle \cdot 0.1 + ...
 $$
 
 As $dx \to 0$, this sum becomes the integral:
 
 $$
-|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) \cdot \delta(x' - x) \, dx = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx
+|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx
 $$
 
-**Key insight:** You can't write "sum over all x" as a literal list because there are too many x values (uncountable). But you CAN write it as an integral, which is the continuous version of a sum. The thing you're adding up at each point is $\psi(x)|x\rangle$, where $|x\rangle$ is the delta function at that position.
+**Key insight:** You can't write "sum over all x" as a literal list because there are too many x values (uncountable). But you CAN write it as an integral, which is the continuous version of a sum. The thing you're adding up at each point is $\psi(x)|x\rangle$, where $|x\rangle$ is the basis vector at that position.
 
 **Concrete example with a Gaussian wavefunction:**
 
 Suppose $\psi(x) = e^{-x^2/2}$ (unnormalized Gaussian). Then:
 
 $$
-|\psi\rangle = \int_{-\infty}^{\infty} e^{-x^2/2} |x\rangle \, dx = \int_{-\infty}^{\infty} e^{-x^2/2} \delta(x' - x) \, dx
+|\psi\rangle = \int_{-\infty}^{\infty} e^{-x^2/2} |x\rangle \, dx
 $$
 
 Written out with specific positions (discrete approximation):
-* At $x = 0$: add $1.00 \cdot \delta(x') \cdot dx$ (largest contribution)
-* At $x = 1$: add $0.61 \cdot \delta(x' - 1) \cdot dx$
-* At $x = 2$: add $0.14 \cdot \delta(x' - 2) \cdot dx$
-* At $x = 3$: add $0.01 \cdot \delta(x' - 3) \cdot dx$ (small contribution)
+* At $x = 0$: add $1.00 \cdot |x=0\rangle \cdot dx$ (largest contribution)
+* At $x = 1$: add $0.61 \cdot |x=1\rangle \cdot dx$
+* At $x = 2$: add $0.14 \cdot |x=2\rangle \cdot dx$
+* At $x = 3$: add $0.01 \cdot |x=3\rangle \cdot dx$ (small contribution)
 * etc. for all $x$ from $-\infty$ to $+\infty$
 
-Each term is a **weighted delta function** at that position. The Gaussian $e^{-x^2/2}$ weights how much each position contributes. Positions near $x = 0$ get large weights, positions far away get small weights.
+Each term is a **weighted basis vector** at that position. The Gaussian $e^{-x^2/2}$ weights how much each position contributes. Positions near $x = 0$ get large weights, positions far away get small weights.
 
-**The integral adds up all these weighted delta spikes** to build the final state $|\psi\rangle$, which in position representation looks like the smooth Gaussian function $\psi(x')$.
+**The integral adds up all these weighted basis vectors** to build the final state $|\psi\rangle$.
 
 ### Side-by-Side Comparison
 
@@ -242,35 +242,35 @@ Both are doing the **same thing**: building a state by adding up basis vectors, 
 
 **What is the continuous basis vector |x⟩?**
 
-The position eigenstate $|x\rangle$ is a **delta function** — a shifted spike at position $x$:
+The position eigenstate $|x\rangle$ is an abstract basis vector indexed by position $x$. In position representation, it looks like a delta function:
 
 $$
-|x\rangle = \delta(x' - x) \quad \text{or equivalently} \quad \langle x' | x \rangle = \delta(x' - x)
+\langle x' | x \rangle = \delta(x' - x)
 $$
 
-This is the continuous analog of the discrete basis vector $|n\rangle$, just as $\delta(x'-x)$ is the continuous analog of the Kronecker delta $\delta_{mn}$.
+This says: "The amplitude to find |x⟩ at position x' is a delta spike at x." This is the continuous analog of the Kronecker delta $\delta_{mn}$ for discrete bases.
 
 ---
 
 #### Part 1: Building States (Construction)
 
-When you see $\int \psi(x) |x\rangle \, dx$, you're **building** $|\psi\rangle$ by adding weighted delta functions:
+When you write $\int \psi(x) |x\rangle \, dx$, you're **building** the abstract state $|\psi\rangle$:
 
 $$
-|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) \delta(x' - x) \, dx
+|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx
 $$
 
 **Discrete approximation:** Divide space into bins of width $dx$:
 
 $$
-|\psi\rangle \approx \psi(x_1)\delta(x'-x_1) \cdot dx + \psi(x_2)\delta(x'-x_2) \cdot dx + \psi(x_3)\delta(x'-x_3) \cdot dx + ...
+|\psi\rangle \approx \psi(x_0)|x_0\rangle \cdot dx + \psi(x_1)|x_1\rangle \cdot dx + \psi(x_2)|x_2\rangle \cdot dx + ...
 $$
 
-* Each term is a **shifted delta spike** at position $x_i$
+* Each term is a basis vector $|x_i\rangle$ at position $x_i$
 * Weighted by amplitude $\psi(x_i)$
 * Scaled by bin width $dx$
 
-As $dx \to 0$, we get the integral. We're integrating over the **shift parameter** $x$, adding up infinitely many weighted delta spikes to build $|\psi\rangle$!
+As $dx \to 0$, we get the integral. We're adding up infinitely many weighted basis vectors to build $|\psi\rangle$!
 
 **This is like Riemann sums**, but instead of adding numbers, we add functions (delta spikes).
 
@@ -300,11 +300,11 @@ The delta function sifts out the value at $x$! **This is how the dot product "pi
 |---|---|---|
 | **Orthonormality** | $\langle m \| n \rangle = \delta_{mn}$ | $\langle x' \| x \rangle = \delta(x' - x)$ |
 | **What it means** | Different basis states are orthogonal | Different positions are orthogonal |
-| **"Sifting"** | $\sum_n c_n \delta_{mn} = c_m$ | $\int \psi(x') \delta(x'-x) dx' = \psi(x)$ |
-| **Build state** | $\|\psi\rangle = \sum_n c_n \|n\rangle$ | $\|\psi\rangle = \int \psi(x) \delta(x'-x) dx$ |
-| **Extract component** | $c_m = \sum_n \langle m\|n\rangle c_n$ | $\psi(x) = \int \langle x\|x'\rangle \psi(x') dx'$ |
+| **"Sifting"** | $\sum_n c_n \delta_{mn} = c_m$ | $\int \psi(x) \delta(x'-x) dx = \psi(x')$ |
+| **Build state** | $\|\psi\rangle = \sum_n c_n \|n\rangle$ | $\|\psi\rangle = \int \psi(x) \|x\rangle dx$ |
+| **Extract component** | $c_m = \sum_n \langle m\|n\rangle c_n$ | $\psi(x') = \int \langle x'\|x\rangle \psi(x) dx$ |
 
-In discrete case: $\delta_{mn}$ kills all terms except $m=n$. In continuous case: $\delta(x-x')$ kills all positions except $x'=x$. Same mechanism!
+In discrete case: $\delta_{mn}$ kills all terms except $m=n$. In continuous case: $\delta(x'-x)$ kills all positions except $x=x'$. Same mechanism!
 
 **Physical intuition:** $|x\rangle$ represents a particle **perfectly localized** at position $x$ — zero probability everywhere else, infinite spike at $x$. When you dot this with $|\psi\rangle$, you're asking "how much of $|\psi\rangle$ overlaps with being exactly at position $x$?" The answer is $\psi(x)$.
 
