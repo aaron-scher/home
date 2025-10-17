@@ -149,98 +149,120 @@ It's shorthand for "add up all these terms."
 
 ### Now The Continuous Case: ∫ψ(x)|x⟩dx
 
-The continuous version works **exactly the same way**, but instead of a discrete sum, we have a continuous sum (integral).
+Now let's do the **continuous analog**. The key difference: we can't write a list like $[c_0, c_1, c_2, ...]$ because there are uncountably many positions!
+
+**What is the continuous "basis vector" |x⟩?**
+
+The position eigenstate $|x\rangle$ is a **delta function** — an infinitely sharp spike at position $x$:
+
+$$
+|x\rangle = \delta(x' - x) \quad \text{(in position representation)}
+$$
+
+This is a shifted delta function: zero everywhere except at position $x$, where it has an infinite spike. It's the continuous analog of the discrete basis vector $|n\rangle$.
 
 **The compact notation:**
 $$
 |\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx
 $$
 
-**What this actually means:**
-
-Instead of adding up basis vectors at discrete points $n = 0, 1, 2, 3, ...$, we're adding up basis vectors at **every possible position** $x$:
-
-$$
-|\psi\rangle = \text{"sum over all } x\text{"}: \quad \psi(x=-\infty)|x=-\infty\rangle + ... + \psi(x=0)|x=0\rangle + ... + \psi(x=1)|x=1\rangle + ...
-$$
-
-But there are **uncountably many** positions, so we can't write it as a regular sum. We use an integral instead.
+This is the continuous version of $\sum_n c_n |n\rangle$! Let's break it down.
 
 **Discrete approximation to make it concrete:**
 
-Imagine we divide space into tiny bins of width $dx = 0.1$. Then positions are $x = ..., -0.2, -0.1, 0.0, 0.1, 0.2, 0.3, ...$
+Imagine we divide space into tiny bins of width $dx$. At each position $x_i$, we have:
+* A coefficient: $\psi(x_i)$ (the amplitude at that position)
+* A basis vector: $|x_i\rangle = \delta(x' - x_i)$ (delta spike at $x_i$)
 
-The integral becomes approximately:
+The discrete approximation is:
+
+$$
+|\psi\rangle \approx \psi(x_0) \delta(x' - x_0) \cdot dx + \psi(x_1) \delta(x' - x_1) \cdot dx + \psi(x_2) \delta(x' - x_2) \cdot dx + ...
+$$
+
+Or more compactly:
 
 $$
 |\psi\rangle \approx \sum_{\text{all bins}} \psi(x_i) |x_i\rangle \cdot dx
 $$
 
-Written out:
+Each term $\psi(x_i)|x_i\rangle \cdot dx$ contributes a weighted delta function at position $x_i$.
+
+**With concrete numbers (dx = 0.1):**
 
 $$
-|\psi\rangle \approx \psi(-0.2)|x=-0.2\rangle \cdot 0.1 + \psi(-0.1)|x=-0.1\rangle \cdot 0.1 + \psi(0.0)|x=0.0\rangle \cdot 0.1 + \psi(0.1)|x=0.1\rangle \cdot 0.1 + ...
+|\psi\rangle \approx \psi(-0.2) \cdot \delta(x'+0.2) \cdot 0.1 + \psi(-0.1) \cdot \delta(x'+0.1) \cdot 0.1 + \psi(0.0) \cdot \delta(x') \cdot 0.1 + ...
 $$
 
-Each term is:
-* **$|x_i\rangle$** = position eigenstate at position $x_i$ (a delta function spike there)
-* **$\psi(x_i)$** = the amplitude at that position (a number)
-* **$dx$** = the width of each bin (becomes infinitesimal in the limit)
-* **$\psi(x_i)|x_i\rangle \cdot dx$** = scaled basis vector at that position
+As $dx \to 0$, this sum becomes the integral:
 
-As $dx \to 0$ (infinitely fine bins), this sum becomes the integral $\int \psi(x)|x\rangle dx$.
+$$
+|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) \cdot \delta(x' - x) \, dx = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx
+$$
+
+**Key insight:** You can't write "sum over all x" as a literal list because there are too many x values (uncountable). But you CAN write it as an integral, which is the continuous version of a sum. The thing you're adding up at each point is $\psi(x)|x\rangle$, where $|x\rangle$ is the delta function at that position.
 
 **Concrete example with a Gaussian wavefunction:**
 
 Suppose $\psi(x) = e^{-x^2/2}$ (unnormalized Gaussian). Then:
 
 $$
-|\psi\rangle = \int_{-\infty}^{\infty} e^{-x^2/2} |x\rangle \, dx
+|\psi\rangle = \int_{-\infty}^{\infty} e^{-x^2/2} |x\rangle \, dx = \int_{-\infty}^{\infty} e^{-x^2/2} \delta(x' - x) \, dx
 $$
 
-Written out with specific positions:
-* At $x = 0$: add $e^{0}|0\rangle \cdot dx = 1.00 \cdot |x=0\rangle \cdot dx$
-* At $x = 1$: add $e^{-1/2}|1\rangle \cdot dx = 0.61 \cdot |x=1\rangle \cdot dx$
-* At $x = 2$: add $e^{-2}|2\rangle \cdot dx = 0.14 \cdot |x=2\rangle \cdot dx$
-* At $x = 3$: add $e^{-9/2}|3\rangle \cdot dx = 0.01 \cdot |x=3\rangle \cdot dx$
+Written out with specific positions (discrete approximation):
+* At $x = 0$: add $1.00 \cdot \delta(x') \cdot dx$ (largest contribution)
+* At $x = 1$: add $0.61 \cdot \delta(x' - 1) \cdot dx$
+* At $x = 2$: add $0.14 \cdot \delta(x' - 2) \cdot dx$
+* At $x = 3$: add $0.01 \cdot \delta(x' - 3) \cdot dx$ (small contribution)
 * etc. for all $x$ from $-\infty$ to $+\infty$
 
-The Gaussian weights how much each position contributes. Positions near $x = 0$ contribute a lot (large $\psi(x)$), positions far away contribute little (small $\psi(x)$).
+Each term is a **weighted delta function** at that position. The Gaussian $e^{-x^2/2}$ weights how much each position contributes. Positions near $x = 0$ get large weights, positions far away get small weights.
 
-**The integral adds up all these infinitesimal contributions** to build the final state $|\psi\rangle$.
+**The integral adds up all these weighted delta spikes** to build the final state $|\psi\rangle$, which in position representation looks like the smooth Gaussian function $\psi(x')$.
 
 ### Side-by-Side Comparison
 
 | | **Discrete (Energy)** | **Continuous (Position)** |
 |---|---|---|
 | **Compact notation** | $\|\psi\rangle = \sum_n c_n \|n\rangle$ | $\|\psi\rangle = \int \psi(x) \|x\rangle dx$ |
-| **What it means** | Add up scaled basis vectors | Add up scaled basis vectors |
-| **Basis vectors** | $\|0\rangle, \|1\rangle, \|2\rangle, ...$ | $\|x\rangle$ for every $x$ |
+| **What it means** | Add up scaled basis vectors | Add up scaled basis vectors (delta functions) |
+| **Basis vectors** | $\|0\rangle, \|1\rangle, \|2\rangle, ...$ (discrete) | $\|x\rangle = \delta(x'-x)$ (delta spike at $x$) |
 | **Coefficients** | $c_0, c_1, c_2, ...$ (list) | $\psi(x)$ (function) |
-| **How to add** | Regular sum: $+$ | Integral (continuous sum) |
-| **Fully expanded** | $c_0\|0\rangle + c_1\|1\rangle + c_2\|2\rangle + ...$ | $\int_{-\infty}^{\infty} \psi(x)\|x\rangle dx$ |
-| **Example term** | $\frac{1}{2}\|0\rangle$ = "half of basis vector 0" | $\psi(1.5)\|x=1.5\rangle \cdot dx$ = "amplitude at x=1.5 times basis vector at 1.5" |
+| **How to add** | Regular sum: $\sum$ | Integral: $\int dx$ (continuous sum) |
+| **Fully expanded** | $c_0\|0\rangle + c_1\|1\rangle + c_2\|2\rangle + ...$ | $\int \psi(x) \delta(x'-x) dx$ |
+| **Example term** | $\frac{1}{2}\|0\rangle$ = "half of basis vector 0" | $\psi(1.5) \delta(x'-1.5) \cdot dx$ = "weighted delta at x=1.5" |
+| **Can write as list?** | Yes: $[c_0, c_1, c_2, ...]$ | No: uncountably many points! |
 
-Both are doing the **same thing**: building a state by adding up basis vectors, each scaled by its coefficient. Discrete uses a countable sum, continuous uses an integral!
+Both are doing the **same thing**: building a state by adding up basis vectors, each scaled by its coefficient.
 
-### What Are We Integrating Over?
+**Key difference:** Discrete case has countable basis vectors, so we can write a list. Continuous case has uncountable basis vectors (one delta function for each real number $x$), so we need an integral!
 
-When you see $\int \psi(x) |x\rangle \, dx$:
-* We're integrating over **all possible positions** $x$ (from $-\infty$ to $+\infty$)
-* At each position $x$, we have:
-  * A basis vector $|x\rangle$ (position eigenstate — a spike at that location)
-  * A coefficient $\psi(x)$ (the amplitude for that position)
-* The integral **adds up** all these infinitesimal contributions
+### What Are We Integrating Over? (The Shifted Delta Function)
 
-**Visual picture:** Imagine position space discretized into tiny bins of width $dx$:
+When you see $\int \psi(x) |x\rangle \, dx$, remember that $|x\rangle = \delta(x' - x)$ is a **shifted delta function**.
+
+* We're integrating over the **shift parameter** $x$ (from $-\infty$ to $+\infty$)
+* At each value of $x$, we add a term $\psi(x) \cdot \delta(x' - x) \cdot dx$
+* This is a delta function **centered at position x**, weighted by $\psi(x)$
+
+In full detail:
 
 $$
-|\psi\rangle \approx \psi(x_1)|x_1\rangle \cdot dx + \psi(x_2)|x_2\rangle \cdot dx + \psi(x_3)|x_3\rangle \cdot dx + ...
+|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx = \int_{-\infty}^{\infty} \psi(x) \delta(x' - x) \, dx
 $$
 
-As $dx \to 0$, this sum becomes the integral $\int \psi(x)|x\rangle \, dx$.
+**Visual picture:** Imagine position space discretized into tiny bins:
 
-It's just like Riemann sums in calculus! The infinite-dimensional "column vector" from your screenshot is exactly this discrete approximation.
+$$
+|\psi\rangle \approx \psi(x_1)\delta(x'-x_1) \cdot dx + \psi(x_2)\delta(x'-x_2) \cdot dx + \psi(x_3)\delta(x'-x_3) \cdot dx + ...
+$$
+
+Each term is a **shifted delta function** at position $x_i$, scaled by amplitude $\psi(x_i)$ and bin width $dx$.
+
+As $dx \to 0$, this discrete sum becomes the integral. The integral adds up **infinitely many weighted, shifted delta functions** to build the smooth wavefunction $\psi(x')$!
+
+**This is exactly like Riemann sums in calculus**, but instead of adding numbers, we're adding functions (delta spikes).
 
 ### The Delta Function: How Position Basis Really Works
 
