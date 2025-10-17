@@ -270,11 +270,13 @@ The coefficients:
 - $c_n = 0$ for $n \geq 3$
 
 **Probabilities:**
-- $P(E_0) = |c_0|^2 = 25\%$
-- $P(E_1) = |c_1|^2 = 50\%$
-- $P(E_2) = |c_2|^2 = 25\%$
+- $P(E_0) = |c_0|^2 = 1/4 = 25\%$
+- $P(E_1) = |c_1|^2 = 1/2 = 50\%$
+- $P(E_2) = |c_2|^2 = 1/4 = 25\%$
 
-**Average energy:** $\langle E \rangle = \frac{7}{4}\hbar\omega$
+**Average energy:** The weighted average of energy values:
+$$\langle E \rangle = P(E_0) \cdot E_0 + P(E_1) \cdot E_1 + P(E_2) \cdot E_2$$
+$$= \frac{1}{4}\left(\frac{1}{2}\hbar\omega\right) + \frac{1}{2}\left(\frac{3}{2}\hbar\omega\right) + \frac{1}{4}\left(\frac{5}{2}\hbar\omega\right) = \frac{7}{4}\hbar\omega$$
 
 ### Position Representation
 
@@ -285,6 +287,16 @@ $$\psi(x) = \frac{1}{2}\psi_0(x) + \frac{\sqrt{2}}{2}\psi_1(x) + \frac{1}{2}\psi
 where $\psi_n(x)$ are the Gaussian energy eigenfunctions.
 
 **Key insight:** Even though we only use 3 energy levels, $\psi(x)$ is non-zero almost everywhere! Each Gaussian spreads over all space, so we need infinitely many position values.
+
+### Momentum Representation
+
+The SAME state in momentum space (via Fourier transform):
+
+$$\tilde{\psi}(p) = \mathcal{F}[\psi(x)] = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx$$
+
+This is another continuous function giving the amplitude for each momentum value p. Since each energy eigenstate has a well-defined momentum distribution, the superposition creates a momentum wavefunction $\tilde{\psi}(p)$ spread over many momentum values.
+
+Same state, now expressed as a function of momentum instead of position!
 
 ### The Deep Answer
 
