@@ -173,7 +173,9 @@ $$= \frac{1}{2}(0) + \frac{\sqrt{2}}{2}(1) + \frac{1}{2}(0) = \frac{\sqrt{2}}{2}
 
 Perfect! The formula is simply:
 
-$$\boxed{c(n) = \langle n|\psi\rangle}$$
+$$\boxed{c_n = \langle n|\psi\rangle}$$
+
+The inner product extracts the coefficient c_n, which is a complex number. Don't confuse c_n (the coefficient) with |n⟩ (the basis vector)!
 
 ---
 
