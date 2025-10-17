@@ -159,6 +159,24 @@ We introduce **bras** $\langle\psi|$ (think "row vectors") to pair with **kets**
 
 $$\langle\phi|\psi\rangle = \text{"bra-ket"} = \text{"bracket"} = \text{inner product}$$
 
+**What's a bra exactly?** It's the conjugate transpose of the ket. If:
+
+$$|\psi\rangle = \begin{pmatrix} 1/2 \\ \sqrt{2}/2 \\ 1/2 \end{pmatrix}$$
+
+Then the bra is:
+
+$$\langle\psi| = \begin{pmatrix} 1/2 & \sqrt{2}/2 & 1/2 \end{pmatrix}$$
+
+(For real numbers, it's just transpose. For complex numbers, you also take complex conjugates.)
+
+**Concrete inner product example:** Let's compute $\langle 1|\psi\rangle$ to extract the coefficient $c_1$:
+
+$$\langle 1| = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}, \quad |\psi\rangle = \begin{pmatrix} 1/2 \\ \sqrt{2}/2 \\ 1/2 \end{pmatrix}$$
+
+$$\langle 1|\psi\rangle = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix} \begin{pmatrix} 1/2 \\ \sqrt{2}/2 \\ 1/2 \end{pmatrix} = 0 \cdot \frac{1}{2} + 1 \cdot \frac{\sqrt{2}}{2} + 0 \cdot \frac{1}{2} = \frac{\sqrt{2}}{2}$$
+
+This is just row-times-column matrix multiplication! The inner product picks out the second entry.
+
 ### Orthonormal Basis Vectors
 
 Energy eigenstates are orthonormal:
