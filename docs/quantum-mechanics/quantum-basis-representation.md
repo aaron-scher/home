@@ -84,15 +84,16 @@ Those coefficients $c_0, c_1, c_2, ...$ aren't just a list. They're outputs of a
 - Input: "Which energy level?" (an integer n)
 - Output: "Here's the amplitude" (a complex number)
 
-For our example:
-```
-c(n) = {
-    1/2        if n = 0
-    √2/2       if n = 1
-    1/2        if n = 2
-    0          if n ≥ 3
-}
-```
+For our example, the function looks like:
+
+$$
+c(n) = \begin{cases}
+1/2 & \text{if } n = 0 \\
+\sqrt{2}/2 & \text{if } n = 1 \\
+1/2 & \text{if } n = 2 \\
+0 & \text{if } n \geq 3
+\end{cases}
+$$
 
 Think of it as a vending machine. Press button 0, get 1/2. Press button 1, get √2/2. Press button 2, get 1/2. Press anything else, get 0.
 
@@ -105,9 +106,8 @@ Position works the same way, but now the vending machine has continuously many b
 - Output: "Here's the amplitude" (a complex number)
 
 For the ground state:
-```
-ψ(x) = (π^(-1/4)) exp(-x²/2)
-```
+
+$$\psi(x) = \pi^{-1/4} e^{-x^2/2}$$
 
 Ask for any position x, get back ψ(x). It's the same concept as c(n), just with a continuous domain instead of discrete integers.
 
