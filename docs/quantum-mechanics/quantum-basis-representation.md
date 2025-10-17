@@ -201,7 +201,7 @@ The inner product gives a delta function, just like $\langle m|n\rangle = \delta
 
 ### The Position Wavefunction
 
-Just as $c(n) = \langle n|\psi\rangle$ extracts energy coefficients, we extract position coefficients:
+Just as $c_n = \langle n|\psi\rangle$ extracts energy coefficients, we extract position coefficients:
 
 $$\boxed{\psi(x) = \langle x|\psi\rangle}$$
 
@@ -302,7 +302,7 @@ Same state, now expressed as a function of momentum instead of position!
 
 "How can the same state need 3 numbers in one basis but infinitely many in another?"
 
-Our state only "uses" three energy basis vectors (the rest have $c(n) = 0$). But those three energy eigenstates each spread over all positions when expressed as Gaussians. So in position basis, we need $\psi(x)$ defined everywhere.
+Our state only "uses" three energy basis vectors (the rest have $c_n = 0$). But those three energy eigenstates each spread over all positions when expressed as Gaussians. So in position basis, we need $\psi(x)$ defined everywhere.
 
 It's like describing a diagonal line in 2D:
 - Rotated basis aligned with line: just one coordinate needed
@@ -320,7 +320,9 @@ Quantum time evolution is beautifully simple in the energy basis.
 
 Each energy component gets a rotating phase:
 
-$$c(n, t) = c(n, 0) \cdot e^{-iE_n t/\hbar}$$
+$$c_n(t) = c_n(0) \cdot e^{-iE_n t/\hbar}$$
+
+**Where does this come from?** Solving the time-dependent Schrödinger equation $i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle$ in the energy basis. Since energy eigenstates satisfy $\hat{H}|n\rangle = E_n|n\rangle$, each coefficient evolves independently with its own energy-dependent phase.
 
 Higher energy means faster rotation. For our example:
 
@@ -328,7 +330,7 @@ $$|\psi(t)\rangle = \frac{1}{2}|0\rangle e^{-iE_0 t/\hbar} + \frac{\sqrt{2}}{2}|
 
 ### What This Means
 
-The magnitudes $|c(n)|$ never change, so energy probabilities are constant. Only relative phases evolve.
+The magnitudes $|c_n|$ never change, so energy probabilities are constant. Only relative phases evolve.
 
 In position space, this creates interference:
 
@@ -390,12 +392,12 @@ Everything in quantum mechanics follows this parallel pattern:
 |------------|----------------------|--------------------------|
 | **State** | $\|\psi\rangle$ | $\|\psi\rangle$ (same!) |
 | **Basis vectors** | $\|n\rangle$ for n = 0,1,2,... | $\|x\rangle$ for all real x |
-| **Coefficient function** | $c: \mathbb{N} \to \mathbb{C}$ | $\psi: \mathbb{R} \to \mathbb{C}$ |
-| **Extract component** | $c(n) = \langle n\|\psi\rangle$ | $\psi(x) = \langle x\|\psi\rangle$ |
-| **Build state** | $\|\psi\rangle = \sum_n c(n)\|n\rangle$ | $\|\psi\rangle = \int \psi(x)\|x\rangle dx$ |
+| **Coefficients** | $c_n$ for each level | $\psi(x)$ for each position |
+| **Extract component** | $c_n = \langle n\|\psi\rangle$ | $\psi(x) = \langle x\|\psi\rangle$ |
+| **Build state** | $\|\psi\rangle = \sum_n c_n\|n\rangle$ | $\|\psi\rangle = \int \psi(x)\|x\rangle dx$ |
 | **Orthonormality** | $\langle m\|n\rangle = \delta_{mn}$ | $\langle x'\|x\rangle = \delta(x'-x)$ |
-| **Probability** | $P(n) = \|c(n)\|^2$ | $P(x)dx = \|\psi(x)\|^2 dx$ |
-| **Normalization** | $\sum_n \|c(n)\|^2 = 1$ | $\int \|\psi(x)\|^2 dx = 1$ |
+| **Probability** | $P(n) = \|c_n\|^2$ | $P(x)dx = \|\psi(x)\|^2 dx$ |
+| **Normalization** | $\sum_n \|c_n\|^2 = 1$ | $\int \|\psi(x)\|^2 dx = 1$ |
 
 Discrete sums become continuous integrals. Everything else is identical!
 
@@ -412,10 +414,13 @@ $$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle$$
 ### In Different Bases
 
 **Energy basis (simplest):**
-$$i\hbar\frac{dc(n,t)}{dt} = E_n \cdot c(n,t)$$
-Solution: $c(n,t) = c(n,0)e^{-iE_n t/\hbar}$
+
+$$i\hbar\frac{dc_n(t)}{dt} = E_n c_n(t)$$
+
+Solution: $c_n(t) = c_n(0)e^{-iE_n t/\hbar}$
 
 **Position basis (most familiar):**
+
 $$i\hbar\frac{\partial \psi(x,t)}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V(x)\psi$$
 
 Same equation, different coordinates. Choose wisely!
