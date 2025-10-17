@@ -127,8 +127,8 @@ Ask for any position x, get back ψ(x). It's the same concept as c(n), just with
 
 Both representations describe the SAME quantum state using functions:
 
-**Energy representation:** Function $c: \mathbb{N} \to \mathbb{C}$
-**Position representation:** Function $\psi: \mathbb{R} \to \mathbb{C}$
+**Energy representation:** Function c(n) where n = 0, 1, 2, 3, ...
+**Position representation:** Function ψ(x) where x is any real number
 
 Same information, different organization. Like storing a phone number as discrete digits [5,5,5,1,2,3,4] vs the continuous sound wave of someone saying it.
 
