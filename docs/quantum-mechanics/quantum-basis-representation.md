@@ -140,7 +140,20 @@ We have $|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \fr
 
 ### The Quantum Dot Product
 
-In 3D, we extract components using dot products: $v_y = \vec{v} \cdot \hat{y}$. Quantum mechanics works the same way!
+In 3D, how do we extract a specific component like $v_y$ from a vector $\vec{v}$? We use the **dot product**, which projects the vector onto an axis.
+
+**Concrete example:** Suppose $\vec{v} = 2\hat{x} + 3\hat{y} + 1\hat{z}$. To extract the y-component:
+
+$$v_y = \vec{v} \cdot \hat{y} = (2\hat{x} + 3\hat{y} + 1\hat{z}) \cdot \hat{y}$$
+
+The dot product picks out just the y-component because:
+- $\hat{x} \cdot \hat{y} = 0$ (perpendicular)
+- $\hat{y} \cdot \hat{y} = 1$ (parallel)
+- $\hat{z} \cdot \hat{y} = 0$ (perpendicular)
+
+So: $v_y = 2(0) + 3(1) + 1(0) = 3$
+
+The dot product "projects" $\vec{v}$ onto the y-axis and tells you how much of $\vec{v}$ points in that direction. Quantum mechanics works the same way!
 
 We introduce **bras** $\langle\psi|$ (think "row vectors") to pair with **kets** $|\psi\rangle$ (think "column vectors"):
 
