@@ -121,10 +121,10 @@ The SAME quantum state $|\psi\rangle$ can be described using position "coordinat
 This is like an "infinite-dimensional vector":
 
 $$
-\psi = \begin{pmatrix} \vdots \\ \psi(x_1) \\ \psi(x_2) \\ \psi(x_3) \\ \psi(x_4) \\ \vdots \end{pmatrix} \leftarrow \text{infinitely many entries, one for each } x
+\psi = \begin{pmatrix} \vdots \\ \psi(x) \\ \psi(x+dx) \\ \psi(x+2dx) \\ \psi(x+3dx) \\ \vdots \end{pmatrix} \leftarrow \text{infinitely many entries, spaced by } dx
 $$
 
-Since there are infinitely many positions, we can't write this as a finite list. Instead, we write it as a **function**: $\psi(x)$.
+As $dx \to 0$, we cover every point on the real line! Since there are infinitely many positions, we can't write this as a finite list. Instead, we write it as a **function**: $\psi(x)$.
 
 **Functions are vectors with continuous indices!** This is profound: A time signal $f(t)$ IS a vector — it just has a continuous index $t$ instead of discrete entries like [f₁, f₂, f₃, ...].
 
@@ -155,36 +155,17 @@ Also an infinite-dimensional vector, written as a function $\tilde{\psi}(p)$.
 Here's the key insight that makes quantum mechanics different from classical physics.
 
 **Classical vectors:** Components point in **spatial directions**
+
 - A vector $\vec{v} = (v_x, v_y, v_z)$ has components along the x, y, and z axes
 - These are fixed directions in physical space
 
 **Quantum states:** Components point in **observable directions**
+
 - Energy basis: each component $c_n$ tells you "how much of energy level $n$"
 - Position basis: each value $\psi(x)$ tells you "how much at position $x$"
 - Momentum basis: each value $\tilde{\psi}(p)$ tells you "how much with momentum $p$"
 
 **The "coordinate axes" in quantum mechanics are physical observables!** Energy, position, and momentum aren't just numbers — they're the fundamental ways of measuring the quantum state.
-
-#### What is "Hilbert Space"? (Don't Let the Name Scare You!)
-
-Mathematically, quantum states live in an infinite-dimensional **Hilbert space**. This sounds intimidating, but it's really just:
-
-> **"Vector space that might have infinitely many dimensions"**
-
-Named after David Hilbert (1862-1943), a German mathematician who studied the geometry of infinite-dimensional spaces.
-
-Here's the key idea: A regular vector space has finitely many basis vectors (like $\hat{x}, \hat{y}, \hat{z}$ in 3D). But functions need infinitely many "directions" because position $x$ is continuous. A Hilbert space is just a vector space equipped with:
-1. An **inner product** (dot product generalized to functions: $\int \psi^*(x)\phi(x) dx$)
-2. Possibly **infinite dimensions** (continuous indices)
-
-That's it! Every rule you know about vectors works exactly the same way:
-- Add states: $|\psi\rangle + |\phi\rangle$
-- Take dot products: we'll introduce this notation next!
-- Decompose into bases: $|\psi\rangle = \sum_n c_n |n\rangle$ or $|\psi\rangle = \int \psi(x) |x\rangle dx$
-
-You just use integrals instead of sums when dealing with continuous indices.
-
-The name might sound fancy, but it's almost obvious once you think about it: if 3D vectors need a 3D vector space, then functions (with infinitely many "entries") need an infinite-dimensional vector space. Hilbert space is that space!
 
 #### Summary Table
 
