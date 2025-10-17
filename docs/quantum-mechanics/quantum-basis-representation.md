@@ -8,7 +8,13 @@
 
 In Part 1, we solved the harmonic oscillator and found energy eigenstates $\psi_n(x)$, Gaussians with increasing nodes, each with energy $E_n = \hbar\omega(n + \frac{1}{2})$. We mentioned these have momentum space versions $\tilde{\psi}_n(p)$ via Fourier transform.
 
-But here's the deeper question: **What IS the quantum state?** Is it $\psi(x)$? Is it $\tilde{\psi}(p)$? Or something more fundamental?
+Here's something cool: any wavefunction can be written as a sum of energy eigenstates:
+
+$$\psi(x) = c_0 \psi_0(x) + c_1 \psi_1(x) + c_2 \psi_2(x) + ...$$
+
+where $\psi_0(x), \psi_1(x), \psi_2(x), ...$ are the energy eigenstates from Part 1 (each one is a solution to Schrödinger's equation at a specific energy $E_n$), and $c_0, c_1, c_2, ...$ are complex number coefficients telling you "how much" of each eigenstate to include.
+
+But here's the deeper question: **What IS the quantum state?** Is it the function $\psi(x)$? The coefficients $[c_0, c_1, c_2, ...]$? The momentum function $\tilde{\psi}(p)$? Or something more fundamental?
 
 The answer: there's an abstract quantum state $|\psi\rangle$ (called a "ket") that exists independent of how we describe it. The different functions we use are just different ways of writing down the same underlying thing:
 
