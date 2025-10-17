@@ -4,37 +4,31 @@
 
 ---
 
-## The Central Mystery
+## One Wavefunction, Many Faces
 
-In Part 1, we solved the harmonic oscillator and found energy eigenstates: Gaussians with increasing nodes, each with energy $E_n = \hbar\omega(n + \frac{1}{2})$. We mentioned these have momentum space versions via Fourier transform.
+In Part 1, we solved the harmonic oscillator and found energy eigenstates $\psi_n(x)$, Gaussians with increasing nodes, each with energy $E_n = \hbar\omega(n + \frac{1}{2})$. We mentioned these have momentum space versions $\tilde{\psi}_n(p)$ via Fourier transform.
 
-But here's the weird thing about quantum mechanics: **the coordinates ARE the physical quantities**. When you choose position basis, your coordinate axis is literally "position = 0.5 meters" or "position = 1.2 meters". Not some abstract x-axis, but actual physical location!
+But here's the deeper question: **What IS the quantum state?** Is it $\psi(x)$? Is it $\tilde{\psi}(p)$? Or something more fundamental?
 
-This is bizarre. In classical mechanics, coordinates are just labels. In quantum mechanics, your choice of basis is literally choosing what physical quantity you're asking about.
+The answer: there's an abstract quantum state $|\psi\rangle$ (called a "ket") that exists independent of how we describe it. The different functions we use are just different ways of writing down the same underlying thing:
+
+- $\psi(x)$ = position representation (a function of position)
+- $\tilde{\psi}(p)$ = momentum representation (a function of momentum)
+- $[c_0, c_1, c_2, ...]$ = energy representation (a list of coefficients)
+
+Same state, different descriptions! Like how a 3D vector doesn't change whether you use Cartesian or spherical coordinates. The vector itself is the same; only the numbers you write change.
 
 ---
 
-## What Is a Quantum State?
+## What Is the Abstract State |ψ⟩?
 
-### The Container of Possibilities
+The ket $|\psi\rangle$ is the complete quantum state, the thing itself before you choose how to describe it. Think of it as:
 
-The ket $|\psi\rangle$ is the **complete quantum recipe** for your system. Think of it as a container holding all possible measurement outcomes, waiting to be asked a question.
+**The loaded die:** A die sitting on the table IS the state. It contains all probabilities for different outcomes. When you roll it (measure), you get one specific number. Before rolling, it's "all possibilities at once."
 
-**Analogy 1: The Loaded Die**
-Imagine a die sitting on the table:
-- The die itself IS the state $|\psi\rangle$
-- It contains all probabilities for different outcomes
-- When you roll it (measure), you get one number
-- Before rolling, it's "all possibilities at once"
+**The musical chord:** The written notation "C major" contains multiple notes (C, E, G) with specific amplitudes. You can describe it as which frequencies are present, or as a pressure wave vs time. Same chord, different representations.
 
-**Analogy 2: The Musical Chord**
-Or think of a chord that hasn't been played:
-- The written notation "C major" is like $|\psi\rangle$
-- Contains multiple notes (C, E, G) with specific amplitudes
-- You can describe it as frequencies (which notes) or as a sound wave (amplitude vs time)
-- Same chord, different descriptions!
-
-The quantum state $|\psi\rangle$ exists independent of how you choose to look at it. It's the thing that contains all the information, before you decide what to measure.
+The state $|\psi\rangle$ is like that. It exists independent of whether you ask about position, momentum, or energy. It contains all the information; you just need to extract what you want to know.
 
 ---
 
