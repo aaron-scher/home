@@ -58,16 +58,16 @@ Think back to 3D vectors. If $\vec{v}$ is a vector:
 ### Key Insight: Discrete vs Continuous
 
 **Energy basis (discrete):**
-- Basis vectors: $|0\rangle, |1\rangle, |2\rangle, ...$ (countable list)
-- Components: $c_0, c_1, c_2, ...$ (list of numbers)
-- Extract: $c_n = \langle n | \psi \rangle$ (a number for each n)
-- Reconstruct: $|\psi\rangle = \sum_{n=0}^{\infty} c_n |n\rangle$ (sum over discrete index)
+* Basis vectors: $|0\rangle, |1\rangle, |2\rangle, ...$ (countable list)
+* Components: $c_0, c_1, c_2, ...$ (list of numbers)
+* Extract: $c_n = \langle n | \psi \rangle$ (a number for each n)
+* Reconstruct: $|\psi\rangle = \sum_{n=0}^{\infty} c_n |n\rangle$ (sum over discrete index)
 
 **Position basis (continuous):**
-- Basis vectors: $|x\rangle$ for every real number $x$ (uncountable!)
-- Components: $\psi(x)$ for every $x$ (a function, not a list!)
-- Extract: $\psi(x) = \langle x | \psi \rangle$ (a number for each x)
-- Reconstruct: $|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx$ (integral over continuous index)
+* Basis vectors: $|x\rangle$ for every real number $x$ (uncountable!)
+* Components: $\psi(x)$ for every $x$ (a function, not a list!)
+* Extract: $\psi(x) = \langle x | \psi \rangle$ (a number for each x)
+* Reconstruct: $|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx$ (integral over continuous index)
 
 **The parallel structure:**
 
@@ -93,19 +93,19 @@ $$
 $$
 
 It's just **adding up** a bunch of vectors! Each term is:
-- **$|n\rangle$** = a basis vector (the n-th energy eigenstate)
-- **$c_n$** = a number (complex, in general) that scales that basis vector
-- **$c_n |n\rangle$** = that basis vector scaled by the coefficient
+* **$|n\rangle$** = a basis vector (the n-th energy eigenstate)
+* **$c_n$** = a number (complex, in general) that scales that basis vector
+* **$c_n |n\rangle$** = that basis vector scaled by the coefficient
 
 You're adding up infinitely many scaled basis vectors to build $|\psi\rangle$.
 
 **Concrete example with actual numbers:**
 
 Suppose we have:
-- $c_0 = \frac{1}{2}$
-- $c_1 = \frac{\sqrt{2}}{2}$
-- $c_2 = \frac{1}{2}$
-- $c_n = 0$ for all $n \geq 3$
+* $c_0 = \frac{1}{2}$
+* $c_1 = \frac{\sqrt{2}}{2}$
+* $c_2 = \frac{1}{2}$
+* $c_n = 0$ for all $n \geq 3$
 
 Then:
 
@@ -140,10 +140,10 @@ $$
 **That's it!** The coefficients $c_0, c_1, c_2, ...$ are just the entries in the column vector. The sum $\sum c_n |n\rangle$ is assembling this column vector by adding scaled basis vectors.
 
 **The sum notation $\sum_{n=0}^{\infty}$ just means:**
-- Start with $n = 0$: add $c_0|0\rangle$
-- Then $n = 1$: add $c_1|1\rangle$
-- Then $n = 2$: add $c_2|2\rangle$
-- Keep going forever: $n = 3, 4, 5, ...$
+* Start with $n = 0$: add $c_0|0\rangle$
+* Then $n = 1$: add $c_1|1\rangle$
+* Then $n = 2$: add $c_2|2\rangle$
+* Keep going forever: $n = 3, 4, 5, ...$
 
 It's shorthand for "add up all these terms."
 
@@ -183,10 +183,10 @@ $$
 $$
 
 Each term is:
-- **$|x_i\rangle$** = position eigenstate at position $x_i$ (a delta function spike there)
-- **$\psi(x_i)$** = the amplitude at that position (a number)
-- **$dx$** = the width of each bin (becomes infinitesimal in the limit)
-- **$\psi(x_i)|x_i\rangle \cdot dx$** = scaled basis vector at that position
+* **$|x_i\rangle$** = position eigenstate at position $x_i$ (a delta function spike there)
+* **$\psi(x_i)$** = the amplitude at that position (a number)
+* **$dx$** = the width of each bin (becomes infinitesimal in the limit)
+* **$\psi(x_i)|x_i\rangle \cdot dx$** = scaled basis vector at that position
 
 As $dx \to 0$ (infinitely fine bins), this sum becomes the integral $\int \psi(x)|x\rangle dx$.
 
@@ -199,11 +199,11 @@ $$
 $$
 
 Written out with specific positions:
-- At $x = 0$: add $e^{0}|0\rangle \cdot dx = 1.00 \cdot |x=0\rangle \cdot dx$
-- At $x = 1$: add $e^{-1/2}|1\rangle \cdot dx = 0.61 \cdot |x=1\rangle \cdot dx$
-- At $x = 2$: add $e^{-2}|2\rangle \cdot dx = 0.14 \cdot |x=2\rangle \cdot dx$
-- At $x = 3$: add $e^{-9/2}|3\rangle \cdot dx = 0.01 \cdot |x=3\rangle \cdot dx$
-- etc. for all $x$ from $-\infty$ to $+\infty$
+* At $x = 0$: add $e^{0}|0\rangle \cdot dx = 1.00 \cdot |x=0\rangle \cdot dx$
+* At $x = 1$: add $e^{-1/2}|1\rangle \cdot dx = 0.61 \cdot |x=1\rangle \cdot dx$
+* At $x = 2$: add $e^{-2}|2\rangle \cdot dx = 0.14 \cdot |x=2\rangle \cdot dx$
+* At $x = 3$: add $e^{-9/2}|3\rangle \cdot dx = 0.01 \cdot |x=3\rangle \cdot dx$
+* etc. for all $x$ from $-\infty$ to $+\infty$
 
 The Gaussian weights how much each position contributes. Positions near $x = 0$ contribute a lot (large $\psi(x)$), positions far away contribute little (small $\psi(x)$).
 
@@ -226,11 +226,11 @@ Both are doing the **same thing**: building a state by adding up basis vectors, 
 ### What Are We Integrating Over?
 
 When you see $\int \psi(x) |x\rangle \, dx$:
-- We're integrating over **all possible positions** $x$ (from $-\infty$ to $+\infty$)
-- At each position $x$, we have:
-  - A basis vector $|x\rangle$ (position eigenstate — a spike at that location)
-  - A coefficient $\psi(x)$ (the amplitude for that position)
-- The integral **adds up** all these infinitesimal contributions
+* We're integrating over **all possible positions** $x$ (from $-\infty$ to $+\infty$)
+* At each position $x$, we have:
+  * A basis vector $|x\rangle$ (position eigenstate — a spike at that location)
+  * A coefficient $\psi(x)$ (the amplitude for that position)
+* The integral **adds up** all these infinitesimal contributions
 
 **Visual picture:** Imagine position space discretized into tiny bins of width $dx$:
 
@@ -339,22 +339,22 @@ So when we write "$\psi$" in Schrödinger's equation, we really mean **$\psi(x) 
 | $\|n\rangle$ | Energy eigenstate | The $n$-th eigenfunction | Basis vector (discrete) |
 
 **The golden rule:**
-- **Ket $|\psi\rangle$** is abstract, basis-independent
-- **Naked $\psi$** (like in $\psi(x)$) is a representation — components in some basis
-- They're related by: **$\psi(x) = \langle x|\psi\rangle$** or **$c_n = \langle n|\psi\rangle$**
+* **Ket $|\psi\rangle$** is abstract, basis-independent
+* **Naked $\psi$** (like in $\psi(x)$) is a representation — components in some basis
+* They're related by: **$\psi(x) = \langle x|\psi\rangle$** or **$c_n = \langle n|\psi\rangle$**
 
 **The key difference:** Quantum states live in an **infinite-dimensional space** (called Hilbert space). You always need infinitely many numbers, but they come in two flavors:
-- **Discrete infinite:** A countable list like $[c_0, c_1, c_2, ...]$ (energy basis for harmonic oscillator)
-- **Continuous infinite:** A function like $\psi(x)$ — one value for every point $x$ (position/momentum basis)
+* **Discrete infinite:** A countable list like $[c_0, c_1, c_2, ...]$ (energy basis for harmonic oscillator)
+* **Continuous infinite:** A function like $\psi(x)$ — one value for every point $x$ (position/momentum basis)
 
 Both are infinite-dimensional! Position feels "more infinite" because it's continuous (uncountably infinite), while energy is discrete (countably infinite). But mathematically, both describe the same infinite-dimensional state.
 
 **Why is energy discrete but position continuous?** For the harmonic oscillator, boundary conditions (wavefunction vanishes at infinity) force energy to take discrete values $E_n$. But position can be anywhere on the real line — no restriction, so the position basis is continuous.
 
 **Normalization:** Since quantum mechanics is about probabilities (which sum to 1), the state $|\psi\rangle$ always has length 1:
-- Energy basis: $|c_0|^2 + |c_1|^2 + |c_2|^2 + ... = 1$
-- Position basis: $\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1$
-- Momentum basis: $\int_{-\infty}^{\infty} |\tilde{\psi}(p)|^2 dp = 1$
+* Energy basis: $|c_0|^2 + |c_1|^2 + |c_2|^2 + ... = 1$
+* Position basis: $\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1$
+* Momentum basis: $\int_{-\infty}^{\infty} |\tilde{\psi}(p)|^2 dp = 1$
 
 The length stays 1 in all bases, just like a unit vector in 3D keeps length 1 in any coordinate system!
 
@@ -381,15 +381,15 @@ $$
 $$
 
 **Probabilities:** Measuring energy $E_n$ gives probability $|c_n|^2$:
-- $P(E_0) = |c_0|^2$
-- $P(E_1) = |c_1|^2$
-- $P(E_2) = |c_2|^2$
+* $P(E_0) = |c_0|^2$
+* $P(E_1) = |c_1|^2$
+* $P(E_2) = |c_2|^2$
 
 **Normalization:** $|c_0|^2 + |c_1|^2 + |c_2|^2 = 1$
 
 **Example:** Take $c_0 = \frac{1}{2}, c_1 = \frac{\sqrt{2}}{2}, c_2 = \frac{1}{2}$. Then:
-- Probabilities: 25%, 50%, 25%
-- Average energy: $\langle E \rangle = E_0 \cdot \frac{1}{4} + E_1 \cdot \frac{1}{2} + E_2 \cdot \frac{1}{4} = \frac{3}{2}\hbar\omega$
+* Probabilities: 25%, 50%, 25%
+* Average energy: $\langle E \rangle = E_0 \cdot \frac{1}{4} + E_1 \cdot \frac{1}{2} + E_2 \cdot \frac{1}{4} = \frac{3}{2}\hbar\omega$
 
 In the energy basis, everything is simple!
 
@@ -461,9 +461,9 @@ $$
 $$
 
 **Important:** The coefficients $c_0, c_1, c_2$ are **constants**. What changes is the **phase** of each component. Different energies have different frequencies $\omega_n = E_n/\hbar$, so phases evolve at different rates:
-- Ground state: $e^{-i\omega t/2}$ (slowest)
-- First excited: $e^{-i3\omega t/2}$
-- Second excited: $e^{-i5\omega t/2}$ (fastest)
+* Ground state: $e^{-i\omega t/2}$ (slowest)
+* First excited: $e^{-i3\omega t/2}$
+* Second excited: $e^{-i5\omega t/2}$ (fastest)
 
 In position space:
 
@@ -516,8 +516,8 @@ $$
 $$
 
 where $\delta(x' - x)$ is the Dirac delta function (infinite spike at $x' = x$, zero elsewhere). This is the continuous analog of the discrete Kronecker delta. It means:
-- Different position eigenstates are orthogonal: $\langle x'|x\rangle = 0$ if $x' \neq x$
-- Same position eigenstate has "infinite norm" concentrated at one point (we normalize by integrating over a region)
+* Different position eigenstates are orthogonal: $\langle x'|x\rangle = 0$ if $x' \neq x$
+* Same position eigenstate has "infinite norm" concentrated at one point (we normalize by integrating over a region)
 
 ### Bra-Ket Notation
 
@@ -572,11 +572,11 @@ General inner product of two states: $\langle \phi | \psi \rangle = \int_{-\inft
 Same structure, different notation for "sum over basis"!
 
 **Notation note:**
-- $|n\rangle$ means "the n-th energy eigenstate" (discrete index: n = 0, 1, 2, ...)
-- $|x\rangle$ means "position eigenstate at position x" (continuous index: x is any real number)
-- $|x\rangle$ is **not** the same as $\psi(x)$! One is a basis vector, the other is a component/coefficient
-  - $|x\rangle$ = basis vector (like $\hat{x}, \hat{y}, \hat{z}$ in 3D)
-  - $\psi(x) = \langle x|\psi\rangle$ = coefficient (like $v_x, v_y, v_z$ in 3D)
+* $|n\rangle$ means "the n-th energy eigenstate" (discrete index: n = 0, 1, 2, ...)
+* $|x\rangle$ means "position eigenstate at position x" (continuous index: x is any real number)
+* $|x\rangle$ is **not** the same as $\psi(x)$! One is a basis vector, the other is a component/coefficient
+  * $|x\rangle$ = basis vector (like $\hat{x}, \hat{y}, \hat{z}$ in 3D)
+  * $\psi(x) = \langle x|\psi\rangle$ = coefficient (like $v_x, v_y, v_z$ in 3D)
 
 ---
 
@@ -606,10 +606,10 @@ $$
 
 Operators are mathematical objects that extract physical observables from quantum states. Each measurable quantity has an operator:
 
-- $\hat{H}$ = Hamiltonian (energy operator) = $-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)$
-- $\hat{x}$ = position operator (multiply by $x$ in position basis)
-- $\hat{p}$ = momentum operator = $-i\hbar \frac{\partial}{\partial x}$ (in position basis)
-- $\hat{L}$ = angular momentum operator
+* $\hat{H}$ = Hamiltonian (energy operator) = $-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)$
+* $\hat{x}$ = position operator (multiply by $x$ in position basis)
+* $\hat{p}$ = momentum operator = $-i\hbar \frac{\partial}{\partial x}$ (in position basis)
+* $\hat{L}$ = angular momentum operator
 
 The Hamiltonian has two key roles:
 1. **Eigenvalue equation:** $\hat{H}|n\rangle = E_n|n\rangle$ finds energy eigenstates
@@ -628,8 +628,8 @@ $$
 says: "When the energy operator acts on energy eigenstate $|n\rangle$, it returns the energy value $E_n$ times that state."
 
 This is what we've been solving! The time-independent Schrödinger equation $\hat{H}\psi = E\psi$ finds:
-- **Eigenstates:** special states $|n\rangle$ (or $\psi_n(x)$ in position representation)
-- **Eigenvalues:** energy values $E_n$
+* **Eigenstates:** special states $|n\rangle$ (or $\psi_n(x)$ in position representation)
+* **Eigenvalues:** energy values $E_n$
 
 **Why are eigenstates special?**
 
@@ -690,13 +690,13 @@ This formula works in **any basis**!
 **Key insight:** Operators are easy in their own eigenbasis, hard in others.
 
 **Energy basis:**
-- $\hat{H}$ is trivial (diagonal matrix): $\hat{H} = \text{diag}(E_0, E_1, E_2, ...)$
-- $\hat{x}$ is complicated (off-diagonal, mixes energy states)
+* $\hat{H}$ is trivial (diagonal matrix): $\hat{H} = \text{diag}(E_0, E_1, E_2, ...)$
+* $\hat{x}$ is complicated (off-diagonal, mixes energy states)
 
 **Position basis:**
-- $\hat{x}$ is trivial: $\hat{x}\psi(x) = x\psi(x)$ (just multiply by $x$)
-- $\hat{H}$ is complicated: $\hat{H}\psi(x) = -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi(x)$ (differential operator)
-- $\hat{p}$ is also a differential operator: $\hat{p} = -i\hbar \frac{\partial}{\partial x}$
+* $\hat{x}$ is trivial: $\hat{x}\psi(x) = x\psi(x)$ (just multiply by $x$)
+* $\hat{H}$ is complicated: $\hat{H}\psi(x) = -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi(x)$ (differential operator)
+* $\hat{p}$ is also a differential operator: $\hat{p} = -i\hbar \frac{\partial}{\partial x}$
 
 ### The Parallel Structure
 
@@ -757,9 +757,9 @@ This is the "true" Schrödinger equation. It doesn't care what basis you use! Th
 State: $|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle$
 
 **Probabilities:**
-- $P(E_0) = |c_0|^2 = 1/4 = 25\%$
-- $P(E_1) = |c_1|^2 = 1/2 = 50\%$
-- $P(E_2) = |c_2|^2 = 1/4 = 25\%$
+* $P(E_0) = |c_0|^2 = 1/4 = 25\%$
+* $P(E_1) = |c_1|^2 = 1/2 = 50\%$
+* $P(E_2) = |c_2|^2 = 1/4 = 25\%$
 
 **Average energy:**
 
