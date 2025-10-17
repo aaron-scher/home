@@ -22,13 +22,13 @@ Same state, different descriptions! Like how a 3D vector doesn't change whether 
 
 ## What Is the Abstract State |ψ⟩?
 
-The ket $|\psi\rangle$ is the complete quantum state, the thing itself before you choose how to describe it. Think of it as:
+The ket $|\psi\rangle$ is the complete quantum state, the thing itself before you choose how to describe it.
 
-**The loaded die:** A die sitting on the table IS the state. It contains all probabilities for different outcomes. When you roll it (measure), you get one specific number. Before rolling, it's "all possibilities at once."
+**The loaded die analogy:** A die sitting on the table IS the state. It contains all probabilities for different outcomes. When you roll it (measure), you get one specific number. Before rolling, it's "all possibilities at once."
 
-**The musical chord:** The written notation "C major" contains multiple notes (C, E, G) with specific amplitudes. You can describe it as which frequencies are present, or as a pressure wave vs time. Same chord, different representations.
+**The vector analogy:** An arrow in 3D space doesn't change if you describe it using Cartesian coordinates $(x, y, z)$ or cylindrical coordinates $(r, \theta, z)$. It's the same arrow, same length, same direction. Only the numbers change. The arrow itself is basis-independent.
 
-The state $|\psi\rangle$ is like that. It exists independent of whether you ask about position, momentum, or energy. It contains all the information; you just need to extract what you want to know.
+Similarly, $|\psi\rangle$ exists independent of whether you ask about position, momentum, or energy. It contains all the information; you just need to choose which representation to use.
 
 ---
 
