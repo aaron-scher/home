@@ -390,14 +390,14 @@ Everything in quantum mechanics follows this parallel pattern:
 
 | **Concept** | **Discrete (Energy)** | **Continuous (Position)** |
 |------------|----------------------|--------------------------|
-| **State** | $\|\psi\rangle$ | $\|\psi\rangle$ (same!) |
-| **Basis vectors** | $\|n\rangle$ for n = 0,1,2,... | $\|x\rangle$ for all real x |
+| **State** | $\vert\psi\rangle$ | $\vert\psi\rangle$ (same!) |
+| **Basis vectors** | $\vert n\rangle$ for n = 0,1,2,... | $\vert x\rangle$ for all real x |
 | **Coefficients** | $c_n$ for each level | $\psi(x)$ for each position |
-| **Extract component** | $c_n = \langle n\|\psi\rangle$ | $\psi(x) = \langle x\|\psi\rangle$ |
-| **Build state** | $\|\psi\rangle = \sum_n c_n\|n\rangle$ | $\|\psi\rangle = \int \psi(x)\|x\rangle dx$ |
-| **Orthonormality** | $\langle m\|n\rangle = \delta_{mn}$ | $\langle x'\|x\rangle = \delta(x'-x)$ |
-| **Probability** | $P(n) = \|c_n\|^2$ | $P(x)dx = \|\psi(x)\|^2 dx$ |
-| **Normalization** | $\sum_n \|c_n\|^2 = 1$ | $\int \|\psi(x)\|^2 dx = 1$ |
+| **Extract component** | $c_n = \langle n\vert\psi\rangle$ | $\psi(x) = \langle x\vert\psi\rangle$ |
+| **Build state** | $\vert\psi\rangle = \sum_n c_n\vert n\rangle$ | $\vert\psi\rangle = \int \psi(x)\vert x\rangle dx$ |
+| **Orthonormality** | $\langle m\vert n\rangle = \delta_{mn}$ | $\langle x'\vert x\rangle = \delta(x'-x)$ |
+| **Probability** | $P(n) = \vert c_n\vert^2$ | $P(x)dx = \vert\psi(x)\vert^2 dx$ |
+| **Normalization** | $\sum_n \vert c_n\vert^2 = 1$ | $\int \vert\psi(x)\vert^2 dx = 1$ |
 
 Discrete sums become continuous integrals. Everything else is identical!
 
@@ -432,7 +432,7 @@ Same equation, different coordinates. Choose wisely!
 Each basis makes certain questions trivial:
 
 **"What's the probability of energy $E_1$?"**
-Energy basis: Just $|c(1)|^2$. One number!
+Energy basis: Just $|c_1|^2$. One number!
 
 **"What's the probability of finding the particle between x=1 and x=2?"**
 Position basis: Just $\int_1^2 |\psi(x)|^2 dx$. One integral!
