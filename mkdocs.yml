@@ -51,7 +51,7 @@ plugins:
 nav:
   - Home: index.md
   - Quantum Mechanics:
-    - quantum-mechanics/index.md
+    - Overview: quantum-mechanics/index.md
     - Foundations: quantum-mechanics/quantum-foundations.md
     - Basis Representation: quantum-mechanics/quantum-basis-representation.md
   - Math Examples: notes/math-examples.md
