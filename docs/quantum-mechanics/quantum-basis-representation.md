@@ -200,18 +200,23 @@ $$
 But you can write Schrödinger's equation in **any basis**:
 
 **Energy basis** (super simple!):
+
 $$
 i\hbar\frac{dc_n(t)}{dt} = E_n c_n(t)
 $$
+
 Solution: $c_n(t) = c_n(0) e^{-iE_n t/\hbar}$ — just a rotating phase!
 
 **Momentum basis**:
+
 $$
 i\hbar\frac{\partial\tilde{\psi}(p,t)}{\partial t} = \frac{p^2}{2m}\tilde{\psi}(p,t) + \tilde{V}(p)\tilde{\psi}(p,t)
 $$
+
 (Kinetic energy is simple, potential is complicated - opposite of position space!)
 
 **Basis-independent form** (the most fundamental!):
+
 $$
 i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle
 $$
