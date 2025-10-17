@@ -250,7 +250,7 @@ Squeezing ψ narrow increases its curvature ($\psi''$), making the left side lar
 
 Let's test three different Gaussian trial wavefunctions with different widths:
 
-![Gaussian widths comparison](images/harmonic_oscillator_gaussians_1.png)
+![Gaussian widths comparison](../images/harmonic_oscillator_gaussians_1.png)
 
 - **ψ₁ (narrow, red):** Sharp peak → high curvature at center → high KE
 - **ψ₂ (medium, green):** "Just right" width — balances spread vs curvature
@@ -258,7 +258,7 @@ Let's test three different Gaussian trial wavefunctions with different widths:
 
 Now let's check which one gives constant total energy $E(x) = \text{KE}(x) + V(x)$:
 
-![Local energy comparison](images/harmonic_oscillator_gaussians_2.png)
+![Local energy comparison](../images/harmonic_oscillator_gaussians_2.png)
 
 - **E₁ (red):** Too much KE → $E(x)$ bulges at center (not constant!)
 - **E₂ (green):** Nearly flat $E(x)$ → this is a **stationary state**!
