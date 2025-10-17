@@ -5,7 +5,7 @@ A place for my future self to quickly get back up to speed (and hopefully be use
 ## All Pages
 
 - **Quantum Mechanics**
-  - [Foundations](quantum-mechanics/quantum-foundations.md) - Schrödinger equation, harmonic oscillator, zero-point energy
-  - [Basis Representation](quantum-mechanics/quantum-basis-representation.md) - Energy/position/momentum bases, Dirac notation, Hilbert space
+  - [Foundations](quantum-mechanics/quantum-foundations.md)
+  - [Basis Representation](quantum-mechanics/quantum-basis-representation.md)
 - [Math Examples](notes/math-examples.md)
 - [Git Quickstart](howto/git.md)
