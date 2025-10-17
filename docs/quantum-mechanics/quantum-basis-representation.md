@@ -64,6 +64,24 @@ $$|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2
 
 This is vector addition, just like $\vec{v} = 2\hat{x} + 3\hat{y} - \hat{z}$ in 3D. Take half of basis vector $|0\rangle$, add $\sqrt{2}/2$ of basis vector $|1\rangle$, add half of basis vector $|2\rangle$. Done!
 
+### Column Vector Form
+
+Just like in 3D where we can write $\hat{x} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$, we can write energy eigenstates as column vectors. Each basis vector has a 1 in its position and 0 everywhere else:
+
+$$
+|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix}, \quad
+|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}, \quad
+|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}, \quad \text{etc.}
+$$
+
+Then our state becomes:
+
+$$
+|\psi\rangle = \frac{1}{2}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{\sqrt{2}}{2}\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} = \begin{pmatrix} 1/2 \\ \sqrt{2}/2 \\ 1/2 \\ 0 \\ \vdots \end{pmatrix}
+$$
+
+The coefficients $c_0, c_1, c_2, ...$ are just the entries in the column vector! The sum $\sum c_n |n\rangle$ is assembling this column vector by adding scaled basis vectors.
+
 ---
 
 ## Components as Functions: The Key Insight
