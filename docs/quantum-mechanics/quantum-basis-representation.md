@@ -76,7 +76,8 @@ Since quantum mechanics is about probabilities, and probabilities must sum to 1,
 
 Think of a unit vector in 3D: $\vec{v} = (v_x, v_y, v_z)$ with $v_x^2 + v_y^2 + v_z^2 = 1$. No matter how you rotate your coordinate system (Cartesian, spherical, etc.), the length stays 1!
 
-Same in quantum mechanics: No matter which basis you use to describe $|\psi\rangle$, the "length" is always 1:
+**Same in quantum mechanics:** No matter which basis you use to describe $|\psi\rangle$, the "length" is always 1:
+
 - Energy basis: $|c_0|^2 + |c_1|^2 + |c_2|^2 + ... = 1$
 - Position basis: $\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1$
 - Momentum basis: $\int_{-\infty}^{\infty} |\tilde{\psi}(p)|^2 dp = 1$
