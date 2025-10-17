@@ -47,7 +47,8 @@ This symbol (called a "ket") represents THE quantum state itself — before you 
 
 It's the same arrow — same length, same direction — just different numbers describing it. **Crucially: you always need exactly 3 numbers because the space is 3-dimensional.**
 
-Similarly in quantum mechanics:
+**Similarly in quantum mechanics:**
+
 - $|\psi\rangle$ is THE quantum state (like the arrow itself)
 - $\psi(x)$ is how it looks in position coordinates
 - $\tilde{\psi}(p)$ is how it looks in momentum coordinates
