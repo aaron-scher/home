@@ -183,9 +183,21 @@ Energy eigenstates are orthonormal:
 
 $$\langle m|n\rangle = \begin{cases} 1 & \text{if } m = n \\ 0 & \text{if } m \neq n \end{cases}$$
 
-Just like $\hat{x} \cdot \hat{y} = 0$ and $\hat{x} \cdot \hat{x} = 1$ in 3D!
+Just like $\hat{x} \cdot \hat{y} = 0$ and $\hat{x} \cdot \hat{x} = 1$ in 3D! Let's verify with our basis vectors:
 
-To extract $c_1$ from our state:
+**Case 1: Different states (m ≠ n).** Compute $\langle 0|1\rangle$:
+
+$$\langle 0|1\rangle = \begin{pmatrix} 1 & 0 & 0 & \cdots \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} = 1(0) + 0(1) + 0(0) + \cdots = 0$$
+
+They're orthogonal (perpendicular)!
+
+**Case 2: Same state (m = n).** Compute $\langle 1|1\rangle$:
+
+$$\langle 1|1\rangle = \begin{pmatrix} 0 & 1 & 0 & \cdots \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} = 0(0) + 1(1) + 0(0) + \cdots = 1$$
+
+The state is normalized (length 1)!
+
+Now we can use this to extract components. To extract $c_1$ from our state:
 
 $$\langle 1|\psi\rangle = \langle 1|\left(\frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle\right)$$
 
@@ -205,11 +217,19 @@ Now for the continuous case. Position is continuous (the particle can be anywher
 
 ### Position Eigenstates |x⟩
 
-For each real number x, there's a basis vector $|x\rangle$ representing "particle definitely at position x". These are orthonormal in the continuous sense:
+For each real number x, there's a basis vector $|x\rangle$ representing "particle definitely at position x".
+
+**What does |x⟩ look like in position representation?** It's a delta function centered at x:
+
+$$|x\rangle = \delta(x' - x)$$
+
+where x' is the position variable. Think of |x=2.5⟩ as a spike sitting at position 2.5, zero everywhere else.
+
+These are orthonormal in the continuous sense:
 
 $$\langle x'|x\rangle = \delta(x' - x)$$
 
-The delta function is zero everywhere except an infinite spike at $x' = x$. It's the continuous version of the Kronecker delta.
+The inner product gives a delta function, just like $\langle m|n\rangle = \delta_{mn}$ in the discrete case.
 
 ### The Position Wavefunction
 
@@ -217,7 +237,9 @@ Just as $c(n) = \langle n|\psi\rangle$ extracts energy coefficients, we extract 
 
 $$\boxed{\psi(x) = \langle x|\psi\rangle}$$
 
-This is THE key equation! The wavefunction $\psi(x)$ is just the coefficient function for the position basis. You give it a position, it tells you the amplitude there.
+This is THE key equation! The wavefunction $\psi(x)$ is the amplitude for the basis vector at position x. You give it a position, it tells you the amplitude there.
+
+(Note: For complex states, $\psi(x) = \langle x|\psi\rangle = \langle\psi|x\rangle^*$, but when ψ is real-valued they're equal.)
 
 ### Building States in Position Basis
 
@@ -226,29 +248,17 @@ In position basis: $|\psi\rangle = \int \psi(x)|x\rangle dx$
 
 Same pattern! We're adding up basis vectors, weighted by amplitudes. Since position is continuous, we integrate instead of sum.
 
-**Physical picture:** Think of $|x\rangle$ as a spike at position x. The integral:
+**Physical picture:** Each $|x\rangle$ is a spike (delta function) at position x. Since $|x\rangle = \delta(x' - x)$, the integral:
 
-$$|\psi\rangle = \int \psi(x)|x\rangle dx$$
+$$|\psi\rangle = \int \psi(x)|x\rangle dx = \int \psi(x)\delta(x' - x) dx$$
 
-says "place amplitude $\psi(x)$ worth of spike at each position x, then add them all up." You're building the state from infinitely many position spikes, each weighted by the wavefunction value there.
+says "place amplitude $\psi(x)$ worth of spike at each position x, then add them all up." You're building the state from infinitely many delta functions, each weighted by $\psi(x)$.
 
----
+**Why this works:** The delta function has a sifting property. When you compute $\langle x|\psi\rangle$, you get:
 
-## The Delta Function: Making Continuous Bases Work
+$$\psi(x) = \langle x|\psi\rangle = \int \psi(x') \langle x|x'\rangle dx' = \int \psi(x') \delta(x - x') dx' = \psi(x)$$
 
-The delta function $\delta(x - x')$ has a special property. When integrated against any function, it "picks out" one value:
-
-$$\int_{-\infty}^{\infty} f(x') \delta(x' - x) dx' = f(x)$$
-
-This "sifting property" is why position eigenstates extract position amplitudes! Starting with:
-
-$$|\psi\rangle = \int \psi(x')|x'\rangle dx'$$
-
-Computing $\langle x|\psi\rangle$:
-
-$$\langle x|\psi\rangle = \int \psi(x') \langle x|x'\rangle dx' = \int \psi(x') \delta(x - x') dx' = \psi(x)$$
-
-The delta function sifts out exactly the value at position x. Beautiful!
+The delta function $\delta(x - x')$ "picks out" the value at $x' = x$, extracting exactly $\psi(x)$. This is how the inner product extracts position amplitudes!
 
 ---
 
