@@ -238,86 +238,77 @@ Both are doing the **same thing**: building a state by adding up basis vectors, 
 
 **Key difference:** Discrete case has countable basis vectors, so we can write a list. Continuous case has uncountable basis vectors (one delta function for each real number $x$), so we need an integral!
 
-### What Are We Integrating Over? (The Shifted Delta Function)
+### The Delta Function: How Continuous Bases Work
 
-When you see $\int \psi(x) |x\rangle \, dx$, remember that $|x\rangle = \delta(x' - x)$ is a **shifted delta function**.
+**What is the continuous basis vector |x⟩?**
 
-* We're integrating over the **shift parameter** $x$ (from $-\infty$ to $+\infty$)
-* At each value of $x$, we add a term $\psi(x) \cdot \delta(x' - x) \cdot dx$
-* This is a delta function **centered at position x**, weighted by $\psi(x)$
-
-In full detail:
+The position eigenstate $|x\rangle$ is a **delta function** — a shifted spike at position $x$:
 
 $$
-|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) |x\rangle \, dx = \int_{-\infty}^{\infty} \psi(x) \delta(x' - x) \, dx
+|x\rangle = \delta(x' - x) \quad \text{or equivalently} \quad \langle x' | x \rangle = \delta(x' - x)
 $$
 
-**Visual picture:** Imagine position space discretized into tiny bins:
+This is the continuous analog of the discrete basis vector $|n\rangle$, just as $\delta(x'-x)$ is the continuous analog of the Kronecker delta $\delta_{mn}$.
+
+---
+
+#### Part 1: Building States (Construction)
+
+When you see $\int \psi(x) |x\rangle \, dx$, you're **building** $|\psi\rangle$ by adding weighted delta functions:
+
+$$
+|\psi\rangle = \int_{-\infty}^{\infty} \psi(x) \delta(x' - x) \, dx
+$$
+
+**Discrete approximation:** Divide space into bins of width $dx$:
 
 $$
 |\psi\rangle \approx \psi(x_1)\delta(x'-x_1) \cdot dx + \psi(x_2)\delta(x'-x_2) \cdot dx + \psi(x_3)\delta(x'-x_3) \cdot dx + ...
 $$
 
-Each term is a **shifted delta function** at position $x_i$, scaled by amplitude $\psi(x_i)$ and bin width $dx$.
+* Each term is a **shifted delta spike** at position $x_i$
+* Weighted by amplitude $\psi(x_i)$
+* Scaled by bin width $dx$
 
-As $dx \to 0$, this discrete sum becomes the integral. The integral adds up **infinitely many weighted, shifted delta functions** to build the smooth wavefunction $\psi(x')$!
+As $dx \to 0$, we get the integral. We're integrating over the **shift parameter** $x$, adding up infinitely many weighted delta spikes to build $|\psi\rangle$!
 
-**This is exactly like Riemann sums in calculus**, but instead of adding numbers, we're adding functions (delta spikes).
+**This is like Riemann sums**, but instead of adding numbers, we add functions (delta spikes).
 
-### The Delta Function: How Position Basis Really Works
+---
 
-Here's where the delta function reveals the beautiful mechanism behind continuous bases.
+#### Part 2: Extracting Components (Projection)
 
-**What is |x⟩?** The position eigenstate $|x\rangle$ is a **delta function** — an infinitely sharp spike at position $x$, zero everywhere else:
-
-$$
-\langle x' | x \rangle = \delta(x' - x)
-$$
-
-This is the continuous analog of the discrete Kronecker delta $\delta_{mn}$.
-
-**The Sifting Property:** The delta function has a magical property — when you integrate it against any function, it "picks out" the value at one point:
+The delta function has a **sifting property** — when you integrate it against any function, it "picks out" one value:
 
 $$
 \int_{-\infty}^{\infty} f(x') \delta(x' - x) \, dx' = f(x)
 $$
 
-It's like a "sampling function" — it reaches into $f(x')$ and extracts the single value $f(x)$.
-
-**How ⟨x|ψ⟩ Works:** Now watch how extracting the wavefunction uses this sifting property:
+**How ⟨x|ψ⟩ extracts ψ(x):** Start with $|\psi\rangle = \int \psi(x') |x'\rangle dx'$ and project onto $\langle x|$:
 
 $$
-\psi(x) = \langle x | \psi \rangle = \left\langle x \middle| \int_{-\infty}^{\infty} \psi(x') |x'\rangle \, dx' \right\rangle
+\psi(x) = \langle x | \psi \rangle = \int_{-\infty}^{\infty} \psi(x') \langle x | x' \rangle \, dx' = \int_{-\infty}^{\infty} \psi(x') \delta(x - x') \, dx' = \psi(x) \quad \checkmark
 $$
 
-Move the bra inside the integral (linearity):
+The delta function sifts out the value at $x$! **This is how the dot product "picks out" the wavefunction value at position x.**
 
-$$
-\psi(x) = \int_{-\infty}^{\infty} \psi(x') \langle x | x' \rangle \, dx' = \int_{-\infty}^{\infty} \psi(x') \delta(x - x') \, dx'
-$$
+---
 
-The delta function sifts out the value at $x$:
-
-$$
-\psi(x) = \psi(x) \quad \checkmark
-$$
-
-**This is how the dot product "picks out" the value at position x!**
-
-**Discrete vs Continuous — The Perfect Parallel:**
+#### Discrete vs Continuous: The Perfect Parallel
 
 | | **Discrete (Energy)** | **Continuous (Position)** |
 |---|---|---|
 | **Orthonormality** | $\langle m \| n \rangle = \delta_{mn}$ | $\langle x' \| x \rangle = \delta(x' - x)$ |
 | **What it means** | Different basis states are orthogonal | Different positions are orthogonal |
 | **"Sifting"** | $\sum_n c_n \delta_{mn} = c_m$ | $\int \psi(x') \delta(x'-x) dx' = \psi(x)$ |
-| **Extract component** | $c_m = \sum_n \langle m\|n\rangle c_n = c_m$ | $\psi(x) = \int \langle x\|x'\rangle \psi(x') dx' = \psi(x)$ |
+| **Build state** | $\|\psi\rangle = \sum_n c_n \|n\rangle$ | $\|\psi\rangle = \int \psi(x) \delta(x'-x) dx$ |
+| **Extract component** | $c_m = \sum_n \langle m\|n\rangle c_n$ | $\psi(x) = \int \langle x\|x'\rangle \psi(x') dx'$ |
 
-In the discrete case, $\delta_{mn}$ kills all terms except $m=n$. In the continuous case, $\delta(x-x')$ kills all positions except $x'=x$. **Same mechanism, continuous version!**
+In discrete case: $\delta_{mn}$ kills all terms except $m=n$. In continuous case: $\delta(x-x')$ kills all positions except $x'=x$. Same mechanism!
 
-**Physical intuition:** Think of $|x\rangle$ as a particle **perfectly localized** at position $x$ — zero probability everywhere else, infinite spike at $x$. When you dot this with $|\psi\rangle$, you're asking "how much of $|\psi\rangle$ overlaps with being exactly at position $x$?" The answer is $\psi(x)$!
+**Physical intuition:** $|x\rangle$ represents a particle **perfectly localized** at position $x$ — zero probability everywhere else, infinite spike at $x$. When you dot this with $|\psi\rangle$, you're asking "how much of $|\psi\rangle$ overlaps with being exactly at position $x$?" The answer is $\psi(x)$.
 
-This is why position eigenstates aren't physically realizable (can't have infinite position certainty) — but they're perfect mathematical basis vectors, just like plane waves $e^{ipx/\hbar}$ aren't physically realizable (infinite momentum uncertainty) but make perfect momentum basis states.
+Position eigenstates aren't physically realizable (can't have infinite position certainty), but they're perfect mathematical basis vectors — just like plane waves $e^{ipx/\hbar}$ (perfect momentum basis, but unphysical).
 
 ### What About Schrödinger's Equation?
 
