@@ -50,7 +50,9 @@ plugins:
   - macros
 nav:
   - Home: index.md
-  - Quantum Mechanics: quantum-mechanics.md
+  - Quantum Mechanics:
+    - Foundations: quantum-mechanics/quantum-foundations.md
+    - Basis Representation: quantum-mechanics/quantum-basis-representation.md
   - Math Examples: notes/math-examples.md
   - Git Quickstart: howto/git.md
 
