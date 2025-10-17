@@ -84,53 +84,21 @@ The coefficients $c_0, c_1, c_2, ...$ are just the entries in the column vector!
 
 ---
 
-## Components as Functions: The Key Insight
+## Components as Functions
 
-Here's what unifies everything in quantum mechanics: **components are functions**.
+Here's a useful way to think about the parallel between discrete and continuous: both use functions to specify amplitudes.
 
-### The Discrete Function c(n)
+**Energy basis:** The coefficients $c_0, c_1, c_2, ...$ can be thought of as a discrete function c[n] where you input an integer n and get back the amplitude for that energy level.
 
-Those coefficients $c_0, c_1, c_2, ...$ aren't just a list. They're outputs of a function:
+**Position basis:** The wavefunction $\psi(x)$ is a continuous function where you input a real number x and get back the amplitude at that position.
 
-**c is a lookup table:**
-- Input: "Which energy level?" (an integer n)
-- Output: "Here's the amplitude" (a complex number)
+Same idea, different domains! The discrete case uses integers (n = 0, 1, 2, ...) while the continuous case uses real numbers (any x).
 
-For our example, the function looks like:
+This parallel becomes important when we see that:
+- Discrete sums: $|\psi\rangle = \sum_n c_n|n\rangle$
+- Continuous integrals: $|\psi\rangle = \int \psi(x)|x\rangle dx$
 
-$$
-c(n) = \begin{cases}
-1/2 & \text{if } n = 0 \\
-\sqrt{2}/2 & \text{if } n = 1 \\
-1/2 & \text{if } n = 2 \\
-0 & \text{if } n \geq 3
-\end{cases}
-$$
-
-Think of it as a vending machine. Press button 0, get 1/2. Press button 1, get √2/2. Press button 2, get 1/2. Press anything else, get 0.
-
-### The Continuous Function ψ(x)
-
-Position works the same way, but now the vending machine has continuously many buttons:
-
-**ψ is also a lookup table:**
-- Input: "Which position?" (a real number x)
-- Output: "Here's the amplitude" (a complex number)
-
-For the ground state:
-
-$$\psi(x) = \pi^{-1/4} e^{-x^2/2}$$
-
-Ask for any position x, get back ψ(x). It's the same concept as c(n), just with a continuous domain instead of discrete integers.
-
-### Why This Matters
-
-Both representations describe the SAME quantum state using functions:
-
-**Energy representation:** Function c(n) where n = 0, 1, 2, 3, ...
-**Position representation:** Function ψ(x) where x is any real number
-
-Same information, different organization. Like storing a phone number as discrete digits [5,5,5,1,2,3,4] vs the continuous sound wave of someone saying it.
+Same pattern, just sum vs integral!
 
 ---
 
@@ -243,7 +211,7 @@ This is THE key equation! The wavefunction $\psi(x)$ is the amplitude for the ba
 
 ### Building States in Position Basis
 
-In energy basis: $|\psi\rangle = \sum_n c(n)|n\rangle$
+In energy basis: $|\psi\rangle = \sum_n c_n|n\rangle$
 In position basis: $|\psi\rangle = \int \psi(x)|x\rangle dx$
 
 Same pattern! We're adding up basis vectors, weighted by amplitudes. Since position is continuous, we integrate instead of sum.
@@ -264,26 +232,26 @@ The delta function $\delta(x - x')$ "picks out" the value at $x' = x$, extractin
 
 ## Naked ψ vs Ket |ψ⟩: Now It's Clear
 
-With our function viewpoint, the distinction is simple:
+The distinction is simple:
 
 **|ψ⟩** = The complete quantum state (basis-independent)
 - Contains all measurement possibilities
 - Like a vector in 3D space
 
-**ψ(x)** = The position-space coefficient function
-- Maps positions to complex amplitudes: $x \mapsto \langle x|\psi\rangle$
+**ψ(x)** = The position representation
+- Gives amplitude at each position: $\psi(x) = \langle x|\psi\rangle$
 - Like the x-components of a 3D vector
 
-**c(n)** = The energy-space coefficient function
-- Maps energy levels to complex amplitudes: $n \mapsto \langle n|\psi\rangle$
+**$c_0, c_1, c_2, ...$** = The energy representation
+- Coefficients for each energy level: $c_n = \langle n|\psi\rangle$
 - Like components in a different coordinate system
 
 The pattern is always:
-- Energy: $c(n) = \langle n|\psi\rangle$
-- Position: $\psi(x) = \langle x|\psi\rangle$
-- Momentum: $\tilde{\psi}(p) = \langle p|\psi\rangle$
+- Energy coefficients: $c_n = \langle n|\psi\rangle$
+- Position wavefunction: $\psi(x) = \langle x|\psi\rangle$
+- Momentum wavefunction: $\tilde{\psi}(p) = \langle p|\psi\rangle$
 
-Naked symbols (ψ, c, $\tilde{\psi}$) are coefficient functions. The ket |ψ⟩ is the state itself.
+The ket |ψ⟩ is the state itself. The functions ψ(x), $\tilde{\psi}(p)$ and coefficients $c_n$ are different ways of describing it.
 
 ---
 
@@ -295,18 +263,16 @@ $$|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2
 
 ### Energy Representation
 
-The coefficient function:
-$$c(n) = \begin{cases}
-1/2 & n = 0 \\
-\sqrt{2}/2 & n = 1 \\
-1/2 & n = 2 \\
-0 & n \geq 3
-\end{cases}$$
+The coefficients:
+- $c_0 = 1/2$
+- $c_1 = \sqrt{2}/2$
+- $c_2 = 1/2$
+- $c_n = 0$ for $n \geq 3$
 
 **Probabilities:**
-- $P(E_0) = |c(0)|^2 = 25\%$
-- $P(E_1) = |c(1)|^2 = 50\%$
-- $P(E_2) = |c(2)|^2 = 25\%$
+- $P(E_0) = |c_0|^2 = 25\%$
+- $P(E_1) = |c_1|^2 = 50\%$
+- $P(E_2) = |c_2|^2 = 25\%$
 
 **Average energy:** $\langle E \rangle = \frac{7}{4}\hbar\omega$
 
@@ -374,7 +340,7 @@ Taking the derivative:
 $$\frac{\partial \psi}{\partial x} = \frac{ip}{\hbar}\psi$$
 
 Rearranging:
-$$p \cdot \psi = -i\hbar\frac{\partial}{\partial x}\psi$$
+$$p \psi = -i\hbar\frac{\partial \psi}{\partial x}$$
 
 The differential operator $-i\hbar\frac{\partial}{\partial x}$ extracts momentum! So we define:
 
