@@ -40,17 +40,9 @@ $$|\psi\rangle = c_0 |0\rangle + c_1 |1\rangle + c_2 |2\rangle + ...$$
 
 where $|0\rangle, |1\rangle, |2\rangle, ...$ are energy eigenstates (those Gaussian wavefunctions from Part 1, but now written as abstract vectors).
 
-### What Does This Sum Mean?
-
-Let's be completely explicit. The notation:
+You're adding up vectors! Each term is a basis vector $|n\rangle$ scaled by a complex number $c_n$. In compact form, we write this as:
 
 $$|\psi\rangle = \sum_{n=0}^{\infty} c_n |n\rangle$$
-
-means literally:
-
-$$|\psi\rangle = c_0 |0\rangle + c_1 |1\rangle + c_2 |2\rangle + c_3 |3\rangle + ...$$
-
-You're adding up vectors! Each term is a basis vector $|n\rangle$ scaled by a complex number $c_n$.
 
 **Concrete example:** Let's use:
 - $c_0 = \frac{1}{2}$
