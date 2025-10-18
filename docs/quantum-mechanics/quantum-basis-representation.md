@@ -353,25 +353,11 @@ Perfect! This is what we mean when we say a state is **normalized**. If someone 
 
 ## Time Evolution and Phase Rotation
 
-Quantum time evolution is beautifully simple in the energy basis.
-
-### The Evolution Rule from Schrödinger's Equation
-
-How do states change with time? The fundamental equation is the time-dependent Schrödinger equation:
-
-$$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle$$
-
-"The rate of change of the state equals its energy (the Hamiltonian $\hat{H}$ operating on it), divided by $i\hbar$."
-
-In the energy basis, this becomes remarkably simple. Since energy eigenstates satisfy $\hat{H}|n\rangle = E_n|n\rangle$, each coefficient evolves **independently**:
-
-$$i\hbar\frac{dc_n(t)}{dt} = E_n c_n(t)$$
-
-This is a simple differential equation with solution:
+Quantum time evolution is beautifully simple in the energy basis. Each coefficient picks up a rotating phase:
 
 $$\boxed{c_n(t) = c_n(0) \cdot e^{-iE_n t/\hbar}}$$
 
-Each coefficient just picks up a rotating phase! The factor $e^{-iE_n t/\hbar}$ is the energy rotation phasor we saw earlier.
+This is the energy rotation phasor we saw in the summary table earlier. Higher energy means faster rotation.
 
 ### Applying to Our Running Example
 
