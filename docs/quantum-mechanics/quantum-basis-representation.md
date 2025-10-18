@@ -4,35 +4,11 @@
 
 ---
 
-## The Harmonic Oscillator: Explicit Time-Dependent Forms
+## The Harmonic Oscillator: One State, Three Representations
 
-In Part 1, we found that the harmonic oscillator has discrete energy levels $E_n = \hbar\omega(n + \frac{1}{2})$ with corresponding energy eigenstates $\psi_n(x)$. But we mostly worked with these at a fixed time. Let's write out the **complete time-dependent form**:
+In Part 1, we found that the harmonic oscillator has discrete energy levels $E_n = \hbar\omega(n + \frac{1}{2})$ with corresponding energy eigenstates $\psi_n(x)$ (Gaussians with increasing nodes). Here's the key insight: **we can describe the same quantum state in three different "languages"** depending on what we want to measure.
 
-$$\psi_n(x,t) = \psi_n(x) e^{-iE_n t/\hbar}$$
-
-where $\psi_n(x)$ are the spatial wavefunctions (those Gaussians with increasing nodes we found in Part 1).
-
-### The Energy Rotation Phasor
-
-The factor $e^{-iE_n t/\hbar}$ is called the **energy rotation phasor**. Each energy level rotates in the complex plane at its own rate:
-
-- Higher energy → faster rotation (higher $E_n$ means faster $\omega_n = E_n/\hbar$)
-- Lower energy → slower rotation
-- The phase $\phi_n(t) = -E_n t/\hbar$ advances linearly in time
-
-This phase rotation is fundamental to quantum dynamics, but for now, we'll work at $t=0$ for simplicity. The spatial structure of states doesn't change with time—only these phases rotate. Understanding basis representation at $t=0$ captures all the key concepts.
-
-### Normalization Assumption
-
-Throughout this document, we assume all wavefunctions are **normalized**, meaning:
-
-$$\int_{-\infty}^{\infty} |\psi_n(x)|^2 dx = 1$$
-
-This ensures the total probability of finding the particle somewhere is 100%. Each energy eigenstate $\psi_0(x), \psi_1(x), \psi_2(x), ...$ satisfies this condition.
-
-### One State, Multiple Representations
-
-Here's the key insight: we can describe the same quantum state in different "languages" depending on what we want to measure. The table below shows three common representations:
+### The Solutions
 
 | **Representation** | **Variable** | **Expression** | **Domain** |
 |-------------------|--------------|----------------|------------|
@@ -40,50 +16,58 @@ Here's the key insight: we can describe the same quantum state in different "lan
 | **Momentum** | $p$ | $\psi(p,t) = \sum_n c_n e^{-iE_n t/\hbar} \phi_n(p)$ | continuous |
 | **Energy (index)** | $n$ | $\psi_E[n,t] = c_n e^{-iE_n t/\hbar} = \sum_m c_m e^{-iE_m t/\hbar} \delta_{n,m}$ | discrete |
 
-You can think of these as:
+Think of these as:
 - $\psi(x,t)$: amplitudes in **space**
 - $\psi(p,t)$: amplitudes in **momentum**
 - $\psi_E[n,t]$: amplitudes in **energy index (n)**
 
-The position and momentum representations are continuous functions (infinitely many values), while the energy representation is a discrete list of coefficients (one for each energy level).
+The position and momentum representations are continuous functions (infinitely many values), while the energy representation is a discrete list of coefficients $c_0, c_1, c_2, ...$ (one for each energy level).
 
-### Why Choose Different Bases?
+### The Energy Rotation Phasor
+
+The factor $e^{-iE_n t/\hbar}$ is the **energy rotation phasor**. Each energy level rotates in the complex plane at its own rate:
+
+- Higher energy → faster rotation (higher $E_n$ means faster $\omega_n = E_n/\hbar$)
+- Lower energy → slower rotation
+- The phase $\phi_n(t) = -E_n t/\hbar$ advances linearly in time
+
+This phase rotation is fundamental to quantum dynamics, but for now, we'll work at $t=0$ for simplicity. The spatial structure doesn't change with time—only these phases rotate. Understanding basis representation at $t=0$ captures all the key concepts.
+
+### Normalization
+
+The energy eigenstates $\psi_0(x), \psi_1(x), \psi_2(x), ...$ in the position representation are all **normalized**, meaning:
+
+$$\int_{-\infty}^{\infty} |\psi_n(x)|^2 dx = 1$$
+
+This ensures the total probability of finding the particle somewhere is 100%. When we write a general state as a sum $\psi(x) = \sum_n c_n \psi_n(x)$, each $\psi_n(x)$ already satisfies this normalization condition.
+
+### Why Choose Different Representations?
 
 Each representation makes certain questions trivial:
 
-**"What's the probability of energy $E_1$?"** → Use energy basis: just $|c_1|^2$
+**"What's the probability of energy $E_1$?"** → Energy basis: just $|c_1|^2$. One number!
 
-**"Where is the particle most likely to be found?"** → Use position basis: find max of $|\psi(x)|^2$
+**"Where is the particle most likely to be found?"** → Position basis: find max of $|\psi(x)|^2$
 
-**"How does the state evolve in time?"** → Use energy basis: each coefficient just gets a rotating phase
+**"What's the momentum distribution?"** → Momentum basis: $|\psi(p)|^2$ directly tells you the probability density in momentum space. Useful for scattering problems, particle physics, and understanding wave packets.
 
 The art of quantum mechanics is choosing the right tool for the job. Let's see how this works!
 
 ---
 
-## One Wavefunction, Many Faces
+## What IS the Quantum State?
 
-In Part 1, we solved the harmonic oscillator and found energy eigenstates $\psi_n(x)$, Gaussians with increasing nodes, each with energy $E_n = \hbar\omega(n + \frac{1}{2})$. We mentioned these have momentum space versions $\tilde{\psi}_n(p)$ via Fourier transform.
+Here's the deeper question: **What IS the quantum state?** Is it the function $\psi(x)$? The coefficients $[c_0, c_1, c_2, ...]$? The momentum function $\psi(p)$? Or something more fundamental?
 
-Here's something cool: any wavefunction can be written as a sum of energy eigenstates:
-
-$$\psi(x) = c_0 \psi_0(x) + c_1 \psi_1(x) + c_2 \psi_2(x) + ...$$
-
-where $\psi_0(x), \psi_1(x), \psi_2(x), ...$ are the energy eigenstates from Part 1 (each one is a solution to Schrödinger's equation at a specific energy $E_n$), and $c_0, c_1, c_2, ...$ are complex number coefficients telling you "how much" of each eigenstate to include.
-
-But here's the deeper question: **What IS the quantum state?** Is it the function $\psi(x)$? The coefficients $[c_0, c_1, c_2, ...]$? The momentum function $\tilde{\psi}(p)$? Or something more fundamental?
-
-The answer: there's an abstract quantum state $|\psi\rangle$ (called a "ket") that exists independent of how we describe it. The different functions we use are just different ways of writing down the same underlying thing:
+The answer: there's an **abstract quantum state** $|\psi\rangle$ (called a "ket") that exists independent of how we describe it. The different functions we use are just different ways of writing down the same underlying thing:
 
 - $\psi(x)$ = position representation (a function of position)
-- $\tilde{\psi}(p)$ = momentum representation (a function of momentum)
+- $\psi(p)$ = momentum representation (a function of momentum)
 - $[c_0, c_1, c_2, ...]$ = energy representation (a list of coefficients)
 
 Same state, different descriptions! Like how a 3D vector doesn't change whether you use Cartesian or spherical coordinates. The vector itself is the same; only the numbers you write change.
 
----
-
-## What Is the Abstract State |ψ⟩?
+### The Abstract State |ψ⟩
 
 The ket $|\psi\rangle$ is the complete quantum state—the thing itself before you choose how to describe it.
 
@@ -96,10 +80,12 @@ Similarly, $|\psi\rangle$ exists independent of whether you ask about position, 
 Here's how we extract different representations from the abstract state $|\psi\rangle$. We **project** it into the realm of whatever physical property we want to observe:
 
 $$\langle x|\psi\rangle = \psi(x) \quad \text{(position wavefunction)}$$
+
 $$\langle p|\psi\rangle = \tilde{\psi}(p) \quad \text{(momentum wavefunction)}$$
+
 $$\langle n|\psi\rangle = c_n \quad \text{(energy coefficient)}$$
 
-Don't worry about the $\langle \ |$ notation yet—we'll explain it thoroughly in the next section. For now, the key idea is:
+Don't worry about the $\langle$ $|$ notation yet—we'll explain it thoroughly in the next section. For now, the key idea is:
 
 - The abstract state $|\psi\rangle$ contains everything
 - **Projections** extract specific aspects we care about
@@ -131,36 +117,33 @@ Throughout this section, we'll work with one concrete quantum state:
 
 This isn't random—these coefficients are normalized (we'll verify this soon), and this state will help us see all the key ideas concretely.
 
-### Column Vectors: What You Already Know
+### Column Vectors
 
-If you've studied linear algebra, you know about column vectors. We can represent our three energy levels as **basis vectors**—these are "one-hot" vectors with a 1 in one position and 0 everywhere else:
+We can represent our three energy levels as **basis vectors**—these are "one-hot" column vectors with a 1 in one position and 0 everywhere else:
 
-$$
-|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} \quad \text{(energy level 0)}
-$$
+**Energy level 0:**
+$$\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$$
 
-$$
-|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} \quad \text{(energy level 1)}
-$$
+**Energy level 1:**
+$$\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$$
 
-$$
-|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} \quad \text{(energy level 2)}
-$$
+**Energy level 2:**
+$$\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$$
 
-Each basis vector represents "definitely in energy level n". The first entry corresponds to $n=0$, second to $n=1$, third to $n=2$, and so on.
+Each basis vector represents "definitely in energy level n". The first entry corresponds to n=0, second to n=1, third to n=2, and so on.
 
 ### Vector Addition With Concrete Numbers
 
 Now here's the key: our quantum state is built by **adding scaled basis vectors**, just like in 3D where $\vec{v} = 2\hat{x} + 3\hat{y} + 1\hat{z}$:
 
 $$
-|\psi\rangle = \frac{1}{2}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{\sqrt{2}}{2}\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}
+\text{state} = \frac{1}{2}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{\sqrt{2}}{2}\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}
 $$
 
 Let's do the addition explicitly:
 
 $$
-|\psi\rangle = \begin{pmatrix}
+\text{state} = \begin{pmatrix}
 \frac{1}{2} \cdot 1 + \frac{\sqrt{2}}{2} \cdot 0 + \frac{1}{2} \cdot 0 \\
 \frac{1}{2} \cdot 0 + \frac{\sqrt{2}}{2} \cdot 1 + \frac{1}{2} \cdot 0 \\
 \frac{1}{2} \cdot 0 + \frac{\sqrt{2}}{2} \cdot 0 + \frac{1}{2} \cdot 1 \\
@@ -196,6 +179,23 @@ $$|\psi\rangle = \sum_{n=0}^{\infty} c_n |n\rangle$$
 where the sum $\sum c_n |n\rangle$ just means "add up all the scaled basis vectors"—exactly what we did above!
 
 **Key insight:** The ket notation $|n\rangle$ and $|\psi\rangle$ is just shorthand for column vectors. Everything you know about vectors from linear algebra applies directly.
+
+### A Note on "Hilbert Space"
+
+You might hear quantum mechanics described as taking place in a "Hilbert space" and think it sounds intimidating. It's not! **Hilbert space is just the fancy mathematical name for the vector space we're working in.**
+
+Think of it this way:
+- In 3D, vectors live in $\mathbb{R}^3$ (three-dimensional real space)
+- In quantum mechanics, state vectors live in Hilbert space
+
+Hilbert space is just:
+1. A vector space (you can add vectors and multiply by scalars)
+2. With an inner product (you can compute $\langle\phi|\psi\rangle$)
+3. That's complete (technical detail: every Cauchy sequence converges - don't worry about this)
+
+For our energy basis with states like $|\psi\rangle = \sum_n c_n |n\rangle$, the Hilbert space is just the space of all possible sequences $(c_0, c_1, c_2, ...)$ where $\sum_n |c_n|^2 < \infty$. That's it!
+
+**Bottom line:** "Hilbert space" = "vector space with inner product". Same linear algebra you know, just with a fancier name. Nothing to be scared of!
 
 ---
 
@@ -470,24 +470,6 @@ $$|x\rangle \longleftrightarrow (..., 0, 1 \text{ (at } x), 0, ...)^T$$
 In the continuous limit, that "1 at position x" becomes a **delta function spike**: $|x\rangle \leftrightarrow \delta(x' - x)$
 
 **One-line summary:** $|x\rangle$ is the continuous version of the one-hot basis vectors—it represents "particle definitely at position x".
-
----
-
-## Visualization: Watching the Transition
-
-Here's what this progression looks like visually:
-
-![Discrete to Continuous Transition](discrete_to_continuous.png)
-
-**Top row:** Basis vectors $|x_i\rangle$ becoming delta functions
-- Left: Coarse lattice (N=5) - clear discrete spikes
-- Right: Fine lattice (N=20) - getting denser
-
-**Bottom row:** States evolving from discrete to smooth
-- Left: Continuous limit - the "1 at x" becomes a δ-spike
-- Right: A state $|\psi\rangle$ transitioning from histogram to smooth curve
-
-As the lattice gets finer, discrete sums → continuous integrals. Same mathematical structure, different limiting case!
 
 ---
 
