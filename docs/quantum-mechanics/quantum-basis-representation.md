@@ -121,6 +121,7 @@ Let's master the discrete case completely before moving to continuous variables.
 Throughout this section, we'll work with one concrete quantum state:
 
 **A superposition of three energy levels (n=0, n=1, n=2) with coefficients:**
+
 - $c_0 = \frac{1}{2}$
 - $c_1 = \frac{\sqrt{2}}{2}$
 - $c_2 = \frac{1}{2}$
@@ -133,12 +134,15 @@ This isn't random—these coefficients are normalized (we'll verify this soon), 
 We can represent our three energy levels as **basis vectors**—these are "one-hot" column vectors with a 1 in one position and 0 everywhere else:
 
 **Energy level 0:**
+
 $$\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$$
 
 **Energy level 1:**
+
 $$\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$$
 
 **Energy level 2:**
+
 $$\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$$
 
 Each basis vector represents "definitely in energy level n". The first entry corresponds to n=0, second to n=1, third to n=2, and so on.
