@@ -16,10 +16,11 @@ In Part 1, we found that the harmonic oscillator has discrete energy levels $E_n
 | **Momentum** | $p$ | $\psi(p,t) = \sum_n c_n e^{-iE_n t/\hbar} \phi_n(p)$ | continuous |
 | **Energy (index)** | $n$ | $\psi_E[n,t] = c_n e^{-iE_n t/\hbar} = \sum_m c_m e^{-iE_m t/\hbar} \delta_{n,m}$ | discrete |
 
-Think of these as:
-- $\psi(x,t)$: amplitudes in **space**
-- $\psi(p,t)$: amplitudes in **momentum**
-- $\psi_E[n,t]$: amplitudes in **energy index (n)**
+**Think of these as:**
+
+- $\psi(x,t)$ — amplitudes in **space**
+- $\psi(p,t)$ — amplitudes in **momentum**
+- $\psi_E[n,t]$ — amplitudes in **energy index (n)**
 
 The position and momentum representations are continuous functions (infinitely many values), while the energy representation is a discrete list of coefficients $c_0, c_1, c_2, ...$ (one for each energy level).
 
@@ -40,6 +41,16 @@ The energy eigenstates $\psi_0(x), \psi_1(x), \psi_2(x), ...$ in the position re
 $$\int_{-\infty}^{\infty} |\psi_n(x)|^2 dx = 1$$
 
 This ensures the total probability of finding the particle somewhere is 100%. When we write a general state as a sum $\psi(x) = \sum_n c_n \psi_n(x)$, each $\psi_n(x)$ already satisfies this normalization condition.
+
+**The coefficients $c_n$ are ALSO normalized**. Since $|c_n|^2$ represents the probability of measuring energy $E_n$, all probabilities must sum to 1:
+
+$$\sum_{n=0}^{\infty} |c_n|^2 = 1$$
+
+For our running example with $c_0 = \frac{1}{2}$, $c_1 = \frac{\sqrt{2}}{2}$, $c_2 = \frac{1}{2}$ (all others zero), let's verify:
+
+$$|c_0|^2 + |c_1|^2 + |c_2|^2 = \left|\frac{1}{2}\right|^2 + \left|\frac{\sqrt{2}}{2}\right|^2 + \left|\frac{1}{2}\right|^2 = \frac{1}{4} + \frac{1}{2} + \frac{1}{4} = 1 \,\checkmark$$
+
+This holds for any valid quantum state—the probability of measuring *something* must always be 100%.
 
 ### Why Choose Different Representations?
 
