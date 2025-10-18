@@ -333,7 +333,13 @@ This makes sense—the average energy is between $E_1$ and $E_2$, weighted towar
 
 Here's a fundamental requirement: **all probabilities must add up to 1** (100%). The particle must be found in *some* energy state when we measure!
 
-$$\sum_n |c_n|^2 = 1$$
+In bra-ket notation, this is written as:
+
+$$\langle\psi|\psi\rangle = 1$$
+
+This is the **inner product** of the state with itself. In the energy basis, this expands to:
+
+$$\langle\psi|\psi\rangle = \sum_n |c_n|^2 = 1$$
 
 Let's verify this for our example:
 
