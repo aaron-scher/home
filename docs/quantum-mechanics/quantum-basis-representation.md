@@ -4,6 +4,63 @@
 
 ---
 
+## The Harmonic Oscillator: Explicit Time-Dependent Forms
+
+In Part 1, we found that the harmonic oscillator has discrete energy levels $E_n = \hbar\omega(n + \frac{1}{2})$ with corresponding energy eigenstates $\psi_n(x)$. But we mostly worked with these at a fixed time. Let's write out the **complete time-dependent form**:
+
+$$\psi_n(x,t) = \psi_n(x) e^{-iE_n t/\hbar}$$
+
+where $\psi_n(x)$ are the spatial wavefunctions (those Gaussians with increasing nodes we found in Part 1).
+
+### The Energy Rotation Phasor
+
+The factor $e^{-iE_n t/\hbar}$ is called the **energy rotation phasor**. Each energy level rotates in the complex plane at its own rate:
+
+- Higher energy → faster rotation (higher $E_n$ means faster $\omega_n = E_n/\hbar$)
+- Lower energy → slower rotation
+- The phase $\phi_n(t) = -E_n t/\hbar$ advances linearly in time
+
+This phase rotation is fundamental to quantum dynamics, but for now, we'll work at $t=0$ for simplicity. The spatial structure of states doesn't change with time—only these phases rotate. Understanding basis representation at $t=0$ captures all the key concepts.
+
+### Normalization Assumption
+
+Throughout this document, we assume all wavefunctions are **normalized**, meaning:
+
+$$\int_{-\infty}^{\infty} |\psi_n(x)|^2 dx = 1$$
+
+This ensures the total probability of finding the particle somewhere is 100%. Each energy eigenstate $\psi_0(x), \psi_1(x), \psi_2(x), ...$ satisfies this condition.
+
+### One State, Multiple Representations
+
+Here's the key insight: we can describe the same quantum state in different "languages" depending on what we want to measure. The table below shows three common representations:
+
+| **Representation** | **Variable** | **Expression** | **Domain** |
+|-------------------|--------------|----------------|------------|
+| **Position** | $x$ | $\psi(x,t) = \sum_n c_n e^{-iE_n t/\hbar} \psi_n(x)$ | continuous |
+| **Momentum** | $p$ | $\psi(p,t) = \sum_n c_n e^{-iE_n t/\hbar} \phi_n(p)$ | continuous |
+| **Energy (index)** | $n$ | $\psi_E[n,t] = c_n e^{-iE_n t/\hbar} = \sum_m c_m e^{-iE_m t/\hbar} \delta_{n,m}$ | discrete |
+
+You can think of these as:
+- $\psi(x,t)$: amplitudes in **space**
+- $\psi(p,t)$: amplitudes in **momentum**
+- $\psi_E[n,t]$: amplitudes in **energy index (n)**
+
+The position and momentum representations are continuous functions (infinitely many values), while the energy representation is a discrete list of coefficients (one for each energy level).
+
+### Why Choose Different Bases?
+
+Each representation makes certain questions trivial:
+
+**"What's the probability of energy $E_1$?"** → Use energy basis: just $|c_1|^2$
+
+**"Where is the particle most likely to be found?"** → Use position basis: find max of $|\psi(x)|^2$
+
+**"How does the state evolve in time?"** → Use energy basis: each coefficient just gets a rotating phase
+
+The art of quantum mechanics is choosing the right tool for the job. Let's see how this works!
+
+---
+
 ## One Wavefunction, Many Faces
 
 In Part 1, we solved the harmonic oscillator and found energy eigenstates $\psi_n(x)$, Gaussians with increasing nodes, each with energy $E_n = \hbar\omega(n + \frac{1}{2})$. We mentioned these have momentum space versions $\tilde{\psi}_n(p)$ via Fourier transform.
@@ -28,83 +85,127 @@ Same state, different descriptions! Like how a 3D vector doesn't change whether 
 
 ## What Is the Abstract State |ψ⟩?
 
-The ket $|\psi\rangle$ is the complete quantum state, the thing itself before you choose how to describe it.
+The ket $|\psi\rangle$ is the complete quantum state—the thing itself before you choose how to describe it.
 
-**The loaded die analogy:** A die sitting on the table IS the state. It contains all probabilities for different outcomes. When you roll it (measure), you get one specific number. Before rolling, it's "all possibilities at once."
-
-**The vector analogy:** An arrow in 3D space doesn't change if you describe it using Cartesian coordinates $(x, y, z)$ or cylindrical coordinates $(r, \theta, z)$. It's the same arrow, same length, same direction. Only the numbers change. The arrow itself is basis-independent.
+**The vector analogy:** An arrow in 3D space doesn't change if you describe it using Cartesian coordinates $(x, y, z)$ or cylindrical coordinates $(r, \theta, z)$. It's the same arrow, same length, same direction. Only the numbers you write down change. The arrow itself is **basis-independent**.
 
 Similarly, $|\psi\rangle$ exists independent of whether you ask about position, momentum, or energy. It contains all the information; you just need to choose which representation to use.
 
+### Projecting the State into Different "Realms"
+
+Here's how we extract different representations from the abstract state $|\psi\rangle$. We **project** it into the realm of whatever physical property we want to observe:
+
+$$\langle x|\psi\rangle = \psi(x) \quad \text{(position wavefunction)}$$
+$$\langle p|\psi\rangle = \tilde{\psi}(p) \quad \text{(momentum wavefunction)}$$
+$$\langle n|\psi\rangle = c_n \quad \text{(energy coefficient)}$$
+
+Don't worry about the $\langle \ |$ notation yet—we'll explain it thoroughly in the next section. For now, the key idea is:
+
+- The abstract state $|\psi\rangle$ contains everything
+- **Projections** extract specific aspects we care about
+- Want to know about position? Project onto position basis with $\langle x|$
+- Want to know about energy? Project onto energy basis with $\langle n|$
+- Want to know about momentum? Project onto momentum basis with $\langle p|$
+
+The state itself doesn't change—only our view of it changes. Just like the arrow in 3D space stays the same whether you describe it in Cartesian, cylindrical, or spherical coordinates.
+
 ---
 
-## Building States from Basis Vectors
+## THE DISCRETE CASE: Energy Basis (Complete Treatment)
 
-Just like $\vec{v} = v_x\hat{x} + v_y\hat{y} + v_z\hat{z}$ in 3D, we build quantum states from basis vectors. For the harmonic oscillator:
+Let's master the discrete case completely before moving to continuous variables. We'll build everything from column vectors (which you already know from linear algebra) to the full quantum formalism.
 
-$$|\psi\rangle = c_0 |0\rangle + c_1 |1\rangle + c_2 |2\rangle + ...$$
+---
 
-where $|0\rangle, |1\rangle, |2\rangle, ...$ are energy eigenstates (those Gaussian wavefunctions from Part 1, but now written as abstract vectors).
+## Building States: Start With Column Vectors
 
-You're adding up vectors! Each term is a basis vector $|n\rangle$ scaled by a complex number $c_n$. In compact form, we write this as:
+### Our Running Example
 
-$$|\psi\rangle = \sum_{n=0}^{\infty} c_n |n\rangle$$
+Throughout this section, we'll work with one concrete quantum state:
 
-**Concrete example:** Let's use:
+**A superposition of three energy levels (n=0, n=1, n=2) with coefficients:**
 - $c_0 = \frac{1}{2}$
 - $c_1 = \frac{\sqrt{2}}{2}$
 - $c_2 = \frac{1}{2}$
 - All others zero
 
-Then:
+This isn't random—these coefficients are normalized (we'll verify this soon), and this state will help us see all the key ideas concretely.
+
+### Column Vectors: What You Already Know
+
+If you've studied linear algebra, you know about column vectors. We can represent our three energy levels as **basis vectors**—these are "one-hot" vectors with a 1 in one position and 0 everywhere else:
+
+$$
+|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} \quad \text{(energy level 0)}
+$$
+
+$$
+|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} \quad \text{(energy level 1)}
+$$
+
+$$
+|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} \quad \text{(energy level 2)}
+$$
+
+Each basis vector represents "definitely in energy level n". The first entry corresponds to $n=0$, second to $n=1$, third to $n=2$, and so on.
+
+### Vector Addition With Concrete Numbers
+
+Now here's the key: our quantum state is built by **adding scaled basis vectors**, just like in 3D where $\vec{v} = 2\hat{x} + 3\hat{y} + 1\hat{z}$:
+
+$$
+|\psi\rangle = \frac{1}{2}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{\sqrt{2}}{2}\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}
+$$
+
+Let's do the addition explicitly:
+
+$$
+|\psi\rangle = \begin{pmatrix}
+\frac{1}{2} \cdot 1 + \frac{\sqrt{2}}{2} \cdot 0 + \frac{1}{2} \cdot 0 \\
+\frac{1}{2} \cdot 0 + \frac{\sqrt{2}}{2} \cdot 1 + \frac{1}{2} \cdot 0 \\
+\frac{1}{2} \cdot 0 + \frac{\sqrt{2}}{2} \cdot 0 + \frac{1}{2} \cdot 1 \\
+0 \\
+\vdots
+\end{pmatrix} = \begin{pmatrix}
+\frac{1}{2} \\
+\frac{\sqrt{2}}{2} \\
+\frac{1}{2} \\
+0 \\
+\vdots
+\end{pmatrix}
+$$
+
+This is just vector addition! We're scaling each basis vector by its coefficient and adding them together. The result is a column vector whose entries are exactly our coefficients $c_0, c_1, c_2, ...$
+
+### Introducing Ket Notation as Shorthand
+
+Writing out full column vectors gets tedious, so physicists invented a compact notation called **ket notation**. The symbol $|n\rangle$ is shorthand for the column vector we just wrote:
+
+- $|0\rangle$ means $\begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}$
+- $|1\rangle$ means $\begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}$
+- $|2\rangle$ means $\begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \end{pmatrix}$
+
+The ket $|\psi\rangle$ **IS** the column vector—it's just cleaner notation. Our state becomes:
 
 $$|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle$$
 
-This is vector addition, just like $\vec{v} = 2\hat{x} + 3\hat{y} - \hat{z}$ in 3D. Take half of basis vector $|0\rangle$, add $\sqrt{2}/2$ of basis vector $|1\rangle$, add half of basis vector $|2\rangle$. Done!
+In general, we write this compactly as:
 
-### Column Vector Form
+$$|\psi\rangle = \sum_{n=0}^{\infty} c_n |n\rangle$$
 
-Just like in 3D where we can write $\hat{x} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$, we can write energy eigenstates as column vectors. Each basis vector has a 1 in its position and 0 everywhere else:
+where the sum $\sum c_n |n\rangle$ just means "add up all the scaled basis vectors"—exactly what we did above!
 
-$$
-|0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix}, \quad
-|1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix}, \quad
-|2\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}, \quad \text{etc.}
-$$
-
-Then our state becomes:
-
-$$
-|\psi\rangle = \frac{1}{2}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{\sqrt{2}}{2}\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} = \begin{pmatrix} 1/2 \\ \sqrt{2}/2 \\ 1/2 \\ 0 \\ \vdots \end{pmatrix}
-$$
-
-The coefficients $c_0, c_1, c_2, ...$ are just the entries in the column vector! The sum $\sum c_n |n\rangle$ is assembling this column vector by adding scaled basis vectors.
+**Key insight:** The ket notation $|n\rangle$ and $|\psi\rangle$ is just shorthand for column vectors. Everything you know about vectors from linear algebra applies directly.
 
 ---
 
-## Components as Functions
+## Extracting Components: Bras and Inner Products
 
-Here's a useful way to think about the parallel between discrete and continuous: both use functions to specify amplitudes.
+We have our state $|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle$ as a column vector. But suppose someone just hands you the abstract state $|\psi\rangle$—how do you GET the coefficients $c_0, c_1, c_2$ from it?
 
-**Energy basis:** The coefficients $c_0, c_1, c_2, ...$ can be thought of as a discrete function c[n] where you input an integer n and get back the amplitude for that energy level.
+The answer: **inner products** (quantum dot products).
 
-**Position basis:** The wavefunction $\psi(x)$ is a continuous function where you input a real number x and get back the amplitude at that position.
-
-Same idea, different domains! The discrete case uses integers (n = 0, 1, 2, ...) while the continuous case uses real numbers (any x).
-
-This parallel becomes important when we see that:
-- Discrete sums: $|\psi\rangle = \sum_n c_n|n\rangle$
-- Continuous integrals: $|\psi\rangle = \int \psi(x)|x\rangle dx$
-
-Same pattern, just sum vs integral!
-
----
-
-## Extracting Components: Inner Products
-
-We have $|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle$. But how do we GET these coefficients from the abstract state?
-
-### The Quantum Dot Product
+### Review: The 3D Dot Product
 
 In 3D, how do we extract a specific component like $v_y$ from a vector $\vec{v}$? We use the **dot product**, which projects the vector onto an axis.
 
@@ -179,54 +280,302 @@ The inner product extracts the coefficient c_n, which is a complex number. Don't
 
 ---
 
-## Position Basis: Where Things Get Weird
+## Probabilities and Normalization
 
-Now for the continuous case. Position is continuous (the particle can be anywhere), so we need basis vectors for every position.
+Now that we can extract coefficients, let's use them to calculate physical quantities. We'll use our running example throughout.
 
-### Position Eigenstates |x⟩
+### From Coefficients to Probabilities
 
-For each real number x, there's a basis vector $|x\rangle$ representing "particle definitely at position x".
+The Born rule tells us: **the probability of measuring energy $E_n$ is the squared magnitude of coefficient $c_n$**:
 
-**What does |x⟩ look like in position representation?** It's a delta function centered at x:
+$$P(E_n) = |c_n|^2$$
 
-$$|x\rangle = \delta(x' - x)$$
+For our state with $c_0 = \frac{1}{2}$, $c_1 = \frac{\sqrt{2}}{2}$, $c_2 = \frac{1}{2}$:
 
-where x' is the position variable. Think of |x=2.5⟩ as a spike sitting at position 2.5, zero everywhere else.
+$$P(E_0) = \left|\frac{1}{2}\right|^2 = \frac{1}{4} = 25\%$$
 
-These are orthonormal in the continuous sense:
+$$P(E_1) = \left|\frac{\sqrt{2}}{2}\right|^2 = \frac{1}{2} = 50\%$$
 
-$$\langle x'|x\rangle = \delta(x' - x)$$
+$$P(E_2) = \left|\frac{1}{2}\right|^2 = \frac{1}{4} = 25\%$$
 
-The inner product gives a delta function, just like $\langle m|n\rangle = \delta_{mn}$ in the discrete case.
+So if we measure the energy, we have a 25% chance of finding $E_0 = \frac{1}{2}\hbar\omega$, a 50% chance of finding $E_1 = \frac{3}{2}\hbar\omega$, and a 25% chance of finding $E_2 = \frac{5}{2}\hbar\omega$.
 
-### The Position Wavefunction
+### The Average Energy
 
-Just as $c_n = \langle n|\psi\rangle$ extracts energy coefficients, we extract position coefficients:
+What's the **average (expected) energy** if we measure many identical systems? It's the weighted average:
 
-$$\boxed{\psi(x) = \langle x|\psi\rangle}$$
+$$\langle E \rangle = \sum_n P(E_n) \cdot E_n$$
 
-This is THE key equation! The wavefunction $\psi(x)$ is the amplitude for the basis vector at position x. You give it a position, it tells you the amplitude there.
+For our example:
+
+$$\langle E \rangle = \frac{1}{4}\left(\frac{1}{2}\hbar\omega\right) + \frac{1}{2}\left(\frac{3}{2}\hbar\omega\right) + \frac{1}{4}\left(\frac{5}{2}\hbar\omega\right)$$
+
+$$= \frac{1}{8}\hbar\omega + \frac{3}{4}\hbar\omega + \frac{5}{8}\hbar\omega = \frac{1 + 6 + 5}{8}\hbar\omega = \frac{12}{8}\hbar\omega = \frac{3}{2}\hbar\omega$$
+
+This makes sense—the average energy is between $E_1$ and $E_2$, weighted toward $E_1$ since that's the most probable outcome.
+
+### Normalization: Probabilities Must Sum to 100%
+
+Here's a fundamental requirement: **all probabilities must add up to 1** (100%). The particle must be found in *some* energy state when we measure!
+
+$$\sum_n |c_n|^2 = 1$$
+
+Let's verify this for our example:
+
+$$|c_0|^2 + |c_1|^2 + |c_2|^2 = \frac{1}{4} + \frac{1}{2} + \frac{1}{4} = 1 \quad \checkmark$$
+
+Perfect! This is what we mean when we say a state is **normalized**. If someone gives you arbitrary coefficients, you need to rescale them so this condition holds.
+
+**Physical meaning:** Normalization ensures conservation of probability. When you measure, you're guaranteed to get *some* result—the probabilities of all possible outcomes must sum to certainty.
+
+---
+
+## Time Evolution and Phase Rotation
+
+Quantum time evolution is beautifully simple in the energy basis.
+
+### The Evolution Rule from Schrödinger's Equation
+
+How do states change with time? The fundamental equation is the time-dependent Schrödinger equation:
+
+$$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle$$
+
+"The rate of change of the state equals its energy (the Hamiltonian $\hat{H}$ operating on it), divided by $i\hbar$."
+
+In the energy basis, this becomes remarkably simple. Since energy eigenstates satisfy $\hat{H}|n\rangle = E_n|n\rangle$, each coefficient evolves **independently**:
+
+$$i\hbar\frac{dc_n(t)}{dt} = E_n c_n(t)$$
+
+This is a simple differential equation with solution:
+
+$$\boxed{c_n(t) = c_n(0) \cdot e^{-iE_n t/\hbar}}$$
+
+Each coefficient just picks up a rotating phase! The factor $e^{-iE_n t/\hbar}$ is the energy rotation phasor we saw earlier.
+
+### Applying to Our Running Example
+
+For our state, time evolution looks like:
+
+$$|\psi(t)\rangle = \frac{1}{2}|0\rangle e^{-iE_0 t/\hbar} + \frac{\sqrt{2}}{2}|1\rangle e^{-iE_1 t/\hbar} + \frac{1}{2}|2\rangle e^{-iE_2 t/\hbar}$$
+
+Higher energy means faster rotation in the complex plane ($E_2$ rotates fastest, $E_0$ slowest).
+
+### What This Means Physically
+
+The **magnitudes** $|c_n(t)| = |c_n(0)|$ never change! Only the **phases** rotate. This means:
+
+- Energy probabilities $P(E_n) = |c_n|^2$ are **constant in time**
+- The average energy $\langle E \rangle$ never changes
+- Only **relative phases** between different energy levels evolve
+
+This is why energy is conserved in quantum mechanics—the energy basis is special!
+
+### The Deep Physics: Rotation and Interference
+
+Different numbers of energy levels create fundamentally different dynamics:
+
+**One energy level:** $|\psi\rangle = |n\rangle$
+- Just picks up overall phase: $|n\rangle \to |n\rangle e^{-iE_n t/\hbar}$
+- Overall phase has **no observable effect** (it factors out of all measurements)
+- These are **stationary states**—nothing changes!
+- No dynamics at all
+
+**Two energy levels:** Like a qubit
+- $|\psi\rangle = c_0|0\rangle e^{-i\omega_0 t} + c_1|1\rangle e^{-i\omega_1 t}$ (with $\omega_n = E_n/\hbar$)
+- **Relative phase** $\Delta\phi = (\omega_1 - \omega_0)t$ creates oscillations
+- This is fundamentally what makes qubits interesting!
+- Like Bloch sphere dynamics—interference between two levels
+- Observable quantities oscillate at the beat frequency $\omega_1 - \omega_0$
+
+**Multiple energy levels:** Our example
+- Many frequencies beating against each other
+- Multi-dimensional phase space
+- Complex interference patterns
+
+### In Position Space: The State "Sloshes"
+
+What does this look like in position space? For our state:
+
+$$\psi(x,t) = \frac{1}{2}\psi_0(x)e^{-iE_0 t/\hbar} + \frac{\sqrt{2}}{2}\psi_1(x)e^{-iE_1 t/\hbar} + \frac{1}{2}\psi_2(x)e^{-iE_2 t/\hbar}$$
+
+Different energy levels oscillate at different frequencies. When you compute the probability density $|\psi(x,t)|^2$, these different frequencies **interfere**, creating oscillating patterns in space.
+
+The quantum state "sloshes" back and forth in position space, while maintaining constant energy probabilities. Energy eigenstates don't change shape—only their relative phases rotate, creating interference when viewed in other bases.
+
+**This is the origin of quantum dynamics!** Superpositions create time evolution. Pure energy eigenstates are static ("stationary"). Only mixing different energies creates observable change.
+
+---
+
+## THE CONTINUOUS CASE: Position Basis
+
+Now we've mastered the discrete case. Let's extend these ideas to **continuous** variables like position. The key insight: position is just like energy, except the labels are continuous real numbers instead of discrete integers.
+
+---
+
+## From Discrete to Continuous: The Natural Path
+
+### Start With Discrete Position
+
+Imagine a particle that can only be at N specific locations: $x_1, x_2, ..., x_N$ (like beads on a wire with fixed positions).
+
+This is just like the energy basis! We have basis vectors:
+
+$$
+|x_1\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \end{pmatrix} \quad
+|x_2\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix} \quad
+|x_3\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \end{pmatrix}
+$$
+
+Each is a one-hot vector: "particle definitely at position $x_i$".
+
+A general state: $|\psi\rangle = \sum_i c_i |x_i\rangle$ where $c_i = \psi(x_i)$ is the amplitude at position $x_i$.
+
+Same idea as energy basis—just different labels!
+
+### Make the Lattice Finer
+
+Now make the spacing $\Delta x$ smaller and add more positions:
+- N = 5 positions → coarse lattice
+- N = 20 positions → finer lattice
+- N = 100 positions → very fine lattice
+
+As N increases:
+- The column vector gets longer
+- The coefficients $c_i$ become a function: $c_i \to \psi(x_i)$
+- Normalization $\sum_i |\psi(x_i)|^2 = 1$ starts looking like area under a curve
+- If we multiply by $\Delta x$: $\sum_i |\psi(x_i)|^2 \Delta x \approx \int |\psi(x)|^2 dx$
+
+### The Continuous Limit
+
+Let $\Delta x \to 0$ and $N \to \infty$. The discrete list becomes a smooth function:
+
+$$\psi(x_i) \longrightarrow \psi(x)$$
+
+**Thinking of states as column vectors:**
+
+Discrete (N positions):
+$$|\psi\rangle \longleftrightarrow \begin{pmatrix} \psi(x_1) \\ \psi(x_2) \\ \psi(x_3) \\ \vdots \\ \psi(x_N) \end{pmatrix}$$
+
+Continuous limit (infinitely many positions):
+$$|\psi\rangle \longleftrightarrow (..., \psi(x-\Delta x), \psi(x), \psi(x+\Delta x), ...)^T$$
+
+**What about basis vectors?**
+
+Discrete:
+$$|x_i\rangle \longleftrightarrow (..., 0, 1 \text{ (at } x_i), 0, ...)^T$$
+
+Continuous limit:
+$$|x\rangle \longleftrightarrow (..., 0, 1 \text{ (at } x), 0, ...)^T$$
+
+In the continuous limit, that "1 at position x" becomes a **delta function spike**: $|x\rangle \leftrightarrow \delta(x' - x)$
+
+**One-line summary:** $|x\rangle$ is the continuous version of the one-hot basis vectors—it represents "particle definitely at position x".
+
+---
+
+## Visualization: Watching the Transition
+
+Here's what this progression looks like visually:
+
+![Discrete to Continuous Transition](discrete_to_continuous.png)
+
+**Top row:** Basis vectors $|x_i\rangle$ becoming delta functions
+- Left: Coarse lattice (N=5) - clear discrete spikes
+- Right: Fine lattice (N=20) - getting denser
+
+**Bottom row:** States evolving from discrete to smooth
+- Left: Continuous limit - the "1 at x" becomes a δ-spike
+- Right: A state $|\psi\rangle$ transitioning from histogram to smooth curve
+
+As the lattice gets finer, discrete sums → continuous integrals. Same mathematical structure, different limiting case!
+
+---
+
+## Position Basis: The Complete Machinery
+
+Now let's see how everything from the discrete case carries over.
+
+### Orthonormality
+
+**Discrete:** $\langle x_i|x_j\rangle = \delta_{ij}$ (Kronecker delta)
+
+**Continuous:** $\langle x'|x\rangle = \delta(x' - x)$ (Dirac delta)
+
+The Kronecker delta becomes the Dirac delta—same idea, continuous version!
+
+### Extracting the Wavefunction
+
+**Discrete:** $c_i = \langle x_i|\psi\rangle$ extracts coefficient at position $x_i$
+
+**Continuous:** $\boxed{\psi(x) = \langle x|\psi\rangle}$ extracts amplitude at position $x$
+
+This is THE key equation! The wavefunction $\psi(x)$ is just the position coefficient function. You input a position, it tells you the amplitude there.
 
 (Note: For complex states, $\psi(x) = \langle x|\psi\rangle = \langle\psi|x\rangle^*$, but when ψ is real-valued they're equal.)
 
-### Building States in Position Basis
+### Building States
 
-In energy basis: $|\psi\rangle = \sum_n c_n|n\rangle$
-In position basis: $|\psi\rangle = \int \psi(x)|x\rangle dx$
+**Discrete:** $|\psi\rangle = \sum_i c_i |x_i\rangle$
 
-Same pattern! We're adding up basis vectors, weighted by amplitudes. Since position is continuous, we integrate instead of sum.
+**Continuous:** $|\psi\rangle = \int \psi(x)|x\rangle dx$
 
-**Physical picture:** Each $|x\rangle$ is a spike (delta function) at position x. Since $|x\rangle = \delta(x' - x)$, the integral:
+Same pattern! Sum becomes integral. We're adding up basis vectors weighted by amplitudes.
 
-$$|\psi\rangle = \int \psi(x)|x\rangle dx = \int \psi(x)\delta(x' - x) dx$$
+**Physical picture:** Each $|x\rangle$ is a delta spike at position x. The integral says "place amplitude $\psi(x)$ worth of spike at each position, then add them all up." You're building the state from infinitely many delta functions.
 
-says "place amplitude $\psi(x)$ worth of spike at each position x, then add them all up." You're building the state from infinitely many delta functions, each weighted by $\psi(x)$.
+### The Delta Function Sifting Property
 
-**Why this works:** The delta function has a sifting property. When you compute $\langle x|\psi\rangle$, you get:
+Why does $\langle x|\psi\rangle = \psi(x)$ work? The delta function "picks out" values:
 
 $$\psi(x) = \langle x|\psi\rangle = \int \psi(x') \langle x|x'\rangle dx' = \int \psi(x') \delta(x - x') dx' = \psi(x)$$
 
-The delta function $\delta(x - x')$ "picks out" the value at $x' = x$, extracting exactly $\psi(x)$. This is how the inner product extracts position amplitudes!
+The delta function $\delta(x - x')$ is zero everywhere except at $x' = x$, where it "sifts out" exactly $\psi(x)$.
+
+### Normalization
+
+**Discrete:** $\sum_i |c_i|^2 = 1$
+
+**Continuous:** $\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1$
+
+All probabilities must sum to 100%. In the continuous case, $|\psi(x)|^2 dx$ is the probability of finding the particle in interval $[x, x+dx]$.
+
+---
+
+## The Complete Parallel Structure
+
+| **Concept** | **Discrete (Energy)** | **Continuous (Position)** |
+|-------------|----------------------|---------------------------|
+| **Basis labels** | $n = 0,1,2,...$ | $x \in \mathbb{R}$ |
+| **Basis vectors** | One-hot columns $\vert n\rangle$ | Delta spikes $\vert x\rangle$ |
+| **Coefficients** | $c_n = \langle n\vert\psi\rangle$ | $\psi(x) = \langle x\vert\psi\rangle$ |
+| **Orthonormality** | $\langle m\vert n\rangle = \delta_{mn}$ | $\langle x'\vert x\rangle = \delta(x'-x)$ |
+| **Build state** | $\vert\psi\rangle = \sum_n c_n\vert n\rangle$ | $\vert\psi\rangle = \int \psi(x)\vert x\rangle dx$ |
+| **Normalization** | $\sum_n \vert c_n\vert^2 = 1$ | $\int \vert\psi(x)\vert^2 dx = 1$ |
+| **Probability** | $P(E_n) = \vert c_n\vert^2$ | $P(x)dx = \vert\psi(x)\vert^2 dx$ |
+
+Discrete sums $\sum$ become continuous integrals $\int$. Kronecker deltas $\delta_{mn}$ become Dirac deltas $\delta(x-x')$. Everything else is identical!
+
+---
+
+## Connecting to Our Running Example
+
+Remember our state: $|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle$
+
+In position space, this becomes:
+
+$$\psi(x) = \frac{1}{2}\psi_0(x) + \frac{\sqrt{2}}{2}\psi_1(x) + \frac{1}{2}\psi_2(x)$$
+
+where $\psi_0(x), \psi_1(x), \psi_2(x)$ are the Gaussian energy eigenfunctions from Part 1.
+
+**Key insight:** We only use **three** energy basis vectors (the rest have $c_n = 0$). But in position basis, we need $\psi(x)$ defined for **every** x! Why?
+
+Because each Gaussian energy eigenstate spreads over all space. When we add three Gaussians together, the result is non-zero almost everywhere. So in position basis, we need infinitely many values to describe what's happening.
+
+It's like describing a diagonal line in 2D:
+- **Rotated basis aligned with the line:** Just one coordinate
+- **Standard xy basis:** Need both x and y everywhere
+
+Different bases make different aspects simple or complicated. Our state is "simple" in energy basis (just 3 numbers) but "complicated" in position basis (function over all x).
 
 ---
 
@@ -255,217 +604,52 @@ The ket |ψ⟩ is the state itself. The functions ψ(x), $\tilde{\psi}(p)$ and c
 
 ---
 
-## One State, Three Faces
-
-Let's see how ONE quantum state looks in different representations. We'll use:
-
-$$|\psi\rangle = \frac{1}{2}|0\rangle + \frac{\sqrt{2}}{2}|1\rangle + \frac{1}{2}|2\rangle$$
-
-### Energy Representation
-
-The coefficients:
-- $c_0 = 1/2$
-- $c_1 = \sqrt{2}/2$
-- $c_2 = 1/2$
-- $c_n = 0$ for $n \geq 3$
-
-**Probabilities:**
-- $P(E_0) = |c_0|^2 = 1/4 = 25\%$
-- $P(E_1) = |c_1|^2 = 1/2 = 50\%$
-- $P(E_2) = |c_2|^2 = 1/4 = 25\%$
-
-**Average energy:** The weighted average of energy values:
-$$\langle E \rangle = P(E_0) \cdot E_0 + P(E_1) \cdot E_1 + P(E_2) \cdot E_2$$
-$$= \frac{1}{4}\left(\frac{1}{2}\hbar\omega\right) + \frac{1}{2}\left(\frac{3}{2}\hbar\omega\right) + \frac{1}{4}\left(\frac{5}{2}\hbar\omega\right) = \frac{7}{4}\hbar\omega$$
-
-### Position Representation
-
-The SAME state as a position function:
-
-$$\psi(x) = \frac{1}{2}\psi_0(x) + \frac{\sqrt{2}}{2}\psi_1(x) + \frac{1}{2}\psi_2(x)$$
-
-where $\psi_n(x)$ are the Gaussian energy eigenfunctions.
-
-**Key insight:** Even though we only use 3 energy levels, $\psi(x)$ is non-zero almost everywhere! Each Gaussian spreads over all space, so we need infinitely many position values.
-
-### Momentum Representation
-
-The SAME state in momentum space (via Fourier transform):
-
-$$\tilde{\psi}(p) = \mathcal{F}[\psi(x)] = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty} \psi(x) e^{-ipx/\hbar} dx$$
-
-This is another continuous function giving the amplitude for each momentum value p. Since each energy eigenstate has a well-defined momentum distribution, the superposition creates a momentum wavefunction $\tilde{\psi}(p)$ spread over many momentum values.
-
-Same state, now expressed as a function of momentum instead of position!
-
-### The Deep Answer
-
-"How can the same state need 3 numbers in one basis but infinitely many in another?"
-
-Our state only "uses" three energy basis vectors (the rest have $c_n = 0$). But those three energy eigenstates each spread over all positions when expressed as Gaussians. So in position basis, we need $\psi(x)$ defined everywhere.
-
-It's like describing a diagonal line in 2D:
-- Rotated basis aligned with line: just one coordinate needed
-- Standard xy basis: need both x and y coordinates
-
-Different bases make different aspects simple or complicated!
-
----
-
-## Time Evolution: Just Rotating Phases
-
-Quantum time evolution is beautifully simple in the energy basis.
-
-### The Rule
-
-Each energy component gets a rotating phase:
-
-$$c_n(t) = c_n(0) \cdot e^{-iE_n t/\hbar}$$
-
-**Where does this come from?** Solving the time-dependent Schrödinger equation $i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle$ in the energy basis. Since energy eigenstates satisfy $\hat{H}|n\rangle = E_n|n\rangle$, each coefficient evolves independently with its own energy-dependent phase.
-
-Higher energy means faster rotation. For our example:
-
-$$|\psi(t)\rangle = \frac{1}{2}|0\rangle e^{-iE_0 t/\hbar} + \frac{\sqrt{2}}{2}|1\rangle e^{-iE_1 t/\hbar} + \frac{1}{2}|2\rangle e^{-iE_2 t/\hbar}$$
-
-### What This Means
-
-The magnitudes $|c_n|$ never change, so energy probabilities are constant. Only relative phases evolve.
-
-In position space, this creates interference:
-
-$$\psi(x,t) = \frac{1}{2}\psi_0(x)e^{-iE_0 t/\hbar} + \frac{\sqrt{2}}{2}\psi_1(x)e^{-iE_1 t/\hbar} + \frac{1}{2}\psi_2(x)e^{-iE_2 t/\hbar}$$
-
-Different frequencies beat against each other, making $|\psi(x,t)|^2$ oscillate. The quantum state "sloshes" in position space while maintaining constant energy probabilities.
-
-**Why energy eigenstates are special:** A pure energy eigenstate $|n\rangle$ just picks up an overall phase. No observable changes at all. These are "stationary states". Only superpositions create dynamics!
-
----
-
-## Operators: Extracting Observables
-
-Operators are tools that extract physical quantities from quantum states.
-
-### From Waves to Operators
-
-Remember the plane wave $\psi = Ae^{i(px - Et)/\hbar}$ for definite momentum p?
-
-Taking the derivative:
-$$\frac{\partial \psi}{\partial x} = \frac{ip}{\hbar}\psi$$
-
-Rearranging:
-$$p \psi = -i\hbar\frac{\partial \psi}{\partial x}$$
-
-The differential operator $-i\hbar\frac{\partial}{\partial x}$ extracts momentum! So we define:
-
-$$\hat{p} = -i\hbar\frac{\partial}{\partial x}$$
-
-### Operators in Different Bases
-
-Each operator is simple in its own basis:
-
-**Position operator $\hat{x}$:**
-- Position basis: just multiply by x
-- Energy basis: complicated matrix mixing levels
-
-**Energy operator $\hat{H}$:**
-- Energy basis: diagonal matrix with energies
-- Position basis: $-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)$
-
-Choose your basis to make your calculation easy!
-
-### Expectation Values
-
-The average value of any observable A:
-
-$$\langle A \rangle = \langle \psi | \hat{A} | \psi \rangle$$
-
-This formula automatically computes the weighted average over all possible outcomes. Works in ANY basis!
-
----
-
-## The Complete Parallel Structure
-
-Everything in quantum mechanics follows this parallel pattern:
-
-| **Concept** | **Discrete (Energy)** | **Continuous (Position)** |
-|------------|----------------------|--------------------------|
-| **State** | $\vert\psi\rangle$ | $\vert\psi\rangle$ (same!) |
-| **Basis vectors** | $\vert n\rangle$ for n = 0,1,2,... | $\vert x\rangle$ for all real x |
-| **Coefficients** | $c_n$ for each level | $\psi(x)$ for each position |
-| **Extract component** | $c_n = \langle n\vert\psi\rangle$ | $\psi(x) = \langle x\vert\psi\rangle$ |
-| **Build state** | $\vert\psi\rangle = \sum_n c_n\vert n\rangle$ | $\vert\psi\rangle = \int \psi(x)\vert x\rangle dx$ |
-| **Orthonormality** | $\langle m\vert n\rangle = \delta_{mn}$ | $\langle x'\vert x\rangle = \delta(x'-x)$ |
-| **Probability** | $P(n) = \vert c_n\vert^2$ | $P(x)dx = \vert\psi(x)\vert^2 dx$ |
-| **Normalization** | $\sum_n \vert c_n\vert^2 = 1$ | $\int \vert\psi(x)\vert^2 dx = 1$ |
-
-Discrete sums become continuous integrals. Everything else is identical!
-
----
-
-## Schrödinger's Equation: One Rule, Many Forms
-
-The Schrödinger equation tells us how states evolve. The fundamental form is:
-
-$$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle$$
-
-"The rate of change of the state equals its energy (divided by $i\hbar$)."
-
-### In Different Bases
-
-**Energy basis (simplest):**
-
-$$i\hbar\frac{dc_n(t)}{dt} = E_n c_n(t)$$
-
-Solution: $c_n(t) = c_n(0)e^{-iE_n t/\hbar}$
-
-**Position basis (most familiar):**
-
-$$i\hbar\frac{\partial \psi(x,t)}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V(x)\psi$$
-
-Same equation, different coordinates. Choose wisely!
-
----
-
-## Why Choose Different Bases?
-
-Each basis makes certain questions trivial:
-
-**"What's the probability of energy $E_1$?"**
-Energy basis: Just $|c_1|^2$. One number!
-
-**"What's the probability of finding the particle between x=1 and x=2?"**
-Position basis: Just $\int_1^2 |\psi(x)|^2 dx$. One integral!
-
-**"How does the state evolve in time?"**
-Energy basis: Each component rotates independently. Simple phases!
-
-Using the wrong basis turns simple questions into horrible calculations. The art is choosing the right tool for the job.
-
----
-
-## The Bridge to Quantum Computing
-
-When we truncate to finite dimensions (like a 2-level system), everything becomes matrices:
-
-$$|\psi\rangle = \begin{pmatrix} c_0 \\ c_1 \end{pmatrix}, \quad \hat{H} = \begin{pmatrix} E_0 & 0 \\ 0 & E_1 \end{pmatrix}$$
-
-Time evolution: $|\psi(t)\rangle = e^{-i\hat{H}t/\hbar}|\psi(0)\rangle$
-
-This is a qubit! The continuous wavefunctions we've been studying are just the infinite-dimensional version of these simple matrices.
-
----
-
 ## The Punchline
 
-Quantum mechanics seems complicated because we're juggling multiple representations of the same thing. But it all follows one pattern:
+Quantum mechanics seems complicated because we're juggling multiple representations of the same thing. But once you see the pattern, it all becomes linear algebra:
 
-1. **States are containers of amplitudes** for all possible measurements
-2. **Choose your basis** based on what you want to know
-3. **Coefficients are functions** mapping indices to amplitudes
-4. **Time evolution** is just rotating phases in energy basis
-5. **Measurements extract** one piece of information, collapsing possibilities
+### The Core Ideas
 
-The notation is half the battle. Once you see that $\psi(x) = \langle x|\psi\rangle$ is just "the position coefficient function", and that $\sum$ vs $\int$ is just discrete vs continuous, the mystery evaporates.
+**1. The abstract state |ψ⟩ exists independent of how we describe it**
+- Like a vector in 3D space that doesn't change whether you use Cartesian, cylindrical, or spherical coordinates
+- The state itself is basis-independent—only our description changes
 
-Next up: Spin-½, where everything is 2×2 matrices and the full power of quantum mechanics fits in four numbers!
+**2. Representations are projections**
+- Energy coefficients: $c_n = \langle n|\psi\rangle$
+- Position wavefunction: $\psi(x) = \langle x|\psi\rangle$
+- Momentum wavefunction: $\tilde{\psi}(p) = \langle p|\psi\rangle$
+- Same formula, different basis!
+
+**3. Discrete and continuous follow identical patterns**
+- Discrete: sums $\sum$, Kronecker delta $\delta_{mn}$, column vectors
+- Continuous: integrals $\int$, Dirac delta $\delta(x-x')$, functions
+- Everything else is the same—just different limiting cases
+
+**4. Choose your basis to match what you want to measure**
+- Want energy probabilities? Use energy basis: $P(E_n) = |c_n|^2$
+- Want position probabilities? Use position basis: $P(x)dx = |\psi(x)|^2 dx$
+- Each basis makes certain questions trivial and others complicated
+
+**5. Time evolution is rotating phases in the energy basis**
+- $c_n(t) = c_n(0)e^{-iE_n t/\hbar}$ (from Schrödinger's equation)
+- Magnitudes stay constant → energy probabilities conserved
+- Only relative phases change → interference creates dynamics
+- Pure energy eigenstates are stationary; only superpositions evolve
+
+### The Big Picture
+
+The notation is half the battle. Once you see that:
+- Ket notation $|n\rangle$ is just shorthand for column vectors
+- The wavefunction $\psi(x)$ is the position coefficient function
+- $\sum$ vs $\int$ is just discrete vs continuous
+- Bra-ket $\langle\phi|\psi\rangle$ is just the dot product
+
+...the mystery evaporates. Quantum mechanics is fundamentally **linear algebra in infinite dimensions**, with probabilities coming from squared magnitudes.
+
+Start with what you know (column vectors, dot products, basis expansion), recognize the same pattern in continuous form (functions, integrals, delta functions), and you've understood the mathematical heart of quantum mechanics.
+
+---
+
+**Next up:** [Quantum Operators and Observables](quantum-operators.md) - How operators extract physical quantities, expectation values, and the uncertainty principle.
+
+**Beyond that:** Spin-½ - Where everything fits in 2×2 matrices and the full power of quantum mechanics lives in four numbers!
