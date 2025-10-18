@@ -392,7 +392,8 @@ Different numbers of energy levels create fundamentally different dynamics:
 - **Relative phase** $\Delta\phi = (\omega_1 - \omega_0)t$ creates oscillations
 - This is fundamentally what makes qubits interesting!
 - Like Bloch sphere dynamics—interference between two levels
-- Observable quantities oscillate at the beat frequency $\omega_1 - \omega_0$
+- **Energy probabilities stay constant** ($|c_0|^2$ and $|c_1|^2$ never change)
+- But **other** observables (position, momentum, etc.) oscillate at beat frequency $\omega_1 - \omega_0$
 
 **Multiple energy levels:** Our example
 - Many frequencies beating against each other
@@ -461,17 +462,21 @@ $$\psi(x_i) \longrightarrow \psi(x)$$
 **Thinking of states as column vectors:**
 
 Discrete (N positions):
+
 $$|\psi\rangle \longleftrightarrow \begin{pmatrix} \psi(x_1) \\ \psi(x_2) \\ \psi(x_3) \\ \vdots \\ \psi(x_N) \end{pmatrix}$$
 
 Continuous limit (infinitely many positions):
+
 $$|\psi\rangle \longleftrightarrow (..., \psi(x-\Delta x), \psi(x), \psi(x+\Delta x), ...)^T$$
 
 **What about basis vectors?**
 
 Discrete:
+
 $$|x_i\rangle \longleftrightarrow (..., 0, 1 \text{ (at } x_i), 0, ...)^T$$
 
 Continuous limit:
+
 $$|x\rangle \longleftrightarrow (..., 0, 1 \text{ (at } x), 0, ...)^T$$
 
 In the continuous limit, that "1 at position x" becomes a **delta function spike**: $|x\rangle \leftrightarrow \delta(x' - x)$
