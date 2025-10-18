@@ -577,19 +577,23 @@ Different bases make different aspects simple or complicated. Our state is "simp
 
 The distinction is simple:
 
-**|ψ⟩** = The complete quantum state (basis-independent)
+**|ψ⟩ — The complete quantum state (basis-independent)**
+
 - Contains all measurement possibilities
 - Like a vector in 3D space
 
-**ψ(x)** = The position representation
+**ψ(x) — The position representation**
+
 - Gives amplitude at each position: $\psi(x) = \langle x|\psi\rangle$
 - Like the x-components of a 3D vector
 
-**$c_0, c_1, c_2, ...$** = The energy representation
+**$c_0, c_1, c_2, ...$ — The energy representation**
+
 - Coefficients for each energy level: $c_n = \langle n|\psi\rangle$
 - Like components in a different coordinate system
 
-The pattern is always:
+**The pattern is always:**
+
 - Energy coefficients: $c_n = \langle n|\psi\rangle$
 - Position wavefunction: $\psi(x) = \langle x|\psi\rangle$
 - Momentum wavefunction: $\tilde{\psi}(p) = \langle p|\psi\rangle$
