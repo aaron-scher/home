@@ -54,6 +54,7 @@ nav:
     - Overview: quantum-mechanics/index.md
     - Foundations: quantum-mechanics/quantum-foundations.md
     - Basis Representation: quantum-mechanics/quantum-basis-representation.md
+    - Operators and Measurement: quantum-mechanics/quantum-operators.md
 
 extra:
   generator: false
