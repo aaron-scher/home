@@ -15,7 +15,3 @@ This document will cover:
 - **Commutators and Uncertainty**: The Heisenberg uncertainty principle
 
 Content to be added from the restructuring of quantum-basis-representation.md.
-
----
-
-**Next:** [Spin-½](quantum-spin.md) (coming soon)
