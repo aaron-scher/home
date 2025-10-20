@@ -20,17 +20,21 @@ $$
 -i\hbar\frac{d\psi}{dx} = p\psi
 $$
 
-**This is huge!** Taking the derivative "extracts" the momentum from the wavefunction. We call this operation the **momentum operator**:
+**This is huge!** Taking the derivative extracts the momentum from the wavefunction.
+
+**Important:** This derivative form is specific to **position representation** (when the wavefunction is written as $\psi(x)$):
 
 $$
-\hat{p} = -i\hbar\frac{d}{dx}
+\hat{p}\psi(x) = -i\hbar\frac{d\psi}{dx}
 $$
 
-In abstract notation (operator acting on a state):
+The same physics can be written in **abstract notation** (basis-independent):
 
 $$
 \hat{p}|\psi\rangle = p|\psi\rangle
 $$
+
+This equation says the same thing — applying the momentum operator gives back the state multiplied by momentum $p$ — but now without referring to any specific representation. The abstract form $\hat{p}$ is the operator itself, while $-i\hbar\frac{d}{dx}$ is how that operator acts when you're working in position space.
 
 When a state satisfies this equation, we say it's a **momentum eigenstate** with **eigenvalue** $p$.
 
@@ -167,23 +171,29 @@ This is the uncertainty principle in action: sharp in one space means spread in 
 
 ### The Momentum Operator in Momentum Space
 
-Here's something beautiful. In position space:
+Here's something beautiful. The *same operator* $\hat{p}$ acts differently depending on which representation you use.
+
+**In position representation:**
 
 $$
-\hat{p} = -i\hbar\frac{d}{dx}
+\hat{p}\psi(x) = -i\hbar\frac{d\psi}{dx}
 $$
 
-In momentum space, it's much simpler:
+The operator acts as a derivative.
+
+**In momentum representation:**
 
 $$
 \hat{p}\tilde{\psi}(p) = p\tilde{\psi}(p)
 $$
 
-Just **multiply by $p$!** No derivatives needed.
+The operator just multiplies by $p$. No derivatives needed!
 
-**Why?** Because we're already in the momentum basis. Momentum eigenstates are just the basis states $|p\rangle$ themselves, so applying $\hat{p}$ just gives you the eigenvalue $p$.
+**Why the difference?** We're working in the momentum basis, where momentum eigenstates are the basis states $|p\rangle$ themselves. Acting on an eigenstate just returns its eigenvalue.
 
-It's exactly like position space where $\hat{x}\psi(x) = x\psi(x)$ (the position operator just multiplies by $x$).
+Compare to position: in position space, $\hat{x}\psi(x) = x\psi(x)$ (multiply by $x$), but in momentum space, $\hat{x}$ would be $i\hbar\frac{d}{dp}$ (a derivative!).
+
+**The key insight:** The abstract operator $\hat{p}$ is always the same physics. How it acts mathematically depends on which basis you've chosen to work in.
 
 ### Superposition in Momentum Space
 
