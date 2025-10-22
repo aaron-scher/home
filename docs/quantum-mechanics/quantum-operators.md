@@ -49,8 +49,9 @@ $$
 $$
 
 **This is huge!** Look at what just happened:
-- We applied the mathematical operation $-i\hbar\frac{d}{dx}$ to the wavefunction
-- We got back the momentum $p$ times the wavefunction
+
+• We applied the mathematical operation $-i\hbar\frac{d}{dx}$ to the wavefunction
+• We got back the momentum $p$ times the wavefunction
 
 We call this operation "applying **the momentum operator**" and give it the symbol $\hat{p}$. So we can write:
 
@@ -117,8 +118,9 @@ $$
 **This is NOT equal to $p\psi$ for any single number $p$!** We don't get the same wavefunction back.
 
 **Physical meaning:** This state is **not a momentum eigenstate**. If you measure momentum, you get:
-- $p_1 = 3\hbar$ nm⁻¹ with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
-- $p_2 = 7\hbar$ nm⁻¹ with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
+
+• $p_1 = 3\hbar$ nm⁻¹ with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
+• $p_2 = 7\hbar$ nm⁻¹ with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
 
 The particle does **not** have a definite momentum! This is why quantum measurements are probabilistic.
 
@@ -131,8 +133,9 @@ $$
 $$
 
 Now the probabilities are:
-- $p_1 = k_1\hbar$ with probability $|\frac{1}{2}|^2 = 25\%$
-- $p_2 = k_2\hbar$ with probability $|\frac{\sqrt{3}}{2}|^2 = 75\%$
+
+• $p_1 = k_1\hbar$ with probability $|\frac{1}{2}|^2 = 25\%$
+• $p_2 = k_2\hbar$ with probability $|\frac{\sqrt{3}}{2}|^2 = 75\%$
 
 The **key insight:** When $\psi$ is a superposition, applying $\hat{p}$ gives different eigenvalues multiplied by their respective components. The measurement outcome is probabilistic, with probabilities given by $|c_n|^2$ where $c_n$ is the coefficient of each momentum eigenstate.
 
@@ -155,6 +158,7 @@ $$
 $$
 
 **Why this form?** Break it down:
+
 1. $-i\hbar\frac{d\psi}{dx}$ applies the momentum operator to $\psi$
 2. Multiply by $\psi^*(x)$ (gives $|\text{amplitude}|^2$ weighting)
 3. Integrate over all space (average over the distribution)
@@ -279,4 +283,4 @@ The delta functions do the integration for us, picking out the eigenvalues weigh
 
 5. **Different bases, same physics:** In momentum space, eigenstates are delta functions $\delta(p-p_0)$ and $\hat{p}$ simply multiplies by $p$
 
-This framework applies to **all quantum operators**: position, energy, angular momentum, etc. The mathematics is always the same - only the specific operator and basis change!
+This framework applies to **all quantum operators**: position, energy, angular momentum, etc. The mathematics is always the same — only the specific operator and basis change!
