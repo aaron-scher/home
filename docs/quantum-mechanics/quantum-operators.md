@@ -70,6 +70,8 @@ This says the same physics — "applying the momentum operator gives back the st
 
 **The key point:** $\hat{p}$ is the operator itself (abstract concept), while $-i\hbar\frac{d}{dx}$ is how that operator acts when you're working with wavefunctions in position space $\psi(x)$.
 
+**Connection to real measurements:** In the lab, one straightforward way to measure momentum is to measure wavelength $\lambda$ (via diffraction or interference patterns). For a free particle, de Broglie tells us $p = h/\lambda = \hbar k$ where $k = 2\pi/\lambda$. So wavelength describes "how rapidly the wave oscillates in space," which is exactly what the spatial derivative $d/dx$ captures. The operator $-i\hbar\frac{d}{dx}$ mathematically packages up this measurement process: different wavelengths → different $k$ values → different rates of spatial oscillation → different values when you take $d/dx$.
+
 When a state satisfies this equation, we say it's a **momentum eigenstate** with **eigenvalue** $p$.
 
 ### Example 1: Single Plane Wave (Eigenstate)
