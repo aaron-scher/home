@@ -284,3 +284,446 @@ The delta functions do the integration for us, picking out the eigenvalues weigh
 5. **Different bases, same physics:** In momentum space, eigenstates are delta functions $\delta(p-p_0)$ and $\hat{p}$ simply multiplies by $p$
 
 This framework applies to **all quantum operators**: position, energy, angular momentum, etc. The mathematics is always the same — only the specific operator and basis change!
+
+---
+
+## The Energy Operator and Schrödinger's Equation
+
+### Energy from the Time Derivative
+
+Earlier, we saw that taking the **spatial derivative** extracts momentum from a plane wave. Now let's see what happens when we take the **time derivative**.
+
+Remember the plane wave we separated into spatial and temporal parts:
+
+$$
+\psi(x,t) = \underbrace{A e^{ikx}}_{\text{spatial part}} \cdot \underbrace{e^{-i\omega t}}_{\text{time part}}
+$$
+
+Let's take the time derivative. Just like before, the exponential property brings down the exponent:
+
+$$
+\frac{\partial}{\partial t}e^{-i\omega t} = (-i\omega) \cdot e^{-i\omega t}$$
+
+The factor $-i\omega$ gets pulled out front. Applying this to our full plane wave:
+
+$$
+\frac{\partial\psi}{\partial t} = Ae^{ikx} \cdot (-i\omega)e^{-i\omega t} = -i\omega\psi
+$$
+
+Multiply both sides by $i\hbar$:
+
+$$
+i\hbar\frac{\partial\psi}{\partial t} = \hbar\omega\psi = E\psi
+$$
+
+where we used $E = \hbar\omega$ (the energy-frequency relation from de Broglie).
+
+**Look at the parallel:**
+
+• **Spatial derivative** extracts **momentum**: $-i\hbar\frac{\partial\psi}{\partial x} = p\psi$
+• **Time derivative** extracts **energy**: $i\hbar\frac{\partial\psi}{\partial t} = E\psi$
+
+We call $i\hbar\frac{\partial}{\partial t}$ the **energy operator**, but it has a special name: the **Hamiltonian**, written as $\hat{H}$.
+
+**Why $\hat{H}$ instead of $\hat{E}$?** This is historical convention from classical mechanics, where the Hamiltonian function represents total energy. When quantum mechanics promoted it to an operator, the name stuck. We could have used $\hat{E}$ just like we use $\hat{p}$ for momentum, but "Hamiltonian" became the standard term (named after physicist William Hamilton).
+
+In abstract notation:
+
+$$
+\hat{H}|\psi\rangle = E|\psi\rangle
+$$
+
+### The Hamiltonian Represents Total Energy
+
+**Important - this can be confusing:** In quantum mechanics, the Hamiltonian $\hat{H}$ always represents **total energy** = kinetic + potential:
+
+$$
+\hat{H} = \underbrace{\frac{\hat{p}^2}{2m}}_{\text{kinetic}} + \underbrace{V(x)}_{\text{potential}}
+$$
+
+When you see "energy $E$" in quantum mechanics, it means **total energy** unless otherwise specified. This is different from classical mechanics where we often track kinetic and potential energy separately.
+
+**For a free particle** (no forces acting on it, so $V = 0$), the system is so simple there's no potential energy:
+
+$$
+\hat{H} = \frac{\hat{p}^2}{2m} \quad \text{(purely kinetic)}
+$$
+
+In position representation, using $\hat{p} = -i\hbar\frac{\partial}{\partial x}$:
+
+$$
+\hat{H} = \frac{1}{2m}\left(-i\hbar\frac{\partial}{\partial x}\right)^2 = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
+$$
+
+This is why the energy of a plane wave $E = \frac{\hbar^2k^2}{2m}$ is just the classical kinetic energy formula $E = \frac{p^2}{2m}$ with $p = \hbar k$ — there's nothing else contributing!
+
+Later, for confined particles (particle in a box, atoms, molecules), the potential $V(x) \neq 0$ and the energy eigenvalue $E$ represents the total energy (kinetic + potential combined).
+
+### The Big Reveal: This IS Schrödinger's Equation!
+
+What we just derived — that the time derivative extracts energy — is actually the **Schrödinger equation**!
+
+The general **time-dependent Schrödinger equation** is:
+
+$$
+i\hbar\frac{\partial\psi}{\partial t} = \hat{H}\psi
+$$
+
+This is the fundamental equation of quantum mechanics. It tells you how any quantum state evolves in time.
+
+**For time-independent potentials** (systems where the potential doesn't change with time), we can separate the spatial and temporal parts. Writing $\psi(x,t) = \psi(x)e^{-iEt/\hbar}$ and plugging into the time-dependent equation, the time part cancels out and we're left with:
+
+$$
+\hat{H}\psi(x) = E\psi(x)
+$$
+
+**This is an eigenvalue equation!** Let that sink in:
+
+• $\hat{H}$ is the operator (Hamiltonian)
+• $\psi(x)$ are the eigenfunctions (energy eigenstates)
+• $E$ are the eigenvalues (energy levels)
+
+**What "solving Schrödinger's equation" really means:**
+You're finding eigenfunctions and eigenvalues of the Hamiltonian operator by definition! Every solution you find is automatically an energy eigenstate with a definite energy eigenvalue $E$.
+
+**For a free particle,** the Hamiltonian is just kinetic energy:
+
+$$
+\hat{H}\psi = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} = E\psi
+$$
+
+The solutions are plane waves $\psi(x) = Ae^{ikx}$ with energy eigenvalues:
+
+$$
+E = \frac{\hbar^2k^2}{2m} = \frac{p^2}{2m}
+$$
+
+The energy spectrum is **continuous** — any $E \geq 0$ is allowed, corresponding to any value of momentum $p = \hbar k$.
+
+### Example 1: Single Plane Wave (Energy Eigenstate)
+
+Consider an electron (mass $m_e = 9.11 \times 10^{-31}$ kg) in a single plane wave state:
+
+$$
+\psi(x) = A e^{ikx} \quad \text{where } k = 5 \times 10^{10}\text{ m}^{-1}
+$$
+
+The energy is:
+
+$$
+E = \frac{\hbar^2 k^2}{2m_e} = \frac{(1.055 \times 10^{-34})^2 (5 \times 10^{10})^2}{2(9.11 \times 10^{-31})} \approx 1.53 \times 10^{-18}\text{ J} \approx 9.6\text{ eV}
+$$
+
+Apply the Hamiltonian operator:
+
+$$
+\hat{H}\psi = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\left(Ae^{ikx}\right) = -\frac{\hbar^2}{2m}(ik)^2 Ae^{ikx} = \frac{\hbar^2k^2}{2m}\psi = E\psi
+$$
+
+We get back **the same wavefunction** multiplied by the energy eigenvalue $E$.
+
+**Physical meaning:** If you measure energy, you get $E = 9.6$ eV with **100% certainty**. Every single measurement gives the same result. The particle has **definite energy**.
+
+### Example 2: Superposition of Two Plane Waves (NOT an Eigenstate)
+
+Now consider a superposition of two plane waves with different wavenumbers:
+
+$$
+\psi(x) = \frac{1}{\sqrt{2}}\left(e^{ik_1 x} + e^{ik_2 x}\right)
+$$
+
+Let's use $k_1 = 3 \times 10^{10}$ m⁻¹ and $k_2 = 7 \times 10^{10}$ m⁻¹. These give different energies:
+
+$$
+E_1 = \frac{\hbar^2k_1^2}{2m_e} \approx 3.5\text{ eV}
+$$
+
+$$
+E_2 = \frac{\hbar^2k_2^2}{2m_e} \approx 18.8\text{ eV}
+$$
+
+Apply the Hamiltonian:
+
+$$
+\hat{H}\psi = \frac{1}{\sqrt{2}}\left(\hat{H}e^{ik_1 x} + \hat{H}e^{ik_2 x}\right) = \frac{1}{\sqrt{2}}\left(E_1 e^{ik_1 x} + E_2 e^{ik_2 x}\right)
+$$
+
+**This is NOT equal to $E\psi$ for any single energy $E$!** Different eigenvalues ($E_1$ and $E_2$) multiply their respective components.
+
+**Physical meaning:** This state is **not an energy eigenstate**. If you measure energy, you get:
+
+• $E_1 = 3.5$ eV with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
+• $E_2 = 18.8$ eV with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
+
+The particle does **not** have definite energy! This is the same probabilistic measurement story we saw with the momentum operator.
+
+The **expected value** (average over many measurements) is:
+
+$$
+\langle E \rangle = 50\% \cdot E_1 + 50\% \cdot E_2 = 0.5(3.5) + 0.5(18.8) = 11.15\text{ eV}
+$$
+
+Even though individual measurements give either 3.5 eV or 18.8 eV, the *average* is 11.15 eV!
+
+---
+
+## Confined Particles and Discrete Energy Levels
+
+### From Continuous to Discrete
+
+So far, we've looked at **free particles** where the energy spectrum is continuous — any energy $E \geq 0$ is allowed. But what happens when we **confine** the particle?
+
+**Boundary conditions change everything:**
+
+• Add walls (particle in a box)
+• Add a potential well
+• Confine in an atom or molecule
+
+When you confine a particle, the wavefunction must satisfy boundary conditions (like being zero at walls). This restricts which wavelengths — and therefore which wavenumbers $k$ — are allowed.
+
+**Result:** Only certain discrete values of $k$ are permitted, which means only certain energies are allowed!
+
+$$
+E_1, E_2, E_3, \ldots \quad \text{(a discrete ladder of energy levels)}
+$$
+
+### Example: Particle in a Box
+
+The simplest confined system is a particle trapped in a 1D box of length $L$ with infinitely high walls. The boundary conditions force the wavefunction to be zero at the walls.
+
+**Energy eigenvalues:**
+
+$$
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}, \quad n = 1, 2, 3, \ldots
+$$
+
+**Energy eigenfunctions:**
+
+$$
+\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right), \quad 0 \leq x \leq L
+$$
+
+The quantum number $n$ labels the energy levels. The first few levels:
+
+• $n=1$ (ground state): $E_1 = \frac{\pi^2\hbar^2}{2mL^2}$
+• $n=2$ (first excited state): $E_2 = 4E_1$
+• $n=3$ (second excited state): $E_3 = 9E_1$
+
+Notice the energies grow as $n^2$ — the spacing between levels gets larger as you go up!
+
+**For a concrete example:** An electron in a box of length $L = 1$ nm:
+
+$$
+E_1 = \frac{\pi^2(1.055 \times 10^{-34})^2}{2(9.11 \times 10^{-31})(10^{-9})^2} \approx 6.0 \times 10^{-20}\text{ J} \approx 0.38\text{ eV}
+$$
+
+Then $E_2 \approx 1.5$ eV, $E_3 \approx 3.4$ eV, etc.
+
+**Key insight:** Confinement creates discrete energy levels. The smaller the box, the larger the energy spacing!
+
+---
+
+## Matrix Representation of Operators
+
+### Discrete Basis → Operators Become Matrices
+
+We've now seen two very different situations:
+
+**Continuous basis (free particle, plane waves):**
+• Infinite number of states (any $k$ allowed)
+• Operators act as derivatives: $\hat{p} = -i\hbar\frac{d}{dx}$, $\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}$
+• Work with wavefunctions $\psi(x)$
+
+**Discrete basis (confined particle, energy levels):**
+• Finite (or countably infinite) set of states: $|E_1\rangle, |E_2\rangle, |E_3\rangle, \ldots$
+• **Operators become matrices!**
+• Work with column vectors
+
+**Why matrices?** Any quantum state can be written as a superposition of basis states:
+
+$$
+|\psi\rangle = c_1|E_1\rangle + c_2|E_2\rangle + c_3|E_3\rangle + \cdots
+$$
+
+We can represent this state as a **column vector** of coefficients:
+
+$$
+|\psi\rangle \leftrightarrow \begin{pmatrix} c_1 \\ c_2 \\ c_3 \\ \vdots \end{pmatrix}
+$$
+
+When an operator acts on a state, it becomes **matrix multiplication**!
+
+### The Hamiltonian in the Energy Basis
+
+Here's something beautiful: in its **own eigenbasis**, an operator is always **diagonal**.
+
+The Hamiltonian in the energy basis is:
+
+$$
+\hat{H} = \begin{pmatrix}
+E_1 & 0 & 0 & \cdots \\
+0 & E_2 & 0 & \cdots \\
+0 & 0 & E_3 & \cdots \\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}
+$$
+
+The energy eigenvalues sit on the diagonal. All off-diagonal elements are zero.
+
+**Why?** When you apply $\hat{H}$ to an eigenstate $|E_n\rangle$, you get $E_n|E_n\rangle$ — it just multiplies by the eigenvalue. No mixing with other states!
+
+### Example: Two-Level System
+
+Let's work with the simplest discrete system: **two energy levels**. This could represent:
+
+• The first two levels of a particle in a box
+• Two electronic states in an atom
+• A spin-1/2 particle (coming later!)
+
+**Setup:** Two energy eigenstates with energies $E_1 = 1$ eV and $E_2 = 3$ eV.
+
+Basis states: $|E_1\rangle$ and $|E_2\rangle$
+
+The Hamiltonian as a 2×2 matrix:
+
+$$
+\hat{H} = \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix} \text{ eV}
+$$
+
+**Example A: Energy Eigenstate**
+
+Consider the particle in the second excited state:
+
+$$
+|\psi\rangle = |E_2\rangle
+$$
+
+As a column vector:
+
+$$
+|\psi\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$
+
+Apply the Hamiltonian (matrix multiplication):
+
+$$
+\hat{H}|\psi\rangle = \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 3 \end{pmatrix} = 3 \begin{pmatrix} 0 \\ 1 \end{pmatrix} = E_2|\psi\rangle
+$$
+
+We get back **the same state** multiplied by the eigenvalue $E_2 = 3$ eV.
+
+**Physical meaning:** Measure energy → get 3 eV with **100% certainty**.
+
+**Example B: Superposition State**
+
+Now consider an equal superposition:
+
+$$
+|\psi\rangle = \frac{1}{\sqrt{2}}|E_1\rangle + \frac{1}{\sqrt{2}}|E_2\rangle
+$$
+
+As a column vector:
+
+$$
+|\psi\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$
+
+Apply the Hamiltonian:
+
+$$
+\hat{H}|\psi\rangle = \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix} \cdot \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 3 \end{pmatrix}
+$$
+
+**This is NOT equal to $E|\psi\rangle$ for any single energy!** The components get multiplied by different eigenvalues (1 and 3).
+
+**Physical meaning:** This is **not an energy eigenstate**. If you measure energy, you get:
+
+• $E_1 = 1$ eV with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
+• $E_2 = 3$ eV with probability $|\frac{1}{\sqrt{2}}|^2 = 50\%$
+
+The **expected value** (average over many measurements):
+
+$$
+\langle E \rangle = 50\% \cdot 1 + 50\% \cdot 3 = 2\text{ eV}
+$$
+
+Individual measurements give 1 eV or 3 eV, but the average is 2 eV!
+
+**Using the matrix formula:**
+
+$$
+\langle E \rangle = \langle\psi|\hat{H}|\psi\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \end{pmatrix} \cdot \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 3 \end{pmatrix} = \frac{1}{2}(1 + 3) = 2\text{ eV}
+$$
+
+The row vector $\langle\psi|$ is the conjugate transpose of $|\psi\rangle$.
+
+### Not All Operators Are Diagonal: Position in the Energy Basis
+
+We saw that the Hamiltonian is diagonal in the energy basis. But what about other operators?
+
+**Key principle:** An operator is diagonal **only in its own eigenbasis**. In other bases, it can have off-diagonal elements.
+
+Let's look at the **position operator** $\hat{x}$ in the energy basis for a particle in a box.
+
+For the particle in a box, the matrix elements are:
+
+$$
+\langle E_m|\hat{x}|E_n\rangle = \int_0^L \psi_m^*(x) \cdot x \cdot \psi_n(x) \, dx
+$$
+
+The diagonal elements ($m=n$) give the **expected position** in each energy eigenstate:
+
+$$
+\langle E_n|\hat{x}|E_n\rangle = \int_0^L |\psi_n(x)|^2 \cdot x \, dx = \frac{L}{2}
+$$
+
+Due to symmetry, every energy eigenstate has expected position at the center of the box!
+
+The **off-diagonal elements** ($m \neq n$) are generally non-zero. For example, in our 2-level system:
+
+$$
+\hat{x} \approx \begin{pmatrix} L/2 & x_{12} \\ x_{21} & L/2 \end{pmatrix}
+$$
+
+where $x_{12} = \langle E_1|\hat{x}|E_2\rangle$ and $x_{21} = \langle E_2|\hat{x}|E_1\rangle$ are off-diagonal matrix elements.
+
+**What do off-diagonal elements mean?**
+
+• They represent "transitions" between different energy states
+• When $\hat{x}$ acts on $|E_1\rangle$, it creates a superposition that includes $|E_2\rangle$
+• This is why position measurements can change the energy state!
+
+**The key insight:**
+
+• **Hamiltonian in energy basis:** diagonal (eigenbasis)
+• **Position in energy basis:** off-diagonal (not its eigenbasis)
+• **Position in position basis:** diagonal (would be $x\psi(x)$)
+
+Every operator is diagonal in its own eigenbasis, but appears as a more complex matrix in other bases.
+
+---
+
+## Summary: Energy, Schrödinger's Equation, and Matrices
+
+**What we've learned:**
+
+1. **Time derivative extracts energy:** Just like spatial derivative $\frac{\partial}{\partial x}$ extracts momentum, time derivative $\frac{\partial}{\partial t}$ extracts energy: $i\hbar\frac{\partial\psi}{\partial t} = E\psi$
+
+2. **Hamiltonian = total energy operator:** $\hat{H} = \frac{\hat{p}^2}{2m} + V(x)$ represents kinetic + potential energy. Energy eigenvalue $E$ always means total energy (unlike classical mechanics where we often separate KE and PE).
+
+3. **Schrödinger's equation is an eigenvalue equation:** For time-independent potentials, "solving Schrödinger's equation" means finding energy eigenfunctions and eigenvalues: $\hat{H}\psi(x) = E\psi(x)$
+
+4. **Free particles: continuous spectrum:** Plane wave solutions $\psi(x) = Ae^{ikx}$ with $E = \frac{\hbar^2k^2}{2m}$ (purely kinetic). Any energy $E \geq 0$ is allowed.
+
+5. **Confined particles: discrete spectrum:** Boundary conditions restrict allowed wavelengths, creating discrete energy levels $E_1, E_2, E_3, \ldots$ (Example: particle in box with $E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}$)
+
+6. **Discrete basis → matrix representation:** When working with discrete energy levels:
+   • States become column vectors: $|\psi\rangle = c_1|E_1\rangle + c_2|E_2\rangle \rightarrow \begin{pmatrix} c_1 \\ c_2 \end{pmatrix}$
+   • Operators become matrices
+   • Operator action = matrix multiplication
+
+7. **Operators are diagonal in their own eigenbasis:** $\hat{H}$ in energy basis has eigenvalues on diagonal. In other bases (like position operator in energy basis), matrices have off-diagonal elements representing transitions between states.
+
+8. **Same probabilistic measurement framework:** Whether continuous (plane waves) or discrete (energy levels), superposition states give probabilistic measurement outcomes with probabilities $|c_n|^2$.
+
+**The big picture:** Quantum operators extract observable quantities through eigenvalue equations. The mathematical form changes (derivatives vs matrices) depending on whether you're working with continuous or discrete bases, but the physics — eigenstates, eigenvalues, and probabilistic measurements — remains the same!
