@@ -2,16 +2,44 @@
 
 ## The Momentum Operator and Plane Waves
 
-Let's start where we left off in [Foundations](quantum-foundations.md): plane waves. A plane wave with definite momentum $p = \hbar k$ looks like:
+Let's start where we left off in [Foundations](quantum-foundations.md): plane waves. A plane wave solution to Schrödinger's equation with definite momentum $p = \hbar k$ and energy $E = \hbar\omega$ looks like:
+
+$$
+\psi(x,t) = A e^{i(kx - \omega t)}
+$$
+
+We can use the exponential property to write this as a **product** of spatial and temporal parts:
+
+$$
+\psi(x,t) = \underbrace{A e^{ikx}}_{\text{spatial part}} \cdot \underbrace{e^{-i\omega t}}_{\text{time part}}
+$$
+
+This separation is crucial! The spatial part encodes momentum information, while the time part encodes energy information. They're independent — a key feature of stationary states.
+
+**Looking ahead:** Later we'll see that taking the **time derivative** ∂ψ/∂t extracts **energy** from the time part, just like the spatial derivative extracts momentum! This gives the full Schrödinger equation. But for now, let's focus on momentum.
+
+### Extracting Momentum: The Spatial Derivative
+
+Focus on the spatial part:
 
 $$
 \psi(x) = A e^{ikx}
 $$
 
-We derived this from de Broglie's relation. Now let's ask: **what happens when we take the derivative?**
+This is what we derived from de Broglie's relation. Now let's ask: **what happens when we take the spatial derivative?**
+
+**Key property of exponentials:** Taking the derivative with respect to $x$ brings down the exponent:
 
 $$
-\frac{d\psi}{dx} = ik\psi = \frac{i}{\hbar}p\psi
+\frac{d}{dx}e^{ikx} = (ik) \cdot e^{ikx}
+$$
+
+The factor $ik$ (whatever was multiplying $x$ in the exponent) gets pulled out front. This simple property is what makes the momentum operator work!
+
+Applying this to our plane wave:
+
+$$
+\frac{d\psi}{dx} = A(ik)e^{ikx} = ik\psi = \frac{i}{\hbar}p\psi
 $$
 
 Multiply both sides by $-i\hbar$:
