@@ -472,15 +472,16 @@ Then $E_2 \approx 1.5$ eV, $E_3 \approx 3.4$ eV, etc.
 
 We've now seen two very different situations:
 
-**Continuous basis (free particle, plane waves):**
-• Infinite number of states (any $k$ allowed)
-• Operators act as derivatives: $\hat{p} = -i\hbar\frac{d}{dx}$, $\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}$
-• Work with wavefunctions $\psi(x)$
+**Continuous basis (position $x$, momentum $p$):**
+• Basis labels are continuous variables
+• States are functions of continuous variables: $\psi(x)$ or $\tilde{\psi}(p)$
+• Operators are differential operators (involve derivatives)
 
-**Discrete basis (confined particle, energy levels):**
-• Finite (or countably infinite) set of states: $|E_1\rangle, |E_2\rangle, |E_3\rangle, \ldots$
+**Discrete basis (energy levels, quantum numbers):**
+• Basis labels are discrete: $n = 1, 2, 3, \ldots$
+• States written as sums over discrete basis states: $|E_1\rangle, |E_2\rangle, |E_3\rangle, \ldots$
+• **Common examples:** energy levels, spin states (↑/↓), photon polarization (H/V)
 • **Operators become matrices!**
-• Work with column vectors
 
 **Why matrices?** Any quantum state can be written as a superposition of basis states:
 
