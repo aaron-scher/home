@@ -48,21 +48,27 @@ $$
 -i\hbar\frac{d\psi}{dx} = p\psi
 $$
 
-**This is huge!** Taking the derivative extracts the momentum from the wavefunction.
+**This is huge!** Look at what just happened:
+- We applied the mathematical operation $-i\hbar\frac{d}{dx}$ to the wavefunction
+- We got back the momentum $p$ times the wavefunction
 
-**Important:** This derivative form is specific to **position representation** (when the wavefunction is written as $\psi(x)$):
+We call this operation "applying **the momentum operator**" and give it the symbol $\hat{p}$. So we can write:
 
 $$
-\hat{p}\psi(x) = -i\hbar\frac{d\psi}{dx}
+\hat{p}\psi(x) = -i\hbar\frac{d\psi}{dx} = p\psi
 $$
 
-The same physics can be written in **abstract notation** (basis-independent):
+**Important distinction:** This form $-i\hbar\frac{d}{dx}$ is specific to **position representation** (when the wavefunction is written as $\psi(x)$). It tells you *how* the momentum operator acts on functions of $x$.
+
+More generally, without referring to a specific representation, we write this in **abstract notation** (ket notation):
 
 $$
 \hat{p}|\psi\rangle = p|\psi\rangle
 $$
 
-This equation says the same thing — applying the momentum operator gives back the state multiplied by momentum $p$ — but now without referring to any specific representation. The abstract form $\hat{p}$ is the operator itself, while $-i\hbar\frac{d}{dx}$ is how that operator acts when you're working in position space.
+This says the same physics — "applying the momentum operator gives back the state multiplied by the momentum value $p$" — but now without specifying *how* you calculate it.
+
+**The key point:** $\hat{p}$ is the operator itself (abstract concept), while $-i\hbar\frac{d}{dx}$ is how that operator acts when you're working with wavefunctions in position space $\psi(x)$.
 
 When a state satisfies this equation, we say it's a **momentum eigenstate** with **eigenvalue** $p$.
 
