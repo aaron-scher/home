@@ -601,49 +601,33 @@ $$
 
 The row vector $\langle\psi|$ is the conjugate transpose of $|\psi\rangle$.
 
-### Not All Operators Are Diagonal: Position in the Energy Basis
+### Example: Position Operator in Energy Basis
 
 We saw that the Hamiltonian is diagonal in the energy basis. But what about other operators?
 
-**Key principle:** An operator is diagonal **only in its own eigenbasis**. In other bases, it can have off-diagonal elements.
+**Key principle:** An operator is diagonal **only in its own eigenbasis**. In other bases, it has off-diagonal elements.
 
-Let's look at the **position operator** $\hat{x}$ in the energy basis for a particle in a box.
-
-For the particle in a box, the matrix elements are:
+**Example calculation for particle in a box:** To see this, we can calculate the position operator $\hat{x}$ in the energy basis for this specific system. The matrix elements are:
 
 $$
 \langle E_m|\hat{x}|E_n\rangle = \int_0^L \psi_m^*(x) \cdot x \cdot \psi_n(x) \, dx
 $$
 
-The diagonal elements ($m=n$) give the **expected position** in each energy eigenstate:
+The diagonal elements ($m=n$) give the expected position in each energy eigenstate. Due to symmetry:
 
 $$
-\langle E_n|\hat{x}|E_n\rangle = \int_0^L |\psi_n(x)|^2 \cdot x \, dx = \frac{L}{2}
+\langle E_n|\hat{x}|E_n\rangle = \frac{L}{2}
 $$
 
-Due to symmetry, every energy eigenstate has expected position at the center of the box!
-
-The **off-diagonal elements** ($m \neq n$) are generally non-zero. For example, in our 2-level system:
+Every energy eigenstate has expected position at the center of the box! The off-diagonal elements ($m \neq n$) are generally non-zero. For a 2-level system:
 
 $$
 \hat{x} \approx \begin{pmatrix} L/2 & x_{12} \\ x_{21} & L/2 \end{pmatrix}
 $$
 
-where $x_{12} = \langle E_1|\hat{x}|E_2\rangle$ and $x_{21} = \langle E_2|\hat{x}|E_1\rangle$ are off-diagonal matrix elements.
+where $x_{12}$ and $x_{21}$ are the off-diagonal matrix elements.
 
-**What do off-diagonal elements mean?**
-
-• They represent "transitions" between different energy states
-• When $\hat{x}$ acts on $|E_1\rangle$, it creates a superposition that includes $|E_2\rangle$
-• This is why position measurements can change the energy state!
-
-**The key insight:**
-
-• **Hamiltonian in energy basis:** diagonal (eigenbasis)
-• **Position in energy basis:** off-diagonal (not its eigenbasis)
-• **Position in position basis:** diagonal (would be $x\psi(x)$)
-
-Every operator is diagonal in its own eigenbasis, but appears as a more complex matrix in other bases.
+**The key insight:** Every operator is diagonal in its own eigenbasis, but appears as a more complex matrix in other bases.
 
 ---
 
@@ -666,8 +650,46 @@ Every operator is diagonal in its own eigenbasis, but appears as a more complex 
    • Operators become matrices
    • Operator action = matrix multiplication
 
-7. **Operators are diagonal in their own eigenbasis:** $\hat{H}$ in energy basis has eigenvalues on diagonal. In other bases (like position operator in energy basis), matrices have off-diagonal elements representing transitions between states.
+7. **Operators are diagonal in their own eigenbasis:** $\hat{H}$ in energy basis has eigenvalues on diagonal. In other bases (like position operator in energy basis), matrices have off-diagonal elements.
 
 8. **Same probabilistic measurement framework:** Whether continuous (plane waves) or discrete (energy levels), superposition states give probabilistic measurement outcomes with probabilities $|c_n|^2$.
 
 **The big picture:** Quantum operators extract observable quantities through eigenvalue equations. The mathematical form changes (derivatives vs matrices) depending on whether you're working with continuous or discrete bases, but the physics — eigenstates, eigenvalues, and probabilistic measurements — remains the same!
+
+---
+
+## What Changes With Problem vs Basis?
+
+This can be confusing, so let's be crystal clear about what changes when:
+
+### What Changes With the Physical Problem
+
+The **Hamiltonian** $\hat{H}$ changes depending on the physical system:
+
+• Free particle: $\hat{H} = \frac{\hat{p}^2}{2m}$ (just kinetic energy)
+• Particle in box: $\hat{H} = \frac{\hat{p}^2}{2m}$ + infinite walls at boundaries
+• Harmonic oscillator: $\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2$
+• Hydrogen atom: $\hat{H} = \frac{\hat{p}^2}{2m} - \frac{e^2}{4\pi\epsilon_0 r}$
+
+Different Hamiltonians → different energy eigenvalues and eigenfunctions!
+
+**Other operators don't change:** The position operator $\hat{x}$, momentum operator $\hat{p}$, etc. are the same for all problems. They're fundamental quantum observables.
+
+### What Changes With the Basis You Choose
+
+The **mathematical form** of operators changes depending on which basis you write $\psi$ in:
+
+| Operator | Position Basis $\psi(x)$ | Momentum Basis $\tilde{\psi}(p)$ | Energy Basis $c_n$ (discrete) |
+|----------|----------|----------|----------|
+| $\hat{x}$ | multiply by $x$ | $i\hbar\frac{d}{dp}$ | off-diagonal matrix |
+| $\hat{p}$ | $-i\hbar\frac{d}{dx}$ | multiply by $p$ | off-diagonal matrix |
+| $\hat{H}$ | $-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)$ | $\frac{p^2}{2m} + V(i\hbar\frac{d}{dp})$ | diagonal matrix (eigenvalues $E_n$) |
+
+**Key insight:** Same operator, different mathematical representation. The physics (eigenvalues, expected values) doesn't change—only how you calculate them!
+
+**Example:** The momentum operator $\hat{p}$ is always the same abstract operator. But:
+• In position basis: it's the derivative $-i\hbar\frac{d}{dx}$
+• In momentum basis: it just multiplies by $p$
+• In energy basis: it's a matrix with off-diagonal elements
+
+Which basis you use is your choice. Pick whichever makes the calculation easiest!
