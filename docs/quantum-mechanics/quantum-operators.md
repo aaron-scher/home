@@ -331,11 +331,15 @@ $$
 
 **This is literally an eigenvalue equation!**
 
-• $\hat{H}$ is the operator (the energy operator)
-• $\psi(x)$ are the eigenfunctions (energy eigenstates)
-• $E$ are the eigenvalues (energy levels)
+Think about what you're solving for:
 
-**What "solving Schrödinger's equation" really means:** You're finding eigenfunctions and eigenvalues of the Hamiltonian operator by definition! Every solution you find is automatically an energy eigenstate with a definite energy eigenvalue $E$.
+• You **know** the operator: $\hat{H}$ (you specify the potential $V(x)$ and mass $m$)
+• You **don't know** the function: $\psi(x)$ (this is what you're solving for!)
+• You **don't know** the constant: $E$ (what energies are allowed?)
+
+You're looking for functions $\psi(x)$ that, when you apply $\hat{H}$ to them, give back the same function multiplied by a constant. Those special functions are the **eigenfunctions** (energy eigenstates) and those special constants are the **eigenvalues** (energy levels).
+
+**What "solving Schrödinger's equation" really means:** You're finding eigenfunctions and eigenvalues of the Hamiltonian operator! Every solution $\psi(x)$ you find is automatically an energy eigenstate with a definite energy eigenvalue $E$.
 
 **For a free particle:** Plane waves $\psi(x) = Ae^{ikx}$ are the energy eigenfunctions with eigenvalues $E = \frac{\hbar^2k^2}{2m}$. The energy spectrum is **continuous** — any $E \geq 0$ is allowed.
 
