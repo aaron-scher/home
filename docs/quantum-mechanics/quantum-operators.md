@@ -289,116 +289,55 @@ This framework applies to **all quantum operators**: position, energy, angular m
 
 ## The Energy Operator and Schrödinger's Equation
 
-### Energy from the Time Derivative
+### Schrödinger's Equation as an Eigenvalue Problem
 
-Earlier, we saw that taking the **spatial derivative** extracts momentum from a plane wave. Now let's see what happens when we take the **time derivative**.
-
-Remember the plane wave we separated into spatial and temporal parts:
-
-$$
-\psi(x,t) = \underbrace{A e^{ikx}}_{\text{spatial part}} \cdot \underbrace{e^{-i\omega t}}_{\text{time part}}
-$$
-
-Let's take the time derivative. Just like before, the exponential property brings down the exponent:
-
-$$
-\frac{\partial}{\partial t}e^{-i\omega t} = (-i\omega) \cdot e^{-i\omega t}$$
-
-The factor $-i\omega$ gets pulled out front. Applying this to our full plane wave:
-
-$$
-\frac{\partial\psi}{\partial t} = Ae^{ikx} \cdot (-i\omega)e^{-i\omega t} = -i\omega\psi
-$$
-
-Multiply both sides by $i\hbar$:
-
-$$
-i\hbar\frac{\partial\psi}{\partial t} = \hbar\omega\psi = E\psi
-$$
-
-where we used $E = \hbar\omega$ (the energy-frequency relation from de Broglie).
-
-**Look at the parallel:**
-
-• **Spatial derivative** extracts **momentum**: $-i\hbar\frac{\partial\psi}{\partial x} = p\psi$
-• **Time derivative** extracts **energy**: $i\hbar\frac{\partial\psi}{\partial t} = E\psi$
-
-We call $i\hbar\frac{\partial}{\partial t}$ the **energy operator**, but it has a special name: the **Hamiltonian**, written as $\hat{H}$.
-
-**Why $\hat{H}$ instead of $\hat{E}$?** This is historical convention from classical mechanics, where the Hamiltonian function represents total energy. When quantum mechanics promoted it to an operator, the name stuck. We could have used $\hat{E}$ just like we use $\hat{p}$ for momentum, but "Hamiltonian" became the standard term (named after physicist William Hamilton).
-
-In abstract notation:
-
-$$
-\hat{H}|\psi\rangle = E|\psi\rangle
-$$
-
-### The Hamiltonian Represents Total Energy
-
-**Important - this can be confusing:** In quantum mechanics, the Hamiltonian $\hat{H}$ always represents **total energy** = kinetic + potential:
-
-$$
-\hat{H} = \underbrace{\frac{\hat{p}^2}{2m}}_{\text{kinetic}} + \underbrace{V(x)}_{\text{potential}}
-$$
-
-When you see "energy $E$" in quantum mechanics, it means **total energy** unless otherwise specified. This is different from classical mechanics where we often track kinetic and potential energy separately.
-
-**For a free particle** (no forces acting on it, so $V = 0$), the system is so simple there's no potential energy:
-
-$$
-\hat{H} = \frac{\hat{p}^2}{2m} \quad \text{(purely kinetic)}
-$$
-
-In position representation, using $\hat{p} = -i\hbar\frac{\partial}{\partial x}$:
-
-$$
-\hat{H} = \frac{1}{2m}\left(-i\hbar\frac{\partial}{\partial x}\right)^2 = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
-$$
-
-This is why the energy of a plane wave $E = \frac{\hbar^2k^2}{2m}$ is just the classical kinetic energy formula $E = \frac{p^2}{2m}$ with $p = \hbar k$ — there's nothing else contributing!
-
-Later, for confined particles (particle in a box, atoms, molecules), the potential $V(x) \neq 0$ and the energy eigenvalue $E$ represents the total energy (kinetic + potential combined).
-
-### The Big Reveal: This IS Schrödinger's Equation!
-
-What we just derived — that the time derivative extracts energy — is actually the **Schrödinger equation**!
-
-The general **time-dependent Schrödinger equation** is:
+Remember from [Foundations](quantum-foundations.md) we derived Schrödinger's equation from the time and spatial derivatives of a plane wave. We found:
 
 $$
 i\hbar\frac{\partial\psi}{\partial t} = \hat{H}\psi
 $$
 
-This is the fundamental equation of quantum mechanics. It tells you how any quantum state evolves in time.
+where the **Hamiltonian operator** $\hat{H}$ represents the total energy:
 
-**For time-independent potentials** (systems where the potential doesn't change with time), we can separate the spatial and temporal parts. Writing $\psi(x,t) = \psi(x)e^{-iEt/\hbar}$ and plugging into the time-dependent equation, the time part cancels out and we're left with:
+$$
+\hat{H} = \underbrace{\frac{\hat{p}^2}{2m}}_{\text{kinetic}} + \underbrace{V(x)}_{\text{potential}}
+$$
+
+**Important - this can be confusing:** When you see "energy $E$" in quantum mechanics, it means **total energy** unless otherwise specified. This is different from classical mechanics where we often track kinetic and potential energy separately.
+
+**For a free particle** (no forces, so $V = 0$), the energy is purely kinetic:
+
+$$
+\hat{H} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
+$$
+
+This is why plane wave energy $E = \frac{\hbar^2k^2}{2m}$ is just the kinetic energy formula $E = \frac{p^2}{2m}$ — there's nothing else!
+
+**Why $\hat{H}$ instead of $\hat{E}$?** Pure historical convention from classical mechanics, where the Hamiltonian function represents total energy. We could have used $\hat{E}$ just like we use $\hat{p}$ for momentum, but "Hamiltonian" (named after physicist William Hamilton) became the standard term.
+
+### The Key Insight: Eigenvalue Equation for Time-Independent Potentials
+
+Here's what we didn't emphasize in Foundations: **for time-independent potentials** (systems where $V(x)$ doesn't change with time), we can separate variables:
+
+$$
+\psi(x,t) = \psi(x)e^{-iEt/\hbar}
+$$
+
+Plugging this into Schrödinger's equation, the time part cancels out and we get:
 
 $$
 \hat{H}\psi(x) = E\psi(x)
 $$
 
-**This is an eigenvalue equation!** Let that sink in:
+**This is literally an eigenvalue equation!**
 
-• $\hat{H}$ is the operator (Hamiltonian)
+• $\hat{H}$ is the operator (the energy operator)
 • $\psi(x)$ are the eigenfunctions (energy eigenstates)
 • $E$ are the eigenvalues (energy levels)
 
-**What "solving Schrödinger's equation" really means:**
-You're finding eigenfunctions and eigenvalues of the Hamiltonian operator by definition! Every solution you find is automatically an energy eigenstate with a definite energy eigenvalue $E$.
+**What "solving Schrödinger's equation" really means:** You're finding eigenfunctions and eigenvalues of the Hamiltonian operator by definition! Every solution you find is automatically an energy eigenstate with a definite energy eigenvalue $E$.
 
-**For a free particle,** the Hamiltonian is just kinetic energy:
-
-$$
-\hat{H}\psi = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} = E\psi
-$$
-
-The solutions are plane waves $\psi(x) = Ae^{ikx}$ with energy eigenvalues:
-
-$$
-E = \frac{\hbar^2k^2}{2m} = \frac{p^2}{2m}
-$$
-
-The energy spectrum is **continuous** — any $E \geq 0$ is allowed, corresponding to any value of momentum $p = \hbar k$.
+**For a free particle:** Plane waves $\psi(x) = Ae^{ikx}$ are the energy eigenfunctions with eigenvalues $E = \frac{\hbar^2k^2}{2m}$. The energy spectrum is **continuous** — any $E \geq 0$ is allowed.
 
 ### Example 1: Single Plane Wave (Energy Eigenstate)
 
