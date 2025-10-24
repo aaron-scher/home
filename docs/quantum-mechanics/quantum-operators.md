@@ -766,24 +766,7 @@ where $x_{12}$ and $x_{21}$ are the off-diagonal matrix elements.
 
 ## What Changes With Problem vs Basis?
 
-This can be confusing, so let's be crystal clear about what changes when:
-
-### What Changes With the Physical Problem
-
-The **Hamiltonian** $\hat{H}$ changes depending on the physical system:
-
-• Free particle: $\hat{H} = \frac{\hat{p}^2}{2m}$ (just kinetic energy)
-• Particle in box: $\hat{H} = \frac{\hat{p}^2}{2m}$ + infinite walls at boundaries
-• Harmonic oscillator: $\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2$
-• Hydrogen atom: $\hat{H} = \frac{\hat{p}^2}{2m} - \frac{e^2}{4\pi\epsilon_0 r}$
-
-Different Hamiltonians → different energy eigenvalues and eigenfunctions!
-
-**Other operators don't change:** The position operator $\hat{x}$, momentum operator $\hat{p}$, etc. are the same for all problems. They're fundamental quantum observables.
-
-### What Changes With the Basis You Choose
-
-The **mathematical form** of operators changes depending on which basis you write $\psi$ in:
+The Hamiltonian $\hat{H}$ changes for different physical systems (free particle, hydrogen atom, etc.), giving different energy eigenvalues. Other operators like $\hat{x}$ and $\hat{p}$ are the same for all problems, but their **mathematical form** changes depending on which basis you choose:
 
 | Operator | Position Basis $\psi(x)$ | Momentum Basis $\tilde{\psi}(p)$ | Energy Basis $c_n$ (discrete) |
 |----------|----------|----------|----------|
@@ -791,11 +774,4 @@ The **mathematical form** of operators changes depending on which basis you writ
 | $\hat{p}$ | $-i\hbar\frac{d}{dx}$ | multiply by $p$ | off-diagonal matrix |
 | $\hat{H}$ | $-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)$ | $\frac{p^2}{2m} + V(i\hbar\frac{d}{dp})$ | diagonal matrix (eigenvalues $E_n$) |
 
-**Key insight:** Same operator, different mathematical representation. The physics (eigenvalues, expected values) doesn't change—only how you calculate them!
-
-**Example:** The momentum operator $\hat{p}$ is always the same abstract operator. But:
-• In position basis: it's the derivative $-i\hbar\frac{d}{dx}$
-• In momentum basis: it just multiplies by $p$
-• In energy basis: it's a matrix with off-diagonal elements
-
-Which basis you use is your choice. Pick whichever makes the calculation easiest!
+Same operator, different mathematical form. The physics doesn't change—only how you calculate it. Pick whichever basis makes your calculation easiest!
