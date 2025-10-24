@@ -14,9 +14,13 @@ $$
 \psi(x,t) = \underbrace{A e^{ikx}}_{\text{spatial part}} \cdot \underbrace{e^{-i\omega t}}_{\text{time part}}
 $$
 
-This separation is crucial! The spatial part encodes momentum information, while the time part encodes energy information. They're independent — a key feature of stationary states.
+This separation is crucial! The spatial part encodes momentum information, while the time part encodes energy information. They're independent — a key feature of **stationary states**.
 
-**Looking ahead:** Later we'll see that taking the **time derivative** ∂ψ/∂t extracts **energy** from the time part, just like the spatial derivative extracts momentum! This gives the full Schrödinger equation. But for now, let's focus on momentum.
+**What's a stationary state?** A stationary state is a quantum state with definite energy (an energy eigenstate). The "stationary" name comes from the fact that all measurable properties (like probability density $|\psi|^2$) are constant in time. The wavefunction oscillates as $e^{-iEt/\hbar}$, but this is just a global phase that doesn't affect any measurements.
+
+Stationary states arise when the system's Hamiltonian doesn't depend on time — meaning all potentials are time-independent: $V(x)$ not $V(x,t)$. This includes free particles (no potential), particles in static external fields, and even interacting particles (like two electrons) as long as all interactions are time-independent (e.g., Coulomb repulsion between electrons doesn't change with time). Plane waves are examples of stationary states for free particles.
+
+**Looking ahead:** Later we'll see that taking the **time derivative** ∂ψ/∂t extracts **energy** from the time part, just like the spatial derivative extracts momentum! But for now, let's focus on momentum.
 
 ### Extracting Momentum: The Spatial Derivative
 
@@ -68,6 +72,8 @@ $$
 $$
 
 This says the same physics — "applying the momentum operator gives back the state multiplied by the momentum value $p$" — but now without specifying *how* you calculate it.
+
+**Important:** This equation $\hat{p}|\psi\rangle = p|\psi\rangle$ is NOT true for all states! It only holds for special wavefunctions called **momentum eigenstates** (like plane waves). For general superpositions, applying $\hat{p}$ gives a more complicated result — we'll see examples of this below.
 
 **The key point:** $\hat{p}$ is the operator itself (abstract concept), while $-i\hbar\frac{d}{dx}$ is how that operator acts when you're working with wavefunctions in position space $\psi(x)$.
 
@@ -151,7 +157,43 @@ $$
 \langle p \rangle = 25\% \cdot p_1 + 75\% \cdot p_2 = \frac{1}{4}(k_1\hbar) + \frac{3}{4}(k_2\hbar)
 $$
 
-There's a beautiful mathematical formula for this. In position space:
+There's a beautiful mathematical formula for this. For a superposition $\psi = c_1\psi_1 + c_2\psi_2$:
+
+$$
+\langle p \rangle = \langle\psi|\hat{p}|\psi\rangle = (c_1^*\langle\psi_1| + c_2^*\langle\psi_2|) \hat{p} (c_1|\psi_1\rangle + c_2|\psi_2\rangle)
+$$
+
+Expanding this out gives **four terms**:
+
+$$
+\langle p \rangle = |c_1|^2 \langle\psi_1|\hat{p}|\psi_1\rangle + |c_2|^2 \langle\psi_2|\hat{p}|\psi_2\rangle + c_1^*c_2 \langle\psi_1|\hat{p}|\psi_2\rangle + c_2^*c_1 \langle\psi_2|\hat{p}|\psi_1\rangle
+$$
+
+The last two terms are **cross terms** (mixing different states). Here's the key: when $\psi_1$ and $\psi_2$ are momentum eigenstates, these cross terms vanish:
+
+$$
+\langle\psi_1|\hat{p}|\psi_2\rangle = \langle\psi_1|p_2|\psi_2\rangle = p_2\langle\psi_1|\psi_2\rangle = 0
+$$
+
+The eigenvalue $p_2$ comes out, leaving just the overlap $\langle\psi_1|\psi_2\rangle = 0$ (eigenstates are orthogonal).
+
+**Let's see this explicitly:** For plane waves $\psi_1 = e^{ik_1 x}$ and $\psi_2 = e^{ik_2 x}$:
+
+$$
+\langle\psi_1|\hat{p}|\psi_2\rangle = \int_{-\infty}^{\infty} e^{-ik_1 x} \cdot \left(-i\hbar\frac{d}{dx}e^{ik_2 x}\right) dx = -i\hbar(ik_2) \int_{-\infty}^{\infty} e^{-ik_1 x} e^{ik_2 x} dx
+$$
+
+$$
+= \hbar k_2 \int_{-\infty}^{\infty} e^{i(k_2-k_1)x} dx = 0 \quad \text{(for } k_1 \neq k_2\text{)}
+$$
+
+The integral vanishes because plane waves with different wavenumbers are orthogonal. So we get:
+
+$$
+\langle p \rangle = |c_1|^2 p_1 + |c_2|^2 p_2
+$$
+
+In position space, this becomes:
 
 $$
 \langle p \rangle = \int_{-\infty}^{\infty} \psi^*(x)\left(-i\hbar\frac{d\psi}{dx}\right)dx
@@ -170,6 +212,12 @@ $$
 $$
 
 This is called the **expectation value** or **quantum average** of the operator $\hat{p}$ in state $|\psi\rangle$.
+
+**Two cases to remember:**
+
+• **Eigenstate** (definite momentum): If $|\psi\rangle$ is a momentum eigenstate with momentum $p$, then $\langle\psi|\hat{p}|\psi\rangle = p$. You get exactly the eigenvalue — 100% certainty.
+
+• **Superposition** (indefinite momentum): If $|\psi\rangle = c_1|\psi_1\rangle + c_2|\psi_2\rangle$ is a superposition of different momentum eigenstates, then $\langle\psi|\hat{p}|\psi\rangle = |c_1|^2 p_1 + |c_2|^2 p_2$ is a weighted average. Individual measurements give either $p_1$ or $p_2$, but the average over many measurements is this probabilistic mix.
 
 **Key point:** Even though individual measurements give discrete eigenvalues ($p_1$ or $p_2$), the *average* over many measurements can be any value between them!
 
@@ -303,7 +351,15 @@ $$
 \hat{H} = \underbrace{\frac{\hat{p}^2}{2m}}_{\text{kinetic}} + \underbrace{V(x)}_{\text{potential}}
 $$
 
-**Important - this can be confusing:** When you see "energy $E$" in quantum mechanics, it means **total energy** unless otherwise specified. This is different from classical mechanics where we often track kinetic and potential energy separately.
+**Why $\hat{H}$ instead of $\hat{E}$?** Pure historical convention from classical mechanics, where the Hamiltonian function represents total energy. We could have used $\hat{E}$ just like we use $\hat{p}$ for momentum, but "Hamiltonian" (named after physicist William Hamilton) became the standard term.
+
+**What's the difference between $\hat{H}$ and $E$?**
+
+• $\hat{H}$ is an **operator** — it acts on wavefunctions. When $\psi$ is an energy eigenstate, applying $\hat{H}$ gives $\hat{H}\psi = E\psi$ (the wavefunction back times a number). Like $\hat{p}$, it's used to calculate expectation values: $\langle E \rangle = \langle\psi|\hat{H}|\psi\rangle$.
+
+• $E$ is a **scalar** (just a number) — the energy eigenvalue. It's the actual total energy value you'd measure.
+
+**Important:** When you see "energy $E$" in quantum mechanics, it means **total energy** (kinetic + potential) unless otherwise specified. This is different from classical mechanics where we often track kinetic and potential energy separately.
 
 **For a free particle** (no forces, so $V = 0$), the energy is purely kinetic:
 
@@ -312,8 +368,6 @@ $$
 $$
 
 This is why plane wave energy $E = \frac{\hbar^2k^2}{2m}$ is just the kinetic energy formula $E = \frac{p^2}{2m}$ — there's nothing else!
-
-**Why $\hat{H}$ instead of $\hat{E}$?** Pure historical convention from classical mechanics, where the Hamiltonian function represents total energy. We could have used $\hat{E}$ just like we use $\hat{p}$ for momentum, but "Hamiltonian" (named after physicist William Hamilton) became the standard term.
 
 ### The Key Insight: Eigenvalue Equation for Time-Independent Potentials
 
@@ -400,10 +454,28 @@ $$
 
 The particle does **not** have definite energy! This is the same probabilistic measurement story we saw with the momentum operator.
 
-The **expected value** (average over many measurements) is:
+Let's calculate the **expected value** explicitly using the expectation value formula. For our superposition $\psi = \frac{1}{\sqrt{2}}|E_1\rangle + \frac{1}{\sqrt{2}}|E_2\rangle$:
 
 $$
-\langle E \rangle = 50\% \cdot E_1 + 50\% \cdot E_2 = 0.5(3.5) + 0.5(18.8) = 11.15\text{ eV}
+\langle E \rangle = \langle\psi|\hat{H}|\psi\rangle = \left(\frac{1}{\sqrt{2}}\langle E_1| + \frac{1}{\sqrt{2}}\langle E_2|\right) \hat{H} \left(\frac{1}{\sqrt{2}}|E_1\rangle + \frac{1}{\sqrt{2}}|E_2\rangle\right)
+$$
+
+Expanding this gives four terms:
+
+$$
+\langle E \rangle = \frac{1}{2}\langle E_1|\hat{H}|E_1\rangle + \frac{1}{2}\langle E_2|\hat{H}|E_2\rangle + \frac{1}{2}\langle E_1|\hat{H}|E_2\rangle + \frac{1}{2}\langle E_2|\hat{H}|E_1\rangle
+$$
+
+The cross terms vanish (just like the momentum case):
+
+$$
+\langle E_1|\hat{H}|E_2\rangle = \langle E_1|E_2|E_2\rangle = E_2 \langle E_1|E_2\rangle = 0
+$$
+
+So we're left with:
+
+$$
+\langle E \rangle = \frac{1}{2}(3.5\text{ eV}) + \frac{1}{2}(18.8\text{ eV}) = 11.15\text{ eV}
 $$
 
 Even though individual measurements give either 3.5 eV or 18.8 eV, the *average* is 11.15 eV!
@@ -607,19 +679,39 @@ We saw that the Hamiltonian is diagonal in the energy basis. But what about othe
 
 **Key principle:** An operator is diagonal **only in its own eigenbasis**. In other bases, it has off-diagonal elements.
 
-**Example calculation for particle in a box:** To see this, we can calculate the position operator $\hat{x}$ in the energy basis for this specific system. The matrix elements are:
+Let's see this by calculating the expected position for a particle in a box in a superposition of energy states:
 
 $$
-\langle E_m|\hat{x}|E_n\rangle = \int_0^L \psi_m^*(x) \cdot x \cdot \psi_n(x) \, dx
+|\psi\rangle = \frac{1}{\sqrt{2}}|E_1\rangle + \frac{1}{\sqrt{2}}|E_2\rangle
 $$
 
-The diagonal elements ($m=n$) give the expected position in each energy eigenstate. Due to symmetry:
+Using the expectation value formula (same structure as before):
 
 $$
-\langle E_n|\hat{x}|E_n\rangle = \frac{L}{2}
+\langle x \rangle = \langle\psi|\hat{x}|\psi\rangle = \frac{1}{2}\langle E_1|\hat{x}|E_1\rangle + \frac{1}{2}\langle E_2|\hat{x}|E_2\rangle + \frac{1}{2}\langle E_1|\hat{x}|E_2\rangle + \frac{1}{2}\langle E_2|\hat{x}|E_1\rangle
 $$
 
-Every energy eigenstate has expected position at the center of the box! The off-diagonal elements ($m \neq n$) are generally non-zero. For a 2-level system:
+**But this time the cross terms don't vanish!** Why? Because $|E_1\rangle$ and $|E_2\rangle$ are not position eigenstates. We can't pull out an eigenvalue, so orthogonality doesn't help us.
+
+**What is $\langle E_m|\hat{x}|E_n\rangle$ mathematically?** For particle in a box with energy eigenfunctions $\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)$:
+
+$$
+\langle E_m|\hat{x}|E_n\rangle = \int_0^L \psi_m^*(x) \cdot x \cdot \psi_n(x) \, dx = \frac{2}{L}\int_0^L x \sin\left(\frac{m\pi x}{L}\right) \sin\left(\frac{n\pi x}{L}\right) dx
+$$
+
+**Diagonal elements** ($m=n$): By symmetry, $\langle E_n|\hat{x}|E_n\rangle = \frac{L}{2}$ (expected position at center of box)
+
+**Off-diagonal elements** ($m \neq n$): These integrals are generally **non-zero**!
+
+**Contrast with the Hamiltonian:**
+
+$$
+\langle E_m|\hat{H}|E_n\rangle = \int_0^L \psi_m^*(x) \hat{H}\psi_n(x) \, dx = E_n \int_0^L \psi_m^*(x) \psi_n(x) \, dx = E_n \cdot 0 = 0
+$$
+
+The eigenvalue $E_n$ comes out, leaving orthogonality → zero. But for $\hat{x}$, there's no eigenvalue to extract!
+
+**Matrix representation:** These $\langle E_m|\hat{x}|E_n\rangle$ values are the matrix elements. For a 2-level system:
 
 $$
 \hat{x} \approx \begin{pmatrix} L/2 & x_{12} \\ x_{21} & L/2 \end{pmatrix}
