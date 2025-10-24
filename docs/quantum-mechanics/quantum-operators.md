@@ -693,15 +693,29 @@ $$
 
 **But this time the cross terms don't vanish!** Why? Because $|E_1\rangle$ and $|E_2\rangle$ are not position eigenstates. We can't pull out an eigenvalue, so orthogonality doesn't help us.
 
-**What is $\langle E_m|\hat{x}|E_n\rangle$ mathematically?** For particle in a box with energy eigenfunctions $\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)$:
+**What is $\langle E_m|\hat{x}|E_n\rangle$ mathematically?**
+
+Here's the key: We're working in the **energy basis** (discrete, column vectors), but to **calculate** the matrix elements, we need to convert to position representation where we know the explicit forms of the energy eigenstates.
+
+The energy eigenstate $|E_n\rangle$ (an abstract ket in energy basis) corresponds to a specific wavefunction $\psi_n(x)$ in position representation. For particle in a box:
+
+$$
+\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)
+$$
+
+These are the same states — just written in different representations! To calculate the matrix element $\langle E_m|\hat{x}|E_n\rangle$, we convert to position space:
 
 $$
 \langle E_m|\hat{x}|E_n\rangle = \int_0^L \psi_m^*(x) \cdot x \cdot \psi_n(x) \, dx = \frac{2}{L}\int_0^L x \sin\left(\frac{m\pi x}{L}\right) \sin\left(\frac{n\pi x}{L}\right) dx
 $$
 
-**Diagonal elements** ($m=n$): By symmetry, $\langle E_n|\hat{x}|E_n\rangle = \frac{L}{2}$ (expected position at center of box)
+**Result of the integrals:**
 
-**Off-diagonal elements** ($m \neq n$): These integrals are generally **non-zero**!
+• **Diagonal elements** ($m=n$): By symmetry, $\langle E_n|\hat{x}|E_n\rangle = \frac{L}{2}$ (expected position at center of box)
+
+• **Off-diagonal elements** ($m \neq n$): These integrals are generally **non-zero**! Each integral gives you a single number.
+
+These numbers become the entries in our matrix when we return to the energy basis representation (column vectors).
 
 **Contrast with the Hamiltonian:**
 
