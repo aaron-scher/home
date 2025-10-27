@@ -248,7 +248,19 @@ Consider two electrons in the **same** box of length $L = 1$ nm, with Coulomb re
 
 **With Coulomb repulsion:**
 
-The interaction raises the energy. A first-order perturbation theory calculation gives:
+The interaction raises the energy. How much? We need to calculate the **expected value** (average value) of the repulsion energy.
+
+**Notation:** $\langle V \rangle$ means the expected value of the potential energy $V(x_1, x_2)$. It's the average repulsion energy you'd measure if you could measure the electron-electron distance many times.
+
+**Formula:** For a wavefunction $\psi(x_1, x_2)$, the expected value of any quantity $V(x_1, x_2)$ is:
+
+$$
+\langle V \rangle = \int \int |\psi(x_1, x_2)|^2 V(x_1, x_2) dx_1 dx_2
+$$
+
+This weights the potential energy $V(x_1, x_2)$ by the probability $|\psi(x_1, x_2)|^2$ of finding the electrons at those positions, then averages over all configurations.
+
+**For our example:** Both electrons in ground state $\psi_1(x)$, so $\psi(x_1, x_2) = \psi_1(x_1)\psi_1(x_2)$:
 
 $$
 \langle V \rangle = \int_0^L \int_0^L |\psi_1(x_1)|^2 |\psi_1(x_2)|^2 \frac{ke^2}{|x_1 - x_2|} dx_1 dx_2
