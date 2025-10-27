@@ -19,7 +19,9 @@ $$
 This is a fundamentally different beast! Here's what it means:
 
 • $x_1$ = position of particle 1
+
 • $x_2$ = position of particle 2
+
 • $\psi(x_1, x_2, t)$ = amplitude for finding particle 1 at $x_1$ **AND** particle 2 at $x_2$ simultaneously
 
 ### Probability Interpretation: Joint Probability
@@ -37,13 +39,16 @@ This is the probability of finding particle 1 **at** $x_1$ **AND** particle 2 **
 Think of rolling a red die and a blue die. The outcome is a **pair of numbers**: (red=3, blue=5).
 
 • **One die:** Probability $P(\text{red}=3)$ tells you about just the red die
+
 • **Two dice (joint):** Probability $P(\text{red}=3 \text{ AND blue}=5)$ tells you about **both** outcomes together
 
 For quantum mechanics:
+
 • **One particle:** $|\psi(x)|^2dx$ = probability particle is at position $x$
+
 • **Two particles (joint):** $|\psi(x_1,x_2)|^2dx_1dx_2$ = probability particle 1 at $x_1$ **AND** particle 2 at $x_2$
 
-**Key insight:** This is a **joint probability distribution**. The wavefunction doesn't just tell you about each particle separately — it encodes correlations between them!
+**Key insight:** This is a **joint probability distribution**. The wavefunction doesn't just tell you about each particle separately; it encodes correlations between them!
 
 Just like knowing the red die rolled 3 might affect what the blue die shows (if the dice are rigged together), knowing where particle 1 is can affect where particle 2 is likely to be!
 
@@ -51,9 +56,11 @@ Just like knowing the red die rolled 3 might affect what the blue die shows (if 
 
 With one particle in 1D, $\psi(x)$ is a function of 1 variable. With two particles:
 
-• Two particles in 1D: $\psi(x_1, x_2)$ — function of **2 variables**
-• Two particles in 3D: $\psi(\vec{r}_1, \vec{r}_2)$ — function of **6 variables**
-• Three particles in 3D: $\psi(\vec{r}_1, \vec{r}_2, \vec{r}_3)$ — function of **9 variables**
+• Two particles in 1D: $\psi(x_1, x_2)$ (function of **2 variables**)
+
+• Two particles in 3D: $\psi(\vec{r}_1, \vec{r}_2)$ (function of **6 variables**)
+
+• Three particles in 3D: $\psi(\vec{r}_1, \vec{r}_2, \vec{r}_3)$ (function of **9 variables**)
 
 The complexity grows explosively! This is why quantum chemistry is so computationally hard.
 
@@ -102,12 +109,14 @@ The system is **definitely** in one of these 9 configurations!
 **Continuous case:** Same idea, but infinitely many positions. The double integral adds up probabilities for **every pair** $(x_1, x_2)$:
 
 • Particle 1 anywhere from $-\infty$ to $+\infty$
+
 • Particle 2 anywhere from $-\infty$ to $+\infty$
+
 • Total configurations: infinitely many
 
-The system must be in **some** configuration → total probability = 1.
+The system must be in **some** configuration, so total probability = 1.
 
-**Key point:** It's not "particle 1 must be somewhere" AND separately "particle 2 must be somewhere." It's "the **two-particle system** must be in **some configuration**" — and a configuration is a pair $(x_1, x_2)$ specifying where **both** particles are simultaneously.
+**Key point:** It's not "particle 1 must be somewhere" AND separately "particle 2 must be somewhere." It's "the **two-particle system** must be in **some configuration**" (and a configuration is a pair $(x_1, x_2)$ specifying where **both** particles are simultaneously).
 
 ---
 
@@ -118,8 +127,11 @@ Let's start with the simplest case: **two particles that don't interact**.
 ### The Setup
 
 Suppose we have:
+
 • Particle 1 in state $\psi_a(x_1)$
+
 • Particle 2 in state $\psi_b(x_2)$
+
 • No interaction between them
 
 The two-particle wavefunction is just the **product**:
@@ -136,7 +148,7 @@ $$
 |\psi(x_1, x_2)|^2 = |\psi_a(x_1)|^2 \cdot |\psi_b(x_2)|^2
 $$
 
-The joint probability **factorizes** — exactly like independent random variables in probability theory!
+The joint probability **factorizes** (exactly like independent random variables in probability theory)!
 
 ### Schrödinger's Equation for Two Particles
 
@@ -177,6 +189,7 @@ $$
 Consider two electrons, each in its own infinite potential well:
 
 • Electron 1 in box of length $L_1 = 1$ nm
+
 • Electron 2 in box of length $L_2 = 2$ nm
 
 Both in ground state ($n=1$):
@@ -213,12 +226,14 @@ $$
 \hat{H} = \hat{H}_1 + \hat{H}_2 + \underbrace{V(x_1, x_2)}_{\text{interaction}}
 $$
 
-The interaction potential $V(x_1, x_2)$ depends on **both positions** — this is what couples the particles!
+The interaction potential $V(x_1, x_2)$ depends on **both positions** (this is what couples the particles!).
 
 **Common examples:**
 
 • **Coulomb repulsion** (two electrons): $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$
+
 • **Coulomb attraction** (electron-proton): $V(x_1, x_2) = -\frac{ke^2}{|x_1 - x_2|}$
+
 • **Spring coupling**: $V(x_1, x_2) = \frac{1}{2}k(x_1 - x_2)^2$
 
 ### Product States No Longer Work!
@@ -311,7 +326,7 @@ Here's the key difference between kinetic and potential energy:
 
 • Interaction energy is "nonlocal" (depends on **relative positions**)
 
-This is why $V(x_1, x_2)$ has **both variables** — the repulsion depends on how far apart the electrons are!
+This is why $V(x_1, x_2)$ has **both variables** (the repulsion depends on how far apart the electrons are!).
 
 ### What If Particles Are in Superposition?
 
@@ -323,11 +338,11 @@ $$
 \hat{p}_1\psi_1 = c_a p_a\phi_a + c_b p_b\phi_b
 $$
 
-Different momentum eigenvalues multiply their respective components — same as single-particle case from [Operators](quantum-operators.md)!
+Different momentum eigenvalues multiply their respective components (same as single-particle case from [Operators](quantum-operators.md)!).
 
 **For two particles in superpositions**, you apply operators to each particle's part independently (if they don't interact), or you get coupling terms (if they do interact through $V(x_1, x_2)$).
 
-**Expected value:** Average over all possibilities weighted by probabilities — exactly like the single-particle case, just with more integrals!
+**Expected value:** Average over all possibilities weighted by probabilities (exactly like the single-particle case, just with more integrals!).
 
 ---
 
@@ -386,7 +401,7 @@ $$
 
 **New ground state energy:** $E \approx 0.76 + 1.4 = 2.2$ eV
 
-The interaction adds significant energy! And the true ground state wavefunction is **not** simply $\psi_1(x_1)\psi_1(x_2)$ — it gets distorted by the repulsion.
+The interaction adds significant energy! And the true ground state wavefunction is **not** simply $\psi_1(x_1)\psi_1(x_2)$ (it gets distorted by the repulsion).
 
 ---
 
@@ -416,10 +431,12 @@ $$
 
 **Try to factor it:** Can we write this as $f(x_1) \cdot g(x_2)$ for any functions $f$ and $g$?
 
-No! The two terms are "mixed" — you can't separate $x_1$ from $x_2$.
+No! The two terms are "mixed" (you can't separate $x_1$ from $x_2$).
 
 **Physical interpretation:**
+
 • Either "particle 1 in state $a$ AND particle 2 in state $b$"
+
 • Or "particle 1 in state $b$ AND particle 2 in state $a$"
 
 The particles are **correlated**. You can't describe them independently!
@@ -464,7 +481,7 @@ This is entanglement. Einstein called it "spooky action at a distance."
 
 ## Spin: A Brief Introduction
 
-Before we go further, we need to introduce **spin** — an intrinsic property of particles like electrons.
+Before we go further, we need to introduce **spin** (an intrinsic property of particles like electrons).
 
 ### What Is Spin?
 
@@ -515,10 +532,13 @@ where $s_1, s_2 \in \{\uparrow, \downarrow\}$.
 
 **Four possible spin combinations:**
 
-• $|\uparrow\uparrow\rangle$ — both spin up
-• $|\uparrow\downarrow\rangle$ — electron 1 up, electron 2 down
-• $|\downarrow\uparrow\rangle$ — electron 1 down, electron 2 up
-• $|\downarrow\downarrow\rangle$ — both spin down
+• $|\uparrow\uparrow\rangle$ (both spin up)
+
+• $|\uparrow\downarrow\rangle$ (electron 1 up, electron 2 down)
+
+• $|\downarrow\uparrow\rangle$ (electron 1 down, electron 2 up)
+
+• $|\downarrow\downarrow\rangle$ (both spin down)
 
 We'll return to spin in much more detail when we discuss Bell's theorem!
 
@@ -582,13 +602,13 @@ Nature uses both:
 • Helium-4 atoms
 • More generally: spin = 0, 1, 2, ... (integer)
 
-**Spin-statistics theorem:** The connection between spin and symmetry is deep — it comes from combining quantum mechanics with special relativity.
+**Spin-statistics theorem:** The connection between spin and symmetry is deep (it comes from combining quantum mechanics with special relativity).
 
 ### Constructing an Antisymmetric Wavefunction
 
 Suppose we want to put two electrons in states $\psi_a(x)$ and $\psi_b(x)$.
 
-**Wrong:** $\psi(x_1, x_2) = \psi_a(x_1)\psi_b(x_2)$ — not antisymmetric!
+**Wrong:** $\psi(x_1, x_2) = \psi_a(x_1)\psi_b(x_2)$ (not antisymmetric!)
 
 **Right:** We need to antisymmetrize:
 
@@ -621,7 +641,7 @@ $$
 \end{vmatrix} = \frac{1}{\sqrt{2}}[\psi_a(x_1)\psi_b(x_2) - \psi_a(x_2)\psi_b(x_1)]
 $$
 
-This generalizes beautifully to N particles — just use an N×N determinant (called a Slater determinant).
+This generalizes beautifully to N particles (just use an N×N determinant, called a Slater determinant).
 
 ---
 
@@ -681,7 +701,7 @@ $$
 \psi_a(x_1)\psi_a(x_2) \times \frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle)
 $$
 
-This is what allows two electrons to occupy the "same orbital" in atoms — they must have opposite spins.
+This is what allows two electrons to occupy the "same orbital" in atoms (they must have opposite spins).
 
 ---
 
@@ -771,13 +791,18 @@ $$
 This is **exactly** how electrons fill atomic orbitals!
 
 • Each orbital (characterized by quantum numbers $n, \ell, m$) can hold **2 electrons**
+
 • Electrons fill from lowest to highest energy
+
 • This explains the structure of the periodic table
 
 **Examples:**
-• Helium (2 electrons): 1s² — both in ground state, opposite spins
-• Lithium (3 electrons): 1s² 2s¹ — third electron forced to next shell
-• Neon (10 electrons): 1s² 2s² 2p⁶ — first two shells completely filled
+
+• Helium (2 electrons): 1s² (both in ground state, opposite spins)
+
+• Lithium (3 electrons): 1s² 2s¹ (third electron forced to next shell)
+
+• Neon (10 electrons): 1s² 2s² 2p⁶ (first two shells completely filled)
 
 The Pauli exclusion principle is why matter is stable and has structure!
 
@@ -803,7 +828,7 @@ where $\psi_n(x) = \sqrt{2/L}\sin(n\pi x/L)$.
 
 **With Coulomb repulsion:** $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$
 
-The wavefunction gets distorted — electrons avoid each other even more!
+The wavefunction gets distorted (electrons avoid each other even more!).
 
 ### Probability Distributions
 
@@ -857,7 +882,7 @@ $$
 
 The interaction pushes them even further apart.
 
-**Key insight:** Finding one electron at a particular location **changes** the probability distribution for the other — they're entangled!
+**Key insight:** Finding one electron at a particular location **changes** the probability distribution for the other (they're entangled!).
 
 ---
 
@@ -910,23 +935,28 @@ Einstein was deeply troubled by this:
 3. Yet Alice's measurement **instantly** determines Bob's result
 4. How can particle 2 "know" what Alice measured?
 
-**Einstein's conclusion:** Quantum mechanics must be **incomplete**. The particles must have carried predetermined values with them — **hidden variables** that quantum mechanics doesn't describe.
+**Einstein's conclusion:** Quantum mechanics must be **incomplete**. The particles must have carried predetermined values with them (**hidden variables** that quantum mechanics doesn't describe).
 
 **Local realism:** Each particle has a definite (but hidden) spin value from the moment they separate. Measurements just reveal pre-existing properties.
 
-This seems reasonable! Like drawing colored balls from a hat — they had their colors all along.
+This seems reasonable! Like drawing colored balls from a hat (they had their colors all along).
 
 ### The Quantum Response
 
 **Quantum mechanics says:** No! The particles **don't** have definite spins until measured. The singlet state is the complete description.
 
 Before measurement:
+
 • Particle 1 is in superposition: $\frac{1}{\sqrt{2}}(|\uparrow\rangle - |\downarrow\rangle)$ (if you ignore particle 2)
+
 • Particle 2 is in superposition: $\frac{1}{\sqrt{2}}(|\downarrow\rangle - |\uparrow\rangle)$ (if you ignore particle 1)
-• But they're **entangled** — the correlations are built into the joint state
+
+• But they're **entangled** (the correlations are built into the joint state)
 
 After Alice measures:
+
 • The entangled state "collapses"
+
 • Bob's particle is now in a definite state (opposite to Alice's result)
 
 **Is this spooky action at a distance?**
@@ -968,7 +998,7 @@ For any $\lambda$:
 • Alice's result is $A(\theta_A, \lambda) = \pm 1$
 • Bob's result is $B(\theta_B, \lambda) = \pm 1$
 
-These are **predetermined functions** — the results exist before measurement!
+These are **predetermined functions** (the results exist before measurement!).
 
 **Averaging over all possible $\lambda$ (with probability distribution $\rho(\lambda)$):**
 
@@ -1032,7 +1062,7 @@ $$
 S = -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} = -\frac{4}{\sqrt{2}} = -2\sqrt{2} \approx -2.83
 $$
 
-**Result:** $|S| = 2.83 > 2$ — **Bell's inequality is violated!**
+**Result:** $|S| = 2.83 > 2$ (**Bell's inequality is violated!**)
 
 Quantum mechanics predicts correlations that are **impossible** for any local hidden variable theory.
 
@@ -1040,9 +1070,9 @@ Quantum mechanics predicts correlations that are **impossible** for any local hi
 
 **The verdict:**
 
-✗ **Local realism is wrong** — Nature doesn't have predetermined values
+✗ **Local realism is wrong** (Nature doesn't have predetermined values)
 
-✓ **Quantum mechanics is right** — The correlations are genuinely nonlocal
+✓ **Quantum mechanics is right** (The correlations are genuinely nonlocal)
 
 **But wait:** How do we know quantum mechanics is right? We need to do the experiment!
 
@@ -1077,17 +1107,25 @@ $$
 Early experiments had potential loopholes Einstein fans could exploit:
 
 **1. Detection loophole:**
+
 • Not all photons are detected (typical efficiency ~20-30%)
+
 • Maybe hidden variables cleverly avoid being measured?
+
 • **Closed:** Use more efficient detectors (>80% efficiency)
 
 **2. Locality loophole:**
-• Detectors not far enough apart — maybe communication possible?
+
+• Detectors not far enough apart (maybe communication possible?)
+
 • **Closed:** Space-like separated measurements (detection events outside each other's light cones)
 
 **3. Freedom-of-choice loophole:**
+
 • Measurement angles chosen by pseudo-random number generators
+
 • Maybe hidden variables determine both outcomes and measurement choices?
+
 • **Closed:** Use cosmic photons or human choice to set angles
 
 ### Loophole-Free Experiments (2015)
@@ -1095,7 +1133,9 @@ Early experiments had potential loopholes Einstein fans could exploit:
 Three independent groups simultaneously closed **all major loopholes**:
 
 • **Delft** (Hanson et al.): Entangled electron spins in diamond, 1.3 km separation
+
 • **Vienna** (Zeilinger et al.): Entangled photons, 60 meters, >75% efficiency detectors
+
 • **NIST** (Shalm et al.): Entangled photons, efficient detectors, space-like separation
 
 **All found:** Clear violation of Bell's inequality with all loopholes closed!
@@ -1108,27 +1148,38 @@ $$
 
 The Nobel Prize in Physics was awarded to:
 
-• **Alain Aspect** (France) — pioneering photon entanglement experiments
-• **John Clauser** (USA) — first experimental test of Bell's inequality (1972)
-• **Anton Zeilinger** (Austria) — quantum information and loophole-free tests
+• **Alain Aspect** (France): pioneering photon entanglement experiments
+
+• **John Clauser** (USA): first experimental test of Bell's inequality (1972)
+
+• **Anton Zeilinger** (Austria): quantum information and loophole-free tests
 
 **The citation:** "for experiments with entangled photons, establishing the violation of Bell inequalities and pioneering quantum information science"
 
 ### What We've Learned
 
 **Nature is fundamentally nonlocal:**
+
 • Measurement outcomes at one location are **instantaneously** correlated with distant measurements
+
 • This isn't due to hidden variables or communication
+
 • It's **genuine quantum entanglement**
 
 **But information still can't travel faster than light:**
+
 • Alice's individual results look random (50% up, 50% down)
+
 • Only when Alice and Bob **compare** results do they see the correlations
+
 • Comparing requires classical communication (limited by speed of light)
 
 **Einstein was wrong, but in the most interesting way:**
+
 • Quantum mechanics really is complete (no hidden variables needed)
+
 • "Spooky action at a distance" is real!
+
 • But it doesn't violate relativity
 
 The universe is even weirder than Einstein thought!
@@ -1137,7 +1188,7 @@ The universe is even weirder than Einstein thought!
 
 ## Matrix Representation for Discrete Systems
 
-For systems with discrete spin states, we can represent everything using matrices — making entanglement very concrete.
+For systems with discrete spin states, we can represent everything using matrices (making entanglement very concrete).
 
 ### Single Spin: 2D Hilbert Space
 
@@ -1180,7 +1231,7 @@ $$
 |\uparrow\downarrow\rangle = |\uparrow\rangle \otimes |\downarrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \otimes \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}
 $$
 
-This is **separable** — particle 1 is definitely up, particle 2 is definitely down.
+This is **separable** (particle 1 is definitely up, particle 2 is definitely down).
 
 **Singlet state (entangled):**
 
@@ -1208,7 +1259,7 @@ Actually, let's be more careful: if $\alpha_1 = 0$, then $\beta_1 \neq 0$ (norma
 Then coefficient of $|\downarrow\uparrow\rangle$ is $\beta_1 e^{i\phi} = -1/\sqrt{2}$.
 And coefficient of $|\uparrow\downarrow\rangle$ should be $1/\sqrt{2}$, but $\alpha_1\beta_2 = 0 \cdot 0 = 0 \neq 1/\sqrt{2}$. Contradiction!
 
-**Result:** The singlet **cannot** be factored into a product state — it's genuinely entangled!
+**Result:** The singlet **cannot** be factored into a product state (it's genuinely entangled!).
 
 ### Measuring Entanglement: Example Calculation
 
@@ -1242,7 +1293,7 @@ $$
 
 Bob's particle is **definitely** $|\uparrow\rangle$!
 
-(The minus sign is an overall phase — physically irrelevant for Bob's local measurements.)
+(The minus sign is an overall phase, physically irrelevant for Bob's local measurements.)
 
 **Probability:** Each outcome occurs with 50% probability:
 
@@ -1286,7 +1337,7 @@ $$
 
 For a product state like $|\uparrow\uparrow\rangle$, you'd get $+\hbar^2/4$ (positive correlation).
 
-**The singlet has maximum anticorrelation** — the defining feature of this entangled state!
+**The singlet has maximum anticorrelation** (the defining feature of this entangled state!).
 
 ---
 
@@ -1296,20 +1347,24 @@ We've journeyed from one particle to two, discovering profound changes along the
 
 ### 1. Two-Particle Wavefunctions
 
-**One particle:** $\psi(x,t)$ — amplitude at position $x$
+**One particle:** $\psi(x,t)$ (amplitude at position $x$)
 
-**Two particles:** $\psi(x_1, x_2, t)$ — joint amplitude at positions $x_1$ **and** $x_2$
+**Two particles:** $\psi(x_1, x_2, t)$ (joint amplitude at positions $x_1$ **and** $x_2$)
 
-**Dimension explosion:** Function of 2 variables (or 6 in 3D) — quantum chemistry is hard!
+**Dimension explosion:** Function of 2 variables (or 6 in 3D), so quantum chemistry is hard!
 
 ### 2. Product States vs Entangled States
 
 **Product (separable):** $\psi(x_1,x_2) = \psi_a(x_1)\psi_b(x_2)$
+
 • Particles are independent
+
 • No correlations beyond classical probability
 
 **Entangled (non-separable):** Cannot be factored
+
 • Measuring one particle affects the other
+
 • Genuine quantum correlations
 
 ### 3. Identical Particles: Fermions and Bosons
@@ -1317,75 +1372,103 @@ We've journeyed from one particle to two, discovering profound changes along the
 **Indistinguishability** forces exchange symmetry:
 
 **Fermions** (electrons, protons, neutrons): $\psi(x_2,x_1) = -\psi(x_1,x_2)$
+
 • Antisymmetric wavefunctions
+
 • Pauli exclusion: no two in same state
+
 • Explains atomic structure and periodic table
 
 **Bosons** (photons, helium-4): $\psi(x_2,x_1) = +\psi(x_1,x_2)$
+
 • Symmetric wavefunctions
+
 • Can pile into same state (Bose-Einstein condensation)
 
 ### 4. Energy Levels Fill Up
 
-**Pauli exclusion** → electrons fill orbitals like apartments:
+**Pauli exclusion** means electrons fill orbitals like apartments:
+
 • Each spatial state holds **max 2 electrons** (opposite spins)
+
 • Build up from lowest to highest energy
+
 • Explains chemistry, solid-state physics, stellar structure
 
 ### 5. Interactions Create Correlations
 
-**Coupling potential** $V(x_1, x_2)$ → product states no longer eigenstates
+**Coupling potential** $V(x_1, x_2)$ means product states no longer eigenstates
 
-**Coulomb repulsion** → spatial anticorrelations:
-• Find electron 1 on left → electron 2 more likely on right
+**Coulomb repulsion** means spatial anticorrelations:
+
+• Find electron 1 on left, then electron 2 more likely on right
+
 • Measured via conditional probabilities $P(x_2|x_1)$
 
 ### 6. Spin Entanglement and EPR
 
 **Singlet state:** $\frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle)$
+
 • Perfect anticorrelations
-• Measure one → instantly know the other
+
+• Measure one, then instantly know the other
 
 **EPR paradox (1935):** Einstein's objection to "spooky action at a distance"
+
 • Proposed local hidden variables instead
 
 ### 7. Bell's Theorem: Nature Is Nonlocal
 
 **Bell's inequality (1964):** Local hidden variables predict $|S| \leq 2$
 
-**Quantum mechanics:** Predicts $|S| = 2\sqrt{2} \approx 2.83$ — **violation!**
+**Quantum mechanics:** Predicts $|S| = 2\sqrt{2} \approx 2.83$ (**violation!**)
 
 **Experiments (1972-2015):**
+
 • Aspect, Clauser, Zeilinger, many others
+
 • All loopholes closed by 2015
-• Nature violates Bell's inequality → quantum mechanics wins!
+
+• Nature violates Bell's inequality, so quantum mechanics wins!
 
 **2022 Nobel Prize:** Awarded for establishing quantum nonlocality experimentally
 
 ### 8. What This Means
 
 **No local realism:**
+
 • Particles don't have predetermined properties
+
 • Correlations are fundamentally nonlocal
+
 • Measurement on one particle instantly affects the other
 
 **No faster-than-light communication:**
+
 • Individual results still random
+
 • Only by comparing do you see correlations
+
 • Information still limited by speed of light
 
 **Entanglement is real:**
+
 • Not due to hidden variables
+
 • Not an illusion or incomplete theory
+
 • Fundamental feature of quantum mechanics
 
 ### 9. Applications and Future
 
-Entanglement isn't just weird — it's **useful**:
+Entanglement isn't just weird (it's **useful**):
 
 • **Quantum computing:** Entangled qubits for parallel computation
+
 • **Quantum cryptography:** Unhackable communication using entangled photons
+
 • **Quantum teleportation:** Transfer quantum states using entanglement
+
 • **Quantum sensing:** Entanglement-enhanced measurements
 
 The strangeness that troubled Einstein is now the foundation of quantum information science!
@@ -1395,18 +1478,27 @@ The strangeness that troubled Einstein is now the foundation of quantum informat
 ## Further Reading
 
 **Bell's original papers:**
-• "On the Einstein Podolsky Rosen Paradox" (1964) — the groundbreaking theorem
-• "Bertlmann's socks and the nature of reality" (1981) — wonderfully accessible explanation
+
+• "On the Einstein Podolsky Rosen Paradox" (1964): the groundbreaking theorem
+
+• "Bertlmann's socks and the nature of reality" (1981): wonderfully accessible explanation
 
 **Classic experiments:**
+
 • Aspect, Dalibard, Roger, "Experimental test of Bell's inequalities..." (1982)
+
 • Hensen et al., "Loophole-free Bell inequality violation..." (2015)
 
 **Books:**
-• "Quantum Computation and Quantum Information" — Nielsen & Chuang
-• "Entanglement" — Amir Aczel (popular science)
+
+• "Quantum Computation and Quantum Information" (Nielsen & Chuang)
+
+• "Entanglement" (Amir Aczel, popular science)
 
 **Next steps:**
+
 • Density matrices (describing mixed states and partial information)
+
 • Quantum information theory (quantifying entanglement)
+
 • Many-body quantum mechanics (atoms, molecules, solids)
