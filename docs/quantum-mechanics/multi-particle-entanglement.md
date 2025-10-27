@@ -28,18 +28,20 @@ $$
 P(x_1, x_2) = |\psi(x_1, x_2)|^2 dx_1 dx_2
 $$
 
-This is the probability of finding particle 1 near $x_1$ **AND** particle 2 near $x_2$ at the same time.
+This is the probability of finding particle 1 **at** $x_1$ **AND** particle 2 **at** $x_2$ at the same time.
+
+**Important:** The probability at any single point is vanishingly small (technically zero for continuous distributions). In practice, you **integrate over a region** to find the probability that particle 1 is in some interval and particle 2 is in some interval.
 
 **Analogy - Rolling Two Dice:**
 
 Think of rolling a red die and a blue die. The outcome is a **pair of numbers**: (red=3, blue=5).
 
 • **One die:** Probability $P(\text{red}=3)$ tells you about just the red die
-• **Two dice (joint):** Probability $P(\text{red}=3 AND blue=5})$ tells you about **both** outcomes together
+• **Two dice (joint):** Probability $P(\text{red}=3 \text{ AND blue}=5)$ tells you about **both** outcomes together
 
 For quantum mechanics:
-• **One particle:** $|\psi(x)|^2dx$ = probability particle is near position $x$
-• **Two particles (joint):** $|\psi(x_1,x_2)|^2dx_1dx_2$ = probability particle 1 near $x_1$ **AND** particle 2 near $x_2$
+• **One particle:** $|\psi(x)|^2dx$ = probability particle is at position $x$
+• **Two particles (joint):** $|\psi(x_1,x_2)|^2dx_1dx_2$ = probability particle 1 at $x_1$ **AND** particle 2 at $x_2$
 
 **Key insight:** This is a **joint probability distribution**. The wavefunction doesn't just tell you about each particle separately — it encodes correlations between them!
 
