@@ -239,6 +239,87 @@ $$
 
 **Result:** Product states are **not energy eigenstates** when particles interact!
 
+---
+
+## Operators for Two-Particle Systems
+
+Before we calculate energies, let's understand how operators work with two particles. This is crucial for understanding expectation values!
+
+### Single-Particle Operators: Acting on One Particle at a Time
+
+For two particles, you have **separate operators** for each particle:
+
+**Momentum operators:**
+• $\hat{p}_1 = -i\hbar\frac{\partial}{\partial x_1}$ — acts only on particle 1's position
+• $\hat{p}_2 = -i\hbar\frac{\partial}{\partial x_2}$ — acts only on particle 2's position
+
+**Position operators:**
+• $\hat{x}_1$ — multiplies by $x_1$
+• $\hat{x}_2$ — multiplies by $x_2$
+
+**Key point:** Each operator acts on **its own variable only**. When $\hat{p}_1$ takes a derivative, it treats $x_2$ as a constant!
+
+### Example: Momentum of Particle 1
+
+Apply $\hat{p}_1$ to a two-particle wavefunction:
+
+$$
+\hat{p}_1 \psi(x_1, x_2) = -i\hbar\frac{\partial}{\partial x_1}\psi(x_1, x_2)
+$$
+
+**For a product state** $\psi(x_1, x_2) = \psi_a(x_1)\psi_b(x_2)$:
+
+$$
+\hat{p}_1[\psi_a(x_1)\psi_b(x_2)] = \psi_b(x_2) \cdot \left(-i\hbar\frac{\partial\psi_a}{\partial x_1}\right) = \psi_b(x_2) \cdot \hat{p}_1\psi_a(x_1)
+$$
+
+The operator "sees" $\psi_b(x_2)$ as just a constant (doesn't depend on $x_1$), so it factors out!
+
+**Expected value of particle 1's momentum:**
+
+$$
+\langle p_1 \rangle = \int\int \psi^* \hat{p}_1 \psi \, dx_1 dx_2
+$$
+
+This gives you the average momentum of **just particle 1**, regardless of what particle 2 is doing.
+
+### Why Does Potential Energy Depend on Both Particles?
+
+Here's the key difference between kinetic and potential energy:
+
+**Kinetic energy (independent):**
+• Particle 1's kinetic energy: $\frac{\hat{p}_1^2}{2m_1}$ — depends only on $x_1$
+• Particle 2's kinetic energy: $\frac{\hat{p}_2^2}{2m_2}$ — depends only on $x_2$
+• Total: $\hat{T} = \frac{\hat{p}_1^2}{2m_1} + \frac{\hat{p}_2^2}{2m_2}$
+
+**Potential energy (can couple!):**
+• Coulomb repulsion: $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$ — depends on **both** positions!
+• The interaction energy depends on the **distance between particles**
+
+**Physical meaning:**
+• Kinetic energy is "local" — each particle has its own motion
+• Interaction energy is "nonlocal" — depends on **relative positions**
+
+This is why $V(x_1, x_2)$ has **both variables** — the repulsion depends on how far apart the electrons are!
+
+### What If Particles Are in Superposition?
+
+Suppose particle 1 is in superposition: $\psi_1 = c_a\phi_a + c_b\phi_b$ (momentum eigenstates with momenta $p_a$ and $p_b$).
+
+**Apply momentum operator:**
+
+$$
+\hat{p}_1\psi_1 = c_a p_a\phi_a + c_b p_b\phi_b
+$$
+
+Different momentum eigenvalues multiply their respective components — same as single-particle case from [Operators](quantum-operators.md)!
+
+**For two particles in superpositions**, you apply operators to each particle's part independently (if they don't interact), or you get coupling terms (if they do interact through $V(x_1, x_2)$).
+
+**Expected value:** Average over all possibilities weighted by probabilities — exactly like the single-particle case, just with more integrals!
+
+---
+
 ### Concrete Example: Two Electrons in One Box
 
 Consider two electrons in the **same** box of length $L = 1$ nm, with Coulomb repulsion between them.
