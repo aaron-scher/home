@@ -439,7 +439,21 @@ $$
 P(x_2) = \frac{1}{2}\left[|\psi_b(x_2)|^2 + |\psi_a(x_2)|^2\right] + \text{cross terms}
 $$
 
-Particle 2 has contributions from **both** states $a$ and $b$ (plus interference!).
+**What are the cross terms?** They come from the interference term in $|\psi|^2$:
+
+$$
+\text{cross terms} = \text{Re}\int \psi_a^*(x_1)\psi_b^*(x_2)\psi_b(x_1)\psi_a(x_2) dx_1
+$$
+
+For real wavefunctions, this becomes:
+
+$$
+= \int \psi_a(x_1)\psi_b(x_1) dx_1 \cdot \psi_a(x_2)\psi_b(x_2)
+$$
+
+This is the **overlap integral** $\langle\psi_a|\psi_b\rangle$ times the product $\psi_a(x_2)\psi_b(x_2)$. If states $a$ and $b$ are orthogonal (no overlap), the cross terms vanish! Otherwise, you get quantum interference that affects particle 2's probability distribution.
+
+Particle 2 has contributions from **both** states $a$ and $b$, plus interference from the cross terms!
 
 **After measuring particle 1 at position $x_1^0$:** The wavefunction "collapses" and particle 2's distribution becomes:
 
