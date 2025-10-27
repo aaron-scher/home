@@ -580,6 +580,26 @@ This is the **ONE** complete wavefunction—it just has two components (a 2D spi
 - If you measure spin and get ↓, the electron's position is described by $\psi_\downarrow(x)$
 - Before measurement, the electron is in a superposition of both spin states
 
+**Important: Renormalization after measurement!**
+
+Before measurement, the full state is normalized:
+
+$$
+\int \left[|\psi_\uparrow(x)|^2 + |\psi_\downarrow(x)|^2\right] dx = 1
+$$
+
+But $\int |\psi_\uparrow(x)|^2 dx$ alone equals the **probability** of measuring spin up (call it $P_\uparrow$), which might be less than 1!
+
+**After you measure spin up**, the state collapses to just the spin-up component, but you need to **renormalize** it:
+
+$$
+\psi_\uparrow(x) \to \frac{\psi_\uparrow(x)}{\sqrt{P_\uparrow}}
+$$
+
+Now $\int \left|\frac{\psi_\uparrow(x)}{\sqrt{P_\uparrow}}\right|^2 dx = \frac{P_\uparrow}{P_\uparrow} = 1$ ✓
+
+This ensures the collapsed state is still properly normalized (total probability = 1).
+
 **Probability interpretation:**
 
 - $|\psi_\uparrow(x)|^2 dx$ = probability of finding electron at position $x$ **with spin up**
