@@ -512,6 +512,8 @@ Spin is **angular momentum** that particles have even when sitting still. It's n
 
 These are the only two options. Measure electron spin along any axis (say, the z-axis) and you get one of these two results.
 
+**Important:** "Up" and "down" are **relative to your measurement direction**, not absolute directions in space! There's no universal "up" in the universe (is the center of the Milky Way "down"?). When we say "spin up along the z-axis," we mean the spin is **aligned with** the direction you chose to call +z (your detector's orientation). "Spin down" means **opposite to** that direction. You're free to choose any axis you want—the labels just tell you whether the spin points parallel or antiparallel to your chosen measurement direction.
+
 ### Spin States as Vectors
 
 We can represent spin states as column vectors in a 2D Hilbert space:
