@@ -73,29 +73,41 @@ $$
 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} |\psi(x_1, x_2)|^2 dx_1 dx_2 = 1
 $$
 
-**What does this mean?**
+**What does this mean? The double integral sums over ALL possible configurations.**
 
-You're adding up probabilities for **every possible configuration**:
-• Particle 1 at $x_1 = 0$, particle 2 at $x_2 = 0$
-• Particle 1 at $x_1 = 0$, particle 2 at $x_2 = 1$
-• Particle 1 at $x_1 = 1$, particle 2 at $x_2 = 0$
-• ... and so on for **all** combinations
+A **configuration** is a pair of positions: (particle 1 here, particle 2 there).
 
-**Back to the dice analogy:**
+**Concrete example:** Imagine two particles constrained to a discrete grid with just 3 positions: x = 0, 1, 2.
 
-For two dice, the probability of **some outcome** (red=?, blue=?) is 100%:
+Possible configurations (9 total):
+
+1. Both at 0: $(x_1=0, x_2=0)$
+2. Particle 1 at 0, particle 2 at 1: $(x_1=0, x_2=1)$
+3. Particle 1 at 0, particle 2 at 2: $(x_1=0, x_2=2)$
+4. Particle 1 at 1, particle 2 at 0: $(x_1=1, x_2=0)$
+5. Both at 1: $(x_1=1, x_2=1)$
+6. Particle 1 at 1, particle 2 at 2: $(x_1=1, x_2=2)$
+7. Particle 1 at 2, particle 2 at 0: $(x_1=2, x_2=0)$
+8. Particle 1 at 2, particle 2 at 1: $(x_1=2, x_2=1)$
+9. Both at 2: $(x_1=2, x_2=2)$
+
+**Normalization says:** Add probabilities for all 9 configurations → must equal 1 (100%).
 
 $$
-\sum_{\text{red}=1}^{6} \sum_{\text{blue}=1}^{6} P(\text{red AND blue}) = 1
+\sum_{x_1=0}^{2} \sum_{x_2=0}^{2} |\psi(x_1, x_2)|^2 = 1
 $$
 
-You sum over all 36 possible pairs: (1,1), (1,2), ..., (6,6).
+The system is **definitely** in one of these 9 configurations!
 
-**For quantum particles:**
+**Continuous case:** Same idea, but infinitely many positions. The double integral adds up probabilities for **every pair** $(x_1, x_2)$:
 
-You integrate over **all** position pairs $(x_1, x_2)$. The particles must be **somewhere** — maybe particle 1 is on the left and particle 2 on the right, or both in the middle, or any other configuration. Add up all possibilities → 100%!
+• Particle 1 anywhere from $-\infty$ to $+\infty$
+• Particle 2 anywhere from $-\infty$ to $+\infty$
+• Total configurations: infinitely many
 
-**Key point:** It's not "particle 1 must be somewhere" AND separately "particle 2 must be somewhere." It's "the **two-particle system** must be in **some configuration**" — and a configuration specifies where **both** particles are.
+The system must be in **some** configuration → total probability = 1.
+
+**Key point:** It's not "particle 1 must be somewhere" AND separately "particle 2 must be somewhere." It's "the **two-particle system** must be in **some configuration**" — and a configuration is a pair $(x_1, x_2)$ specifying where **both** particles are simultaneously.
 
 ---
 
