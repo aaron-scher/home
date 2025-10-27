@@ -463,6 +463,14 @@ $$
 
 This depends on the specific value $x_1^0$ where you found particle 1!
 
+**Let's be crystal clear about what this means:**
+
+- **If you DON'T measure particle 1** (no knowledge about its position): Particle 2's probability is $P(x_2) = \frac{1}{2}[|\psi_b(x_2)|^2 + |\psi_a(x_2)|^2] + \text{cross terms}$. This is the **marginal probability** (averaging over all possible particle 1 positions).
+
+- **If you DO measure particle 1** and find it at $x_1^0$: Particle 2's probability **changes** to $P(x_2|x_1=x_1^0)$, which depends on where you found particle 1! This is the **conditional probability**.
+
+The measurement of particle 1 gives you new information that changes your prediction for particle 2. That's entanglement!
+
 **Example:** Suppose $\psi_a$ is localized on the left and $\psi_b$ is localized on the right.
 
 - If you find particle 1 on the **left** (where $|\psi_a(x_1^0)|^2 \gg |\psi_b(x_1^0)|^2$), then $\psi_a(x_1^0)\psi_b(x_2)$ dominates → particle 2 is likely on the **right**!
