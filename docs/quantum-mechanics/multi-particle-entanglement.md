@@ -18,11 +18,9 @@ $$
 
 This is a fundamentally different beast! Here's what it means:
 
-• $x_1$ = position of particle 1
-
-• $x_2$ = position of particle 2
-
-• $\psi(x_1, x_2, t)$ = amplitude for finding particle 1 at $x_1$ **AND** particle 2 at $x_2$ simultaneously
+- $x_1$ = position of particle 1
+- $x_2$ = position of particle 2
+- $\psi(x_1, x_2, t)$ = amplitude for finding particle 1 at $x_1$ **AND** particle 2 at $x_2$ simultaneously
 
 ### Probability Interpretation: Joint Probability
 
@@ -38,15 +36,13 @@ This is the probability of finding particle 1 **at** $x_1$ **AND** particle 2 **
 
 Think of rolling a red die and a blue die. The outcome is a **pair of numbers**: (red=3, blue=5).
 
-• **One die:** Probability $P(\text{red}=3)$ tells you about just the red die
-
-• **Two dice (joint):** Probability $P(\text{red}=3 \text{ AND blue}=5)$ tells you about **both** outcomes together
+**One die:** Probability $P(\text{red}=3)$ tells you about just the red die
+**Two dice (joint):** Probability $P(\text{red}=3 \text{ AND blue}=5)$ tells you about **both** outcomes together
 
 For quantum mechanics:
 
-• **One particle:** $|\psi(x)|^2dx$ = probability particle is at position $x$
-
-• **Two particles (joint):** $|\psi(x_1,x_2)|^2dx_1dx_2$ = probability particle 1 at $x_1$ **AND** particle 2 at $x_2$
+- **One particle:** $|\psi(x)|^2dx$ = probability particle is at position $x$
+- **Two particles (joint):** $|\psi(x_1,x_2)|^2dx_1dx_2$ = probability particle 1 at $x_1$ **AND** particle 2 at $x_2$
 
 **Key insight:** This is a **joint probability distribution**. The wavefunction doesn't just tell you about each particle separately; it encodes correlations between them!
 
@@ -108,11 +104,9 @@ The system is **definitely** in one of these 9 configurations!
 
 **Continuous case:** Same idea, but infinitely many positions. The double integral adds up probabilities for **every pair** $(x_1, x_2)$:
 
-• Particle 1 anywhere from $-\infty$ to $+\infty$
-
-• Particle 2 anywhere from $-\infty$ to $+\infty$
-
-• Total configurations: infinitely many
+- Particle 1 anywhere from $-\infty$ to $+\infty$
+- Particle 2 anywhere from $-\infty$ to $+\infty$
+- Total configurations: infinitely many
 
 The system must be in **some** configuration, so total probability = 1.
 
@@ -128,11 +122,9 @@ Let's start with the simplest case: **two particles that don't interact**.
 
 Suppose we have:
 
-• Particle 1 in state $\psi_a(x_1)$
-
-• Particle 2 in state $\psi_b(x_2)$
-
-• No interaction between them
+- Particle 1 in state $\psi_a(x_1)$
+- Particle 2 in state $\psi_b(x_2)$
+- No interaction between them
 
 The two-particle wavefunction is just the **product**:
 
@@ -188,9 +180,8 @@ $$
 
 Consider two electrons, each in its own infinite potential well:
 
-• Electron 1 in box of length $L_1 = 1$ nm
-
-• Electron 2 in box of length $L_2 = 2$ nm
+- Electron 1 in box of length $L_1 = 1$ nm
+- Electron 2 in box of length $L_2 = 2$ nm
 
 Both in ground state ($n=1$):
 
@@ -266,15 +257,13 @@ For two particles, you have **separate operators** for each particle:
 
 **Momentum operators:**
 
-• $\hat{p}_1 = -i\hbar\frac{\partial}{\partial x_1}$ (acts only on particle 1's position)
-
-• $\hat{p}_2 = -i\hbar\frac{\partial}{\partial x_2}$ (acts only on particle 2's position)
+$\hat{p}_1 = -i\hbar\frac{\partial}{\partial x_1}$ (acts only on particle 1's position)
+$\hat{p}_2 = -i\hbar\frac{\partial}{\partial x_2}$ (acts only on particle 2's position)
 
 **Position operators:**
 
-• $\hat{x}_1$ (multiplies by $x_1$)
-
-• $\hat{x}_2$ (multiplies by $x_2$)
+$\hat{x}_1$ (multiplies by $x_1$)
+$\hat{x}_2$ (multiplies by $x_2$)
 
 **Key point:** Each operator acts on **its own variable only**. When $\hat{p}_1$ takes a derivative, it treats $x_2$ as a constant!
 
@@ -308,41 +297,21 @@ Here's the key difference between kinetic and potential energy:
 
 **Kinetic energy (independent):**
 
-• Particle 1's kinetic energy: $\frac{\hat{p}_1^2}{2m_1}$ (depends only on $x_1$)
-
-• Particle 2's kinetic energy: $\frac{\hat{p}_2^2}{2m_2}$ (depends only on $x_2$)
-
-• Total: $\hat{T} = \frac{\hat{p}_1^2}{2m_1} + \frac{\hat{p}_2^2}{2m_2}$
+Particle 1's kinetic energy: $\frac{\hat{p}_1^2}{2m_1}$ (depends only on $x_1$)
+Particle 2's kinetic energy: $\frac{\hat{p}_2^2}{2m_2}$ (depends only on $x_2$)
+Total: $\hat{T} = \frac{\hat{p}_1^2}{2m_1} + \frac{\hat{p}_2^2}{2m_2}$
 
 **Potential energy (can couple!):**
 
-• Coulomb repulsion: $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$ (depends on **both** positions!)
-
-• The interaction energy depends on the **distance between particles**
+Coulomb repulsion: $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$ (depends on **both** positions!)
+The interaction energy depends on the **distance between particles**
 
 **Physical meaning:**
 
-• Kinetic energy is "local" (each particle has its own motion)
-
-• Interaction energy is "nonlocal" (depends on **relative positions**)
+- Kinetic energy is "local" (each particle has its own motion)
+- Interaction energy is "nonlocal" (depends on **relative positions**)
 
 This is why $V(x_1, x_2)$ has **both variables** (the repulsion depends on how far apart the electrons are!).
-
-### What If Particles Are in Superposition?
-
-Suppose particle 1 is in superposition: $\psi_1 = c_a\phi_a + c_b\phi_b$ (momentum eigenstates with momenta $p_a$ and $p_b$).
-
-**Apply momentum operator:**
-
-$$
-\hat{p}_1\psi_1 = c_a p_a\phi_a + c_b p_b\phi_b
-$$
-
-Different momentum eigenvalues multiply their respective components (same as single-particle case from [Operators](quantum-operators.md)!).
-
-**For two particles in superpositions**, you apply operators to each particle's part independently (if they don't interact), or you get coupling terms (if they do interact through $V(x_1, x_2)$).
-
-**Expected value:** Average over all possibilities weighted by probabilities (exactly like the single-particle case, just with more integrals!).
 
 ---
 
@@ -435,15 +404,20 @@ No! The two terms are "mixed" (you can't separate $x_1$ from $x_2$).
 
 **Physical interpretation:**
 
-• Either "particle 1 in state $a$ AND particle 2 in state $b$"
-
-• Or "particle 1 in state $b$ AND particle 2 in state $a$"
+- Either "particle 1 in state $a$ AND particle 2 in state $b$"
+- Or "particle 1 in state $b$ AND particle 2 in state $a$"
 
 The particles are **correlated**. You can't describe them independently!
 
 ### Conditional Probabilities: The Key to Entanglement
 
-Here's what makes entanglement weird. For the state above, let's ask: **"What's the probability distribution for particle 2's position?"**
+Here's what makes entanglement weird. For the entangled state:
+
+$$
+\psi(x_1, x_2) = \frac{1}{\sqrt{2}}[\psi_a(x_1)\psi_b(x_2) + \psi_b(x_1)\psi_a(x_2)]
+$$
+
+Let's ask: **"What's the probability distribution for particle 2's position?"**
 
 It depends on what you measure for particle 1!
 
@@ -453,11 +427,33 @@ $$
 P(x_2) = \int |\psi(x_1, x_2)|^2 dx_1
 $$
 
+Expanding $|\psi|^2$:
+
+$$
+|\psi(x_1, x_2)|^2 = \frac{1}{2}\left[|\psi_a(x_1)|^2|\psi_b(x_2)|^2 + |\psi_b(x_1)|^2|\psi_a(x_2)|^2 + 2\text{Re}(\psi_a^*(x_1)\psi_b^*(x_2)\psi_b(x_1)\psi_a(x_2))\right]
+$$
+
+Integrating over $x_1$ (using normalization $\int |\psi_a|^2 dx_1 = \int |\psi_b|^2 dx_1 = 1$):
+
+$$
+P(x_2) = \frac{1}{2}\left[|\psi_b(x_2)|^2 + |\psi_a(x_2)|^2\right] + \text{cross terms}
+$$
+
+Particle 2 has contributions from **both** states $a$ and $b$ (plus interference!).
+
 **After measuring particle 1 at position $x_1^0$:** The wavefunction "collapses" and particle 2's distribution becomes:
 
 $$
-P(x_2 | x_1 = x_1^0) = |\psi(x_1^0, x_2)|^2
+P(x_2 | x_1 = x_1^0) \propto |\psi(x_1^0, x_2)|^2 = \frac{1}{2}\left|\psi_a(x_1^0)\psi_b(x_2) + \psi_b(x_1^0)\psi_a(x_2)\right|^2
 $$
+
+This depends on the specific value $x_1^0$ where you found particle 1!
+
+**Example:** Suppose $\psi_a$ is localized on the left and $\psi_b$ is localized on the right.
+
+- If you find particle 1 on the **left** (where $|\psi_a(x_1^0)|^2 \gg |\psi_b(x_1^0)|^2$), then $\psi_a(x_1^0)\psi_b(x_2)$ dominates → particle 2 is likely on the **right**!
+
+- If you find particle 1 on the **right** (where $|\psi_b(x_1^0)|^2 \gg |\psi_a(x_1^0)|^2$), then $\psi_b(x_1^0)\psi_a(x_2)$ dominates → particle 2 is likely on the **left**!
 
 **Key insight:** Measuring particle 1 **instantly changes** the probability distribution for particle 2, even if they're far apart!
 
@@ -489,8 +485,8 @@ Spin is **angular momentum** that particles have even when sitting still. It's n
 
 **For electrons:** Spin-1/2, meaning it comes in two states:
 
-• Spin up: $|\uparrow\rangle$ or $|+\rangle$
-• Spin down: $|\downarrow\rangle$ or $|-\rangle$
+- Spin up: $|\uparrow\rangle$ or $|+\rangle$
+- Spin down: $|\downarrow\rangle$ or $|-\rangle$
 
 These are the only two options. Measure electron spin along any axis (say, the z-axis) and you get one of these two results.
 
@@ -510,9 +506,10 @@ $$
 
 where $|\alpha|^2 + |\beta|^2 = 1$.
 
-**Measurement:** If you measure spin along the z-axis:
-• Get $|\uparrow\rangle$ with probability $|\alpha|^2$
-• Get $|\downarrow\rangle$ with probability $|\beta|^2$
+**Measurement:** If you measure spin along the z-axis, you get:
+
+- $|\uparrow\rangle$ with probability $|\alpha|^2$
+- $|\downarrow\rangle$ with probability $|\beta|^2$
 
 ### Complete State: Spatial + Spin
 
@@ -625,8 +622,9 @@ $$
 Perfect! The $1/\sqrt{2}$ ensures normalization.
 
 **Physical meaning:** The wavefunction is a superposition:
-• "Electron 1 in state $a$, electron 2 in state $b$"
-• **minus** "Electron 1 in state $b$, electron 2 in state $a$"
+
+- "Electron 1 in state $a$, electron 2 in state $b$"
+- **minus** "Electron 1 in state $b$, electron 2 in state $a$"
 
 But remember: these labels are arbitrary! The particles are truly indistinguishable.
 
@@ -899,8 +897,9 @@ $$
 $$
 
 **What this means:**
-• Particle 1 spin up AND particle 2 spin down
-• **minus** particle 1 spin down AND particle 2 spin up
+
+- Particle 1 spin up AND particle 2 spin down
+- **minus** particle 1 spin down AND particle 2 spin up
 
 This is a superposition of the two possibilities! You don't know which is which until you measure.
 
@@ -947,17 +946,14 @@ This seems reasonable! Like drawing colored balls from a hat (they had their col
 
 Before measurement:
 
-• Particle 1 is in superposition: $\frac{1}{\sqrt{2}}(|\uparrow\rangle - |\downarrow\rangle)$ (if you ignore particle 2)
-
-• Particle 2 is in superposition: $\frac{1}{\sqrt{2}}(|\downarrow\rangle - |\uparrow\rangle)$ (if you ignore particle 1)
-
-• But they're **entangled** (the correlations are built into the joint state)
+- Particle 1 is in superposition: $\frac{1}{\sqrt{2}}(|\uparrow\rangle - |\downarrow\rangle)$ (if you ignore particle 2)
+- Particle 2 is in superposition: $\frac{1}{\sqrt{2}}(|\downarrow\rangle - |\uparrow\rangle)$ (if you ignore particle 1)
+- But they're **entangled** (the correlations are built into the joint state)
 
 After Alice measures:
 
-• The entangled state "collapses"
-
-• Bob's particle is now in a definite state (opposite to Alice's result)
+- The entangled state "collapses"
+- Bob's particle is now in a definite state (opposite to Alice's result)
 
 **Is this spooky action at a distance?**
 
@@ -978,9 +974,10 @@ John Bell (1964) showed that **local hidden variable theories make different pre
 Instead of just measuring spin along one axis (say, z-axis), Alice and Bob can choose different measurement directions.
 
 **Measurement directions:**
-• Alice chooses angle $\theta_A$ (direction to measure spin)
-• Bob chooses angle $\theta_B$
-• Each gets result: $\pm 1$ (spin up/down along that axis)
+
+- Alice chooses angle $\theta_A$ (direction to measure spin)
+- Bob chooses angle $\theta_B$
+- Each gets result: $\pm 1$ (spin up/down along that axis)
 
 **Correlation function:** Average product of their results:
 
@@ -995,8 +992,9 @@ where $A, B \in \{+1, -1\}$.
 **Assumption:** Each particle carries hidden variable $\lambda$ that predetermines all measurement outcomes.
 
 For any $\lambda$:
-• Alice's result is $A(\theta_A, \lambda) = \pm 1$
-• Bob's result is $B(\theta_B, \lambda) = \pm 1$
+
+- Alice's result is $A(\theta_A, \lambda) = \pm 1$
+- Bob's result is $B(\theta_B, \lambda) = \pm 1$
 
 These are **predetermined functions** (the results exist before measurement!).
 
@@ -1053,10 +1051,10 @@ The correlation depends on the **relative angle** between measurement directions
 
 Calculate each term:
 
-• $E(a,b) = E(0°, 45°) = -\cos(45°) = -\frac{1}{\sqrt{2}}$
-• $E(a,b') = E(0°, 135°) = -\cos(135°) = +\frac{1}{\sqrt{2}}$
-• $E(a',b) = E(90°, 45°) = -\cos(45°) = -\frac{1}{\sqrt{2}}$
-• $E(a',b') = E(90°, 135°) = -\cos(45°) = -\frac{1}{\sqrt{2}}$
+- $E(a,b) = E(0°, 45°) = -\cos(45°) = -\frac{1}{\sqrt{2}}$
+- $E(a,b') = E(0°, 135°) = -\cos(135°) = +\frac{1}{\sqrt{2}}$
+- $E(a',b) = E(90°, 45°) = -\cos(45°) = -\frac{1}{\sqrt{2}}$
+- $E(a',b') = E(90°, 135°) = -\cos(45°) = -\frac{1}{\sqrt{2}}$
 
 $$
 S = -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} = -\frac{4}{\sqrt{2}} = -2\sqrt{2} \approx -2.83
@@ -1070,9 +1068,8 @@ Quantum mechanics predicts correlations that are **impossible** for any local hi
 
 **The verdict:**
 
-✗ **Local realism is wrong** (Nature doesn't have predetermined values)
-
-✓ **Quantum mechanics is right** (The correlations are genuinely nonlocal)
+- ✗ **Local realism is wrong** (Nature doesn't have predetermined values)
+- ✓ **Quantum mechanics is right** (The correlations are genuinely nonlocal)
 
 **But wait:** How do we know quantum mechanics is right? We need to do the experiment!
 
@@ -1087,10 +1084,11 @@ Bell's theorem moved entanglement from philosophy to experimental science.
 Alain Aspect and collaborators performed the definitive early tests:
 
 **Setup:**
-• Source produces entangled photon pairs (polarization-entangled, analogous to spin-entangled electrons)
-• Photons sent to Alice and Bob (13 meters apart)
-• Each measures polarization along chosen angle
-• Record correlations for different angle combinations
+
+- Source produces entangled photon pairs (polarization-entangled, analogous to spin-entangled electrons)
+- Photons sent to Alice and Bob (13 meters apart)
+- Each measures polarization along chosen angle
+- Record correlations for different angle combinations
 
 **Key innovation:** Rapidly switching measurement angles while photons are in flight → ensures measurements are space-like separated (no communication possible between detectors).
 
@@ -1108,25 +1106,20 @@ Early experiments had potential loopholes Einstein fans could exploit:
 
 **1. Detection loophole:**
 
-• Not all photons are detected (typical efficiency ~20-30%)
-
-• Maybe hidden variables cleverly avoid being measured?
-
-• **Closed:** Use more efficient detectors (>80% efficiency)
+- Not all photons are detected (typical efficiency ~20-30%)
+- Maybe hidden variables cleverly avoid being measured?
+- **Closed:** Use more efficient detectors (>80% efficiency)
 
 **2. Locality loophole:**
 
-• Detectors not far enough apart (maybe communication possible?)
-
-• **Closed:** Space-like separated measurements (detection events outside each other's light cones)
+- Detectors not far enough apart (maybe communication possible?)
+- **Closed:** Space-like separated measurements (detection events outside each other's light cones)
 
 **3. Freedom-of-choice loophole:**
 
-• Measurement angles chosen by pseudo-random number generators
-
-• Maybe hidden variables determine both outcomes and measurement choices?
-
-• **Closed:** Use cosmic photons or human choice to set angles
+- Measurement angles chosen by pseudo-random number generators
+- Maybe hidden variables determine both outcomes and measurement choices?
+- **Closed:** Use cosmic photons or human choice to set angles
 
 ### Loophole-Free Experiments (2015)
 
@@ -1160,27 +1153,21 @@ The Nobel Prize in Physics was awarded to:
 
 **Nature is fundamentally nonlocal:**
 
-• Measurement outcomes at one location are **instantaneously** correlated with distant measurements
-
-• This isn't due to hidden variables or communication
-
-• It's **genuine quantum entanglement**
+- Measurement outcomes at one location are **instantaneously** correlated with distant measurements
+- This isn't due to hidden variables or communication
+- It's **genuine quantum entanglement**
 
 **But information still can't travel faster than light:**
 
-• Alice's individual results look random (50% up, 50% down)
-
-• Only when Alice and Bob **compare** results do they see the correlations
-
-• Comparing requires classical communication (limited by speed of light)
+- Alice's individual results look random (50% up, 50% down)
+- Only when Alice and Bob **compare** results do they see the correlations
+- Comparing requires classical communication (limited by speed of light)
 
 **Einstein was wrong, but in the most interesting way:**
 
-• Quantum mechanics really is complete (no hidden variables needed)
-
-• "Spooky action at a distance" is real!
-
-• But it doesn't violate relativity
+- Quantum mechanics really is complete (no hidden variables needed)
+- "Spooky action at a distance" is real!
+- But it doesn't violate relativity
 
 The universe is even weirder than Einstein thought!
 
@@ -1248,9 +1235,10 @@ $$
 $$
 
 For the singlet: coefficient of $|\uparrow\uparrow\rangle$ is 0, so $\alpha_1\alpha_2 = 0$.
-• If $\alpha_1 = 0$: then coefficient of $|\uparrow\downarrow\rangle$ is 0, so $\alpha_1\beta_2 = 0$ ✓
-• But then coefficient of $|\downarrow\uparrow\rangle$ is $\beta_1\alpha_2$, which must equal $-1/\sqrt{2}$
-• And coefficient of $|\downarrow\downarrow\rangle$ is $\beta_1\beta_2$, which must equal $0$
+
+- If $\alpha_1 = 0$: then coefficient of $|\uparrow\downarrow\rangle$ is 0, so $\alpha_1\beta_2 = 0$ ✓
+- But then coefficient of $|\downarrow\uparrow\rangle$ is $\beta_1\alpha_2$, which must equal $-1/\sqrt{2}$
+- And coefficient of $|\downarrow\downarrow\rangle$ is $\beta_1\beta_2$, which must equal $0$
 
 So $\beta_2 = 0$ (to make last term zero), but then $\beta_1\alpha_2 = -1/\sqrt{2}$ requires $\alpha_2 \neq 0$... but we needed $\alpha_1\alpha_2 = 0$ with $\alpha_1 = 0$ ✓, giving no constraint on $\alpha_2$.
 
@@ -1357,33 +1345,26 @@ We've journeyed from one particle to two, discovering profound changes along the
 
 **Product (separable):** $\psi(x_1,x_2) = \psi_a(x_1)\psi_b(x_2)$
 
-• Particles are independent
-
-• No correlations beyond classical probability
+- Particles are independent
+- No correlations beyond classical probability
 
 **Entangled (non-separable):** Cannot be factored
 
-• Measuring one particle affects the other
-
-• Genuine quantum correlations
+- Measuring one particle affects the other
+- Genuine quantum correlations
 
 ### 3. Identical Particles: Fermions and Bosons
 
 **Indistinguishability** forces exchange symmetry:
 
 **Fermions** (electrons, protons, neutrons): $\psi(x_2,x_1) = -\psi(x_1,x_2)$
-
-• Antisymmetric wavefunctions
-
-• Pauli exclusion: no two in same state
-
-• Explains atomic structure and periodic table
+- Antisymmetric wavefunctions
+- Pauli exclusion: no two in same state
+- Explains atomic structure and periodic table
 
 **Bosons** (photons, helium-4): $\psi(x_2,x_1) = +\psi(x_1,x_2)$
-
-• Symmetric wavefunctions
-
-• Can pile into same state (Bose-Einstein condensation)
+- Symmetric wavefunctions
+- Can pile into same state (Bose-Einstein condensation)
 
 ### 4. Energy Levels Fill Up
 
@@ -1479,26 +1460,21 @@ The strangeness that troubled Einstein is now the foundation of quantum informat
 
 **Bell's original papers:**
 
-• "On the Einstein Podolsky Rosen Paradox" (1964): the groundbreaking theorem
-
-• "Bertlmann's socks and the nature of reality" (1981): wonderfully accessible explanation
+- "On the Einstein Podolsky Rosen Paradox" (1964): the groundbreaking theorem
+- "Bertlmann's socks and the nature of reality" (1981): wonderfully accessible explanation
 
 **Classic experiments:**
 
-• Aspect, Dalibard, Roger, "Experimental test of Bell's inequalities..." (1982)
-
-• Hensen et al., "Loophole-free Bell inequality violation..." (2015)
+- Aspect, Dalibard, Roger, "Experimental test of Bell's inequalities..." (1982)
+- Hensen et al., "Loophole-free Bell inequality violation..." (2015)
 
 **Books:**
 
-• "Quantum Computation and Quantum Information" (Nielsen & Chuang)
-
-• "Entanglement" (Amir Aczel, popular science)
+- "Quantum Computation and Quantum Information" (Nielsen & Chuang)
+- "Entanglement" (Amir Aczel, popular science)
 
 **Next steps:**
 
-• Density matrices (describing mixed states and partial information)
-
-• Quantum information theory (quantifying entanglement)
-
-• Many-body quantum mechanics (atoms, molecules, solids)
+- Density matrices (describing mixed states and partial information)
+- Quantum information theory (quantifying entanglement)
+- Many-body quantum mechanics (atoms, molecules, solids)
