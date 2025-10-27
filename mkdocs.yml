@@ -55,6 +55,7 @@ nav:
     - Foundations: quantum-mechanics/quantum-foundations.md
     - Basis Representation: quantum-mechanics/quantum-basis-representation.md
     - Operators and Measurement: quantum-mechanics/quantum-operators.md
+    - Multi-Particle Systems and Entanglement: quantum-mechanics/multi-particle-entanglement.md
 
 extra:
   generator: false
