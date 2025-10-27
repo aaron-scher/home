@@ -527,13 +527,35 @@ $$
 
 for some phase $\phi$.
 
-**Exchange twice** gets you back to the original state:
+**Exchange twice** gets you back to the original state. Let's do this step by step:
+
+**Step 1:** Start with the original state ψ(x₁, x₂)
+
+**Step 2:** Exchange once (swap 1 ↔ 2). This gives us ψ(x₂, x₁), which by the equation above equals:
 
 $$
-\psi(x_1, x_2) = e^{i\phi}\psi(x_2, x_1) = e^{2i\phi}\psi(x_1, x_2)
+\psi(x_2, x_1) = e^{i\phi}\psi(x_1, x_2)
 $$
 
-Therefore $e^{2i\phi} = 1$, so $\phi = 0$ or $\phi = \pi$.
+**Step 3:** Exchange again (swap 1 ↔ 2 again). Starting from ψ(x₂, x₁), swapping gives us ψ(x₁, x₂). But we can also apply our exchange rule to ψ(x₂, x₁):
+
+$$
+\text{Exchanging } \psi(x_2, x_1) \text{ gives: } e^{i\phi}\psi(x_2, x_1)
+$$
+
+**Step 4:** But we know from Step 2 that ψ(x₂, x₁) = e^(iφ)ψ(x₁, x₂), so substitute:
+
+$$
+e^{i\phi}\psi(x_2, x_1) = e^{i\phi} \cdot e^{i\phi}\psi(x_1, x_2) = e^{2i\phi}\psi(x_1, x_2)
+$$
+
+**Step 5:** But exchanging twice must give back the original state ψ(x₁, x₂)! So:
+
+$$
+\psi(x_1, x_2) = e^{2i\phi}\psi(x_1, x_2)
+$$
+
+This is only true if $e^{2i\phi} = 1$, which means $\phi = 0$ or $\phi = \pi$.
 
 **Result:** Only two possibilities!
 
