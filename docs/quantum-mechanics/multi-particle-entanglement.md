@@ -519,15 +519,9 @@ $$
 |\psi(x_2, x_1)|^2 = |\psi(x_1, x_2)|^2
 $$
 
-This means:
+This means the wavefunctions can only differ by a phase: ψ(x₂, x₁) = e^(iφ)ψ(x₁, x₂) for some phase φ.
 
-$$
-\psi(x_2, x_1) = e^{i\phi}\psi(x_1, x_2)
-$$
-
-for some phase $\phi$.
-
-**Exchange twice** gets you back to the original state. Let's do this step by step:
+**Let's figure out what φ must be.** Exchange twice gets you back to the original state. Let's do this step by step:
 
 **Step 1:** Start with the original state ψ(x₁, x₂)
 
