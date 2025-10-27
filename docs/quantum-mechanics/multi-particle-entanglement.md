@@ -250,12 +250,16 @@ Before we calculate energies, let's understand how operators work with two parti
 For two particles, you have **separate operators** for each particle:
 
 **Momentum operators:**
-• $\hat{p}_1 = -i\hbar\frac{\partial}{\partial x_1}$ — acts only on particle 1's position
-• $\hat{p}_2 = -i\hbar\frac{\partial}{\partial x_2}$ — acts only on particle 2's position
+
+• $\hat{p}_1 = -i\hbar\frac{\partial}{\partial x_1}$ (acts only on particle 1's position)
+
+• $\hat{p}_2 = -i\hbar\frac{\partial}{\partial x_2}$ (acts only on particle 2's position)
 
 **Position operators:**
-• $\hat{x}_1$ — multiplies by $x_1$
-• $\hat{x}_2$ — multiplies by $x_2$
+
+• $\hat{x}_1$ (multiplies by $x_1$)
+
+• $\hat{x}_2$ (multiplies by $x_2$)
 
 **Key point:** Each operator acts on **its own variable only**. When $\hat{p}_1$ takes a derivative, it treats $x_2$ as a constant!
 
@@ -288,17 +292,24 @@ This gives you the average momentum of **just particle 1**, regardless of what p
 Here's the key difference between kinetic and potential energy:
 
 **Kinetic energy (independent):**
-• Particle 1's kinetic energy: $\frac{\hat{p}_1^2}{2m_1}$ — depends only on $x_1$
-• Particle 2's kinetic energy: $\frac{\hat{p}_2^2}{2m_2}$ — depends only on $x_2$
+
+• Particle 1's kinetic energy: $\frac{\hat{p}_1^2}{2m_1}$ (depends only on $x_1$)
+
+• Particle 2's kinetic energy: $\frac{\hat{p}_2^2}{2m_2}$ (depends only on $x_2$)
+
 • Total: $\hat{T} = \frac{\hat{p}_1^2}{2m_1} + \frac{\hat{p}_2^2}{2m_2}$
 
 **Potential energy (can couple!):**
-• Coulomb repulsion: $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$ — depends on **both** positions!
+
+• Coulomb repulsion: $V(x_1, x_2) = \frac{ke^2}{|x_1 - x_2|}$ (depends on **both** positions!)
+
 • The interaction energy depends on the **distance between particles**
 
 **Physical meaning:**
-• Kinetic energy is "local" — each particle has its own motion
-• Interaction energy is "nonlocal" — depends on **relative positions**
+
+• Kinetic energy is "local" (each particle has its own motion)
+
+• Interaction energy is "nonlocal" (depends on **relative positions**)
 
 This is why $V(x_1, x_2)$ has **both variables** — the repulsion depends on how far apart the electrons are!
 
