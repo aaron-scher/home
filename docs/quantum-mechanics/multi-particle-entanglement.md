@@ -250,15 +250,35 @@ Consider two electrons in the **same** box of length $L = 1$ nm, with Coulomb re
 
 The interaction raises the energy. How much? We need to calculate the **expected value** (average value) of the repulsion energy.
 
-**Notation:** $\langle V \rangle$ means the expected value of the potential energy $V(x_1, x_2)$. It's the average repulsion energy you'd measure if you could measure the electron-electron distance many times.
+**Connection to Operators section:** Remember from [Operators and Measurement](quantum-operators.md) that the expected value of an operator $\hat{A}$ is:
 
-**Formula:** For a wavefunction $\psi(x_1, x_2)$, the expected value of any quantity $V(x_1, x_2)$ is:
+$$
+\langle A \rangle = \langle\psi|\hat{A}|\psi\rangle
+$$
+
+This is the average value you'd get if you measured $A$ many times on identically prepared systems.
+
+**For potential energy:** The potential $V(x_1, x_2)$ is just a function (not a derivative), so the operator $\hat{V}$ acts by multiplication:
+
+$$
+\hat{V}\psi(x_1, x_2) = V(x_1, x_2) \psi(x_1, x_2)
+$$
+
+**In position representation:** The expectation value $\langle\psi|\hat{V}|\psi\rangle$ becomes an integral:
+
+$$
+\langle V \rangle = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \psi^*(x_1, x_2) \cdot V(x_1, x_2) \cdot \psi(x_1, x_2) \, dx_1 dx_2
+$$
+
+For **real wavefunctions** (like particle in a box), $\psi^* = \psi$, so $\psi^* \psi = |\psi|^2$:
 
 $$
 \langle V \rangle = \int \int |\psi(x_1, x_2)|^2 V(x_1, x_2) dx_1 dx_2
 $$
 
-This weights the potential energy $V(x_1, x_2)$ by the probability $|\psi(x_1, x_2)|^2$ of finding the electrons at those positions, then averages over all configurations.
+**Physical meaning:** Weight the potential energy $V(x_1, x_2)$ by the probability $|\psi(x_1, x_2)|^2$ of finding the electrons at those positions, then average over all configurations.
+
+**It's the same expectation value formula**, just extended to two particles!
 
 **For our example:** Both electrons in ground state $\psi_1(x)$, so $\psi(x_1, x_2) = \psi_1(x_1)\psi_1(x_2)$:
 
