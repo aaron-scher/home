@@ -22,13 +22,28 @@ This is a fundamentally different beast! Here's what it means:
 • $x_2$ = position of particle 2
 • $\psi(x_1, x_2, t)$ = amplitude for finding particle 1 at $x_1$ **AND** particle 2 at $x_2$ simultaneously
 
-**Probability interpretation:**
+### Probability Interpretation: Joint Probability
 
 $$
-|\psi(x_1, x_2, t)|^2 dx_1 dx_2 = \text{probability of finding particle 1 in } [x_1, x_1+dx_1] \text{ AND particle 2 in } [x_2, x_2+dx_2]
+P(x_1, x_2) = |\psi(x_1, x_2)|^2 dx_1 dx_2
 $$
+
+This is the probability of finding particle 1 near $x_1$ **AND** particle 2 near $x_2$ at the same time.
+
+**Analogy - Rolling Two Dice:**
+
+Think of rolling a red die and a blue die. The outcome is a **pair of numbers**: (red=3, blue=5).
+
+• **One die:** Probability $P(\text{red}=3)$ tells you about just the red die
+• **Two dice (joint):** Probability $P(\text{red}=3 AND blue=5})$ tells you about **both** outcomes together
+
+For quantum mechanics:
+• **One particle:** $|\psi(x)|^2dx$ = probability particle is near position $x$
+• **Two particles (joint):** $|\psi(x_1,x_2)|^2dx_1dx_2$ = probability particle 1 near $x_1$ **AND** particle 2 near $x_2$
 
 **Key insight:** This is a **joint probability distribution**. The wavefunction doesn't just tell you about each particle separately — it encodes correlations between them!
+
+Just like knowing the red die rolled 3 might affect what the blue die shows (if the dice are rigged together), knowing where particle 1 is can affect where particle 2 is likely to be!
 
 ### The Dimension Explosion
 
@@ -40,15 +55,45 @@ With one particle in 1D, $\psi(x)$ is a function of 1 variable. With two particl
 
 The complexity grows explosively! This is why quantum chemistry is so computationally hard.
 
-### Normalization
+### Normalization: Why Does It Equal 1?
 
-Just like with one particle, the total probability must be 100%:
+**One particle:** The particle must be **somewhere**, so:
+
+$$
+\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1
+$$
+
+Add up probabilities over all possible positions → get 100%.
+
+**Two particles:** The **system** must exist in **some configuration**, so:
 
 $$
 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} |\psi(x_1, x_2)|^2 dx_1 dx_2 = 1
 $$
 
-We integrate over **all possible positions** for **both particles**.
+**What does this mean?**
+
+You're adding up probabilities for **every possible configuration**:
+• Particle 1 at $x_1 = 0$, particle 2 at $x_2 = 0$
+• Particle 1 at $x_1 = 0$, particle 2 at $x_2 = 1$
+• Particle 1 at $x_1 = 1$, particle 2 at $x_2 = 0$
+• ... and so on for **all** combinations
+
+**Back to the dice analogy:**
+
+For two dice, the probability of **some outcome** (red=?, blue=?) is 100%:
+
+$$
+\sum_{\text{red}=1}^{6} \sum_{\text{blue}=1}^{6} P(\text{red AND blue}) = 1
+$$
+
+You sum over all 36 possible pairs: (1,1), (1,2), ..., (6,6).
+
+**For quantum particles:**
+
+You integrate over **all** position pairs $(x_1, x_2)$. The particles must be **somewhere** — maybe particle 1 is on the left and particle 2 on the right, or both in the middle, or any other configuration. Add up all possibilities → 100%!
+
+**Key point:** It's not "particle 1 must be somewhere" AND separately "particle 2 must be somewhere." It's "the **two-particle system** must be in **some configuration**" — and a configuration specifies where **both** particles are.
 
 ---
 
