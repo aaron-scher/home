@@ -611,28 +611,40 @@ The ket notation $|\uparrow\rangle$ and $|\downarrow\rangle$ is just a compact w
 
 ### Two Electrons: Position AND Spin
 
-For two electrons in 1D, the complete state is:
+For two electrons in 1D, you have **four** possible spin combinations. The complete state is actually:
 
 $$
-\Psi(x_1, x_2) = \psi(x_1, x_2)|s_1, s_2\rangle
+\Psi(x_1, x_2) = \psi_{\uparrow\uparrow}(x_1, x_2)|\uparrow\uparrow\rangle + \psi_{\uparrow\downarrow}(x_1, x_2)|\uparrow\downarrow\rangle + \psi_{\downarrow\uparrow}(x_1, x_2)|\downarrow\uparrow\rangle + \psi_{\downarrow\downarrow}(x_1, x_2)|\downarrow\downarrow\rangle
 $$
 
-where $s_1, s_2 \in \{\uparrow, \downarrow\}$ are the spin states of particles 1 and 2.
+**So yes, it's a column vector with FOUR elements, each multiplied by a spatial wavefunction!**
 
-**Example:** $\psi(x_1, x_2)|\uparrow\downarrow\rangle$ means:
-- Spatial wavefunction is ψ(x₁, x₂)
-- Electron 1 has spin up
-- Electron 2 has spin down
+At each pair of positions $(x_1, x_2)$, the state is:
 
-**Four possible spin combinations:**
+$$
+\Psi(x_1, x_2) = \begin{pmatrix}
+\psi_{\uparrow\uparrow}(x_1, x_2) \\
+\psi_{\uparrow\downarrow}(x_1, x_2) \\
+\psi_{\downarrow\uparrow}(x_1, x_2) \\
+\psi_{\downarrow\downarrow}(x_1, x_2)
+\end{pmatrix}
+$$
 
-• $|\uparrow\uparrow\rangle$ (both spin up)
+**What these mean:**
 
-• $|\uparrow\downarrow\rangle$ (electron 1 up, electron 2 down)
+- $\psi_{\uparrow\uparrow}(x_1, x_2)$ = amplitude for electron 1 at $x_1$ with spin up AND electron 2 at $x_2$ with spin up
+- $\psi_{\uparrow\downarrow}(x_1, x_2)$ = amplitude for electron 1 at $x_1$ with spin up AND electron 2 at $x_2$ with spin down
+- And so on...
 
-• $|\downarrow\uparrow\rangle$ (electron 1 down, electron 2 up)
+**Compact notation:** We often write this as $\psi(x_1, x_2)|s_1, s_2\rangle$ where $s_1, s_2 \in \{\uparrow, \downarrow\}$, but that's hiding the fact that there are really **four different spatial wavefunctions**, one for each spin combination!
 
-• $|\downarrow\downarrow\rangle$ (both spin down)
+**Important simplification:** Often the spin and spatial parts are **separable**, meaning we can write:
+
+$$
+\Psi(x_1, x_2) = \psi_{\text{spatial}}(x_1, x_2) \times |\text{spin state}\rangle
+$$
+
+For example: $\psi(x_1, x_2)|\uparrow\downarrow\rangle$ means the **same** spatial wavefunction ψ(x₁, x₂) applies, with electron 1 having spin up and electron 2 having spin down. This is much simpler and is what we'll use for most of the document!
 
 We'll return to spin in much more detail when we discuss Bell's theorem!
 
