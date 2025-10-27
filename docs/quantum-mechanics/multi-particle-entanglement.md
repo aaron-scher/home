@@ -497,156 +497,7 @@ This is entanglement. Einstein called it "spooky action at a distance."
 
 ---
 
-## Spin: A Brief Introduction
-
-Before we go further, we need to introduce **spin** (an intrinsic property of particles like electrons).
-
-### What Is Spin?
-
-Spin is **angular momentum** that particles have even when sitting still. It's not actually spinning (electrons aren't little balls), but it acts like angular momentum in many ways.
-
-**For electrons:** Spin-1/2, meaning it comes in two states:
-
-- Spin up: $|\uparrow\rangle$ or $|+\rangle$
-- Spin down: $|\downarrow\rangle$ or $|-\rangle$
-
-These are the only two options. Measure electron spin along any axis (say, the z-axis) and you get one of these two results.
-
-**Important:** "Up" and "down" are **relative to your measurement direction**, not absolute directions in space! There's no universal "up" in the universe (is the center of the Milky Way "down"?). When we say "spin up along the z-axis," we mean the spin is **aligned with** the direction you chose to call +z (your detector's orientation). "Spin down" means **opposite to** that direction. You're free to choose any axis you want—the labels just tell you whether the spin points parallel or antiparallel to your chosen measurement direction.
-
-### Spin States as Vectors
-
-We can represent spin states as column vectors in a 2D Hilbert space:
-
-$$
-|\uparrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |\downarrow\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-$$
-
-A general spin state is a superposition:
-
-$$
-|\psi\rangle = \alpha|\uparrow\rangle + \beta|\downarrow\rangle = \begin{pmatrix} \alpha \\ \beta \end{pmatrix}
-$$
-
-where $|\alpha|^2 + |\beta|^2 = 1$.
-
-**Measurement:** If you measure spin along the z-axis, you get:
-
-- $|\uparrow\rangle$ with probability $|\alpha|^2$
-- $|\downarrow\rangle$ with probability $|\beta|^2$
-
-### Complete State: Spatial + Spin
-
-An electron has **two properties**: where it is (position) and which way it's spinning (spin). The complete quantum state must specify both!
-
-**You still have ONE quantum state**, but now it has **two components** (because spin can be ↑ or ↓).
-
-**Analogy:** A 2D velocity vector $\vec{v} = (v_x, v_y)$ is ONE vector, but it has two components (x-component and y-component). Similarly, the electron's quantum state is ONE state, but it has two spin components.
-
-**The complete state** is written:
-
-$$
-\Psi(x) = \psi_{\uparrow}(x)|\uparrow\rangle + \psi_{\downarrow}(x)|\downarrow\rangle
-$$
-
-**Wait, what's going on here? Are the kets column vectors? Are they being multiplied?**
-
-Yes! Let me unpack this confusing notation. The kets ARE still column vectors:
-
-$$
-|\uparrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |\downarrow\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-$$
-
-And $\psi_\uparrow(x)$ and $\psi_\downarrow(x)$ are just **scalar functions** (regular numbers that depend on $x$).
-
-**So at each position $x$, you multiply scalars times vectors:**
-
-$$
-\Psi(x) = \psi_{\uparrow}(x) \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \psi_{\downarrow}(x) \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \psi_{\uparrow}(x) \\ \psi_{\downarrow}(x) \end{pmatrix}
-$$
-
-**Key insight:** At each position $x$, the wavefunction Ψ(x) is a **2-component column vector**! The top component is ψ↑(x) and the bottom component is ψ↓(x).
-
-**What are these components?**
-
-- $\psi_\uparrow(x)$ = amplitude for electron to be at position $x$ **with spin up**
-- $\psi_\downarrow(x)$ = amplitude for electron to be at position $x$ **with spin down**
-
-This is the **ONE** complete wavefunction—it just has two components (a 2D spinor) at each position $x$!
-
-**What this means:**
-
-- If you measure spin and get ↑, the electron's position is described by $\psi_\uparrow(x)$
-- If you measure spin and get ↓, the electron's position is described by $\psi_\downarrow(x)$
-- Before measurement, the electron is in a superposition of both spin states
-
-**Important: Renormalization after measurement!**
-
-Before measurement, the full state is normalized:
-
-$$
-\int \left[|\psi_\uparrow(x)|^2 + |\psi_\downarrow(x)|^2\right] dx = 1
-$$
-
-But $\int |\psi_\uparrow(x)|^2 dx$ alone equals the **probability** of measuring spin up (call it $P_\uparrow$), which might be less than 1!
-
-**After you measure spin up**, the state collapses to just the spin-up component, but you need to **renormalize** it:
-
-$$
-\psi_\uparrow(x) \to \frac{\psi_\uparrow(x)}{\sqrt{P_\uparrow}}
-$$
-
-Now $\int \left|\frac{\psi_\uparrow(x)}{\sqrt{P_\uparrow}}\right|^2 dx = \frac{P_\uparrow}{P_\uparrow} = 1$ ✓
-
-This ensures the collapsed state is still properly normalized (total probability = 1).
-
-**Probability interpretation:**
-
-- $|\psi_\uparrow(x)|^2 dx$ = probability of finding electron at position $x$ **with spin up**
-- $|\psi_\downarrow(x)|^2 dx$ = probability of finding electron at position $x$ **with spin down**
-
-The ket notation $|\uparrow\rangle$ and $|\downarrow\rangle$ is just a compact way to label which spin component you're talking about.
-
-**Key point:** Spin adds an extra "dimension" to the wavefunction. Before spin: ψ(x) was one number at each position. With spin: Ψ(x) has two numbers at each position (one for spin-up, one for spin-down). It's still ONE quantum state—just with more structure!
-
-### Two Electrons: Position AND Spin
-
-For two electrons in 1D, you have **four** possible spin combinations. The complete state is actually:
-
-$$
-\Psi(x_1, x_2) = \psi_{\uparrow\uparrow}(x_1, x_2)|\uparrow\uparrow\rangle + \psi_{\uparrow\downarrow}(x_1, x_2)|\uparrow\downarrow\rangle + \psi_{\downarrow\uparrow}(x_1, x_2)|\downarrow\uparrow\rangle + \psi_{\downarrow\downarrow}(x_1, x_2)|\downarrow\downarrow\rangle
-$$
-
-**So yes, it's a column vector with FOUR elements, each multiplied by a spatial wavefunction!**
-
-At each pair of positions $(x_1, x_2)$, the state is:
-
-$$
-\Psi(x_1, x_2) = \begin{pmatrix}
-\psi_{\uparrow\uparrow}(x_1, x_2) \\
-\psi_{\uparrow\downarrow}(x_1, x_2) \\
-\psi_{\downarrow\uparrow}(x_1, x_2) \\
-\psi_{\downarrow\downarrow}(x_1, x_2)
-\end{pmatrix}
-$$
-
-**What these mean:**
-
-- $\psi_{\uparrow\uparrow}(x_1, x_2)$ = amplitude for electron 1 at $x_1$ with spin up AND electron 2 at $x_2$ with spin up
-- $\psi_{\uparrow\downarrow}(x_1, x_2)$ = amplitude for electron 1 at $x_1$ with spin up AND electron 2 at $x_2$ with spin down
-- And so on...
-
-**Compact notation:** We often write this as $\psi(x_1, x_2)|s_1, s_2\rangle$ where $s_1, s_2 \in \{\uparrow, \downarrow\}$, but that's hiding the fact that there are really **four different spatial wavefunctions**, one for each spin combination!
-
-**Important simplification:** Often the spin and spatial parts are **separable**, meaning we can write:
-
-$$
-\Psi(x_1, x_2) = \psi_{\text{spatial}}(x_1, x_2) \times |\text{spin state}\rangle
-$$
-
-For example: $\psi(x_1, x_2)|\uparrow\downarrow\rangle$ means the **same** spatial wavefunction ψ(x₁, x₂) applies, with electron 1 having spin up and electron 2 having spin down. This is much simpler and is what we'll use for most of the document!
-
-We'll return to spin in much more detail when we discuss Bell's theorem!
+**Note:** We'll introduce spin (an important quantum property) later when we need it for understanding Bell's theorem and EPR paradox. For now, let's continue with spatial wavefunctions only!
 
 ---
 
@@ -990,6 +841,162 @@ $$
 The interaction pushes them even further apart.
 
 **Key insight:** Finding one electron at a particular location **changes** the probability distribution for the other (they're entangled!).
+
+---
+
+## Spin: A Brief Introduction
+
+Before we go further, we need to introduce **spin** (an intrinsic property of particles like electrons).
+
+### What Is Spin?
+
+Spin is **angular momentum** that particles have even when sitting still. It's not actually spinning (electrons aren't little balls), but it acts like angular momentum in many ways.
+
+**For electrons:** Spin-1/2, meaning it comes in two states:
+
+- Spin up: $|\uparrow\rangle$ or $|+\rangle$
+- Spin down: $|\downarrow\rangle$ or $|-\rangle$
+
+These are the only two options. Measure electron spin along any axis (say, the z-axis) and you get one of these two results.
+
+**Important:** "Up" and "down" are **relative to your measurement direction**, not absolute directions in space! There's no universal "up" in the universe (is the center of the Milky Way "down"?). When we say "spin up along the z-axis," we mean the spin is **aligned with** the direction you chose to call +z (your detector's orientation). "Spin down" means **opposite to** that direction. You're free to choose any axis you want—the labels just tell you whether the spin points parallel or antiparallel to your chosen measurement direction.
+
+### Spin States as Vectors
+
+We can represent spin states as column vectors in a 2D Hilbert space:
+
+$$
+|\uparrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |\downarrow\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$
+
+A general spin state is a superposition:
+
+$$
+|\psi\rangle = \alpha|\uparrow\rangle + \beta|\downarrow\rangle = \begin{pmatrix} \alpha \\ \beta \end{pmatrix}
+$$
+
+where $|\alpha|^2 + |\beta|^2 = 1$.
+
+**Measurement:** If you measure spin along the z-axis, you get:
+
+- $|\uparrow\rangle$ with probability $|\alpha|^2$
+- $|\downarrow\rangle$ with probability $|\beta|^2$
+
+### Complete State: Spatial + Spin
+
+An electron has **two properties**: where it is (position) and which way it's spinning (spin). The complete quantum state must specify both!
+
+**You still have ONE quantum state**, but now it has **two components** (because spin can be ↑ or ↓).
+
+**Analogy:** A 2D velocity vector $\vec{v} = (v_x, v_y)$ is ONE vector, but it has two components (x-component and y-component). Similarly, the electron's quantum state is ONE state, but it has two spin components.
+
+**The complete state** is written:
+
+$$
+\Psi(x) = \psi_{\uparrow}(x)|\uparrow\rangle + \psi_{\downarrow}(x)|\downarrow\rangle
+$$
+
+**Wait, what's going on here? Are the kets column vectors? Are they being multiplied?**
+
+Yes! Let me unpack this confusing notation. The kets ARE still column vectors:
+
+$$
+|\uparrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |\downarrow\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$
+
+And $\psi_\uparrow(x)$ and $\psi_\downarrow(x)$ are just **scalar functions** (regular numbers that depend on $x$).
+
+**So at each position $x$, you multiply scalars times vectors:**
+
+$$
+\Psi(x) = \psi_{\uparrow}(x) \begin{pmatrix} 1 \\ 0 \end{pmatrix} + \psi_{\downarrow}(x) \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \psi_{\uparrow}(x) \\ \psi_{\downarrow}(x) \end{pmatrix}
+$$
+
+**Key insight:** At each position $x$, the wavefunction Ψ(x) is a **2-component column vector**! The top component is ψ↑(x) and the bottom component is ψ↓(x).
+
+**What are these components?**
+
+- $\psi_\uparrow(x)$ = amplitude for electron to be at position $x$ **with spin up**
+- $\psi_\downarrow(x)$ = amplitude for electron to be at position $x$ **with spin down**
+
+This is the **ONE** complete wavefunction—it just has two components (a 2D spinor) at each position $x$!
+
+**What this means:**
+
+- If you measure spin and get ↑, the electron's position is described by $\psi_\uparrow(x)$
+- If you measure spin and get ↓, the electron's position is described by $\psi_\downarrow(x)$
+- Before measurement, the electron is in a superposition of both spin states
+
+**Important: Renormalization after measurement!**
+
+Before measurement, the full state is normalized:
+
+$$
+\int \left[|\psi_\uparrow(x)|^2 + |\psi_\downarrow(x)|^2\right] dx = 1
+$$
+
+But $\int |\psi_\uparrow(x)|^2 dx$ alone equals the **probability** of measuring spin up (call it $P_\uparrow$), which might be less than 1!
+
+**After you measure spin up**, the state collapses to just the spin-up component, but you need to **renormalize** it:
+
+$$
+\psi_\uparrow(x) \to \frac{\psi_\uparrow(x)}{\sqrt{P_\uparrow}}
+$$
+
+Now $\int \left|\frac{\psi_\uparrow(x)}{\sqrt{P_\uparrow}}\right|^2 dx = \frac{P_\uparrow}{P_\uparrow} = 1$ ✓
+
+This ensures the collapsed state is still properly normalized (total probability = 1).
+
+**Probability interpretation:**
+
+- $|\psi_\uparrow(x)|^2 dx$ = probability of finding electron at position $x$ **with spin up**
+- $|\psi_\downarrow(x)|^2 dx$ = probability of finding electron at position $x$ **with spin down**
+
+The ket notation $|\uparrow\rangle$ and $|\downarrow\rangle$ is just a compact way to label which spin component you're talking about.
+
+**Key point:** Spin adds an extra "dimension" to the wavefunction. Before spin: ψ(x) was one number at each position. With spin: Ψ(x) has two numbers at each position (one for spin-up, one for spin-down). It's still ONE quantum state—just with more structure!
+
+### Two Electrons: Position AND Spin
+
+For two electrons in 1D, you have **four** possible spin combinations. The complete state is actually:
+
+$$
+\Psi(x_1, x_2) = \psi_{\uparrow\uparrow}(x_1, x_2)|\uparrow\uparrow\rangle + \psi_{\uparrow\downarrow}(x_1, x_2)|\uparrow\downarrow\rangle + \psi_{\downarrow\uparrow}(x_1, x_2)|\downarrow\uparrow\rangle + \psi_{\downarrow\downarrow}(x_1, x_2)|\downarrow\downarrow\rangle
+$$
+
+**So yes, it's a column vector with FOUR elements, each multiplied by a spatial wavefunction!**
+
+At each pair of positions $(x_1, x_2)$, the state is:
+
+$$
+\Psi(x_1, x_2) = \begin{pmatrix}
+\psi_{\uparrow\uparrow}(x_1, x_2) \\
+\psi_{\uparrow\downarrow}(x_1, x_2) \\
+\psi_{\downarrow\uparrow}(x_1, x_2) \\
+\psi_{\downarrow\downarrow}(x_1, x_2)
+\end{pmatrix}
+$$
+
+**What these mean:**
+
+- $\psi_{\uparrow\uparrow}(x_1, x_2)$ = amplitude for electron 1 at $x_1$ with spin up AND electron 2 at $x_2$ with spin up
+- $\psi_{\uparrow\downarrow}(x_1, x_2)$ = amplitude for electron 1 at $x_1$ with spin up AND electron 2 at $x_2$ with spin down
+- And so on...
+
+**Compact notation:** We often write this as $\psi(x_1, x_2)|s_1, s_2\rangle$ where $s_1, s_2 \in \{\uparrow, \downarrow\}$, but that's hiding the fact that there are really **four different spatial wavefunctions**, one for each spin combination!
+
+**Important simplification:** Often the spin and spatial parts are **separable**, meaning we can write:
+
+$$
+\Psi(x_1, x_2) = \psi_{\text{spatial}}(x_1, x_2) \times |\text{spin state}\rangle
+$$
+
+For example: $\psi(x_1, x_2)|\uparrow\downarrow\rangle$ means the **same** spatial wavefunction ψ(x₁, x₂) applies, with electron 1 having spin up and electron 2 having spin down. This is much simpler and is what we'll use for most of the document!
+
+We'll return to spin in much more detail when we discuss Bell's theorem!
+
+---
+
 
 ---
 
