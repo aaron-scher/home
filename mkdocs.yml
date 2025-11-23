@@ -55,9 +55,10 @@ nav:
     - Foundations: quantum-mechanics/quantum-foundations.md
     - Basis Representation: quantum-mechanics/quantum-basis-representation.md
     - Operators and Measurement: quantum-mechanics/quantum-operators.md
-    - Multi-Particle Systems: quantum-mechanics/quantum-multi-particle.md
-    - Pauli Exclusion Principle: quantum-mechanics/quantum-pauli-exclusion.md
-    - Spin, Entanglement, and Bell's Theorem: quantum-mechanics/quantum-spin-entanglement.md
+    - Entanglement Isn't Just for Spin: quantum-mechanics/quantum-spatial-entanglement.md
+    # - Multi-Particle Systems: quantum-mechanics/quantum-multi-particle.md
+    # - Pauli Exclusion Principle: quantum-mechanics/quantum-pauli-exclusion.md
+    # - Spin, Entanglement, and Bell's Theorem: quantum-mechanics/quantum-spin-entanglement.md
 
 extra:
   generator: false
