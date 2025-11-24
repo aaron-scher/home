@@ -1,5 +1,8 @@
 # Spin, Entanglement, and Bell's Theorem
 
+!!! warning "OUTDATED CONTENT"
+    This page contains draft/outdated material and is not currently maintained.
+
 **Prerequisites:** This builds on [Multi-Particle Quantum Mechanics](quantum-multi-particle.md) and [The Pauli Exclusion Principle](quantum-pauli-exclusion.md). Make sure you understand entangled states and identical particles before continuing!
 
 ---

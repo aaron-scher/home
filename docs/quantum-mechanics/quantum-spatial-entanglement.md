@@ -270,6 +270,18 @@ The heavy ion acts like a **continuous measurement** - not a sharp collapse, but
 
 ---
 
+## Connection to Spin Systems
+
+The same mathematics applies to two spin-1/2 particles. Instead of plotting ψ(x₁, x₂), you plot the four spin state amplitudes in a 2×2 grid, where the axes represent the spin z-components (↑ or ↓) of each particle.
+
+![Spin density plots showing entanglement](../images/spin_particle_density_plot_entanglement.png)
+
+*Figure 7 (from [1]): 2×2 density plots for singlet and triplet states of two spin-1/2 particles. The horizontal axis shows particle 1's spin (−ℏ/2 or +ℏ/2), the vertical axis shows particle 2's spin. Bright colors show larger amplitudes, black shows zero. The singlet state (top) is entangled - measuring one spin immediately determines the other. The triplet states show different correlation patterns.*
+
+The visual pattern is identical to the spatial case: entangled states show correlations (anti-diagonal pattern for singlet), while separable states have simpler structures. This correspondence helps students recognize entanglement across different quantum systems.
+
+---
+
 ## References
 
 [1] D. V. Schroeder, "Entanglement isn't just for spin," *Am. J. Phys.*, vol. 85, no. 11, pp. 812–820, Nov. 2017, doi: 10.1119/1.5003808. Available: https://arxiv.org/abs/1703.10620

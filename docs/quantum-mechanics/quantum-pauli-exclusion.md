@@ -1,5 +1,8 @@
 # The Pauli Exclusion Principle
 
+!!! warning "OUTDATED CONTENT"
+    This page contains draft/outdated material and is not currently maintained.
+
 **Prerequisites:** This builds on [Multi-Particle Quantum Mechanics](quantum-multi-particle.md). Make sure you understand identical particles, fermions vs bosons, and antisymmetric wavefunctions before continuing!
 
 ---

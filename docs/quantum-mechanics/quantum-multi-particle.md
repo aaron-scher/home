@@ -1,5 +1,8 @@
 # Multi-Particle Quantum Mechanics
 
+!!! warning "OUTDATED CONTENT"
+    This page contains draft/outdated material and is not currently maintained.
+
 **Prerequisites:** This builds on [Quantum Foundations](quantum-foundations.md), [Basis Representation](quantum-basis-representation.md), and [Operators](quantum-operators.md). Make sure you're comfortable with single-particle wavefunctions, superposition, and measurement before diving in!
 
 ---
