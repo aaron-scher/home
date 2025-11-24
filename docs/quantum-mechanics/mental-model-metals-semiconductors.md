@@ -1,5 +1,51 @@
 # Mental Model of Metals and Semiconductors
 
+## The Big Picture: Three Types of Electrons in a Metal
+
+**Starting assumptions:** Perfect crystal lattice at T = 0 K, ignoring electron-electron interactions.
+
+At this idealized starting point, electrons are **delocalized Bloch waves** filling energy levels according to Fermi statistics. Each electron has a k-vector and is equally likely to be found anywhere in the crystal.
+
+**But the fun starts when we relax these assumptions!** Add temperature → lattice vibrations (phonons). Add defects → imperfections break periodicity. Add external E fields → electrons accelerate. These perturbations cause scattering, decoherence, and localization - transforming perfect Bloch waves into wave packets that move, scatter, and conduct. This is where real metal behavior emerges.
+
+### Three Tiers of Electrons
+
+**1. Core electrons (1s, 2s, etc.)** - Stuck to their ions
+- Tightly bound near the nucleus with very little coupling between neighboring ions
+- Their energy bands are extremely narrow (little orbital overlap)
+- With any imperfection or temperature, these narrow bands can't sustain coherent Bloch waves across the crystal
+- They localize into standard atomic orbitals around individual ions
+- **Don't participate in conduction or bonding**
+
+**2. Deep valence electrons** - The glue
+- Their orbitals overlap significantly between ions (wider energy bands)
+- Form delocalized Bloch waves well below the Fermi level
+- Few adjacent empty states → rarely scatter → stay Bloch-like
+- **Provide the bonding "glue" holding the crystal together, but don't conduct**
+
+**3. Conduction electrons (near Fermi level)** - The main players
+- Have many adjacent empty energy states
+- At T > 0: Fermi distribution spreads → some electrons thermally excited to higher energies
+- These Bloch waves scatter/interact with lattice vibrations (phonons), defects, and other electrons
+- Scattering causes **decoherence**: superposition of multiple Bloch waves with incoherent phases
+- Decoherence → **localization into wave packets** (not single-k Bloch waves)
+- Wave packets move through crystal, scatter, change direction/shape, gradually spread out (become more Bloch-like) until next scattering event
+- **Responsible for electrical and thermal conduction** - they can shift to higher energy states and absorb energy
+
+**What determines conductivity?** The **time between collisions** (scattering time τ).
+
+- In an external E field, electrons accelerate and drift in the field direction
+- **Scattering → decoherence → localized wave packets:** Immediately after a collision, electrons are localized (superposition of Bloch states with random phases)
+- **Between collisions → spreading → Bloch-like:** As the wave packet propagates freely, it gradually spreads out and becomes more extended/delocalized, approaching Bloch character again
+- **Next collision → re-localizes:** Another scattering event resets the cycle, localizing the electron again and randomizing its direction
+- Shorter τ (frequent scattering) → electrons stay localized, randomize direction often → **lower conductivity**
+- Longer τ (rare scattering) → electrons spend more time in extended Bloch-like state, maintain drift longer → **higher conductivity**
+- **Without scattering (τ → ∞), conductivity would be infinite** - electrons would remain as perfect extended Bloch waves and accelerate indefinitely
+
+**Key insight:** The electrons that conduct are those near the Fermi level with accessible empty states. Lower energy electrons stay Bloch-like but don't move. Core electrons are atomically localized and irrelevant for transport.
+
+---
+
 ## Energy Bands: From Isolated Atoms to Solids
 
 When atoms are brought together to form a solid, their discrete electron energy levels transform into continuous energy bands.
