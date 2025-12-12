@@ -73,6 +73,29 @@ $$
 
 ---
 
+### Where Bands Come From Physically
+
+While Bloch's theorem tells us bands must exist given perfect symmetry, it doesn't explain their **origin or width**.
+
+Physically, bands arise from **atomic orbitals splitting** when isolated atoms come together to form a crystal:
+
+• **Isolated atom:** Each electron occupies a discrete atomic orbital (e.g., 1s, 2s, 2p)
+• **Bring atoms close:** Orbitals on neighboring atoms overlap
+• **Crystal forms:** Each atomic level splits into $N$ slightly different energies (where $N$ is the number of atoms), forming a band
+
+**Key physical insight:**
+
+• **Strong orbital overlap** → wide bands → highly delocalized states (e.g., conduction electrons)
+• **Weak orbital overlap** → narrow bands → more atom-like behavior (e.g., core electrons, d-electrons in transition metals)
+
+This explains why:
+
+• Deep core electrons barely feel the crystal — their wavefunctions overlap weakly
+• Valence electrons form wide bands — their wavefunctions extend between atoms
+• Phonons disrupt some states more than others — delocalized states couple more strongly to lattice motion
+
+---
+
 ### Filling the Bands: Electrons in Equilibrium
 
 At zero temperature:
@@ -357,6 +380,15 @@ That's the essential physics. No more formalism needed for intuition.
 
 ### Conservation Laws in Crystals
 
+!!! note "Three Different Momenta — Don't Confuse Them"
+    In solid state physics, three different momenta appear:
+
+    • **Mechanical momentum** $\mathbf{p} = m\mathbf{v}$ — the "mv" from classical mechanics
+    • **Crystal momentum** $\hbar\mathbf{k}$ — a quantum number labeling Bloch states (not always equal to mechanical momentum!)
+    • **Phonon momentum** $\hbar\mathbf{q}$ — labels the lattice wave that carries momentum
+
+    Only **crystal momentum** is conserved (mod $\mathbf{G}$) in electron-phonon processes. This allows phenomena like **Umklapp scattering** where mechanical momentum appears to violate conservation — but crystal momentum accounting (with reciprocal lattice vectors) remains exact.
+
 In a crystal, electron-phonon coupling enforces:
 
 $$
@@ -375,7 +407,53 @@ This looks like scattering, but fundamentally:
 
 ---
 
+### Static vs Dynamic Symmetry Breaking
+
+Not all symmetry breaking is the same. Understanding the difference explains why temperature matters:
+
+**Impurities break symmetry once:**
+
+- A substitutional atom or vacancy creates a *static* perturbation
+- The potential is different at that site, but it doesn't change in time
+- Electrons scatter off impurities, but the scattering rate doesn't depend on temperature (in this simple picture)
+- The perturbation is "always there" — a permanent bump in the road
+
+**Phonons break symmetry continuously:**
+
+- Lattice vibrations create a *dynamic* perturbation that evolves in time
+- The potential landscape is constantly shifting
+- More phonons (higher $T$) means more frequent and larger perturbations
+- The electron's environment never settles down
+
+This distinction matters for transport:
+
+- **Impurity scattering** dominates at low temperatures (residual resistivity)
+- **Phonon scattering** dominates at high temperatures (resistivity $\propto T$)
+
+---
+
+### Why Electron-Phonon Scattering Increases with Temperature
+
+As temperature rises, more phonon modes are populated and their amplitudes increase. This makes the lattice potential increasingly time-dependent and spatially distorted. Electrons are therefore driven into superpositions of nearby Bloch states more frequently, shortening quasiparticle lifetimes and increasing momentum relaxation.
+
+In wavefunction language, scattering increases because the electron's state is being reshaped more often, not because particles collide more violently.
+
+---
+
 ## Part 6: From Bloch Waves to Wave Packets
+
+### The Central Conclusion
+
+Once translational symmetry is broken (by phonons, defects, or surfaces), electrons are no longer pure Bloch waves — they become **finite wave packets**, superpositions of nearby Bloch components.
+
+**Critical distinction:**
+
+• **Bloch waves do not move** — they are stationary eigenstates with probability density frozen in time
+• **Wave packets DO move** — motion comes from **group velocity** $\mathbf{v}_g = \nabla_{\mathbf{k}} E(\mathbf{k}) / \hbar$, not from any single $\mathbf{k}$ value
+
+This is the bridge to transport, effective mass, and classical motion.
+
+---
 
 ### What "Scattering" Really Is
 
