@@ -175,6 +175,27 @@ The $\frac{1}{2}\hbar\omega$ zero-point energy is unavoidable — even at $T=0$,
 
 ---
 
+### Two Flavors of Phonons
+
+Not all phonons are alike. The two main types behave very differently:
+
+**Acoustic phonons:**
+
+- Neighboring atoms move *in phase* — like a sound wave
+- Long wavelengths behave like ordinary sound: $E \approx \hbar v_s q$ (linear dispersion)
+- These dominate ordinary scattering and set mobility limits at moderate temperatures
+
+**Optical phonons:**
+
+- Neighboring atoms move *out of phase* — one sublattice against another
+- Have a minimum energy even at $q = 0$ (typically tens of meV)
+- Near-zero group velocity at small $q$ — they don't propagate like sound
+- Important for high-field transport: when electrons get energetic, emitting an optical phonon is an efficient "energy dump"
+
+Both types scatter electrons, but through different mechanisms and at different energy scales.
+
+---
+
 ## Part 4: The Key Toy Model — Particle in a Box with Moving Walls
 
 This model captures the *essential physics* of how lattice motion affects electrons. It's the cleanest bridge between basic Schrödinger physics and electron-phonon intuition.
@@ -369,6 +390,12 @@ This says:
   - Wavelength $\lambda = 2\pi/q$ (momentum content)
   - Frequency $\omega$ (energy content)
 
+**The key physical picture:**
+
+> A phonon is a **moving grating** for electrons — like a traveling Bragg reflector or a moving diffraction grating. It transfers energy and crystal momentum to the electron wave.
+
+This connects directly to the "moving walls" toy model, but adds the missing ingredient: the drive is not global — it's a **traveling deformation field**.
+
 **The electron responds by picking up:**
 
 - Momentum $\pm \hbar q$
@@ -400,6 +427,8 @@ E_{n'}(\mathbf{k}') = E_n(\mathbf{k}) \pm \hbar\omega_{\mathbf{q}}
 $$
 
 where $\mathbf{G}$ is a reciprocal lattice vector (the "mod $\mathbf{G}$" allows Umklapp processes).
+
+**Why phonons matter for momentum:** In many crystal processes, phonons are the main way to satisfy crystal-momentum constraints. Photons supply plenty of energy but almost no momentum; phonons are the lattice's "momentum channel."
 
 This looks like scattering, but fundamentally:
 
@@ -445,6 +474,8 @@ In wavefunction language, scattering increases because the electron's state is b
 ### The Central Conclusion
 
 Once translational symmetry is broken (by phonons, defects, or surfaces), electrons are no longer pure Bloch waves — they become **finite wave packets**, superpositions of nearby Bloch components.
+
+**Important nuance:** Phonons don't *force* every electron into a localized packet. What they do is give Bloch-like excitations a **finite lifetime** — a finite linewidth in both energy and $\mathbf{k}$. Wave packets are the useful representation when you want something localized and moving.
 
 **Critical distinction:**
 
