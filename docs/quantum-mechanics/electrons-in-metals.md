@@ -188,6 +188,8 @@ ACOUSTIC: neighbors move together         OPTICAL: neighbors move opposite
   ●  ○  ●  ○  ●  ○   displaced             ●  ○  ●  ○  ●  ○   displaced
      \____/                                   \/    \/
    move together                           push apart
+
+(● and ○ = two atom types; optical modes require 2+ atoms per unit cell)
 ```
 
 **Acoustic phonons:**
