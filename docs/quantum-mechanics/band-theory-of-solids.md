@@ -1,4 +1,4 @@
-# Mental Model of Metals and Semiconductors
+# Band Theory of Solids
 
 ## The Big Picture: Three Types of Electrons in a Metal
 

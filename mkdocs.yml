@@ -6,7 +6,16 @@ repo_name: aaron-scher/home
 theme:
   name: material
   palette:
-    primary: blue grey
+    - scheme: default
+      primary: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.instant
     - navigation.expand
@@ -50,18 +59,14 @@ plugins:
   - macros
 nav:
   - Home: index.md
-  - Quantum Mechanics:
-    - Overview: quantum-mechanics/index.md
-    - Foundations: quantum-mechanics/quantum-foundations.md
-    - Basis Representation: quantum-mechanics/quantum-basis-representation.md
-    - Operators and Measurement: quantum-mechanics/quantum-operators.md
-    - Entanglement Isn't Just for Spin: quantum-mechanics/quantum-spatial-entanglement.md
-    - Mental Model of Metals and Semiconductors: quantum-mechanics/mental-model-metals-semiconductors.md
-    - Velocity in Quantum Mechanics: quantum-mechanics/quantum-velocity.md
-    - Why Massive Particles Stay Localized: quantum-mechanics/quantum-mass-localization.md
-    # - Multi-Particle Systems: quantum-mechanics/quantum-multi-particle.md
-    # - Pauli Exclusion Principle: quantum-mechanics/quantum-pauli-exclusion.md
-    # - Spin, Entanglement, and Bell's Theorem: quantum-mechanics/quantum-spin-entanglement.md
+  - Foundations of Quantum Mechanics: quantum-mechanics/quantum-foundations.md
+  - Quantum Basis Representation: quantum-mechanics/quantum-basis-representation.md
+  - Quantum Operators and Measurement: quantum-mechanics/quantum-operators.md
+  - Entanglement Isn't Just for Spin: quantum-mechanics/quantum-spatial-entanglement.md
+  - Band Theory of Solids: quantum-mechanics/band-theory-of-solids.md
+  - "Electrons in Metals: From Bloch Waves to Wave Packets": quantum-mechanics/electrons-in-metals.md
+  - Velocity in Quantum Mechanics: quantum-mechanics/quantum-velocity.md
+  - Why Massive Particles Stay Localized: quantum-mechanics/quantum-mass-localization.md
 
 extra:
   generator: false
