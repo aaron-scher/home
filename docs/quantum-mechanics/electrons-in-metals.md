@@ -179,18 +179,30 @@ The $\frac{1}{2}\hbar\omega$ zero-point energy is unavoidable — even at $T=0$,
 
 Not all phonons are alike. The two main types behave very differently:
 
+```
+ACOUSTIC: neighbors move together         OPTICAL: neighbors move opposite
+
+  ●  ○  ●  ○  ●  ○   equilibrium           ●  ○  ●  ○  ●  ○   equilibrium
+
+  → → → → → →                              → ← → ← → ←
+  ●  ○  ●  ○  ●  ○   displaced             ●  ○  ●  ○  ●  ○   displaced
+     \____/                                   \/    \/
+   move together                           push apart
+```
+
 **Acoustic phonons:**
 
-- Neighboring atoms move *in phase* — like a sound wave
-- Long wavelengths behave like ordinary sound: $E \approx \hbar v_s q$ (linear dispersion)
-- These dominate ordinary scattering and set mobility limits at moderate temperatures
+- Neighboring atoms move *in phase* — the whole lattice compresses and stretches
+- Called "acoustic" because long wavelengths behave like sound waves
+- Linear dispersion at small $q$: $E \approx \hbar v_s q$
+- Dominate ordinary scattering at moderate temperatures
 
 **Optical phonons:**
 
 - Neighboring atoms move *out of phase* — one sublattice against another
+- Called "optical" because in ionic crystals, opposite motion of +/− ions creates an oscillating dipole that couples to infrared light
 - Have a minimum energy even at $q = 0$ (typically tens of meV)
-- Near-zero group velocity at small $q$ — they don't propagate like sound
-- Important for high-field transport: when electrons get energetic, emitting an optical phonon is an efficient "energy dump"
+- Important for high-field transport: emitting an optical phonon is an efficient "energy dump"
 
 Both types scatter electrons, but through different mechanisms and at different energy scales.
 
