@@ -389,64 +389,22 @@ where $V_0$ is the periodic lattice potential and $\delta V$ is the time-depende
 
 ---
 
-### The One Equation You Can Carry Around
+### Phonons as Traveling Potential Waves
 
-A phonon creates a traveling deformation in the lattice. You can model this as:
+A phonon creates a traveling deformation in the lattice:
 
 $$
 \delta V(x,t) \approx A\cos(qx - \omega t)
 $$
 
-This says:
+Think of it as a **moving grating** — a traveling Bragg reflector that diffracts the electron wave.
 
-- The lattice creates a **traveling wave** of potential
-- That wave has:
-  - Wavelength $\lambda = 2\pi/q$ (momentum content)
-  - Frequency $\omega$ (energy content)
+**Key point:** Phonons are quantized, like photons. In a scattering event, the electron either:
 
-**The key physical picture:**
+- **Absorbs** the whole phonon: gains $+\hbar q$ momentum, gains $+\hbar\omega$ energy, phonon destroyed
+- **Emits** a whole phonon: loses $\hbar q$ momentum, loses $\hbar\omega$ energy, phonon created
 
-> A phonon is a **moving grating** for electrons — like a traveling Bragg reflector or a moving diffraction grating. It transfers energy and crystal momentum to the electron wave.
-
-This connects directly to the "moving walls" toy model, but adds the missing ingredient: the drive is not global — it's a **traveling deformation field**.
-
-**The electron responds by picking up:**
-
-- Momentum $\pm \hbar q$
-- Energy $\pm \hbar\omega$
-
-That's the essential physics. No more formalism needed for intuition.
-
----
-
-### Conservation Laws in Crystals
-
-!!! note "Three Different Momenta — Don't Confuse Them"
-    In solid state physics, three different momenta appear:
-
-    • **Mechanical momentum** $\mathbf{p} = m\mathbf{v}$ — the "mv" from classical mechanics
-    • **Crystal momentum** $\hbar\mathbf{k}$ — a quantum number labeling Bloch states (not always equal to mechanical momentum!)
-    • **Phonon momentum** $\hbar\mathbf{q}$ — labels the lattice wave that carries momentum
-
-    Only **crystal momentum** is conserved (mod $\mathbf{G}$) in electron-phonon processes. This allows phenomena like **Umklapp scattering** where mechanical momentum appears to violate conservation — but crystal momentum accounting (with reciprocal lattice vectors) remains exact.
-
-In a crystal, electron-phonon coupling enforces:
-
-$$
-\mathbf{k}' = \mathbf{k} \pm \mathbf{q} \quad (\text{mod } \mathbf{G})
-$$
-
-$$
-E_{n'}(\mathbf{k}') = E_n(\mathbf{k}) \pm \hbar\omega_{\mathbf{q}}
-$$
-
-where $\mathbf{G}$ is a reciprocal lattice vector (the "mod $\mathbf{G}$" allows Umklapp processes).
-
-**Why phonons matter for momentum:** In many crystal processes, phonons are the main way to satisfy crystal-momentum constraints. Photons supply plenty of energy but almost no momentum; phonons are the lattice's "momentum channel."
-
-This looks like scattering, but fundamentally:
-
-> **The electron wavefunction gains and loses Fourier components.**
+No partial absorption. The entire phonon's momentum and energy transfer to the electron (or vice versa). Conservation is exact.
 
 ---
 
