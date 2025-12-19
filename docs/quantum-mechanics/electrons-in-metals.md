@@ -161,17 +161,26 @@ And in the real world, symmetry is always broken — by lattice motion, defects,
 
 ### What Phonons Are
 
-At any finite temperature, ions vibrate. But even at absolute zero, quantum mechanics forces **zero-point motion** — a consequence of the uncertainty principle.
+At any finite temperature, ions vibrate. Even at absolute zero, quantum mechanics forces **zero-point motion**.
 
-These vibrations are not random noise. They organize into **normal modes**: collective oscillations where each mode has a wavevector $\mathbf{q}$ and frequency $\omega_{\mathbf{q}}$. Quantizing these modes gives phonons.
+These vibrations organize into **normal modes**: collective oscillations where each mode has a wavevector $\mathbf{q}$ and frequency $\omega_{\mathbf{q}}$.
 
-Each mode is a harmonic oscillator with energy levels:
+**Critical distinction (guitar string analogy):**
 
-$$
-E_n = \hbar\omega\left(n + \frac{1}{2}\right)
-$$
+| Guitar string | Lattice |
+|---|---|
+| Mode = sinusoidal vibration pattern | Mode = collective oscillation pattern |
+| Energy is continuous | Energy is quantized: $E_n = \hbar\omega(n + \frac{1}{2})$ |
+| Amplitude is continuous | Amplitude $\propto \sqrt{n}$ where $n$ is discrete |
+| Loud note = large amplitude | Many phonons = large amplitude |
 
-The $\frac{1}{2}\hbar\omega$ zero-point energy is unavoidable — even at $T=0$, the lattice jiggles.
+A **phonon** is one quantum of energy ($\hbar\omega$) in a mode — not the wave itself. The word "phonon" is misleading: it sounds like the wave, but it's the *energy unit* in the wave.
+
+- Mode with $n = 0$: zero-point energy only, no phonons
+- Mode with $n = 3$: three phonons, energy $3.5\hbar\omega$
+- Mode with $n = 1000$: amplitude looks classical (large $\sqrt{n}$)
+
+When many phonons occupy a mode coherently, you get a classical-looking wave. This is why "lattice vibrations" and "phonons" seem interchangeable — at high occupation, they look the same. But fundamentally, the phonon is the quantum, not the wave.
 
 ---
 
