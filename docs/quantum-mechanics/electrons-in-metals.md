@@ -551,21 +551,7 @@ Even at $T = 0$, zero-point motion persists — ions still jiggle. But the *aver
 
 ---
 
-## Part 9: What Is Exact, Approximate, and Misunderstood
-
-### Exact (Under Stated Assumptions)
-
-- **Bloch's theorem:** Given perfect periodicity, eigenstates have the Bloch form
-- **Phonons as quantized normal modes:** Direct consequence of linearized lattice dynamics
-- **Time-dependent perturbation physics:** The framework for how oscillating potentials mix energy levels
-
-### Approximate
-
-- **Single-electron picture:** Real metals have electron-electron interactions
-- **Weak electron-phonon coupling:** Perturbation theory assumes small $\delta V$
-- **Long-lived quasiparticles:** Fermi liquid theory, not exact for all systems
-
-### Common Misconceptions
+## Part 9: Common Misconceptions
 
 | Misconception | Reality |
 |---------------|---------|
