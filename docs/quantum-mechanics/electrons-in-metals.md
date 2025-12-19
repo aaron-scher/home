@@ -603,17 +603,19 @@ Carry this hierarchy with you:
 
 4. **Phonons force electrons into superpositions** of energies and momenta through time-dependent potentials
 
-5. **These superpositions form wave packets** — spatially localized, with uncertain momentum
+5. **Momentum and energy are conserved** — when an electron gains $+\mathbf{q}$, a phonon loses $-\mathbf{q}$ (absorption), or vice versa (emission). Electrons can create and destroy phonons; the interaction is bidirectional, not electrons being pushed around by a fixed background
 
-6. **"Scattering" is wavefunction reshaping,** not collisions — momentum components are added and removed
+6. **These superpositions form wave packets** — spatially localized, with uncertain momentum
 
-7. **Classical behavior emerges** only after phase coherence is lost over many scattering events
+7. **"Scattering" is wavefunction reshaping,** not collisions — momentum components are added and removed
+
+8. **Classical behavior emerges** only after phase coherence is lost over many scattering events
 
 ---
 
 ## Final Anchor Statement
 
-> *Electrons in metals are quantum waves whose ideal Bloch form exists only in a symmetry limit. Real lattice motion continuously deforms these waves into finite wave packets through time-dependent potentials, with phonons mediating energy and momentum exchange.*
+> *Electrons in metals are quantum waves whose ideal Bloch form exists only in a symmetry limit. Real lattice motion continuously deforms these waves into finite wave packets through time-dependent potentials. Electrons and phonons exchange energy and momentum bidirectionally — electrons absorb, emit, create, and destroy phonons; neither is a passive background for the other.*
 
 When someone asks "Are electrons in a metal Bloch waves?" — the honest answer is: Bloch waves describe the **symmetry of the ground state and its excitations**, not the literal trajectories of individual electrons. Deviations are small, lifetimes are long, corrections scale smoothly with temperature.
 
