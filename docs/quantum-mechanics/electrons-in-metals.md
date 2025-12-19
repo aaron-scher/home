@@ -537,11 +537,7 @@ The alphabet remains fixed; only the combinations change.
 
 ## Part 7: Pauli Exclusion and Deep Electrons
 
-Even electrons deep below the Fermi level are not frozen point particles. When symmetry is imperfect, they too are described by wave packets (superpositions of Bloch components). But Pauli blocking strongly suppresses real transitions in equilibrium — there are no nearby empty states to scatter into.
-
-**Why don't they matter for transport?**
-
-Deep electrons form wave packets, but those wave packets don't change occupancy under weak perturbations. Only electrons near the Fermi surface have available states to scatter into — that's why they dominate conduction.
+Deep electrons are still wave packets — phonons scatter them just like any other electron. But all nearby $\mathbf{k}$ states are already occupied, so there's nowhere to scatter *to*. They can only swap places with each other, which doesn't change the overall distribution. Only electrons near the Fermi surface have empty states available to scatter into — that's why they dominate transport.
 
 ---
 
