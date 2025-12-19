@@ -500,26 +500,29 @@ This is the bridge to transport, effective mass, and classical motion.
 
 ---
 
-### What "Scattering" Really Is
+### What "Scattering" Really Is — A Concrete Example
 
-From the wavefunction point of view, the electron does **not** bounce like a billiard ball. Its wavefunction gains and loses momentum components — a perfectly sharp $k$ becomes a distribution of nearby $k$'s. This momentum spread implies spatial localization.
+Forget billiard balls. Here's what actually happens.
 
-> **Wave packets are born from broken symmetry.**
+**Before scattering:** An electron wave packet is a superposition of Bloch states with different $k$ values:
 
-A real electron state becomes:
+$$|\psi_{\text{before}}\rangle = 0.8|k_1\rangle + 0.5|k_2\rangle + 0.3|k_3\rangle$$
 
-$$
-\Psi(\mathbf{r}) = \int a(\mathbf{k}) \, \psi_{n\mathbf{k}}(\mathbf{r}) \, d\mathbf{k}
-$$
+where $k_1 = 5.0$, $k_2 = 5.1$, $k_3 = 4.9$ nm$^{-1}$. The packet is centered around $k \approx 5$ nm$^{-1}$, with spread $\Delta k \approx 0.1$ nm$^{-1}$, giving localization $\sim 1/\Delta k \approx 10$ nm.
 
-where $a(\mathbf{k})$ has finite width $\Delta k$, giving localization length $\sim 1/\Delta k$.
+**A phonon arrives:** wavevector $q = 0.5$ nm$^{-1}$, energy $\hbar\omega = 15$ meV.
 
-**The key hierarchy:**
+**After scattering (phonon absorbed):** Each $k$ component shifts by $+q$:
 
-- **Bloch waves:** Exact eigenstates of an idealized, symmetric Hamiltonian
-- **Real electrons:** Finite wave packets built from Bloch components
+$$|\psi_{\text{after}}\rangle = 0.6|k_1 + q\rangle + 0.7|k_2 + q\rangle + 0.4|k_3 + q\rangle + \text{new components}$$
 
-Bloch waves are not "wrong" — they are the **basis states**. Real electrons are superpositions of them.
+Now centered around $k \approx 5.5$ nm$^{-1}$. The amplitudes changed, new $k$ components appeared, and the spread increased.
+
+**What happened to the phonon?** It was destroyed. The electron absorbed its momentum ($+\hbar q$) and energy ($+\hbar\omega$). Conservation is exact: what the electron gained, the phonon lost.
+
+**For emission:** reverse everything. The electron loses momentum ($-\hbar q$) and energy ($-\hbar\omega$), creating a phonon that carries them away.
+
+**The point:** "Scattering" is the amplitudes $\{0.8, 0.5, 0.3, ...\}$ being reshuffled into $\{0.6, 0.7, 0.4, ...\}$ with shifted $k$ values. No collision, no impact point — just Fourier components being added and removed.
 
 ---
 
