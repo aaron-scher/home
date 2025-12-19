@@ -633,5 +633,5 @@ $$\Psi(\mathbf{r}) = \int a(\mathbf{k}) \, \psi_{n\mathbf{k}}(\mathbf{r}) \, d\m
 
 **The one sentence version:**
 
-> Bloch waves are the basis; real electrons are finite wave packets built from that basis; phonons continuously reshuffle which basis states are superposed.
+> Phonons spread electrons across multiple $\mathbf{k}$ states; by Fourier duality, uncertainty in momentum *is* localization in space — that's why wave packets form and can scatter around like particles.
 
