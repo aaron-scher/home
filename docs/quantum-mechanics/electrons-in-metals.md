@@ -485,18 +485,19 @@ In wavefunction language, scattering increases because the electron's state is b
 
 ## Part 6: From Bloch Waves to Wave Packets
 
-### The Central Conclusion
+A pure Bloch state has one sharp $\mathbf{k}$. By Fourier duality: sharp $\mathbf{k}$ means delocalized in space — the electron is spread across the entire crystal. And because it's an energy eigenstate, it's **stationary** — the probability density doesn't move.
 
-Once translational symmetry is broken (by phonons, defects, or surfaces), electrons are no longer pure Bloch waves — they become **finite wave packets**, superpositions of nearby Bloch components.
+So how does an electron ever get from A to B?
 
-**Important nuance:** Phonons don't *force* every electron into a localized packet. What they do is give Bloch-like excitations a **finite lifetime** — a finite linewidth in both energy and $\mathbf{k}$. Wave packets are the useful representation when you want something localized and moving.
+**Answer:** Phonons (and other symmetry-breakers) mix in multiple $\mathbf{k}$ components. A superposition of different $\mathbf{k}$'s is a **wave packet** — localized in space, and it **moves** with group velocity $v_g = \frac{1}{\hbar}\frac{dE}{dk}$.
 
-**Critical distinction:**
+| | Pure Bloch state | Wave packet |
+|---|---|---|
+| $\mathbf{k}$ content | Single sharp $\mathbf{k}$ | Spread of $\mathbf{k}$'s |
+| Position | Delocalized (entire crystal) | Localized ($\Delta x \sim 1/\Delta k$) |
+| Motion | None — stationary | Moves with group velocity |
 
-• **Bloch waves do not move** — they are stationary eigenstates with probability density frozen in time
-• **Wave packets DO move** — motion comes from **group velocity** $\mathbf{v}_g = \nabla_{\mathbf{k}} E(\mathbf{k}) / \hbar$, not from any single $\mathbf{k}$ value
-
-This is the bridge to transport, effective mass, and classical motion.
+This is exactly what the moving-walls toy model showed: oscillating walls → superposition of energy levels → probability density that sloshes around.
 
 ---
 
