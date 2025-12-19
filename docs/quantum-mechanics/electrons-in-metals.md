@@ -537,7 +537,7 @@ The alphabet remains fixed; only the combinations change.
 
 ## Part 7: Pauli Exclusion and Deep Electrons
 
-Deep electrons are still wave packets — phonons scatter them just like any other electron. But all nearby $\mathbf{k}$ states are already occupied, so there's nowhere to scatter *to*. They can only swap places with each other, which doesn't change the overall distribution. Only electrons near the Fermi surface have empty states available to scatter into — that's why they dominate transport.
+Deep electrons are still wave packets — phonons perturb them into superpositions of $\mathbf{k}$ states just like any other electron. Pauli exclusion doesn't freeze them into pure Bloch states. But for transport, what matters is whether electrons can *change* their net momentum distribution. Deep electrons have all nearby states occupied — nowhere to go. Only electrons near the Fermi surface have empty states to scatter into, so they dominate conduction.
 
 ---
 
