@@ -490,6 +490,8 @@ This is exactly what the moving-walls toy model showed: oscillating walls → su
 
 Forget billiard balls. Here's what actually happens.
 
+**Notation:** $|k\rangle$ is shorthand for a Bloch state with crystal momentum $k$ — the full wavefunction $\psi_k(\mathbf{r}) = e^{ikx} u_k(\mathbf{r})$ that extends across the crystal.
+
 **Before scattering:** An electron wave packet is a superposition of Bloch states with different $k$ values:
 
 $$|\psi_{\text{before}}\rangle = 0.8|k_1\rangle + 0.5|k_2\rangle + 0.3|k_3\rangle$$
@@ -504,11 +506,13 @@ $$|\psi_{\text{after}}\rangle = 0.6|k_1 + q\rangle + 0.7|k_2 + q\rangle + 0.4|k_
 
 Now centered around $k \approx 5.5$ nm$^{-1}$. The amplitudes changed, new $k$ components appeared, and the spread increased.
 
-**What happened to the phonon?** It was destroyed. The electron absorbed its momentum ($+\hbar q$) and energy ($+\hbar\omega$). Conservation is exact: what the electron gained, the phonon lost.
+**What happened to the phonon?** It was destroyed — the electron absorbed the whole phonon (they're quantized, like photons). The electron gained its momentum ($+\hbar q$) and energy ($+\hbar\omega$). Conservation is exact.
 
-**For emission:** reverse everything. The electron loses momentum ($-\hbar q$) and energy ($-\hbar\omega$), creating a phonon that carries them away.
+**For emission:** reverse everything. The electron loses momentum ($-\hbar q$) and energy ($-\hbar\omega$), creating a new phonon.
 
-**The point:** "Scattering" is the amplitudes $\{0.8, 0.5, 0.3, ...\}$ being reshuffled into $\{0.6, 0.7, 0.4, ...\}$ with shifted $k$ values. No collision, no impact point — just Fourier components being added and removed.
+**Why is this irreversible (decoherence)?** After scattering, the electron's phase information is now entangled with the phonon bath. The old amplitudes $\{0.8, 0.5, 0.3\}$ are gone — you can't interfere the "before" and "after" states because which-path information leaked into the environment. The electron has no memory of its previous $k$ distribution. This loss of phase coherence is what makes scattering effectively one-way, even though the underlying physics is time-reversible.
+
+**The point:** "Scattering" is the amplitudes $\{0.8, 0.5, 0.3, ...\}$ being reshuffled into $\{0.6, 0.7, 0.4, ...\}$ with shifted $k$ values. No collision, no impact point — just Fourier components being added and removed, with phase information lost to the environment.
 
 ---
 
