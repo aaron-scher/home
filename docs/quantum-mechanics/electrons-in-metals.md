@@ -182,6 +182,35 @@ A **phonon** is one quantum of energy ($\hbar\omega$) in a mode — not the wave
 
 When many phonons occupy a mode coherently, you get a classical-looking wave. This is why "lattice vibrations" and "phonons" seem interchangeable — at high occupation, they look the same. But fundamentally, the phonon is the quantum, not the wave.
 
+**Where does $E_n = \hbar\omega(n + \frac{1}{2})$ come from?**
+
+Each lattice mode is atoms connected by springs — a harmonic oscillator. When you solve the Schrödinger equation for a harmonic oscillator potential $V = \frac{1}{2}m\omega^2 x^2$, you get discrete energy levels spaced by $\hbar\omega$. This is standard QM, nothing special to solids.
+
+**Coherent vs incoherent phonons (numerical example):**
+
+Consider three modes with $\omega_1, \omega_2, \omega_3$ and wavelengths $\lambda_1, \lambda_2, \lambda_3$.
+
+*Coherent phonons* — well-defined phases, gives a real traveling wave:
+
+$$u(x,t) = A_1\cos(q_1 x - \omega_1 t) + A_2\cos(q_2 x - \omega_2 t) + A_3\cos(q_3 x - \omega_3 t)$$
+
+Example: $A_1 = 0.1$ nm, $A_2 = 0.05$ nm, $A_3 = 0.02$ nm. This is a wave packet — a localized pulse traveling through the lattice. The amplitudes relate to phonon number: $A \propto \sqrt{n}$.
+
+*Incoherent phonons* — random phases, no net wave:
+
+$$\langle u(x,t) \rangle = 0$$
+
+But there's still jiggling! The mean-square displacement is nonzero:
+
+$$\langle u^2 \rangle > 0$$
+
+Example: thermal phonons at room temperature. Each mode has random phase, so there's no organized wave — just fluctuations. The atoms jitter around their equilibrium positions with no coherent pattern.
+
+**One-line summary:**
+
+- Coherent: real wave with phase, like plucking a guitar string
+- Incoherent: random jitter, $\langle u \rangle = 0$ but $\langle u^2 \rangle > 0$, like thermal noise
+
 ---
 
 ### Two Flavors of Phonons
