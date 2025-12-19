@@ -547,7 +547,7 @@ Deep electrons form wave packets, but those wave packets don't change occupancy 
 
 ## Part 8: What Does T = 0 Really Mean?
 
-Even at $T = 0$, zero-point motion persists — ions still jiggle. But the *average* potential remains periodic, so band structure stays accurate. Exact Bloch states don't exist, but long-lived Bloch-like quasiparticles do. Lifetimes grow as $T \to 0$ but are never infinite.
+Even at $T = 0$, zero-point motion persists — ions still jiggle. But the *average* potential remains periodic, so band structure stays accurate. An electron starting near some $\mathbf{k}$ will eventually scatter to other $\mathbf{k}$ values; at lower $T$, fewer phonons means it stays near that $\mathbf{k}$ longer before being reshuffled. But zero-point motion means some scattering always happens — electrons never sit in a pure Bloch state forever.
 
 ---
 
