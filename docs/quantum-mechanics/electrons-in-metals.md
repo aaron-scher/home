@@ -627,6 +627,8 @@ $$\Psi(\mathbf{r}) = \int a(\mathbf{k}) \, \psi_{n\mathbf{k}}(\mathbf{r}) \, d\m
 
 **What "scattering" actually is:** Not collisions. The electron wavefunction gains and loses $\mathbf{k}$ components. A sharp momentum state spreads into a distribution — that spread *is* localization.
 
+**The intuition pump:** Remember the particle-in-a-box with moving walls. Static walls → electron sits in one energy eigenstate forever. Oscillating walls → the $c_n(t)$ coefficients change → electron enters superposition of energy levels. That's *exactly* what phonons do to Bloch states. A phonon is a moving wall — a traveling potential deformation that pumps the electron into superpositions of $\mathbf{k}$ and $E$.
+
 **Why classical intuition eventually works:** After many scattering events, phase coherence is lost. The wave packet's center moves like a classical particle with effective mass $m^* = \hbar^2/(d^2E/dk^2)$.
 
 **The one sentence version:**
