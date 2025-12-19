@@ -450,28 +450,13 @@ This looks like scattering, but fundamentally:
 
 ---
 
-### Static vs Dynamic Symmetry Breaking
+### Why Temperature Matters
 
-Not all symmetry breaking is the same. Understanding the difference explains why temperature matters:
+**Impurities:** static perturbation → scattering rate independent of $T$.
 
-**Impurities break symmetry once:**
+**Phonons:** dynamic perturbation → more phonons at higher $T$ → more scattering → resistivity $\propto T$.
 
-- A substitutional atom or vacancy creates a *static* perturbation
-- The potential is different at that site, but it doesn't change in time
-- Electrons scatter off impurities, but the scattering rate doesn't depend on temperature (in this simple picture)
-- The perturbation is "always there" — a permanent bump in the road
-
-**Phonons break symmetry continuously:**
-
-- Lattice vibrations create a *dynamic* perturbation that evolves in time
-- The potential landscape is constantly shifting
-- More phonons (higher $T$) means more frequent and larger perturbations
-- The electron's environment never settles down
-
-This distinction matters for transport:
-
-- **Impurity scattering** dominates at low temperatures (residual resistivity)
-- **Phonon scattering** dominates at high temperatures (resistivity $\propto T$)
+At low $T$, impurity scattering dominates (residual resistivity). At high $T$, phonon scattering dominates.
 
 ---
 
