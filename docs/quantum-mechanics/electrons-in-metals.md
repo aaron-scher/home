@@ -547,18 +547,7 @@ Deep electrons form wave packets, but those wave packets don't change occupancy 
 
 ## Part 8: What Does T = 0 Really Mean?
 
-At $T = 0$, there are no thermally excited phonons — but zero-point motion still exists. The ions fluctuate quantum mechanically even in the ground state.
-
-**The key refinement:** The *expectation value* of the lattice potential remains periodic, even though instantaneous ion positions fluctuate. This is why band structure remains so accurate at $T = 0$ — the average potential is periodic, even if snapshots are not.
-
-**The quasiparticle picture:** In a real crystal, exact Bloch eigenstates do not exist. What survives are long-lived quasiparticle states that are approximately Bloch-like. At the Fermi surface, lifetimes grow as $T \to 0$ but are never truly infinite.
-
-**What this means practically:**
-
-- Occupation of Bloch-like states remains well-defined
-- Fermi sea structure persists
-- $E(\mathbf{k})$ relations remain meaningful
-- Band theory works despite being an idealization
+Even at $T = 0$, zero-point motion persists — ions still jiggle. But the *average* potential remains periodic, so band structure stays accurate. Exact Bloch states don't exist, but long-lived Bloch-like quasiparticles do. Lifetimes grow as $T \to 0$ but are never infinite.
 
 ---
 
