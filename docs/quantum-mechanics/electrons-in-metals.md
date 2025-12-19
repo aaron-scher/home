@@ -621,15 +621,3 @@ When someone asks "Are electrons in a metal Bloch waves?" — the honest answer 
 
 > **Bloch waves are symmetry-defined quantum states that describe the structure of the many-electron ground state and its long-lived excitations — not eternal electrons flying through space.**
 
----
-
-## What Comes Next
-
-From this foundation, the natural next steps are:
-
-- **Effective mass** from band curvature: why $m^* = \hbar^2 / (d^2E/dk^2)$
-- **Conductivity** from wave packet dynamics and relaxation times
-- **Why drift velocity is tiny** compared to Fermi velocity
-- **Drude vs quantum transport:** where classical pictures work and why
-
-But now you have the right ground under your feet.
