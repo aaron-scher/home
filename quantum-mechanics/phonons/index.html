@@ -511,9 +511,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#newtons-law-for-atom-n" class="md-nav__link">
+  <a href="#newtons-law-for-atom-j" class="md-nav__link">
     <span class="md-ellipsis">
-      Newton's Law for Atom \(n\)
+      Newton's Law for Atom \(j\)
     </span>
   </a>
   
@@ -1006,9 +1006,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#newtons-law-for-atom-n" class="md-nav__link">
+  <a href="#newtons-law-for-atom-j" class="md-nav__link">
     <span class="md-ellipsis">
-      Newton's Law for Atom \(n\)
+      Newton's Law for Atom \(j\)
     </span>
   </a>
   
@@ -1451,19 +1451,20 @@ Ions vibrate. The potential becomes time-dependent: <span class="arithmatex">\(V
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   M        M        M        M        M
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   |&lt;--a--&gt;|
 </code></pre></div>
-<p>Let <span class="arithmatex">\(u_n(t)\)</span> be the displacement of atom <span class="arithmatex">\(n\)</span> from its equilibrium position.</p>
-<h3 id="newtons-law-for-atom-n">Newton's Law for Atom <span class="arithmatex">\(n\)</span><a class="headerlink" href="#newtons-law-for-atom-n" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(u_j(t)\)</span> be the displacement of atom <span class="arithmatex">\(j\)</span> from its equilibrium position.</p>
+<h3 id="newtons-law-for-atom-j">Newton's Law for Atom <span class="arithmatex">\(j\)</span><a class="headerlink" href="#newtons-law-for-atom-j" title="Permanent link">&para;</a></h3>
 <p>Each atom feels spring forces from its two neighbors:</p>
 <div class="arithmatex">\[
-M\frac{d^2 u_n}{dt^2} = K(u_{n+1} - u_n) - K(u_n - u_{n-1}) = K(u_{n+1} - 2u_n + u_{n-1})
+M\frac{d^2 u_j}{dt^2} = K(u_{j+1} - u_j) - K(u_j - u_{j-1}) = K(u_{j+1} - 2u_j + u_{j-1})
 \]</div>
-<p>This is just <span class="arithmatex">\(F = ma\)</span> with Hooke's law springs on both sides.</p>
+<p>This is Newton's second law (<span class="arithmatex">\(F = M \times \text{acceleration}\)</span>) with Hooke's law springs on both sides. (Note: don't confuse the acceleration with <span class="arithmatex">\(a\)</span> the lattice constant!)</p>
 <h3 id="the-traveling-wave-solution">The Traveling Wave Solution<a class="headerlink" href="#the-traveling-wave-solution" title="Permanent link">&para;</a></h3>
 <p>Try a plane wave:</p>
 <div class="arithmatex">\[
-u_n(t) = A \, e^{i(kna - \omega t)}
+u_j(t) = A \, e^{i(kx_j - \omega t)} = A \, e^{i(kja - \omega t)}
 \]</div>
-<p>Plug into Newton's law, do some algebra (the <span class="arithmatex">\(e^{i(kna-\omega t)}\)</span> cancels), and you get the <strong>dispersion relation</strong>:</p>
+<p>where <span class="arithmatex">\(x_j = ja\)</span> is the equilibrium position of atom <span class="arithmatex">\(j\)</span> (the <span class="arithmatex">\(j\)</span>th atom sits at position <span class="arithmatex">\(j \times a\)</span> along the chain). Here <span class="arithmatex">\(j\)</span> is the <strong>atom index</strong> — an integer labeling which atom.</p>
+<p>Plug into Newton's law, do some algebra (the <span class="arithmatex">\(e^{i(kja-\omega t)}\)</span> cancels), and you get the <strong>dispersion relation</strong>:</p>
 <div class="arithmatex">\[
 \omega(k) = 2\sqrt{\frac{K}{M}} \left|\sin\left(\frac{ka}{2}\right)\right|
 \]</div>
@@ -1501,7 +1502,7 @@ u_n(t) = A \, e^{i(kna - \omega t)}
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>|----a----|----a----|----a----|----a----|
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>○         ○         ○         ○         ○
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Traveling wave u_n(t) = A cos(kna - ωt):
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Traveling wave u_j(t) = A cos(kja - ωt):
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>t = 0:      ↑     ↑     ↑     ↑     ↑
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>t = T/4:    →     ↑     ←     ↓     →
@@ -1516,14 +1517,25 @@ u_n(t) = A \, e^{i(kna - \omega t)}
 </blockquote>
 <h3 id="the-quantum-step">The Quantum Step<a class="headerlink" href="#the-quantum-step" title="Permanent link">&para;</a></h3>
 <p>Here's how we bridge from Newton to quantum — no Schrödinger equation for atom positions!</p>
-<p><strong>Step 1: Rewrite in normal mode coordinates.</strong> The displacements <span class="arithmatex">\(u_n(t)\)</span> can be decomposed into independent normal modes. Define a collective coordinate <span class="arithmatex">\(Q_k\)</span> for each mode:</p>
+<p><strong>Step 1: Rewrite in normal mode coordinates.</strong> The displacements <span class="arithmatex">\(u_j(t)\)</span> can be decomposed into independent normal modes. Define a collective coordinate <span class="arithmatex">\(Q_k(t)\)</span> for each mode:</p>
 <div class="arithmatex">\[
-u_n(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikna}
+u_j(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikja}
 \]</div>
 <blockquote>
-<p><strong>Why a discrete sum, not an integral?</strong> With <span class="arithmatex">\(N\)</span> atoms in your chain, there are exactly <span class="arithmatex">\(N\)</span> independent ways to wiggle them — hence <span class="arithmatex">\(N\)</span> normal modes with <span class="arithmatex">\(N\)</span> allowed <span class="arithmatex">\(k\)</span> values. This comes from boundary conditions (periodic: <span class="arithmatex">\(u_{n+N} = u_n\)</span>, which forces <span class="arithmatex">\(e^{ikNa} = 1\)</span>, so <span class="arithmatex">\(k = 2\pi m / Na\)</span> for <span class="arithmatex">\(m = 0, 1, ..., N-1\)</span>). In the thermodynamic limit <span class="arithmatex">\(N \to \infty\)</span>, the spacing between <span class="arithmatex">\(k\)</span> values shrinks to zero and the sum becomes an integral: <span class="arithmatex">\(\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk\)</span>.</p>
-<p><strong>Why complex exponentials?</strong> This is shorthand. The physical displacement <span class="arithmatex">\(u_n\)</span> must be real. To get a real <span class="arithmatex">\(u_n\)</span> from this sum, we need <span class="arithmatex">\(Q_{-k} = Q_k^*\)</span> (complex conjugate). Then <span class="arithmatex">\(Q_k e^{ikna} + Q_{-k} e^{-ikna} = 2\text{Re}[Q_k e^{ikna}]\)</span>, which is real. The complex form is mathematically cleaner than writing cosines with phases.</p>
-<p><strong>What's <span class="arithmatex">\(na\)</span>?</strong> It's the position of atom <span class="arithmatex">\(n\)</span> along the chain. In a continuous medium you'd write <span class="arithmatex">\(e^{ikx}\)</span>; here we only have atoms at discrete positions <span class="arithmatex">\(x_n = na\)</span> (where <span class="arithmatex">\(a\)</span> is the lattice spacing), so we write <span class="arithmatex">\(e^{ikna}\)</span>.</p>
+<p><strong>What is <span class="arithmatex">\(Q_k(t)\)</span>?</strong> It's the time-dependent amplitude of mode <span class="arithmatex">\(k\)</span>. Remember our classical traveling wave solution <span class="arithmatex">\(u_j = A e^{i(kja - \omega t)}\)</span>? Here we've separated the spatial part (<span class="arithmatex">\(e^{ikja}\)</span>) from the time part. The time dependence lives in <span class="arithmatex">\(Q_k(t)\)</span>, which oscillates as:
+<span class="arithmatex">\(<span class="arithmatex">\(Q_k(t) = Q_k(0) \, e^{-i\omega_k t}\)</span>\)</span>
+This comes from solving Newton's equation for mode <span class="arithmatex">\(k\)</span>: <span class="arithmatex">\(\ddot{Q}_k = -\omega_k^2 Q_k\)</span> gives simple harmonic motion at frequency <span class="arithmatex">\(\omega_k\)</span>.</p>
+<p><strong>Why a discrete sum, not an integral?</strong> With <span class="arithmatex">\(N\)</span> atoms in your chain, there are exactly <span class="arithmatex">\(N\)</span> independent ways to wiggle them — hence <span class="arithmatex">\(N\)</span> normal modes with <span class="arithmatex">\(N\)</span> allowed <span class="arithmatex">\(k\)</span> values. This comes from boundary conditions (periodic: <span class="arithmatex">\(u_{j+N} = u_j\)</span>, which forces <span class="arithmatex">\(e^{ikNa} = 1\)</span>, so <span class="arithmatex">\(k = 2\pi m / Na\)</span> for <span class="arithmatex">\(m = 0, 1, ..., N-1\)</span>). In the thermodynamic limit <span class="arithmatex">\(N \to \infty\)</span>, the spacing between <span class="arithmatex">\(k\)</span> values shrinks to zero and the sum becomes an integral: <span class="arithmatex">\(\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk\)</span>.</p>
+<p><strong>Why complex exponentials?</strong> This is shorthand. The physical displacement <span class="arithmatex">\(u_j\)</span> must be real. To get a real <span class="arithmatex">\(u_j\)</span> from this sum, we need <span class="arithmatex">\(Q_{-k} = Q_k^*\)</span> (complex conjugate). Then <span class="arithmatex">\(Q_k e^{ikja} + Q_{-k} e^{-ikja} = 2\text{Re}[Q_k e^{ikja}]\)</span>, which is real. The complex form is mathematically cleaner than writing cosines with phases.</p>
+<p><strong>What does a single mode look like?</strong> Combining <span class="arithmatex">\(Q_k(t) = Q_k(0) e^{-i\omega_k t}\)</span> with <span class="arithmatex">\(e^{ikja}\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(Q_k(t) \, e^{ikja} = Q_k(0) \, e^{i(kja - \omega_k t)}\)</span>\)</span>
+Taking the real part (using Euler: <span class="arithmatex">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>), a single mode is a sinusoidal pattern:
+<span class="arithmatex">\(<span class="arithmatex">\(u_j^{(k)}(t) \propto \cos(kja - \omega_k t + \phi_k)\)</span>\)</span>
+Each atom oscillates at frequency <span class="arithmatex">\(\omega_k\)</span>, but with a phase shift <span class="arithmatex">\(kja\)</span> that increases along the chain — this is what makes it a <em>traveling</em> wave.</p>
+<p><strong>What's <span class="arithmatex">\(ja\)</span>?</strong> It's the position of atom <span class="arithmatex">\(j\)</span> along the chain. In a continuous medium you'd write <span class="arithmatex">\(e^{ikx}\)</span>; here we only have atoms at discrete positions <span class="arithmatex">\(x_j = ja\)</span> (where <span class="arithmatex">\(a\)</span> is the lattice spacing), so we write <span class="arithmatex">\(e^{ikja}\)</span>.</p>
+<p><strong>Why is <span class="arithmatex">\(k\)</span> limited to <span class="arithmatex">\([-\pi/a, \pi/a]\)</span>?</strong> This is aliasing from discrete sampling! A wave with wavevector <span class="arithmatex">\(k\)</span> and a wave with <span class="arithmatex">\(k + 2\pi/a\)</span> look <em>identical</em> when sampled only at positions <span class="arithmatex">\(ja\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(e^{i(k + 2\pi/a)ja} = e^{ikja} \cdot e^{i 2\pi j} = e^{ikja} \cdot 1 = e^{ikja}\)</span>\)</span>
+So there's no point considering <span class="arithmatex">\(k\)</span> outside the first Brillouin zone <span class="arithmatex">\([-\pi/a, \pi/a]\)</span> — those waves are just aliases of waves inside. This is the same math as the Nyquist limit in signal processing: with spacing <span class="arithmatex">\(a\)</span>, you can only distinguish wavelengths <span class="arithmatex">\(\lambda &gt; 2a\)</span>.</p>
 </blockquote>
 <p>Each <span class="arithmatex">\(Q_k\)</span> evolves independently: <span class="arithmatex">\(\ddot{Q}_k = -\omega_k^2 Q_k\)</span>. This is just a harmonic oscillator equation for <span class="arithmatex">\(Q_k\)</span>.</p>
 <p><strong>Step 2: Quantize each oscillator.</strong> The energy (Hamiltonian) for mode <span class="arithmatex">\(k\)</span> is:</p>
@@ -1541,7 +1553,7 @@ H_k = \frac{P_k^2}{2M_{\text{eff}}} + \frac{1}{2}M_{\text{eff}}\omega_k^2 Q_k^2
 <div class="arithmatex">\[
 E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 \]</div>
-<p>where <span class="arithmatex">\(n = 0, 1, 2, 3, \ldots\)</span></p>
+<p>where <span class="arithmatex">\(n = 0, 1, 2, 3, \ldots\)</span> is the <strong>occupation number</strong> (number of phonons in that mode). Note: <span class="arithmatex">\(n\)</span> here is the quantum number, not the atom index <span class="arithmatex">\(j\)</span> from earlier.</p>
 <p><strong>A phonon is one quantum of energy <span class="arithmatex">\(\hbar\omega\)</span> in that mode</strong> — not the wave itself.</p>
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Harmonic oscillator levels for one mode (q):
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>E
@@ -1566,6 +1578,7 @@ E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 <p><strong>The deeper point:</strong> You can't have both sharp energy AND sharp amplitude. An energy eigenstate has definite energy but fuzzy position. A coherent state (classical-like oscillation with definite amplitude <span class="arithmatex">\(A\cos(\omega t)\)</span>) has fuzzy energy — it's a superposition of many <span class="arithmatex">\(|n\rangle\)</span> states.</p>
 </blockquote>
 <h3 id="the-photon-analogy">The Photon Analogy<a class="headerlink" href="#the-photon-analogy" title="Permanent link">&para;</a></h3>
+<p>In the table below, <span class="arithmatex">\(n\)</span> is the occupation number — how many quanta (photons or phonons) are in that mode:</p>
 <table>
 <thead>
 <tr>
@@ -1583,26 +1596,27 @@ E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 <td>Phonon = 1 quantum of vibrational energy</td>
 </tr>
 <tr>
-<td>n photons → E-field amplitude <span class="arithmatex">\(\propto \sqrt{n}\)</span></td>
-<td>n phonons → displacement amplitude <span class="arithmatex">\(\propto \sqrt{n}\)</span></td>
+<td><span class="arithmatex">\(n\)</span> photons → E-field amplitude <span class="arithmatex">\(\propto \sqrt{n}\)</span></td>
+<td><span class="arithmatex">\(n\)</span> phonons → displacement amplitude <span class="arithmatex">\(\propto \sqrt{n}\)</span></td>
 </tr>
 <tr>
-<td>Large n → classical EM wave</td>
-<td>Large n → classical sound wave</td>
+<td>Large <span class="arithmatex">\(n\)</span> → classical EM wave</td>
+<td>Large <span class="arithmatex">\(n\)</span> → classical sound wave</td>
 </tr>
 </tbody>
 </table>
-<p>When many phonons occupy a mode, it looks like a classical wave. When <span class="arithmatex">\(n\)</span> is small (or zero), quantum effects dominate.</p>
+<p>When many quanta occupy a mode, it looks like a classical wave. When <span class="arithmatex">\(n\)</span> is small (or zero), quantum effects dominate.</p>
 <h3 id="numerical-example-how-many-phonons">Numerical Example: How Many Phonons?<a class="headerlink" href="#numerical-example-how-many-phonons" title="Permanent link">&para;</a></h3>
 <p>Consider a mode at <span class="arithmatex">\(\omega = 2\pi \times 1\)</span> THz:</p>
 <ul>
 <li>One phonon energy: <span class="arithmatex">\(\hbar\omega = 4.1\)</span> meV</li>
 <li>Thermal energy at 300K: <span class="arithmatex">\(k_B T = 26\)</span> meV</li>
 </ul>
-<p>The average occupation (Bose-Einstein statistics):</p>
+<p>The average number of phonons in this mode at thermal equilibrium (Bose-Einstein statistics):</p>
 <div class="arithmatex">\[
 \langle n \rangle = \frac{1}{e^{\hbar\omega/k_B T} - 1} = \frac{1}{e^{4.1/26} - 1} \approx 5.3 \text{ phonons}
 \]</div>
+<p>Here <span class="arithmatex">\(\langle n \rangle\)</span> is the thermal average of the occupation number — how many phonons are typically in this mode at temperature <span class="arithmatex">\(T\)</span>.</p>
 <p>So at room temperature, this mode has about 5 phonons on average — firmly in the "classical-looking" regime.</p>
 <hr />
 <h2 id="part-3-longitudinal-vs-transverse-this-is-about-polarization">Part 3: Longitudinal vs Transverse — This is About Polarization<a class="headerlink" href="#part-3-longitudinal-vs-transverse-this-is-about-polarization" title="Permanent link">&para;</a></h2>
@@ -1993,7 +2007,7 @@ $$</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 23, 2025 15:34:15 UTC"><span class="timeago" datetime="2025-12-23T15:34:15+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 23, 2025 15:34:15 UTC">2025-12-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 23, 2025 15:42:18 UTC"><span class="timeago" datetime="2025-12-23T15:42:18+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 23, 2025 15:42:18 UTC">2025-12-23</span>
   </span>
 
     
