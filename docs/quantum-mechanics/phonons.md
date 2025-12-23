@@ -7,8 +7,12 @@ Solid-state physics is built on a sneaky trick: we solve for electrons assuming 
 **Layer 1 — Frozen lattice (idealization):**
 You solve Schrödinger's equation for an electron in a perfectly periodic potential $V(\mathbf{r})$. The solutions are Bloch states $|n,\mathbf{k}\rangle$ — the "alphabet" for describing electrons. These are exact eigenstates, and in this frozen world, electrons never scatter.
 
+> **Notation:** $|n,\mathbf{k}\rangle$ is Dirac notation for a Bloch wavefunction. Here $n$ is the band index (which energy band) and $\mathbf{k}$ is the crystal momentum (wavevector in the Brillouin zone). In position space, this state has the form $\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{n\mathbf{k}}(\mathbf{r})$, where $u$ has the periodicity of the lattice.
+
 **Layer 2 — Moving lattice (reality):**
 Ions vibrate. The potential becomes time-dependent: $V(\mathbf{r},t) = V_0(\mathbf{r}) + \delta V(\mathbf{r},t)$. That $\delta V$ is made of normal modes. Quantize those modes → phonons. Electrons scatter: $|\mathbf{k}\rangle \rightarrow |\mathbf{k} \pm \mathbf{q}\rangle$.
+
+> **Notation:** When we write $|\mathbf{k}\rangle$ (dropping the band index $n$), we're assuming the electron stays in the same band during scattering. The arrow $|\mathbf{k}\rangle \rightarrow |\mathbf{k} \pm \mathbf{q}\rangle$ means the electron's crystal momentum changes by $\pm\mathbf{q}$ (the phonon's wavevector) — plus for absorption, minus for emission.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
