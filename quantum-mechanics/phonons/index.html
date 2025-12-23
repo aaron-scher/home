@@ -1404,7 +1404,7 @@
 <p><strong>Layer 1 — Frozen lattice (idealization):</strong>
 You solve Schrödinger's equation for an electron in a perfectly periodic potential <span class="arithmatex">\(V(\mathbf{r})\)</span>. The solutions are Bloch states <span class="arithmatex">\(|n,\mathbf{k}\rangle\)</span> — the "alphabet" for describing electrons. These are exact eigenstates, and in this frozen world, electrons never scatter.</p>
 <blockquote>
-<p><strong>Notation:</strong> <span class="arithmatex">\(|n,\mathbf{k}\rangle\)</span> is Dirac notation for a Bloch wavefunction. Here <span class="arithmatex">\(n\)</span> is the band index (which energy band) and <span class="arithmatex">\(\mathbf{k}\)</span> is the crystal momentum (wavevector in the Brillouin zone). In position space, this state has the form <span class="arithmatex">\(\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{n\mathbf{k}}(\mathbf{r})\)</span>, where <span class="arithmatex">\(u\)</span> has the periodicity of the lattice.</p>
+<p><strong>Notation:</strong> <span class="arithmatex">\(|n,\mathbf{k}\rangle\)</span> is Dirac notation for a Bloch wavefunction. Here <span class="arithmatex">\(n\)</span> is the band index (which energy band) and <span class="arithmatex">\(\mathbf{k}\)</span> is the crystal momentum (wavevector in the Brillouin zone). In position space, this state has the form <span class="arithmatex">\(\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{n\mathbf{k}}(\mathbf{r})\)</span>, where <span class="arithmatex">\(u\)</span> has the periodicity of the lattice. (Note: this <span class="arithmatex">\(n\)</span> is the band index; later we'll use <span class="arithmatex">\(n\)</span> for phonon occupation number — context will make clear which is which.)</p>
 </blockquote>
 <p><strong>Layer 2 — Moving lattice (reality):</strong>
 Ions vibrate. The potential becomes time-dependent: <span class="arithmatex">\(V(\mathbf{r},t) = V_0(\mathbf{r}) + \delta V(\mathbf{r},t)\)</span>. That <span class="arithmatex">\(\delta V\)</span> is made of normal modes. Quantize those modes → phonons. Electrons scatter: <span class="arithmatex">\(|\mathbf{k}\rangle \rightarrow |\mathbf{k} \pm \mathbf{q}\rangle\)</span>.</p>
@@ -1478,8 +1478,8 @@ u_j(t) = A \, e^{i(kx_j - \omega t)} = A \, e^{i(kja - \omega t)}
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  -π/a       0         +π/a
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>       First Brillouin Zone
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Near k≈0: slope ≈ sound speed (linear dispersion)
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Near zone edge: slope → 0  (standing-wave-like)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Near k≈0: slope ≈ speed of sound in the material (linear dispersion)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Near zone edge: slope → 0  (group velocity vanishes, standing-wave-like)
 </code></pre></div>
 <h3 id="numerical-example-copper">Numerical Example: Copper<a class="headerlink" href="#numerical-example-copper" title="Permanent link">&para;</a></h3>
 <p>Let's plug in real numbers:</p>
@@ -1502,13 +1502,13 @@ u_j(t) = A \, e^{i(kx_j - \omega t)} = A \, e^{i(kja - \omega t)}
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>|----a----|----a----|----a----|----a----|
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>○         ○         ○         ○         ○
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Traveling wave u_j(t) = A cos(kja - ωt):
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Traveling wave u_j(t) = A cos(kja - ωt) for wavelength λ = 4a:
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>t = 0:      ↑     ↑     ↑     ↑     ↑
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>t = T/4:    →     ↑     ←     ↓     →
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>t = T/2:    ↓     ↓     ↓     ↓     ↓
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>t = 0:      ↑     →     ↓     ←     ↑     (phase shifts by 90° per atom)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>t = T/4:    →     ↓     ←     ↑     →     (pattern has moved right)
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>t = T/2:    ↓     ←     ↑     →     ↓
 </code></pre></div>
-<p>The pattern travels — that's what makes it a wave.</p>
+<p>The pattern travels to the right — that's what makes it a traveling wave. For longer wavelengths (smaller <span class="arithmatex">\(k\)</span>), adjacent atoms are more in phase; for shorter wavelengths (larger <span class="arithmatex">\(k\)</span>), the phase shifts more rapidly.</p>
 <hr />
 <h2 id="part-2-quantization-from-waves-to-phonons">Part 2: Quantization — From Waves to Phonons<a class="headerlink" href="#part-2-quantization-from-waves-to-phonons" title="Permanent link">&para;</a></h2>
 <h3 id="the-critical-clarification">The Critical Clarification<a class="headerlink" href="#the-critical-clarification" title="Permanent link">&para;</a></h3>
@@ -1543,7 +1543,7 @@ So there's no point considering <span class="arithmatex">\(k\)</span> outside th
 H_k = \frac{P_k^2}{2M_{\text{eff}}} + \frac{1}{2}M_{\text{eff}}\omega_k^2 Q_k^2
 \]</div>
 <blockquote>
-<p><strong>What's the Hamiltonian?</strong> It's just total energy = kinetic + potential. This formula exists in classical mechanics too (Hamilton wrote it down in the 1830s, before quantum mechanics). The first term is kinetic energy, the second is potential energy of a spring.</p>
+<p><strong>What's the Hamiltonian?</strong> It's just total energy = kinetic + potential. This formula exists in classical mechanics too (Hamilton wrote it down in the 1830s, before quantum mechanics). The first term is kinetic energy, the second is potential energy of a spring. <span class="arithmatex">\(M_{\text{eff}}\)</span> is an effective mass that comes from the coordinate transformation — for our simple chain it's just <span class="arithmatex">\(M\)</span>, the atomic mass.</p>
 </blockquote>
 <p>Now we <em>do</em> use Schrödinger — but for the collective coordinate <span class="arithmatex">\(Q_k\)</span>, not for individual atom positions. Since <span class="arithmatex">\(H_k\)</span> has the form of a harmonic oscillator, we know the answer: promote <span class="arithmatex">\(Q_k\)</span> and <span class="arithmatex">\(P_k\)</span> to operators, and the energy eigenvalues are <span class="arithmatex">\((n + \frac{1}{2})\hbar\omega\)</span>.</p>
 <blockquote>
@@ -1555,7 +1555,7 @@ E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 \]</div>
 <p>where <span class="arithmatex">\(n = 0, 1, 2, 3, \ldots\)</span> is the <strong>occupation number</strong> (number of phonons in that mode). Note: <span class="arithmatex">\(n\)</span> here is the quantum number, not the atom index <span class="arithmatex">\(j\)</span> from earlier.</p>
 <p><strong>A phonon is one quantum of energy <span class="arithmatex">\(\hbar\omega\)</span> in that mode</strong> — not the wave itself.</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Harmonic oscillator levels for one mode (q):
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Harmonic oscillator levels for one mode (wavevector k):
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>E
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│        (5)  (n+½)ℏω
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│        (4)
@@ -1571,7 +1571,7 @@ E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 <p><strong>Partly yes, partly no.</strong> In an energy eigenstate <span class="arithmatex">\(|n\rangle\)</span>:</p>
 <ul>
 <li>The <strong>average displacement</strong> <span class="arithmatex">\(\langle Q \rangle = 0\)</span> (always — the wavefunction is symmetric about the origin)</li>
-<li>The <strong>RMS amplitude</strong> <span class="arithmatex">\(\sqrt{\langle Q^2 \rangle} = \sqrt{n + \frac{1}{2}} \times \sqrt{\frac{\hbar}{m\omega}}\)</span> — this IS quantized!</li>
+<li>The <strong>RMS amplitude</strong> <span class="arithmatex">\(\sqrt{\langle Q^2 \rangle} = \sqrt{n + \frac{1}{2}} \times \sqrt{\frac{\hbar}{M_{\text{eff}}\omega}}\)</span> — this IS quantized!</li>
 <li>But if you <strong>measure</strong> <span class="arithmatex">\(Q\)</span>, you can get any real value (continuous outcomes, drawn from <span class="arithmatex">\(|\Psi(Q)|^2\)</span>)</li>
 </ul>
 <p>So more energy does mean larger RMS amplitude, and since energy is quantized, the RMS amplitude only takes discrete values. What's NOT quantized is the measurement outcome — the oscillator isn't sitting at one specific displacement.</p>
@@ -1690,7 +1690,7 @@ E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>At k→0: ω→0 (this is the defining property!)
 </code></pre></div>
 <blockquote>
-<p><strong>"Acoustic" means <span class="arithmatex">\(\omega \to 0\)</span> as <span class="arithmatex">\(q \to 0\)</span></strong> — NOT "always low frequency."
+<p><strong>"Acoustic" means <span class="arithmatex">\(\omega \to 0\)</span> as <span class="arithmatex">\(k \to 0\)</span></strong> — NOT "always low frequency." (Note: physicists use <span class="arithmatex">\(k\)</span> and <span class="arithmatex">\(q\)</span> interchangeably for phonon wavevector; <span class="arithmatex">\(q\)</span> is more common when discussing electron-phonon scattering.)
 Near the zone edge, acoustic phonons can have very high frequencies!</p>
 </blockquote>
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Acoustic branch: ω→0 at k→0  (that&#39;s the definition)
@@ -1841,7 +1841,7 @@ L(t) = L_0 + \delta L \cos(\Omega t)
 <div class="arithmatex">\[
 k' = k \pm q + G
 \]</div>
-<p>where <span class="arithmatex">\(G\)</span> is a reciprocal lattice vector.</p>
+<p>where <span class="arithmatex">\(G\)</span> is a <strong>reciprocal lattice vector</strong> (<span class="arithmatex">\(G = 2\pi/a\)</span> in 1D). "Umklapp" is German for "flip over" — the electron's momentum flips back into the first zone. This is crucial for thermal resistance: Umklapp processes can transfer momentum to the lattice, while normal processes cannot.</p>
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>k-space (1D):
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>... │───│───│───│───│───│───│ ...
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    -2π/a  -π/a  0  +π/a +2π/a
@@ -1901,11 +1901,11 @@ k' = k \pm q + G
 <p>Once an electron reaches the threshold, it can efficiently dump energy by emitting optical phonons. This causes <strong>velocity saturation</strong> in semiconductors — no matter how hard you push, the electron can't go faster because it keeps emitting optical phonons.</p>
 <h3 id="temperature-dependence">Temperature Dependence<a class="headerlink" href="#temperature-dependence" title="Permanent link">&para;</a></h3>
 <p>Higher <span class="arithmatex">\(T\)</span> → more phonons → more scattering → lower mobility</p>
-<p>At high temperature, phonon occupation goes as:
+<p>At high temperature (<span class="arithmatex">\(k_B T \gg \hbar\omega\)</span>), the Bose-Einstein distribution simplifies:
 $$
-\langle n \rangle \approx \frac{k_B T}{\hbar\omega}
+\langle n \rangle = \frac{1}{e^{\hbar\omega/k_B T} - 1} \approx \frac{k_B T}{\hbar\omega}
 $$</p>
-<p>So scattering rate (and resistivity) grows roughly linearly with <span class="arithmatex">\(T\)</span>.</p>
+<p>So phonon occupation — and hence scattering rate and resistivity — grows roughly linearly with <span class="arithmatex">\(T\)</span>.</p>
 <hr />
 <h2 id="quick-reference-summary">Quick Reference Summary<a class="headerlink" href="#quick-reference-summary" title="Permanent link">&para;</a></h2>
 <h3 id="whats-classical-vs-quantum">What's Classical vs Quantum<a class="headerlink" href="#whats-classical-vs-quantum" title="Permanent link">&para;</a></h3>
@@ -1918,7 +1918,7 @@ $$</p>
 </thead>
 <tbody>
 <tr>
-<td>Normal modes, shapes, dispersion <span class="arithmatex">\(\omega(q)\)</span></td>
+<td>Normal modes, shapes, dispersion <span class="arithmatex">\(\omega(k)\)</span></td>
 <td><strong>Classical</strong> (Newton)</td>
 </tr>
 <tr>
@@ -1926,8 +1926,12 @@ $$</p>
 <td><strong>Quantum</strong></td>
 </tr>
 <tr>
-<td>Displacement amplitude</td>
-<td>Continuous (any value)</td>
+<td>RMS amplitude in energy eigenstate</td>
+<td><strong>Quantized</strong> (scales with <span class="arithmatex">\(\sqrt{n+1/2}\)</span>)</td>
+</tr>
+<tr>
+<td>Measurement outcome of displacement</td>
+<td>Continuous (any value from $</td>
 </tr>
 <tr>
 <td>Energy in a mode</td>
@@ -1937,7 +1941,7 @@ $$</p>
 </table>
 <h3 id="phonon-basics">Phonon Basics<a class="headerlink" href="#phonon-basics" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Mode</strong> = collective oscillation with wavevector <span class="arithmatex">\(q\)</span>, frequency <span class="arithmatex">\(\omega(q)\)</span></li>
+<li><strong>Mode</strong> = collective oscillation with wavevector <span class="arithmatex">\(k\)</span> (or <span class="arithmatex">\(q\)</span>), frequency <span class="arithmatex">\(\omega(k)\)</span></li>
 <li><strong>Phonon</strong> = one quantum of energy <span class="arithmatex">\(\hbar\omega\)</span> in that mode (NOT the wave itself)</li>
 <li><strong>Large amplitude</strong> ≈ many phonons (classical limit)</li>
 </ul>
@@ -2007,7 +2011,7 @@ $$</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 23, 2025 15:42:18 UTC"><span class="timeago" datetime="2025-12-23T15:42:18+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 23, 2025 15:42:18 UTC">2025-12-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 23, 2025 15:45:37 UTC"><span class="timeago" datetime="2025-12-23T15:45:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 23, 2025 15:45:37 UTC">2025-12-23</span>
   </span>
 
     
