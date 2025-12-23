@@ -154,6 +154,26 @@ The pattern travels — that's what makes it a wave.
 
 ### The Quantum Step
 
+Here's how we bridge from Newton to quantum — no Schrödinger equation for atom positions!
+
+**Step 1: Rewrite in normal mode coordinates.** The displacements $u_n(t)$ can be decomposed into independent normal modes. Define a collective coordinate $Q_k$ for each mode:
+
+$$
+u_n(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikna}
+$$
+
+Each $Q_k$ evolves independently: $\ddot{Q}_k = -\omega_k^2 Q_k$. This is just a harmonic oscillator equation for $Q_k$.
+
+**Step 2: Quantize each oscillator.** Now we apply QM — not to atom positions, but to each collective coordinate $Q_k$. The Hamiltonian for mode $k$ is:
+
+$$
+H_k = \frac{P_k^2}{2M_{\text{eff}}} + \frac{1}{2}M_{\text{eff}}\omega_k^2 Q_k^2
+$$
+
+This is *exactly* the textbook harmonic oscillator. Apply the standard recipe: promote $Q_k$ and $P_k$ to operators, introduce ladder operators $a_k^\dagger, a_k$, and you get quantized energy levels.
+
+> **Key insight:** There *is* a wavefunction — it's $\Psi(Q_k)$, a function of the collective coordinate, like the Gaussian ground state of a harmonic oscillator. But we almost never write it explicitly. Instead, we just use the occupation number $n_k$ (how many phonons in mode $k$).
+
 Each normal mode (each $k$) is mathematically a harmonic oscillator. When you quantize it (standard QM harmonic oscillator), you get discrete energy levels:
 
 $$
