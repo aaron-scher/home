@@ -167,8 +167,16 @@ $$
 > **Why a discrete sum, not an integral?** With $N$ atoms in your chain, there are exactly $N$ independent ways to wiggle them — hence $N$ normal modes with $N$ allowed $k$ values. This comes from boundary conditions (periodic: $u_{j+N} = u_j$, which forces $e^{ikNa} = 1$, so $k = 2\pi m / Na$ for $m = 0, 1, ..., N-1$). In the thermodynamic limit $N \to \infty$, the spacing between $k$ values shrinks to zero and the sum becomes an integral: $\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk$.
 
 > **Why complex exponentials?** This is shorthand. The physical displacement $u_j$ must be real. To get a real $u_j$ from this sum, we need $Q_{-k} = Q_k^*$ (complex conjugate). Then $Q_k e^{ikja} + Q_{-k} e^{-ikja} = 2\text{Re}[Q_k e^{ikja}]$, which is real. The complex form is mathematically cleaner than writing cosines with phases.
+>
+> **What does a single mode look like?** Using Euler's formula ($e^{i\theta} = \cos\theta + i\sin\theta$), a single mode is just a sinusoidal pattern along the chain:
+> $$u_j^{(k)}(t) \propto \cos(kja - \omega_k t)$$
+> Each atom oscillates at frequency $\omega_k$, but with a phase shift $kja$ that increases along the chain — this is what makes it a *traveling* wave.
 
 > **What's $ja$?** It's the position of atom $j$ along the chain. In a continuous medium you'd write $e^{ikx}$; here we only have atoms at discrete positions $x_j = ja$ (where $a$ is the lattice spacing), so we write $e^{ikja}$.
+>
+> **Why is $k$ limited to $[-\pi/a, \pi/a]$?** This is aliasing from discrete sampling! A wave with wavevector $k$ and a wave with $k + 2\pi/a$ look *identical* when sampled only at positions $ja$:
+> $$e^{i(k + 2\pi/a)ja} = e^{ikja} \cdot e^{i 2\pi j} = e^{ikja} \cdot 1 = e^{ikja}$$
+> So there's no point considering $k$ outside the first Brillouin zone $[-\pi/a, \pi/a]$ — those waves are just aliases of waves inside. This is the same math as the Nyquist limit in signal processing: with spacing $a$, you can only distinguish wavelengths $\lambda > 2a$.
 
 Each $Q_k$ evolves independently: $\ddot{Q}_k = -\omega_k^2 Q_k$. This is just a harmonic oscillator equation for $Q_k$.
 
