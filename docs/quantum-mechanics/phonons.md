@@ -473,10 +473,44 @@ The oscillating boundary forces the electron into a **superposition of energy le
 
 ### What the Electron Sees
 
-A phonon creates a traveling deformation in the lattice potential:
+You might wonder: if a phonon is just atoms moving, and in a traveling wave they all move the same direction, how does that create a potential that electrons scatter off?
+
+The key is that atoms **don't all move the same amount at the same time**. The phase shift along the chain creates regions of **compression** and **rarefaction**:
+
+```
+Equilibrium (uniform spacing):
+○     ○     ○     ○     ○     ○
+|--a--|--a--|--a--|--a--|--a--|
+
+Snapshot of longitudinal wave (atoms displaced by different amounts):
+○   ○○    ○      ○○   ○     ○
+   ↑              ↑
+ compressed    compressed
+ (atoms closer)
+         ↑              ↑
+      stretched      stretched
+      (atoms farther)
+```
+
+**Where atoms are bunched together:** higher ion density → deeper potential well for electrons
+
+**Where atoms are spread apart:** lower ion density → shallower potential
+
+This creates a traveling potential ripple. Crucially, it's the **strain** (local compression/stretching) that matters, not the displacement itself:
 
 $$
-\delta V(x,t) \approx A \cos(qx - \omega t)
+\delta V(x,t) \propto -\frac{\partial u}{\partial x} = \text{strain}
+$$
+
+For a displacement wave $u(x,t) = A\cos(qx - \omega t)$:
+$$
+\frac{\partial u}{\partial x} = -qA\sin(qx - \omega t)
+$$
+
+So the potential perturbation is also a traveling wave (phase-shifted by 90°):
+
+$$
+\delta V(x,t) \propto \sin(qx - \omega t)
 $$
 
 Think of it as a **moving diffraction grating** — a traveling Bragg reflector that diffracts the electron wave.
@@ -484,14 +518,30 @@ Think of it as a **moving diffraction grating** — a traveling Bragg reflector 
 ```
 Phonon makes the potential look like a moving ripple:
 
-δV(x,t) ~ cos(qx - ωt)
-
 x →
-~~~~~~~^^^^^^~~~~~~~^^^^^^~~~~~~~    (peaks move right)
+   ─┐  ┌─    ─┐  ┌─    ─┐  ┌─
+    └──┘      └──┘      └──┘     (potential wells travel right)
+     ↑ compressed  ↑ compressed
 
 Electron sees a moving diffraction grating:
 k  →  k ± q   (plus possibly +G)
 ```
+
+> **Wavelength matters:** Long wavelength (small $q$) means gentle, gradual compression — weak potential gradient, weak scattering. Short wavelength (large $q$) means rapid compression/stretching — stronger potential gradient, stronger scattering.
+
+### Two Views of the Same Physics
+
+Here's something important: "scattering off the potential ripple" and "absorbing/emitting a phonon" are **the same event** viewed through different lenses:
+
+| Classical View | Quantum View |
+|----------------|--------------|
+| Electron scatters off traveling potential $\delta V(x,t)$ | Electron absorbs or emits a phonon |
+| Energy/momentum transfer seems continuous | Discrete: $\hbar\omega$ energy, $\hbar q$ momentum |
+| Wave with amplitude $A$ | Mode with occupation number $n$ |
+
+The **scattering strength** (matrix element) comes from the classical $\delta V$. The **quantization** tells you the energy/momentum exchange comes in discrete chunks — each chunk is one phonon.
+
+This is exactly like light: an electromagnetic wave scattering an electron (classical) is the same as a photon being absorbed/emitted (quantum). Same physics, two descriptions.
 
 ### Conservation Laws
 
