@@ -64,27 +64,29 @@ Picture a line of identical atoms, each with mass $M$, connected by springs of s
    |<--a-->|
 ```
 
-Let $u_n(t)$ be the displacement of atom $n$ from its equilibrium position.
+Let $u_j(t)$ be the displacement of atom $j$ from its equilibrium position.
 
-### Newton's Law for Atom $n$
+### Newton's Law for Atom $j$
 
 Each atom feels spring forces from its two neighbors:
 
 $$
-M\frac{d^2 u_n}{dt^2} = K(u_{n+1} - u_n) - K(u_n - u_{n-1}) = K(u_{n+1} - 2u_n + u_{n-1})
+M\frac{d^2 u_j}{dt^2} = K(u_{j+1} - u_j) - K(u_j - u_{j-1}) = K(u_{j+1} - 2u_j + u_{j-1})
 $$
 
-This is just $F = ma$ with Hooke's law springs on both sides.
+This is Newton's second law ($F = M \times \text{acceleration}$) with Hooke's law springs on both sides. (Note: don't confuse the acceleration with $a$ the lattice constant!)
 
 ### The Traveling Wave Solution
 
 Try a plane wave:
 
 $$
-u_n(t) = A \, e^{i(kna - \omega t)}
+u_j(t) = A \, e^{i(kx_j - \omega t)} = A \, e^{i(kja - \omega t)}
 $$
 
-Plug into Newton's law, do some algebra (the $e^{i(kna-\omega t)}$ cancels), and you get the **dispersion relation**:
+where $x_j = ja$ is the equilibrium position of atom $j$ (the $j$th atom sits at position $j \times a$ along the chain). Here $j$ is the **atom index** — an integer labeling which atom.
+
+Plug into Newton's law, do some algebra (the $e^{i(kja-\omega t)}$ cancels), and you get the **dispersion relation**:
 
 $$
 \omega(k) = 2\sqrt{\frac{K}{M}} \left|\sin\left(\frac{ka}{2}\right)\right|
@@ -135,7 +137,7 @@ Equilibrium positions:
 |----a----|----a----|----a----|----a----|
 ○         ○         ○         ○         ○
 
-Traveling wave u_n(t) = A cos(kna - ωt):
+Traveling wave u_j(t) = A cos(kja - ωt):
 
 t = 0:      ↑     ↑     ↑     ↑     ↑
 t = T/4:    →     ↑     ←     ↓     →
@@ -156,17 +158,17 @@ The pattern travels — that's what makes it a wave.
 
 Here's how we bridge from Newton to quantum — no Schrödinger equation for atom positions!
 
-**Step 1: Rewrite in normal mode coordinates.** The displacements $u_n(t)$ can be decomposed into independent normal modes. Define a collective coordinate $Q_k$ for each mode:
+**Step 1: Rewrite in normal mode coordinates.** The displacements $u_j(t)$ can be decomposed into independent normal modes. Define a collective coordinate $Q_k$ for each mode:
 
 $$
-u_n(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikna}
+u_j(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikja}
 $$
 
-> **Why a discrete sum, not an integral?** With $N$ atoms in your chain, there are exactly $N$ independent ways to wiggle them — hence $N$ normal modes with $N$ allowed $k$ values. This comes from boundary conditions (periodic: $u_{n+N} = u_n$, which forces $e^{ikNa} = 1$, so $k = 2\pi m / Na$ for $m = 0, 1, ..., N-1$). In the thermodynamic limit $N \to \infty$, the spacing between $k$ values shrinks to zero and the sum becomes an integral: $\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk$.
+> **Why a discrete sum, not an integral?** With $N$ atoms in your chain, there are exactly $N$ independent ways to wiggle them — hence $N$ normal modes with $N$ allowed $k$ values. This comes from boundary conditions (periodic: $u_{j+N} = u_j$, which forces $e^{ikNa} = 1$, so $k = 2\pi m / Na$ for $m = 0, 1, ..., N-1$). In the thermodynamic limit $N \to \infty$, the spacing between $k$ values shrinks to zero and the sum becomes an integral: $\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk$.
 
-> **Why complex exponentials?** This is shorthand. The physical displacement $u_n$ must be real. To get a real $u_n$ from this sum, we need $Q_{-k} = Q_k^*$ (complex conjugate). Then $Q_k e^{ikna} + Q_{-k} e^{-ikna} = 2\text{Re}[Q_k e^{ikna}]$, which is real. The complex form is mathematically cleaner than writing cosines with phases.
+> **Why complex exponentials?** This is shorthand. The physical displacement $u_j$ must be real. To get a real $u_j$ from this sum, we need $Q_{-k} = Q_k^*$ (complex conjugate). Then $Q_k e^{ikja} + Q_{-k} e^{-ikja} = 2\text{Re}[Q_k e^{ikja}]$, which is real. The complex form is mathematically cleaner than writing cosines with phases.
 
-> **What's $na$?** It's the position of atom $n$ along the chain. In a continuous medium you'd write $e^{ikx}$; here we only have atoms at discrete positions $x_n = na$ (where $a$ is the lattice spacing), so we write $e^{ikna}$.
+> **What's $ja$?** It's the position of atom $j$ along the chain. In a continuous medium you'd write $e^{ikx}$; here we only have atoms at discrete positions $x_j = ja$ (where $a$ is the lattice spacing), so we write $e^{ikja}$.
 
 Each $Q_k$ evolves independently: $\ddot{Q}_k = -\omega_k^2 Q_k$. This is just a harmonic oscillator equation for $Q_k$.
 
@@ -188,7 +190,7 @@ $$
 E_n = \left(n + \frac{1}{2}\right)\hbar\omega
 $$
 
-where $n = 0, 1, 2, 3, \ldots$
+where $n = 0, 1, 2, 3, \ldots$ is the **occupation number** (number of phonons in that mode). Note: $n$ here is the quantum number, not the atom index $j$ from earlier.
 
 **A phonon is one quantum of energy $\hbar\omega$ in that mode** — not the wave itself.
 
@@ -219,14 +221,16 @@ E
 
 ### The Photon Analogy
 
+In the table below, $n$ is the occupation number — how many quanta (photons or phonons) are in that mode:
+
 | Electromagnetic Field | Lattice Vibrations |
 |----------------------|-------------------|
 | EM mode (k, polarization) | Vibration mode (q, branch) |
 | Photon = 1 quantum of EM energy | Phonon = 1 quantum of vibrational energy |
-| n photons → E-field amplitude $\propto \sqrt{n}$ | n phonons → displacement amplitude $\propto \sqrt{n}$ |
-| Large n → classical EM wave | Large n → classical sound wave |
+| $n$ photons → E-field amplitude $\propto \sqrt{n}$ | $n$ phonons → displacement amplitude $\propto \sqrt{n}$ |
+| Large $n$ → classical EM wave | Large $n$ → classical sound wave |
 
-When many phonons occupy a mode, it looks like a classical wave. When $n$ is small (or zero), quantum effects dominate.
+When many quanta occupy a mode, it looks like a classical wave. When $n$ is small (or zero), quantum effects dominate.
 
 ### Numerical Example: How Many Phonons?
 
@@ -235,11 +239,13 @@ Consider a mode at $\omega = 2\pi \times 1$ THz:
 - One phonon energy: $\hbar\omega = 4.1$ meV
 - Thermal energy at 300K: $k_B T = 26$ meV
 
-The average occupation (Bose-Einstein statistics):
+The average number of phonons in this mode at thermal equilibrium (Bose-Einstein statistics):
 
 $$
 \langle n \rangle = \frac{1}{e^{\hbar\omega/k_B T} - 1} = \frac{1}{e^{4.1/26} - 1} \approx 5.3 \text{ phonons}
 $$
+
+Here $\langle n \rangle$ is the thermal average of the occupation number — how many phonons are typically in this mode at temperature $T$.
 
 So at room temperature, this mode has about 5 phonons on average — firmly in the "classical-looking" regime.
 
