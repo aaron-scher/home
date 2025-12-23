@@ -7,7 +7,7 @@ Solid-state physics is built on a sneaky trick: we solve for electrons assuming 
 **Layer 1 — Frozen lattice (idealization):**
 You solve Schrödinger's equation for an electron in a perfectly periodic potential $V(\mathbf{r})$. The solutions are Bloch states $|n,\mathbf{k}\rangle$ — the "alphabet" for describing electrons. These are exact eigenstates, and in this frozen world, electrons never scatter.
 
-> **Notation:** $|n,\mathbf{k}\rangle$ is Dirac notation for a Bloch wavefunction. Here $n$ is the band index (which energy band) and $\mathbf{k}$ is the crystal momentum (wavevector in the Brillouin zone). In position space, this state has the form $\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{n\mathbf{k}}(\mathbf{r})$, where $u$ has the periodicity of the lattice.
+> **Notation:** $|n,\mathbf{k}\rangle$ is Dirac notation for a Bloch wavefunction. Here $n$ is the band index (which energy band) and $\mathbf{k}$ is the crystal momentum (wavevector in the Brillouin zone). In position space, this state has the form $\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{n\mathbf{k}}(\mathbf{r})$, where $u$ has the periodicity of the lattice. (Note: this $n$ is the band index; later we'll use $n$ for phonon occupation number — context will make clear which is which.)
 
 **Layer 2 — Moving lattice (reality):**
 Ions vibrate. The potential becomes time-dependent: $V(\mathbf{r},t) = V_0(\mathbf{r}) + \delta V(\mathbf{r},t)$. That $\delta V$ is made of normal modes. Quantize those modes → phonons. Electrons scatter: $|\mathbf{k}\rangle \rightarrow |\mathbf{k} \pm \mathbf{q}\rangle$.
@@ -104,8 +104,8 @@ This tells you how frequency depends on wavevector — the phonon's "E vs k" cur
   -π/a       0         +π/a
        First Brillouin Zone
 
-Near k≈0: slope ≈ sound speed (linear dispersion)
-Near zone edge: slope → 0  (standing-wave-like)
+Near k≈0: slope ≈ speed of sound in the material (linear dispersion)
+Near zone edge: slope → 0  (group velocity vanishes, standing-wave-like)
 ```
 
 ### Numerical Example: Copper
@@ -137,14 +137,14 @@ Equilibrium positions:
 |----a----|----a----|----a----|----a----|
 ○         ○         ○         ○         ○
 
-Traveling wave u_j(t) = A cos(kja - ωt):
+Traveling wave u_j(t) = A cos(kja - ωt) for wavelength λ = 4a:
 
-t = 0:      ↑     ↑     ↑     ↑     ↑
-t = T/4:    →     ↑     ←     ↓     →
-t = T/2:    ↓     ↓     ↓     ↓     ↓
+t = 0:      ↑     →     ↓     ←     ↑     (phase shifts by 90° per atom)
+t = T/4:    →     ↓     ←     ↑     →     (pattern has moved right)
+t = T/2:    ↓     ←     ↑     →     ↓
 ```
 
-The pattern travels — that's what makes it a wave.
+The pattern travels to the right — that's what makes it a traveling wave. For longer wavelengths (smaller $k$), adjacent atoms are more in phase; for shorter wavelengths (larger $k$), the phase shifts more rapidly.
 
 ---
 
@@ -192,7 +192,7 @@ $$
 H_k = \frac{P_k^2}{2M_{\text{eff}}} + \frac{1}{2}M_{\text{eff}}\omega_k^2 Q_k^2
 $$
 
-> **What's the Hamiltonian?** It's just total energy = kinetic + potential. This formula exists in classical mechanics too (Hamilton wrote it down in the 1830s, before quantum mechanics). The first term is kinetic energy, the second is potential energy of a spring.
+> **What's the Hamiltonian?** It's just total energy = kinetic + potential. This formula exists in classical mechanics too (Hamilton wrote it down in the 1830s, before quantum mechanics). The first term is kinetic energy, the second is potential energy of a spring. $M_{\text{eff}}$ is an effective mass that comes from the coordinate transformation — for our simple chain it's just $M$, the atomic mass.
 
 Now we *do* use Schrödinger — but for the collective coordinate $Q_k$, not for individual atom positions. Since $H_k$ has the form of a harmonic oscillator, we know the answer: promote $Q_k$ and $P_k$ to operators, and the energy eigenvalues are $(n + \frac{1}{2})\hbar\omega$.
 
@@ -209,7 +209,7 @@ where $n = 0, 1, 2, 3, \ldots$ is the **occupation number** (number of phonons i
 **A phonon is one quantum of energy $\hbar\omega$ in that mode** — not the wave itself.
 
 ```
-Harmonic oscillator levels for one mode (q):
+Harmonic oscillator levels for one mode (wavevector k):
 E
 │        (5)  (n+½)ℏω
 │        (4)
@@ -226,7 +226,7 @@ E
 > **Partly yes, partly no.** In an energy eigenstate $|n\rangle$:
 >
 > - The **average displacement** $\langle Q \rangle = 0$ (always — the wavefunction is symmetric about the origin)
-> - The **RMS amplitude** $\sqrt{\langle Q^2 \rangle} = \sqrt{n + \frac{1}{2}} \times \sqrt{\frac{\hbar}{m\omega}}$ — this IS quantized!
+> - The **RMS amplitude** $\sqrt{\langle Q^2 \rangle} = \sqrt{n + \frac{1}{2}} \times \sqrt{\frac{\hbar}{M_{\text{eff}}\omega}}$ — this IS quantized!
 > - But if you **measure** $Q$, you can get any real value (continuous outcomes, drawn from $|\Psi(Q)|^2$)
 >
 > So more energy does mean larger RMS amplitude, and since energy is quantized, the RMS amplitude only takes discrete values. What's NOT quantized is the measurement outcome — the oscillator isn't sitting at one specific displacement.
@@ -336,7 +336,7 @@ The whole lattice sloshes together like a sound wave.
 At k→0: ω→0 (this is the defining property!)
 ```
 
-> **"Acoustic" means $\omega \to 0$ as $q \to 0$** — NOT "always low frequency."
+> **"Acoustic" means $\omega \to 0$ as $k \to 0$** — NOT "always low frequency." (Note: physicists use $k$ and $q$ interchangeably for phonon wavevector; $q$ is more common when discussing electron-phonon scattering.)
 > Near the zone edge, acoustic phonons can have very high frequencies!
 
 ```
@@ -514,7 +514,7 @@ $$
 k' = k \pm q + G
 $$
 
-where $G$ is a reciprocal lattice vector.
+where $G$ is a **reciprocal lattice vector** ($G = 2\pi/a$ in 1D). "Umklapp" is German for "flip over" — the electron's momentum flips back into the first zone. This is crucial for thermal resistance: Umklapp processes can transfer momentum to the lattice, while normal processes cannot.
 
 ```
 k-space (1D):
@@ -594,12 +594,12 @@ Once an electron reaches the threshold, it can efficiently dump energy by emitti
 
 Higher $T$ → more phonons → more scattering → lower mobility
 
-At high temperature, phonon occupation goes as:
+At high temperature ($k_B T \gg \hbar\omega$), the Bose-Einstein distribution simplifies:
 $$
-\langle n \rangle \approx \frac{k_B T}{\hbar\omega}
+\langle n \rangle = \frac{1}{e^{\hbar\omega/k_B T} - 1} \approx \frac{k_B T}{\hbar\omega}
 $$
 
-So scattering rate (and resistivity) grows roughly linearly with $T$.
+So phonon occupation — and hence scattering rate and resistivity — grows roughly linearly with $T$.
 
 ---
 
@@ -609,14 +609,15 @@ So scattering rate (and resistivity) grows roughly linearly with $T$.
 
 | Aspect | Classical or Quantum? |
 |--------|----------------------|
-| Normal modes, shapes, dispersion $\omega(q)$ | **Classical** (Newton) |
+| Normal modes, shapes, dispersion $\omega(k)$ | **Classical** (Newton) |
 | Energy quantization $E = (n+\frac{1}{2})\hbar\omega$ | **Quantum** |
-| Displacement amplitude | Continuous (any value) |
+| RMS amplitude in energy eigenstate | **Quantized** (scales with $\sqrt{n+1/2}$) |
+| Measurement outcome of displacement | Continuous (any value from $|\Psi(Q)|^2$) |
 | Energy in a mode | Discrete ($\hbar\omega$ chunks) |
 
 ### Phonon Basics
 
-- **Mode** = collective oscillation with wavevector $q$, frequency $\omega(q)$
+- **Mode** = collective oscillation with wavevector $k$ (or $q$), frequency $\omega(k)$
 - **Phonon** = one quantum of energy $\hbar\omega$ in that mode (NOT the wave itself)
 - **Large amplitude** ≈ many phonons (classical limit)
 
