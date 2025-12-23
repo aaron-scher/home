@@ -166,6 +166,8 @@ $$
 
 > **Why complex exponentials?** This is shorthand. The physical displacement $u_n$ must be real. To get a real $u_n$ from this sum, we need $Q_{-k} = Q_k^*$ (complex conjugate). Then $Q_k e^{ikna} + Q_{-k} e^{-ikna} = 2\text{Re}[Q_k e^{ikna}]$, which is real. The complex form is mathematically cleaner than writing cosines with phases.
 
+> **What's $na$?** It's the position of atom $n$ along the chain. In a continuous medium you'd write $e^{ikx}$; here we only have atoms at discrete positions $x_n = na$ (where $a$ is the lattice spacing), so we write $e^{ikna}$.
+
 Each $Q_k$ evolves independently: $\ddot{Q}_k = -\omega_k^2 Q_k$. This is just a harmonic oscillator equation for $Q_k$.
 
 **Step 2: Quantize each oscillator.** The energy (Hamiltonian) for mode $k$ is:
