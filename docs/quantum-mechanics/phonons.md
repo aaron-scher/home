@@ -158,18 +158,24 @@ The pattern travels — that's what makes it a wave.
 
 Here's how we bridge from Newton to quantum — no Schrödinger equation for atom positions!
 
-**Step 1: Rewrite in normal mode coordinates.** The displacements $u_j(t)$ can be decomposed into independent normal modes. Define a collective coordinate $Q_k$ for each mode:
+**Step 1: Rewrite in normal mode coordinates.** The displacements $u_j(t)$ can be decomposed into independent normal modes. Define a collective coordinate $Q_k(t)$ for each mode:
 
 $$
 u_j(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikja}
 $$
 
+> **What is $Q_k(t)$?** It's the time-dependent amplitude of mode $k$. Remember our classical traveling wave solution $u_j = A e^{i(kja - \omega t)}$? Here we've separated the spatial part ($e^{ikja}$) from the time part. The time dependence lives in $Q_k(t)$, which oscillates as:
+> $$Q_k(t) = Q_k(0) \, e^{-i\omega_k t}$$
+> This comes from solving Newton's equation for mode $k$: $\ddot{Q}_k = -\omega_k^2 Q_k$ gives simple harmonic motion at frequency $\omega_k$.
+
 > **Why a discrete sum, not an integral?** With $N$ atoms in your chain, there are exactly $N$ independent ways to wiggle them — hence $N$ normal modes with $N$ allowed $k$ values. This comes from boundary conditions (periodic: $u_{j+N} = u_j$, which forces $e^{ikNa} = 1$, so $k = 2\pi m / Na$ for $m = 0, 1, ..., N-1$). In the thermodynamic limit $N \to \infty$, the spacing between $k$ values shrinks to zero and the sum becomes an integral: $\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk$.
 
 > **Why complex exponentials?** This is shorthand. The physical displacement $u_j$ must be real. To get a real $u_j$ from this sum, we need $Q_{-k} = Q_k^*$ (complex conjugate). Then $Q_k e^{ikja} + Q_{-k} e^{-ikja} = 2\text{Re}[Q_k e^{ikja}]$, which is real. The complex form is mathematically cleaner than writing cosines with phases.
 >
-> **What does a single mode look like?** Using Euler's formula ($e^{i\theta} = \cos\theta + i\sin\theta$), a single mode is just a sinusoidal pattern along the chain:
-> $$u_j^{(k)}(t) \propto \cos(kja - \omega_k t)$$
+> **What does a single mode look like?** Combining $Q_k(t) = Q_k(0) e^{-i\omega_k t}$ with $e^{ikja}$:
+> $$Q_k(t) \, e^{ikja} = Q_k(0) \, e^{i(kja - \omega_k t)}$$
+> Taking the real part (using Euler: $e^{i\theta} = \cos\theta + i\sin\theta$), a single mode is a sinusoidal pattern:
+> $$u_j^{(k)}(t) \propto \cos(kja - \omega_k t + \phi_k)$$
 > Each atom oscillates at frequency $\omega_k$, but with a phase shift $kja$ that increases along the chain — this is what makes it a *traveling* wave.
 
 > **What's $ja$?** It's the position of atom $j$ along the chain. In a continuous medium you'd write $e^{ikx}$; here we only have atoms at discrete positions $x_j = ja$ (where $a$ is the lattice spacing), so we write $e^{ikja}$.
