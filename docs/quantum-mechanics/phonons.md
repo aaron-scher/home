@@ -162,6 +162,10 @@ $$
 u_n(t) = \frac{1}{\sqrt{N}} \sum_k Q_k(t) \, e^{ikna}
 $$
 
+> **Why a discrete sum, not an integral?** With $N$ atoms in your chain, there are exactly $N$ independent ways to wiggle them — hence $N$ normal modes with $N$ allowed $k$ values. This comes from boundary conditions (periodic: $u_{n+N} = u_n$, which forces $e^{ikNa} = 1$, so $k = 2\pi m / Na$ for $m = 0, 1, ..., N-1$). In the thermodynamic limit $N \to \infty$, the spacing between $k$ values shrinks to zero and the sum becomes an integral: $\frac{1}{N}\sum_k \to \frac{a}{2\pi}\int dk$.
+
+> **Why complex exponentials?** This is shorthand. The physical displacement $u_n$ must be real. To get a real $u_n$ from this sum, we need $Q_{-k} = Q_k^*$ (complex conjugate). Then $Q_k e^{ikna} + Q_{-k} e^{-ikna} = 2\text{Re}[Q_k e^{ikna}]$, which is real. The complex form is mathematically cleaner than writing cosines with phases.
+
 Each $Q_k$ evolves independently: $\ddot{Q}_k = -\omega_k^2 Q_k$. This is just a harmonic oscillator equation for $Q_k$.
 
 **Step 2: Quantize each oscillator.** The energy (Hamiltonian) for mode $k$ is:
@@ -199,7 +203,7 @@ E
       each step = ℏω = one phonon
 ```
 
-> **Important:** The displacement amplitude is continuous — you can have any displacement. What's quantized is the **energy stored in the mode**, which comes in discrete chunks of $\hbar\omega$.
+> **Important — Amplitude is NOT quantized!** You might think: classically $E = \frac{1}{2}m\omega^2 A^2$, so if energy is discrete, shouldn't amplitude be discrete too? No! In quantum mechanics, the system doesn't have a definite amplitude — the wavefunction $\Psi(Q)$ is *spread out* over different $Q$ values. The ground state is a Gaussian centered at $Q=0$; excited states spread wider. You can *measure* any displacement value; what's quantized is the **energy eigenvalue**, not the position. (Same story for a particle in a box: position is continuous, energy levels are discrete.)
 
 ### The Photon Analogy
 
