@@ -751,6 +751,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#two-views-of-the-same-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Views of the Same Physics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#conservation-laws" class="md-nav__link">
     <span class="md-ellipsis">
       Conservation Laws
@@ -1240,6 +1249,15 @@
   <a href="#what-the-electron-sees" class="md-nav__link">
     <span class="md-ellipsis">
       What the Electron Sees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-views-of-the-same-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Views of the Same Physics
     </span>
   </a>
   
@@ -1813,27 +1831,81 @@ L(t) = L_0 + \delta L \cos(\Omega t)
 <hr />
 <h2 id="part-7-electron-phonon-scattering-the-actual-physics">Part 7: Electron-Phonon Scattering — The Actual Physics<a class="headerlink" href="#part-7-electron-phonon-scattering-the-actual-physics" title="Permanent link">&para;</a></h2>
 <h3 id="what-the-electron-sees">What the Electron Sees<a class="headerlink" href="#what-the-electron-sees" title="Permanent link">&para;</a></h3>
-<p>A phonon creates a traveling deformation in the lattice potential:</p>
+<p>You might wonder: if a phonon is just atoms moving, and in a traveling wave they all move the same direction, how does that create a potential that electrons scatter off?</p>
+<p>The key is that atoms <strong>don't all move the same amount at the same time</strong>. The phase shift along the chain creates regions of <strong>compression</strong> and <strong>rarefaction</strong>:</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Equilibrium (uniform spacing):
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>○     ○     ○     ○     ○     ○
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>|--a--|--a--|--a--|--a--|--a--|
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Snapshot of longitudinal wave (atoms displaced by different amounts):
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>○   ○○    ○      ○○   ○     ○
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>   ↑              ↑
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a> compressed    compressed
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a> (atoms closer)
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>         ↑              ↑
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>      stretched      stretched
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>      (atoms farther)
+</code></pre></div>
+<p><strong>Where atoms are bunched together:</strong> higher ion density → deeper potential well for electrons</p>
+<p><strong>Where atoms are spread apart:</strong> lower ion density → shallower potential</p>
+<p>This creates a traveling potential ripple. Crucially, it's the <strong>strain</strong> (local compression/stretching) that matters, not the displacement itself:</p>
 <div class="arithmatex">\[
-\delta V(x,t) \approx A \cos(qx - \omega t)
+\delta V(x,t) \propto -\frac{\partial u}{\partial x} = \text{strain}
+\]</div>
+<p>For a displacement wave <span class="arithmatex">\(u(x,t) = A\cos(qx - \omega t)\)</span>:
+$$
+\frac{\partial u}{\partial x} = -qA\sin(qx - \omega t)
+$$</p>
+<p>So the potential perturbation is also a traveling wave (phase-shifted by 90°):</p>
+<div class="arithmatex">\[
+\delta V(x,t) \propto \sin(qx - \omega t)
 \]</div>
 <p>Think of it as a <strong>moving diffraction grating</strong> — a traveling Bragg reflector that diffracts the electron wave.</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Phonon makes the potential look like a moving ripple:
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>δV(x,t) ~ cos(qx - ωt)
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>x →
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>~~~~~~~^^^^^^~~~~~~~^^^^^^~~~~~~~    (peaks move right)
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>Electron sees a moving diffraction grating:
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>k  →  k ± q   (plus possibly +G)
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Phonon makes the potential look like a moving ripple:
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>x →
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   ─┐  ┌─    ─┐  ┌─    ─┐  ┌─
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    └──┘      └──┘      └──┘     (potential wells travel right)
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>     ↑ compressed  ↑ compressed
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>Electron sees a moving diffraction grating:
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>k  →  k ± q   (plus possibly +G)
 </code></pre></div>
+<blockquote>
+<p><strong>Wavelength matters:</strong> Long wavelength (small <span class="arithmatex">\(q\)</span>) means gentle, gradual compression — weak potential gradient, weak scattering. Short wavelength (large <span class="arithmatex">\(q\)</span>) means rapid compression/stretching — stronger potential gradient, stronger scattering.</p>
+</blockquote>
+<h3 id="two-views-of-the-same-physics">Two Views of the Same Physics<a class="headerlink" href="#two-views-of-the-same-physics" title="Permanent link">&para;</a></h3>
+<p>Here's something important: "scattering off the potential ripple" and "absorbing/emitting a phonon" are <strong>the same event</strong> viewed through different lenses:</p>
+<table>
+<thead>
+<tr>
+<th>Classical View</th>
+<th>Quantum View</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electron scatters off traveling potential <span class="arithmatex">\(\delta V(x,t)\)</span></td>
+<td>Electron absorbs or emits a phonon</td>
+</tr>
+<tr>
+<td>Energy/momentum transfer seems continuous</td>
+<td>Discrete: <span class="arithmatex">\(\hbar\omega\)</span> energy, <span class="arithmatex">\(\hbar q\)</span> momentum</td>
+</tr>
+<tr>
+<td>Wave with amplitude <span class="arithmatex">\(A\)</span></td>
+<td>Mode with occupation number <span class="arithmatex">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>scattering strength</strong> (matrix element) comes from the classical <span class="arithmatex">\(\delta V\)</span>. The <strong>quantization</strong> tells you the energy/momentum exchange comes in discrete chunks — each chunk is one phonon.</p>
+<p>This is exactly like light: an electromagnetic wave scattering an electron (classical) is the same as a photon being absorbed/emitted (quantum). Same physics, two descriptions.</p>
 <h3 id="conservation-laws">Conservation Laws<a class="headerlink" href="#conservation-laws" title="Permanent link">&para;</a></h3>
 <p>When an electron absorbs or emits a phonon:</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Phonon absorption:           Phonon emission:
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>k&#39; = k + q                   k&#39; = k - q
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>E&#39; = E + ℏω                  E&#39; = E - ℏω
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>(phonon destroyed)           (phonon created)
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Phonon absorption:           Phonon emission:
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>k&#39; = k + q                   k&#39; = k - q
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>E&#39; = E + ℏω                  E&#39; = E - ℏω
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>(phonon destroyed)           (phonon created)
 </code></pre></div>
 <p>Phonons are quantized — you absorb or emit the <em>whole</em> phonon, not a piece of it.</p>
 <h3 id="umklapp-zone-folding">Umklapp (Zone Folding)<a class="headerlink" href="#umklapp-zone-folding" title="Permanent link">&para;</a></h3>
@@ -1842,16 +1914,16 @@ L(t) = L_0 + \delta L \cos(\Omega t)
 k' = k \pm q + G
 \]</div>
 <p>where <span class="arithmatex">\(G\)</span> is a <strong>reciprocal lattice vector</strong> (<span class="arithmatex">\(G = 2\pi/a\)</span> in 1D). "Umklapp" is German for "flip over" — the electron's momentum flips back into the first zone. This is crucial for thermal resistance: Umklapp processes can transfer momentum to the lattice, while normal processes cannot.</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>k-space (1D):
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>... │───│───│───│───│───│───│ ...
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    -2π/a  -π/a  0  +π/a +2π/a
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>1st Brillouin zone: [-π/a, +π/a]
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>Normal:    k&#39; = k + q      stays in same zone
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>Umklapp:   k&#39; = k + q - G  folds back into 1st zone
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>k+q  (lands outside zone)  ───&gt;  subtract G  ───&gt;  folded k&#39;
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>k-space (1D):
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>... │───│───│───│───│───│───│ ...
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    -2π/a  -π/a  0  +π/a +2π/a
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>1st Brillouin zone: [-π/a, +π/a]
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>Normal:    k&#39; = k + q      stays in same zone
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>Umklapp:   k&#39; = k + q - G  folds back into 1st zone
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>k+q  (lands outside zone)  ───&gt;  subtract G  ───&gt;  folded k&#39;
 </code></pre></div>
 <h3 id="numerical-example-scattering-in-copper">Numerical Example: Scattering in Copper<a class="headerlink" href="#numerical-example-scattering-in-copper" title="Permanent link">&para;</a></h3>
 <p>Electron near the Fermi surface:
@@ -1864,18 +1936,18 @@ k' = k \pm q + G
 - New wavevector: <span class="arithmatex">\(k' \approx 14.6\)</span> nm<span class="arithmatex">\(^{-1}\)</span>
 - Momentum change: <strong>significant</strong> (<span class="arithmatex">\(\Delta k/k \sim 7\%\)</span>)
 - Energy change: <strong>tiny</strong> (5 meV vs 7000 meV, or 0.07%)</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>E
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>│     E_F  _______________________
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>│         /                       \
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>│        /                         \
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>│_______/___________________________\_____ k
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>          k_F
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>phonon scattering mostly changes direction on the Fermi surface
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>(energy shift is small: meV vs eV)
-<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>ΔE:  │·│      Δk: │──────────│
-<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>     meV           big
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>E
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>│     E_F  _______________________
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>│         /                       \
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>│        /                         \
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>│_______/___________________________\_____ k
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>          k_F
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>phonon scattering mostly changes direction on the Fermi surface
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>(energy shift is small: meV vs eV)
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>ΔE:  │·│      Δk: │──────────│
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>     meV           big
 </code></pre></div>
 <p><strong>This is why acoustic phonon scattering randomizes direction but barely changes speed.</strong></p>
 <hr />
@@ -1889,14 +1961,14 @@ k' = k \pm q + G
 </ul>
 <h3 id="optical-phonon-scattering-high-fields">Optical Phonon Scattering (High Fields)<a class="headerlink" href="#optical-phonon-scattering-high-fields" title="Permanent link">&para;</a></h3>
 <p>Optical phonons have a <strong>minimum energy</strong> (<span class="arithmatex">\(\sim\)</span>30-60 meV). An electron needs at least this much kinetic energy to emit one.</p>
-<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>E_electron
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>│
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>│     /  ← electron gains energy from field
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>│    /
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>│───/────ℏω_opt──── threshold
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>│  /     ↓ emit optical phonon, lose energy
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>│ /
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>│/__________________ k
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>E_electron
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>│
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>│     /  ← electron gains energy from field
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>│    /
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>│───/────ℏω_opt──── threshold
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>│  /     ↓ emit optical phonon, lose energy
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>│ /
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>│/__________________ k
 </code></pre></div>
 <p>Once an electron reaches the threshold, it can efficiently dump energy by emitting optical phonons. This causes <strong>velocity saturation</strong> in semiconductors — no matter how hard you push, the electron can't go faster because it keeps emitting optical phonons.</p>
 <h3 id="temperature-dependence">Temperature Dependence<a class="headerlink" href="#temperature-dependence" title="Permanent link">&para;</a></h3>
@@ -2011,7 +2083,7 @@ $$</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 23, 2025 15:45:37 UTC"><span class="timeago" datetime="2025-12-23T15:45:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 23, 2025 15:45:37 UTC">2025-12-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 23, 2025 19:59:06 UTC"><span class="timeago" datetime="2025-12-23T19:59:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 23, 2025 19:59:06 UTC">2025-12-23</span>
   </span>
 
     
