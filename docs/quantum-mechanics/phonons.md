@@ -205,7 +205,14 @@ E
       each step = ℏω = one phonon
 ```
 
-> **Important — Amplitude is NOT quantized!** You might think: classically $E = \frac{1}{2}m\omega^2 A^2$, so if energy is discrete, shouldn't amplitude be discrete too? No! In quantum mechanics, the system doesn't have a definite amplitude — the wavefunction $\Psi(Q)$ is *spread out* over different $Q$ values. The ground state is a Gaussian centered at $Q=0$; excited states spread wider. You can *measure* any displacement value; what's quantized is the **energy eigenvalue**, not the position. (Same story for a particle in a box: position is continuous, energy levels are discrete.)
+> **Important — Amplitude is NOT quantized!** You might think: classically $E = \frac{1}{2}m\omega^2 A^2$, so if energy is discrete, shouldn't amplitude be discrete too?
+>
+> **No!** That reasoning assumes the system *has* a definite amplitude $A$ — but in QM it doesn't. An energy eigenstate is *not* a state of definite position. The wavefunction $\Psi(Q)$ is spread out over many $Q$ values simultaneously (Heisenberg uncertainty: you can't have both sharp energy and sharp position).
+>
+> - **Ground state ($n=0$):** Gaussian centered at $Q=0$, width $\sim \sqrt{\hbar/m\omega}$
+> - **Excited states:** Spread wider, with more nodes
+>
+> If you *measure* the displacement, you can get any value (drawn from $|\Psi(Q)|^2$). What's quantized is the **energy eigenvalue** you'd measure, not the amplitude. Same logic as particle in a box: energy levels are discrete, but the particle's position is continuous.
 
 ### The Photon Analogy
 
