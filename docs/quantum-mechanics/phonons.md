@@ -164,15 +164,17 @@ $$
 
 Each $Q_k$ evolves independently: $\ddot{Q}_k = -\omega_k^2 Q_k$. This is just a harmonic oscillator equation for $Q_k$.
 
-**Step 2: Quantize each oscillator.** Now we apply QM — not to atom positions, but to each collective coordinate $Q_k$. The Hamiltonian for mode $k$ is:
+**Step 2: Quantize each oscillator.** The energy (Hamiltonian) for mode $k$ is:
 
 $$
 H_k = \frac{P_k^2}{2M_{\text{eff}}} + \frac{1}{2}M_{\text{eff}}\omega_k^2 Q_k^2
 $$
 
-This is *exactly* the textbook harmonic oscillator. Apply the standard recipe: promote $Q_k$ and $P_k$ to operators, introduce ladder operators $a_k^\dagger, a_k$, and you get quantized energy levels.
+> **What's the Hamiltonian?** It's just total energy = kinetic + potential. This formula exists in classical mechanics too (Hamilton wrote it down in the 1830s, before quantum mechanics). The first term is kinetic energy, the second is potential energy of a spring.
 
-> **Key insight:** There *is* a wavefunction — it's $\Psi(Q_k)$, a function of the collective coordinate, like the Gaussian ground state of a harmonic oscillator. But we almost never write it explicitly. Instead, we just use the occupation number $n_k$ (how many phonons in mode $k$).
+Now we *do* use Schrödinger — but for the collective coordinate $Q_k$, not for individual atom positions. Since $H_k$ has the form of a harmonic oscillator, we know the answer: promote $Q_k$ and $P_k$ to operators, and the energy eigenvalues are $(n + \frac{1}{2})\hbar\omega$.
+
+> **Key insight:** There *is* a wavefunction — it's $\Psi(Q_k)$, a function of the collective coordinate (like the Gaussian ground state of a harmonic oscillator). But we almost never write it. Instead, we just track the occupation number $n_k$ (how many phonons in mode $k$).
 
 Each normal mode (each $k$) is mathematically a harmonic oscillator. When you quantize it (standard QM harmonic oscillator), you get discrete energy levels:
 
