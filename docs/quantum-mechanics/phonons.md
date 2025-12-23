@@ -205,14 +205,17 @@ E
       each step = ℏω = one phonon
 ```
 
-> **Important — Amplitude is NOT quantized!** You might think: classically $E = \frac{1}{2}m\omega^2 A^2$, so if energy is discrete, shouldn't amplitude be discrete too?
+> **Important — Amplitude is subtle!** You might think: classically $E = \frac{1}{2}m\omega^2 A^2$, so if energy is discrete, shouldn't amplitude be discrete too?
 >
-> **No!** That reasoning assumes the system *has* a definite amplitude $A$ — but in QM it doesn't. An energy eigenstate is *not* a state of definite position. The wavefunction $\Psi(Q)$ is spread out over many $Q$ values simultaneously (Heisenberg uncertainty: you can't have both sharp energy and sharp position).
+> **Partly yes, partly no.** In an energy eigenstate $|n\rangle$:
 >
-> - **Ground state ($n=0$):** Gaussian centered at $Q=0$, width $\sim \sqrt{\hbar/m\omega}$
-> - **Excited states:** Spread wider, with more nodes
+> - The **average displacement** $\langle Q \rangle = 0$ (always — the wavefunction is symmetric about the origin)
+> - The **RMS amplitude** $\sqrt{\langle Q^2 \rangle} = \sqrt{n + \frac{1}{2}} \times \sqrt{\frac{\hbar}{m\omega}}$ — this IS quantized!
+> - But if you **measure** $Q$, you can get any real value (continuous outcomes, drawn from $|\Psi(Q)|^2$)
 >
-> If you *measure* the displacement, you can get any value (drawn from $|\Psi(Q)|^2$). What's quantized is the **energy eigenvalue** you'd measure, not the amplitude. Same logic as particle in a box: energy levels are discrete, but the particle's position is continuous.
+> So more energy does mean larger RMS amplitude, and since energy is quantized, the RMS amplitude only takes discrete values. What's NOT quantized is the measurement outcome — the oscillator isn't sitting at one specific displacement.
+>
+> **The deeper point:** You can't have both sharp energy AND sharp amplitude. An energy eigenstate has definite energy but fuzzy position. A coherent state (classical-like oscillation with definite amplitude $A\cos(\omega t)$) has fuzzy energy — it's a superposition of many $|n\rangle$ states.
 
 ### The Photon Analogy
 
